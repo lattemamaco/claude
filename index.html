@@ -6,435 +6,430 @@
   <title>Rooted In Bloom — For the Mom Learning to Come Back to Herself</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --white:       #FFFFFF;
-      --cream:       #FAF8F5;
-      --warm-cream:  #F5F0EA;
-      --sage:        #9CAF88;
-      --sage-dark:   #61805A;
-      --taupe:       #8C7B6B;
-      --gold:        #B8964E;
-      --text:        #2A2826;
-      --text-light:  #6E6560;
-      --border:      #E8E3DC;
+      --bg:              #F8F4EE;
+      --white:           #FFFFFF;
+      --heading:         #7B6858;
+      --accent:          #8FAABB;
+      --text:            #2C2926;
+      --text-muted:      #7A706A;
+      --testimonial-bg:  #AEBFCA;
+      --border:          #DDD5C8;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Lora', serif;
       color: var(--text);
-      background: var(--white);
+      background: var(--bg);
       line-height: 1.6;
     }
 
     /* ── NAV ── */
     nav {
-      padding: 22px 40px;
+      padding: 18px 24px;
       display: flex;
-      justify-content: center;
-      border-bottom: 1px solid var(--border);
-      background: var(--white);
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text);
+    .nav-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: var(--heading);
       text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--heading);
     }
 
     /* ── SHARED ── */
-    .eyebrow {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .divider {
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.9rem, 4vw, 2.9rem);
+    .section-title {
+      font-family: 'Lora', serif;
+      font-style: italic;
       font-weight: 400;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      color: var(--heading);
       line-height: 1.25;
-      color: var(--text);
-    }
-
-    h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      line-height: 1.25;
+      text-align: center;
     }
 
     .btn-primary {
       display: inline-block;
-      padding: 15px 38px;
-      background: var(--sage-dark);
+      padding: 14px 36px;
+      background: var(--heading);
       color: #fff;
-      text-decoration: none;
-      font-size: 0.72rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
 
-    .btn-primary:hover {
-      background: var(--sage);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { opacity: 0.8; }
 
     /* ── HERO ── */
     .hero {
-      background: var(--cream);
-      padding: 96px 40px 80px;
+      padding: 60px 28px 0;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
     }
 
-    .hero .eyebrow { margin-bottom: 28px; }
-
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 5.5vw, 4rem);
-      font-weight: 400;
+      font-family: 'Lora', serif;
       font-style: italic;
-      line-height: 1.22;
-      color: var(--text);
-      max-width: 700px;
-      margin-bottom: 28px;
+      font-weight: 400;
+      font-size: clamp(2rem, 7vw, 3rem);
+      color: var(--heading);
+      line-height: 1.25;
+      max-width: 580px;
+      margin: 0 auto 24px;
     }
 
     .hero-sub {
-      font-size: 0.98rem;
-      font-weight: 300;
-      color: var(--text-light);
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 44px;
-    }
-
-    /* ── FOR YOU ── */
-    .for-you {
-      padding: 88px 40px;
-      text-align: center;
-    }
-
-    .for-you .divider { margin-bottom: 52px; }
-
-    .for-you h2 { margin-bottom: 18px; }
-
-    .for-you-intro {
+      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
-      color: var(--text-light);
-      margin-bottom: 48px;
+      color: var(--text-muted);
+      max-width: 400px;
+      margin: 0 auto 36px;
+      line-height: 1.85;
     }
 
-    .pain-points {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      max-width: 780px;
-      margin: 0 auto 52px;
-      text-align: left;
+    .hero-image {
+      margin-top: 44px;
+      width: 100%;
+      aspect-ratio: 4/3;
+      max-height: 560px;
+      background: linear-gradient(150deg, #C9D5CF 0%, #E6DDD2 55%, #D4C9BA 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .pain-point {
-      padding: 26px 28px;
-      background: var(--warm-cream);
-      border-left: 2px solid var(--sage);
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .pain-point p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.12rem;
+    .img-placeholder {
+      font-family: 'Lora', serif;
       font-style: italic;
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    .for-you-close {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-style: italic;
-      color: var(--taupe);
-      margin-bottom: 52px;
-    }
-
-    /* ── PRODUCTS ── */
-    .products {
-      background: var(--warm-cream);
-      padding: 88px 40px;
-    }
-
-    .section-header {
+      font-size: 1rem;
+      color: rgba(100,85,72,0.55);
       text-align: center;
-      margin-bottom: 56px;
+      padding: 0 24px;
     }
 
-    .section-header .eyebrow { margin-bottom: 14px; }
-    .section-header h2 { margin-bottom: 10px; }
-
-    .section-sub {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--text-light);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 880px;
+    /* ── WHAT'S INSIDE ── */
+    .whats-inside {
+      padding: 72px 28px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
-    .product-card {
-      background: var(--white);
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
+    .whats-inside .section-title { margin-bottom: 52px; }
+
+    .feature { margin-bottom: 40px; }
+
+    .feature-title {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
 
-    .product-badge {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-
-    .product-title {
-      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    .feature p {
+      font-size: 1rem;
+      line-height: 1.85;
       color: var(--text);
-      margin-bottom: 16px;
     }
 
-    .product-description {
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.75;
-      margin-bottom: 24px;
-      flex-grow: 1;
+    /* ── FOR YOU IF ── */
+    .for-you {
+      padding: 72px 28px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .for-you .section-title { margin-bottom: 44px; }
+
+    .for-you-list {
+      list-style: none;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .for-you-list li {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: var(--text);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.55;
+    }
+
+    .for-you-list li:last-child { border-bottom: none; }
+
+    /* ── PRODUCTS ── */
+    .products {
+      padding: 72px 28px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .products .section-title { margin-bottom: 52px; }
+
+    .product { margin-bottom: 0; }
+
+    .product-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .product h3 {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--heading);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .product-desc {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 20px;
     }
 
     .product-includes {
       list-style: none;
       margin-bottom: 28px;
-    }
-
-    .product-includes li {
-      font-size: 0.84rem;
-      color: var(--text);
-      padding: 5px 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .product-includes li::before {
-      content: '—';
-      color: var(--sage-dark);
-      flex-shrink: 0;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 24px;
       border-top: 1px solid var(--border);
     }
 
-    .product-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.1rem;
-      font-weight: 400;
-      color: var(--gold);
+    .product-includes li {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .btn-sm {
-      padding: 12px 26px;
+    .product-cta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 4px;
+    }
+
+    .product-price {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--heading);
+    }
+
+    .product-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 52px 0;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-section {
+      padding: 72px 28px;
+      background: var(--bg);
+    }
+
+    .testimonial-section .section-title { margin-bottom: 44px; }
+
+    .testimonial-card {
+      background: var(--testimonial-bg);
+      border-radius: 14px;
+      padding: 40px 32px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .t-rule {
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin-bottom: 32px;
+    }
+
+    .t-rule-bottom {
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin-top: 32px;
+    }
+
+    .testimonial-quote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+      color: #fff;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
     }
 
     /* ── ABOUT ── */
     .about {
-      padding: 88px 40px;
+      padding: 72px 28px;
+      max-width: 600px;
+      margin: 0 auto;
       text-align: center;
+      background: var(--white);
     }
-
-    .about .divider { margin-bottom: 52px; }
 
     .about-avatar {
       width: 96px;
       height: 96px;
       border-radius: 50%;
-      background: var(--warm-cream);
-      border: 1px solid var(--border);
+      background: var(--testimonial-bg);
       margin: 0 auto 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
-      font-style: italic;
-      color: var(--taupe);
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #fff;
+      overflow: hidden;
     }
 
-    .about h2 { margin-bottom: 28px; }
+    .about-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about h2 {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 2rem;
+      color: var(--heading);
+      margin-bottom: 28px;
+    }
 
     .about p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.85;
-      max-width: 640px;
-      margin: 0 auto 18px;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
 
     .about-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
       font-style: italic;
-      color: var(--text);
-      font-weight: 400;
-      max-width: 520px;
-      margin: 8px auto 0 !important;
-    }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials {
-      background: var(--cream);
-      padding: 88px 40px;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 980px;
-      margin: 52px auto 0;
-    }
-
-    .testimonial {
-      background: var(--white);
-      padding: 32px 28px;
-    }
-
-    .testimonial-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.12rem;
-      font-style: italic;
-      line-height: 1.65;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
-    .testimonial-author {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--taupe);
+      color: var(--heading);
+      margin-top: 8px;
     }
 
     /* ── FINAL CTA ── */
     .final-cta {
-      padding: 104px 40px;
+      padding: 80px 28px;
       text-align: center;
-      background: var(--white);
+      background: var(--bg);
     }
 
-    .final-cta .divider { margin-bottom: 52px; }
     .final-cta h2 {
-      max-width: 520px;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: var(--heading);
+      max-width: 480px;
       margin: 0 auto 20px;
+      line-height: 1.3;
     }
 
     .final-cta p {
+      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
-      color: var(--text-light);
-      max-width: 420px;
-      margin: 0 auto 40px;
-      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 380px;
+      margin: 0 auto 36px;
+      line-height: 1.85;
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 32px 40px;
+      padding: 36px 28px;
       text-align: center;
       border-top: 1px solid var(--border);
-      background: var(--cream);
+      background: var(--bg);
     }
 
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      margin-bottom: 6px;
+    .footer-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: var(--heading);
+      margin-bottom: 8px;
     }
 
     .footer-copy {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      letter-spacing: 0.04em;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 720px) {
-      nav { padding: 20px 24px; }
-
-      .hero { padding: 64px 24px 56px; }
-
-      .for-you { padding: 64px 24px; }
-
-      .pain-points {
-        grid-template-columns: 1fr;
-      }
-
-      .products { padding: 64px 24px; }
-      .products-grid { grid-template-columns: 1fr; }
-
-      .about { padding: 64px 24px; }
-
-      .testimonials { padding: 64px 24px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-
-      .final-cta { padding: 72px 24px; }
-
-      footer { padding: 28px 24px; }
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 22px 48px; }
+      .nav-logo { font-size: 2.6rem; }
+      .hero { padding: 88px 40px 0; }
+      .hero-image { aspect-ratio: 16/7; }
+      .whats-inside, .products { padding: 96px 40px; }
+      .for-you, .testimonial-section, .about, .final-cta { padding: 96px 40px; }
     }
   </style>
 </head>
@@ -442,154 +437,132 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-brand">Rooted In Bloom</a>
+    <a href="#" class="nav-logo">Rooted in Bloom</a>
+    <div class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <p class="eyebrow">Faith &middot; Motherhood &middot; Identity</p>
-    <h1>"Being rooted doesn't mean having it all together. It means you keep coming back."</h1>
-    <p class="hero-sub">Resources for the mom who is learning to come home to herself &mdash; in faith, in motherhood, and in everyday life.</p>
-    <a href="#products" class="btn-primary">Find Your Resource</a>
+    <h1>For the mom who is ready to come back to herself</h1>
+    <p class="hero-sub">Faith-filled resources for the woman who lost herself in motherhood &mdash; and is learning to bloom again.</p>
+    <a href="#products" class="btn-primary">Shop the Resources</a>
   </section>
 
-  <!-- FOR YOU -->
-  <section class="for-you">
-    <div class="divider"></div>
+  <!-- HERO IMAGE — swap src for your own photo -->
+  <div class="hero-image">
+    <!-- <img src="your-photo.jpg" alt="Ally C."> -->
+    <p class="img-placeholder">Your photo goes here</p>
+  </div>
 
-    <div style="padding-top: 52px; max-width: 700px; margin: 0 auto;">
-      <h2>You didn't lose yourself.<br>You just haven't found your way back yet.</h2>
-      <p class="for-you-intro" style="margin-top: 16px;">This space was made for you if you've been feeling&hellip;</p>
+  <!-- WHAT'S INSIDE -->
+  <section class="whats-inside">
+    <h2 class="section-title">What you'll find inside<br>Rooted In Bloom</h2>
 
-      <div class="pain-points">
-        <div class="pain-point">
-          <p>"Like I disappeared somewhere between diapers and dinner, and I don't know who I am anymore."</p>
-        </div>
-        <div class="pain-point">
-          <p>"Like my faith has gone quiet and I can't find the woman I was before motherhood."</p>
-        </div>
-        <div class="pain-point">
-          <p>"Like I'm doing everything right and still feel like I'm just surviving, not living."</p>
-        </div>
-        <div class="pain-point">
-          <p>"Like I love my kids more than anything &mdash; and I'm still allowed to want more for myself."</p>
-        </div>
-      </div>
-
-      <p class="for-you-close">You're in the right place, mama.</p>
+    <div class="feature">
+      <h3 class="feature-title">Faith That Meets You Where You Are</h3>
+      <p>These resources aren't about having it together. They're about meeting God in the middle of the mess &mdash; in the laundry, the hard mornings, the quiet moments when you remember who you used to be.</p>
     </div>
 
-    <div class="divider"></div>
+    <div class="feature">
+      <h3 class="feature-title">Practical Tools for Real Life</h3>
+      <p>Guided prompts, devotionals, and reflections designed for the tired, stretched-thin mom. Not another thing to add to your plate &mdash; a way to nourish yourself from it.</p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature-title">Permission to Come Back, Again and Again</h3>
+      <p>Being rooted isn't a destination. It's a practice. These resources are your companion for every time you drift and need to find your way back &mdash; to faith, to yourself, to peace.</p>
+    </div>
+  </section>
+
+  <!-- FOR YOU IF -->
+  <section class="for-you">
+    <h2 class="section-title">Rooted In Bloom is for you if&hellip;</h2>
+
+    <ul class="for-you-list">
+      <li>you love your children deeply and still feel like a stranger in your own life</li>
+      <li>your faith has gone quiet and you&rsquo;re not sure how to find it again</li>
+      <li>you&rsquo;re exhausted from surviving and ready to actually thrive</li>
+      <li>you want spiritual rhythms that fit into the life you actually have</li>
+      <li>you miss the woman you were before motherhood changed everything</li>
+      <li>you know there&rsquo;s more for you &mdash; you just need someone to walk with you there</li>
+    </ul>
   </section>
 
   <!-- PRODUCTS -->
   <section class="products" id="products">
-    <div class="section-header">
-      <p class="eyebrow">Digital Resources</p>
-      <h2>Start Where You Are</h2>
-      <p class="section-sub">PDF downloads &mdash; available instantly.</p>
+    <h2 class="section-title">The Resources</h2>
+
+    <!-- Product 1 -->
+    <div class="product">
+      <p class="product-eyebrow">Digital Guide</p>
+      <h3>From Surviving to Thriving in Motherhood</h3>
+      <p class="product-desc">This is your reset season. A simple, faith-filled guide to help you reconnect with yourself, rebuild your faith, and find peace in the everyday chaos of motherhood.</p>
+      <ul class="product-includes">
+        <li>Reconnect with your identity outside of &ldquo;mom&rdquo;</li>
+        <li>Rebuild your faith in the small, everyday moments</li>
+        <li>Practical tools to move out of survival mode</li>
+        <li>Written for the real, imperfect, tired mama</li>
+      </ul>
+      <div class="product-cta">
+        <span class="product-price">$37</span>
+        <a href="#" class="btn-primary">Get the Guide</a>
+      </div>
     </div>
 
-    <div class="products-grid">
+    <hr class="product-rule">
 
-      <!-- Product 1 -->
-      <div class="product-card">
-        <p class="product-badge">Guide</p>
-        <h3 class="product-title">From Surviving to Thriving in Motherhood</h3>
-        <p class="product-description">
-          This is your reset season. A simple, faith-filled guide to help you reconnect with yourself, rebuild your faith, and find peace in the everyday chaos of motherhood.
-        </p>
-        <ul class="product-includes">
-          <li>Reconnect with your identity outside of "mom"</li>
-          <li>Rebuild your faith in the small, everyday moments</li>
-          <li>Practical tools to move out of survival mode</li>
-          <li>Written for the real, imperfect, tired mama</li>
-        </ul>
-        <div class="product-footer">
-          <span class="product-price">$37</span>
-          <a href="#" class="btn-primary btn-sm">Get the Guide</a>
-        </div>
+    <!-- Product 2 -->
+    <div class="product">
+      <p class="product-eyebrow">Devotional Planner</p>
+      <h3>Rooted Mom Devotional Planner</h3>
+      <p class="product-desc">A daily companion for the mom who is learning to thrive. Weave faith, reflection, and gentle intention into one simple daily practice &mdash; even on the hard days.</p>
+      <ul class="product-includes">
+        <li>Daily devotional prompts rooted in scripture</li>
+        <li>Gentle planning pages designed for busy moms</li>
+        <li>Space to reflect, pray, and reconnect daily</li>
+        <li>Works in just 10 quiet minutes a day</li>
+      </ul>
+      <div class="product-cta">
+        <span class="product-price">$17</span>
+        <a href="#" class="btn-primary">Get the Planner</a>
       </div>
+    </div>
+  </section>
 
-      <!-- Product 2 -->
-      <div class="product-card">
-        <p class="product-badge">Devotional Planner</p>
-        <h3 class="product-title">Rooted Mom Devotional Planner</h3>
-        <p class="product-description">
-          A daily companion for the mom who is learning to thrive. Weave faith, reflection, and gentle intention into one simple daily practice &mdash; even on the hard days.
-        </p>
-        <ul class="product-includes">
-          <li>Daily devotional prompts rooted in scripture</li>
-          <li>Gentle planning pages designed for busy moms</li>
-          <li>Space to reflect, pray, and reconnect daily</li>
-          <li>Works in just 10 quiet minutes a day</li>
-        </ul>
-        <div class="product-footer">
-          <span class="product-price">$17</span>
-          <a href="#" class="btn-primary btn-sm">Get the Planner</a>
-        </div>
-      </div>
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <h2 class="section-title">What Moms Are Experiencing</h2>
 
+    <div class="testimonial-card">
+      <div class="t-rule"></div>
+      <p class="testimonial-quote">&ldquo;I didn&rsquo;t realize how much I needed this until I was halfway through. I felt like Ally was writing directly to me. For the first time in years, I felt seen &mdash; not just as a mom, but as a woman.&rdquo;</p>
+      <p class="testimonial-author">~ Sarah M., Rooted In Bloom reader</p>
+      <div class="t-rule-bottom"></div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="about">
-    <div class="divider"></div>
-
-    <div style="padding-top: 52px;">
-      <p class="eyebrow" style="margin-bottom: 28px;">The Woman Behind the Brand</p>
-      <div class="about-avatar">A</div>
-      <h2>Hi, I'm Ally.</h2>
-      <p style="margin-top: 28px;">
-        I know what it feels like to love your children deeply and still feel like a stranger in your own life. Motherhood changed everything for me &mdash; and for a long time, I didn't know how to find my way back to faith, to myself, or to the woman God made me to be.
-      </p>
-      <p>
-        Rooted In Bloom exists because I found my way back &mdash; slowly, imperfectly, and in community. These resources are what I wish I'd had in my hardest seasons. They're made for the mom who is done just surviving and ready to grow.
-      </p>
-      <p class="about-quote">
-        You don't have to have it all together to start. You just have to keep coming back.
-      </p>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="section-header">
-      <p class="eyebrow">What Moms Are Saying</p>
-      <h2>You're Not Alone in This</h2>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <p class="testimonial-text">"I didn't realize how much I needed this until I was halfway through. I felt like Ally was writing directly to me."</p>
-        <p class="testimonial-author">&mdash; Sarah M.</p>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"The devotional planner gave me something I didn't think I had: 10 minutes a day that feel like mine."</p>
-        <p class="testimonial-author">&mdash; Jessica L.</p>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"I've been in survival mode for three years. This guide made me believe that thriving is actually possible for me."</p>
-        <p class="testimonial-author">&mdash; Danielle R.</p>
-      </div>
-    </div>
+    <!-- Swap the "A" for your photo: <img src="ally.jpg" alt="Ally C."> -->
+    <div class="about-avatar">A</div>
+    <h2>Hi, I&rsquo;m Ally.</h2>
+    <p>I know what it feels like to love your children deeply and still feel like a stranger in your own life. Motherhood changed everything for me &mdash; and for a long time, I didn&rsquo;t know how to find my way back to faith, to myself, or to the woman God made me to be.</p>
+    <p>Rooted In Bloom exists because I found my way back &mdash; slowly, imperfectly, and in community. These resources are what I wish I&rsquo;d had in my hardest seasons.</p>
+    <p class="about-quote">You don&rsquo;t have to have it all together to start.<br>You just have to keep coming back.</p>
   </section>
 
   <!-- FINAL CTA -->
   <section class="final-cta">
-    <div class="divider"></div>
-    <div style="padding-top: 52px;">
-      <h2>You were made for more than surviving.</h2>
-      <p>The season of coming back to yourself starts here. Pick the resource that speaks to where you are right now.</p>
-      <a href="#products" class="btn-primary">Start Here</a>
-    </div>
-    <div class="divider" style="margin-top: 52px;"></div>
+    <h2>You were made for more than surviving.</h2>
+    <p>The season of coming back to yourself starts here. Pick the resource that speaks to where you are right now.</p>
+    <a href="#products" class="btn-primary">Start Here</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p class="footer-brand">Rooted In Bloom</p>
+    <p class="footer-logo">Rooted in Bloom</p>
     <p class="footer-copy">&copy; 2026 Rooted In Bloom &middot; All rights reserved</p>
   </footer>
 
