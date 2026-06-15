@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooted in Bloom — About Me Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      #FAF7F3;
+    --sage:       #3D5C3D;
+    --sage-light: #6B8068;
+    --gold:       #C9A84C;
+    --gold-light: #E8D5A3;
+    --blush:      #E8C5B0;
+    --brown:      #7D5C46;
+    --brown-dark: #4A3020;
+    --text-dark:  #2A1E16;
+    --white:      #FFFFFF;
+    --border:     #DDD0C4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── CAROUSEL FRAME ── */
+  .carousel-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .carousel {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .slide {
+    width: 20%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── PROGRESS DOTS ── */
+  .dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
+  /* ── NAV ARROWS ── */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.35);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-btn:hover { background: rgba(0,0,0,0.6); }
+  .nav-btn.prev { left: 10px; }
+  .nav-btn.next { right: 10px; }
+  .nav-btn:disabled { opacity: 0.2; cursor: default; }
+
+  /* ── SLIDE COUNTER ── */
+  .slide-counter {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+  }
+
+  /* =========================================
+     SLIDE 1 — Sage green intro
+  ========================================= */
+  .slide-1 {
+    background: var(--sage);
+    padding: 32px 28px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .slide-1 .top-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    max-width: 58%;
+  }
+
+  .slide-1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 7vw, 36px);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(232,213,163,0.5);
+  }
+
+  .slide-1 .body-text {
+    font-size: clamp(11px, 2.8vw, 13.5px);
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+  }
+
+  .slide-1 .kicker {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 4.5vw, 24px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.25;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 16px;
+    width: 100%;
+  }
+
+  .polaroid-1 {
+    position: absolute;
+    right: -8px;
+    top: 16px;
+    width: 46%;
+    max-width: 180px;
+    background: white;
+    padding: 8px 8px 24px 8px;
+    box-shadow: -4px 4px 16px rgba(0,0,0,0.3);
+    transform: rotate(3deg);
+  }
+
+  .polaroid-1 .photo-area {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #c5d5c0 0%, #a8c0a0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(60,80,60,0.4);
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .tape {
+    position: absolute;
+    width: 40px;
+    height: 16px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 2px;
+  }
+
+  .tape-tl { top: -8px; right: 16px; transform: rotate(-8deg); }
+  .tape-br { bottom: -8px; left: 10px; transform: rotate(5deg); }
+
+  /* =========================================
+     SLIDE 2 — Blush/brown reveal
+  ========================================= */
+  .slide-2 {
+    background: var(--brown-dark);
+    padding: 32px 28px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .slide-2 .text-block {
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .slide-2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 5.5vw, 28px);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .slide-2 .body-text {
+    font-size: clamp(11px, 2.8vw, 13px);
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .slide-2 .arrow {
+    align-self: flex-end;
+    margin-top: 8px;
+    color: var(--gold-light);
+    font-size: 28px;
+    opacity: 0.7;
+  }
+
+  .polaroid-2 {
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-4deg);
+    width: 46%;
+    max-width: 175px;
+    background: white;
+    padding: 8px 8px 24px 8px;
+    box-shadow: 4px 4px 16px rgba(0,0,0,0.4);
+  }
+
+  .polaroid-2 .photo-area {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, #e8c5b0 0%, #d4a080 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(100,60,40,0.4);
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 8px;
+  }
+
+  /* =========================================
+     SLIDE 3-5 — Notes card style
+  ========================================= */
+  .slide-notes {
+    position: relative;
+  }
+
+  .slide-notes .bg-photo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #c8d8c0 0%, #a0b898 50%, #8aaa82 100%);
+    filter: brightness(0.7);
+  }
+
+  .notes-card {
+    position: relative;
+    z-index: 2;
+    background: white;
+    border-radius: 14px;
+    padding: 24px 20px 28px;
+    width: 78%;
+    max-width: 300px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  }
+
+  .notes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .notes-back {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .notes-icons {
+    display: flex;
+    gap: 12px;
+    color: var(--gold);
+    font-size: 17px;
+  }
+
+  .notes-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+
+  .notes-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(11px, 2.8vw, 13px);
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .notes-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .notes-card ul li {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(11px, 2.8vw, 13px);
+    color: #444;
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .notes-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #888;
+  }
+
+  /* =========================================
+     SLIDE 5 OVERRIDE — CTA / sage bg
+  ========================================= */
+  .slide-5-bg {
+    background: linear-gradient(145deg, #8aaa82 0%, #5C7A5C 60%, #3D5C3D 100%) !important;
+    filter: brightness(0.65);
+  }
+</style>
+</head>
+<body>
+
+<p class="label">Rooted in Bloom — Instagram Carousel Preview</p>
+
+<div class="carousel-wrap">
+  <!-- Nav arrows -->
+  <button class="nav-btn prev" id="prevBtn" onclick="move(-1)" disabled>&#8249;</button>
+  <button class="nav-btn next" id="nextBtn" onclick="move(1)">&#8250;</button>
+
+  <div class="carousel">
+    <div class="slides" id="slides">
+
+      <!-- ── SLIDE 1: Hi, I'm Ally ── -->
+      <div class="slide slide-1">
+        <div class="top-text">
+          <h1>Hi,<br>I'm Ally.</h1>
+          <p class="body-text">
+            For a long time, I was running on empty — going through the motions of motherhood but feeling completely lost inside myself.
+          </p>
+          <p class="body-text">
+            I was exhausted, disconnected, and terrified that this was just... life now.
+          </p>
+        </div>
+        <p class="kicker">But then something<br>changed&nbsp;→</p>
+
+        <!-- Polaroid -->
+        <div class="polaroid-1">
+          <div class="tape tape-tl"></div>
+          <div class="tape tape-br"></div>
+          <div class="photo-area">your photo here</div>
+        </div>
+      </div>
+
+      <!-- ── SLIDE 2: The shift ── -->
+      <div class="slide slide-2">
+        <!-- Polaroid -->
+        <div class="polaroid-2">
+          <div class="tape tape-tl" style="top:-8px; left:10px; transform:rotate(6deg);"></div>
+          <div class="photo-area">your photo here</div>
+        </div>
+
+        <div class="text-block">
+          <h2>The biggest thing I found wasn't a plan.</h2>
+          <p class="body-text">
+            It was permission. Permission to stop surviving and finally start coming back to myself — through faith, intention, and small acts of returning home to who I was created to be.
+          </p>
+          <p class="body-text">
+            And I realized I wasn't the only mom who needed to hear it...
+          </p>
+          <span class="arrow">↷</span>
+        </div>
+      </div>
+
+      <!-- ── SLIDE 3: Note #1 ── -->
+      <div class="slide slide-notes">
+        <div class="bg-photo"></div>
+        <div class="notes-card">
+          <div class="notes-header">
+            <span class="notes-back">‹ Notes</span>
+            <div class="notes-icons">
+              <span>⬆</span>
+              <span>⋯</span>
+            </div>
+          </div>
+          <h3>#1 — I realized so many moms are just surviving — and nobody's talking about it.</h3>
+          <p>The soul-level exhaustion. The quiet grief of losing yourself in the season you thought would fulfill you. The fear that this is just how it is now.</p>
+          <br>
+          <p>You are not broken. You are not alone. And this is not the end of your story.</p>
+        </div>
+      </div>
+
+      <!-- ── SLIDE 4: Note #2 ── -->
+      <div class="slide slide-notes">
+        <div class="bg-photo"></div>
+        <div class="notes-card">
+          <div class="notes-header">
+            <span class="notes-back">‹ Notes</span>
+            <div class="notes-icons">
+              <span>⬆</span>
+              <span>⋯</span>
+            </div>
+          </div>
+          <h3>#2 — I realized moms don't need to hustle harder. They need to come home to themselves.</h3>
+          <p>Not another to-do list. Not more productivity.</p>
+          <br>
+          <p>What moms in survival mode actually need is permission to slow down, roots to hold onto, and something — or Someone — to be anchored to.</p>
+        </div>
+      </div>
+
+      <!-- ── SLIDE 5: Note #3 / CTA ── -->
+      <div class="slide slide-notes">
+        <div class="bg-photo slide-5-bg"></div>
+        <div class="notes-card">
+          <div class="notes-header">
+            <span class="notes-back">‹ Notes</span>
+            <div class="notes-icons">
+              <span>⬆</span>
+              <span>⋯</span>
+            </div>
+          </div>
+          <h3>#3 — I realized when a mom is rooted, everything around her blooms.</h3>
+          <p>That's why I created <strong>Rooted in Bloom</strong> — faith-based resources for the mom who is done just surviving.</p>
+          <br>
+          <ul>
+            <li>Devotional planners to anchor you daily</li>
+            <li>Guides to go from surviving → thriving</li>
+            <li>A community of moms coming back to life</li>
+          </ul>
+          <br>
+          <p style="font-weight:600; color: #5C7A5C;">Follow along. You belong here. 🌿</p>
+        </div>
+      </div>
+
+    </div><!-- /.slides -->
+  </div><!-- /.carousel -->
+</div><!-- /.carousel-wrap -->
+
+<!-- Dots + counter -->
+<div class="dots" id="dots"></div>
+<p class="slide-counter" id="counter">1 / 5</p>
+
+<script>
+  const total = 5;
+  let current = 0;
+
+  const slidesEl = document.getElementById('slides');
+  const dotsEl   = document.getElementById('dots');
+  const counter  = document.getElementById('counter');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = n;
+    slidesEl.style.transform = `translateX(-${current * 20}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current));
+    counter.textContent = `${current + 1} / ${total}`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  function move(dir) { goTo(Math.max(0, Math.min(total - 1, current + dir))); }
+
+  // Touch/swipe support
+  let startX = 0;
+  const carousel = document.querySelector('.carousel');
+  carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) move(diff > 0 ? 1 : -1);
+  });
+</script>
+
+</body>
+</html>
