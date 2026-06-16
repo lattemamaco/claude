@@ -12,15 +12,15 @@
   :root {
     --white:       #FFFFFF;
     --cream:       #FAFAF7;
-    --cream-soft:  #F4F0E8;
-    --cream-mid:   #EAE4D8;
-    --sage:        #7A9E84;
-    --sage-dark:   #4A6B52;
-    --sage-pale:   #F0F4F1;
-    --text:        #1E1E18;
-    --text-mid:    #5E5E54;
-    --text-light:  #A0A090;
-    --border:      #E4E0D8;
+    --cream-soft:  #F5F0E9;
+    --cream-mid:   #EDE5D8;
+    --warm:        #A8896A;
+    --warm-dark:   #7A6048;
+    --warm-pale:   #F8F3EC;
+    --text:        #1E1C18;
+    --text-mid:    #5E584E;
+    --text-light:  #A09880;
+    --border:      #E8E0D4;
     --gold:        #B8943A;
   }
 
@@ -48,7 +48,7 @@
   .nav-logo {
     font-family: 'Cormorant Garant', serif;
     font-size: 20px; font-weight: 700;
-    color: var(--sage-dark); text-decoration: none;
+    color: var(--warm-dark); text-decoration: none;
   }
 
   .nav-logo span {
@@ -67,15 +67,15 @@
     color: var(--text-mid); transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--sage); }
+  .nav-links a:hover { color: var(--warm); }
 
   .nav-cta {
-    background: var(--sage) !important;
+    background: var(--warm) !important;
     color: var(--white) !important;
     padding: 9px 22px; border-radius: 100px;
   }
 
-  .nav-cta:hover { background: var(--sage-dark) !important; color: var(--white) !important; }
+  .nav-cta:hover { background: var(--warm-dark) !important; color: var(--white) !important; }
 
   .nav-mobile-toggle {
     display: none; background: none; border: none;
@@ -109,7 +109,7 @@
     letter-spacing: -1px;
   }
 
-  .hero h1 em { font-style: italic; color: var(--sage); }
+  .hero h1 em { font-style: italic; color: var(--warm); }
 
   .hero-body {
     font-size: 17px; color: var(--text-mid);
@@ -120,7 +120,7 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--sage-dark); color: var(--white);
+    background: var(--warm-dark); color: var(--white);
     text-decoration: none; padding: 15px 36px;
     border-radius: 100px; font-size: 12px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
@@ -155,7 +155,7 @@
   .ticker-item {
     font-family: 'Cormorant Garant', serif;
     font-size: 17px; font-weight: 600;
-    color: var(--sage-dark); padding: 0 48px;
+    color: var(--warm-dark); padding: 0 48px;
   }
 
   .ticker-item em { font-style: italic; }
@@ -178,7 +178,7 @@
     color: var(--text); letter-spacing: -0.5px;
   }
 
-  .section-title em { font-style: italic; color: var(--sage); }
+  .section-title em { font-style: italic; color: var(--warm); }
 
   /* ── FOR YOU ── */
   .for-you { background: var(--white); }
@@ -202,12 +202,12 @@
   .for-you-list li:first-child { border-top: 1px solid var(--border); }
 
   .for-you-list li::before {
-    content: '—'; color: var(--sage);
+    content: '—'; color: var(--warm);
     font-weight: 700; min-width: 16px;
   }
 
   .scripture-pull {
-    border-left: 3px solid var(--sage);
+    border-left: 3px solid var(--warm);
     padding: 28px 32px; margin-bottom: 40px;
   }
 
@@ -237,7 +237,7 @@
     line-height: 1; min-width: 48px;
   }
 
-  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; }
+  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--warm); margin-bottom: 4px; }
   .reset-desc { font-size: 14px; color: var(--text-light); line-height: 1.55; }
 
   /* ── PRODUCTS ── */
@@ -263,12 +263,12 @@
 
   .product-card:hover { background: var(--cream); }
 
-  .product-card.featured { background: var(--sage-dark); }
+  .product-card.featured { background: var(--warm-dark); }
   .product-card.featured:hover { background: #1f3325; }
 
   .featured-badge {
     position: absolute; top: 20px; right: 20px;
-    background: var(--sage); color: var(--white);
+    background: var(--warm); color: var(--white);
     font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     padding: 4px 12px; border-radius: 100px;
   }
@@ -308,7 +308,7 @@
   .product-card.featured .product-includes li { color: rgba(255,255,255,0.65); }
 
   .product-includes li::before {
-    content: '✓'; color: var(--sage);
+    content: '✓'; color: var(--warm);
     font-weight: 700; font-size: 12px; min-width: 14px; margin-top: 1px;
   }
 
@@ -345,12 +345,12 @@
   }
 
   .btn-dark { background: var(--text); color: var(--white); }
-  .btn-dark:hover { background: var(--sage); }
+  .btn-dark:hover { background: var(--warm); }
 
   .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
   .btn-outline:hover { border-color: var(--text); }
 
-  .btn-cream { background: var(--cream); color: var(--sage-dark); }
+  .btn-cream { background: var(--cream); color: var(--warm-dark); }
   .btn-cream:hover { background: var(--cream-mid); }
 
   .product-note { text-align: center; font-size: 11px; color: var(--text-light); margin-top: 10px; }
@@ -376,7 +376,7 @@
   }
 
   .inside-tab:hover { color: var(--text); }
-  .inside-tab.active { color: var(--sage-dark); border-bottom-color: var(--sage); }
+  .inside-tab.active { color: var(--warm-dark); border-bottom-color: var(--warm); }
 
   .inside-panel { display: none; }
   .inside-panel.active { display: block; }
@@ -399,7 +399,7 @@
   .inside-card-body { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
 
   /* ── ABOUT ── */
-  .about { background: var(--sage-pale); }
+  .about { background: var(--warm-pale); }
 
   .about-inner {
     max-width: 1100px; margin: 0 auto;
@@ -408,7 +408,7 @@
 
   .about .eyebrow { color: var(--text-light); }
   .about .section-title { color: var(--text); margin-bottom: 28px; }
-  .about .section-title em { color: var(--sage-dark); }
+  .about .section-title em { color: var(--warm-dark); }
   .about p { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 18px; }
 
   .about-sig {
@@ -467,7 +467,7 @@
 
   .free-guide-bullets li:last-child { border-bottom: none; }
 
-  .free-guide-bullets li::before { content: '—'; color: var(--sage); font-weight: 700; min-width: 16px; }
+  .free-guide-bullets li::before { content: '—'; color: var(--warm); font-weight: 700; min-width: 16px; }
 
   .opt-in-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
 
@@ -479,23 +479,23 @@
     transition: border-color 0.2s;
   }
 
-  .opt-in-form input:focus { border-color: var(--sage-dark); }
+  .opt-in-form input:focus { border-color: var(--warm-dark); }
   .opt-in-form input::placeholder { color: var(--text-light); }
 
   .opt-in-form button {
-    padding: 15px 28px; background: var(--sage); color: var(--white);
+    padding: 15px 28px; background: var(--warm); color: var(--white);
     border: none; border-radius: 100px; font-size: 11px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
     font-family: 'Inter', sans-serif; transition: background 0.2s; white-space: nowrap;
   }
 
-  .opt-in-form button:hover { background: var(--sage-dark); }
+  .opt-in-form button:hover { background: var(--warm-dark); }
 
   .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.5px; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--sage-dark); color: rgba(255,255,255,0.4);
+    background: var(--warm-dark); color: rgba(255,255,255,0.4);
     padding: 60px 8%;
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 24px;
@@ -786,7 +786,7 @@
       <div class="about-sig">With love, Ally</div>
       <div class="about-handle">@rootedinbloomco_</div>
     </div>
-    <div class="about-photo">Add your photo here</div>
+    <img src="ally-photo.jpg" alt="Ally, founder of Rooted in Bloom" class="about-photo" style="object-fit:cover;">
   </div>
 </section>
 
