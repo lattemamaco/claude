@@ -10,18 +10,17 @@
 
   /* ── ROOTED IN BLOOM BRAND COLORS ── */
   :root {
-    --cream:       #F9F8F4;
-    --cream-dark:  #EEE9DF;
-    --cream-mid:   #E0D9CC;
-    --sage:        #4A6B52;
-    --sage-mid:    #6B8C74;
-    --sage-dark:   #2A4232;
-    --sage-light:  #EBF0E8;
     --white:       #FFFFFF;
-    --text:        #141E14;
-    --text-mid:    #3C4E3E;
-    --text-light:  #7A8C7E;
-    --border:      #D4DDD6;
+    --cream:       #FAFAF7;
+    --cream-soft:  #F4F0E8;
+    --cream-mid:   #EAE4D8;
+    --sage:        #7A9E84;
+    --sage-dark:   #4A6B52;
+    --sage-pale:   #F0F4F1;
+    --text:        #1E1E18;
+    --text-mid:    #5E5E54;
+    --text-light:  #A0A090;
+    --border:      #E4E0D8;
     --gold:        #B8943A;
   }
 
@@ -38,7 +37,7 @@
   /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,247,242,0.97);
+    background: rgba(255,255,255,0.97);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--border);
     padding: 0 6%;
@@ -87,19 +86,11 @@
 
   /* ── HERO ── */
   .hero {
-    background: var(--sage-dark);
-    min-height: 92vh;
+    background: var(--cream-soft);
+    min-height: 88vh;
     display: flex; align-items: center;
     padding: 80px 8%;
     position: relative; overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute; bottom: 0; right: 0;
-    width: 45%; height: 100%;
-    background: radial-gradient(ellipse at right, rgba(125,92,68,0.18) 0%, transparent 70%);
-    pointer-events: none;
   }
 
   .hero-inner { position: relative; z-index: 1; max-width: 860px; }
@@ -107,21 +98,21 @@
   .hero-eyebrow {
     display: inline-block; font-size: 10px; font-weight: 600;
     letter-spacing: 4px; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 28px;
+    color: var(--text-light); margin-bottom: 28px;
   }
 
   .hero h1 {
     font-family: 'Cormorant Garant', serif;
     font-size: clamp(52px, 9vw, 112px);
     font-weight: 700; line-height: 0.97;
-    color: var(--white); margin-bottom: 36px;
+    color: var(--text); margin-bottom: 36px;
     letter-spacing: -1px;
   }
 
-  .hero h1 em { font-style: italic; color: var(--cream-dark); }
+  .hero h1 em { font-style: italic; color: var(--sage); }
 
   .hero-body {
-    font-size: 17px; color: rgba(255,255,255,0.55);
+    font-size: 17px; color: var(--text-mid);
     max-width: 480px; line-height: 1.7; margin-bottom: 48px;
   }
 
@@ -129,28 +120,28 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--sage); color: var(--white);
+    background: var(--sage-dark); color: var(--white);
     text-decoration: none; padding: 15px 36px;
     border-radius: 100px; font-size: 12px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     transition: background 0.2s, transform 0.15s;
   }
 
-  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--text); transform: translateY(-1px); }
 
   .btn-secondary {
-    display: inline-block; background: transparent; color: var(--white);
+    display: inline-block; background: transparent; color: var(--text);
     text-decoration: none; padding: 15px 36px; border-radius: 100px;
     font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    border: 1.5px solid rgba(255,255,255,0.3);
+    border: 1.5px solid var(--border);
     transition: border-color 0.2s, transform 0.15s;
   }
 
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); transform: translateY(-1px); }
+  .btn-secondary:hover { border-color: var(--text); transform: translateY(-1px); }
 
   /* ── TICKER ── */
   .ticker {
-    background: var(--cream-dark);
+    background: var(--cream-mid);
     padding: 13px 0; overflow: hidden; white-space: nowrap;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -246,7 +237,7 @@
     line-height: 1; min-width: 48px;
   }
 
-  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sage-mid); margin-bottom: 4px; }
+  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-bottom: 4px; }
   .reset-desc { font-size: 14px; color: var(--text-light); line-height: 1.55; }
 
   /* ── PRODUCTS ── */
@@ -360,7 +351,7 @@
   .btn-outline:hover { border-color: var(--text); }
 
   .btn-cream { background: var(--cream); color: var(--sage-dark); }
-  .btn-cream:hover { background: var(--cream-dark); }
+  .btn-cream:hover { background: var(--cream-mid); }
 
   .product-note { text-align: center; font-size: 11px; color: var(--text-light); margin-top: 10px; }
   .product-card.featured .product-note { color: rgba(255,255,255,0.25); }
@@ -408,31 +399,31 @@
   .inside-card-body { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
 
   /* ── ABOUT ── */
-  .about { background: var(--sage-dark); }
+  .about { background: var(--sage-pale); }
 
   .about-inner {
     max-width: 1100px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
   }
 
-  .about .eyebrow { color: rgba(255,255,255,0.35); }
-  .about .section-title { color: var(--white); margin-bottom: 28px; }
-  .about .section-title em { color: var(--cream-dark); }
-  .about p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 18px; }
+  .about .eyebrow { color: var(--text-light); }
+  .about .section-title { color: var(--text); margin-bottom: 28px; }
+  .about .section-title em { color: var(--sage-dark); }
+  .about p { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 18px; }
 
   .about-sig {
     font-family: 'Cormorant Garant', serif;
-    font-style: italic; font-size: 32px; color: var(--white); margin-top: 28px;
+    font-style: italic; font-size: 32px; color: var(--text); margin-top: 28px;
   }
 
-  .about-handle { font-size: 10px; letter-spacing: 2.5px; color: rgba(255,255,255,0.3); margin-top: 6px; text-transform: uppercase; }
+  .about-handle { font-size: 10px; letter-spacing: 2.5px; color: var(--text-light); margin-top: 6px; text-transform: uppercase; }
 
   .about-photo {
     width: 100%; aspect-ratio: 3/4;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    background: var(--cream-mid); border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Cormorant Garant', serif; font-style: italic;
-    font-size: 15px; color: rgba(255,255,255,0.2); text-align: center; padding: 32px;
+    font-size: 15px; color: var(--text-light); text-align: center; padding: 32px;
   }
 
   /* ── PROOF ── */
@@ -456,7 +447,7 @@
   .proof-name { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
 
   /* ── FREE GUIDE ── */
-  .free-guide { background: var(--cream-dark); }
+  .free-guide { background: var(--cream-mid); }
 
   .free-guide-inner { max-width: 660px; margin: 0 auto; text-align: center; }
   .free-guide .section-title { margin-bottom: 18px; }
@@ -553,10 +544,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    Rooted in Bloom
-    <span>@rootedinbloomco_</span>
-  </a>
+  <a href="#" class="nav-logo">Rooted in Bloom</a>
   <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
