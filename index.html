@@ -5,28 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
 <meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner, the From Surviving to Thriving ebook, and more.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 
-  /* ── TOKENS ── */
+  /* ── ROOTED IN BLOOM BRAND COLORS ── */
   :root {
-    --cream:       #FAF7F3;
-    --cream-dark:  #F0E8DE;
-    --cream-mid:   #E8DDD1;
-    --brown:       #7D5C46;
-    --brown-light: #A8846C;
-    --brown-dark:  #4A3020;
-    --text:        #2A1E16;
-    --text-mid:    #5C4035;
-    --text-light:  #9A7C6A;
-    --border:      #DDD0C4;
-    --white:       #FFFFFF;
-    --sage:        #6B8068;
+    --cream:       #FAF7F2;
+    --cream-dark:  #F0E8DC;
+    --cream-mid:   #E5D9CB;
+    --brown:       #7D5C44;
+    --brown-light: #A8846A;
+    --brown-dark:  #3E2410;
+    --sage:        #4A6B52;
+    --sage-dark:   #2A4232;
     --sage-light:  #EBF0E8;
+    --white:       #FFFFFF;
+    --text:        #211508;
+    --text-mid:    #5C4030;
+    --text-light:  #9A7C62;
+    --border:      #DDD0C2;
+    --gold:        #B8943A;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -36,943 +37,523 @@
     line-height: 1.6;
   }
 
-  img { max-width: 100%; display: block; }
-
-  h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    line-height: 1.2;
-  }
-
   /* ── NAV ── */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(250, 247, 243, 0.95);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,247,242,0.97);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--border);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
     height: 64px;
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--brown-dark);
-    text-decoration: none;
-    letter-spacing: 0.3px;
+    font-family: 'Cormorant Garant', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--brown-dark); text-decoration: none;
   }
 
   .nav-logo span {
     display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-top: 1px;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--text-light); margin-top: 1px;
   }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 
   .nav-links a {
-    text-decoration: none;
-    font-size: 13px;
-    color: var(--text-mid);
-    font-weight: 500;
-    transition: color 0.2s;
+    text-decoration: none; font-size: 11px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-mid); transition: color 0.2s;
   }
 
   .nav-links a:hover { color: var(--brown); }
 
   .nav-cta {
-    background: var(--brown);
+    background: var(--brown) !important;
     color: var(--white) !important;
-    padding: 8px 20px;
-    border-radius: 100px;
-    font-size: 12px !important;
-    transition: background 0.2s !important;
+    padding: 9px 22px; border-radius: 100px;
   }
 
-  .nav-cta:hover { background: var(--brown-dark) !important; }
+  .nav-cta:hover { background: var(--brown-dark) !important; color: var(--white) !important; }
 
   .nav-mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    padding: 4px;
+    display: none; background: none; border: none;
+    cursor: pointer; flex-direction: column; gap: 5px; padding: 4px;
   }
 
-  .nav-mobile-toggle span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-  }
+  .nav-mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
 
   /* ── HERO ── */
   .hero {
-    min-height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 5% 60px;
-    position: relative;
-    overflow: hidden;
+    background: var(--sage-dark);
+    min-height: 92vh;
+    display: flex; align-items: center;
+    padding: 80px 8%;
+    position: relative; overflow: hidden;
   }
 
-  .hero::before {
+  .hero::after {
     content: '';
-    position: absolute;
-    top: -120px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(ellipse, var(--cream-dark) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
+    position: absolute; bottom: 0; right: 0;
+    width: 45%; height: 100%;
+    background: radial-gradient(ellipse at right, rgba(125,92,68,0.18) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; }
 
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--brown-light);
-    margin-bottom: 24px;
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 28px;
   }
 
   .hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 700;
-    color: var(--brown-dark);
-    margin-bottom: 10px;
+    font-family: 'Cormorant Garant', serif;
+    font-size: clamp(52px, 9vw, 112px);
+    font-weight: 700; line-height: 0.97;
+    color: var(--white); margin-bottom: 36px;
+    letter-spacing: -1px;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--brown);
-  }
-
-  .hero-subhead {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(16px, 2.2vw, 22px);
-    color: var(--text-mid);
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
+  .hero h1 em { font-style: italic; color: var(--cream-dark); }
 
   .hero-body {
-    font-size: 15px;
-    color: var(--text-light);
-    max-width: 520px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
+    font-size: 17px; color: rgba(255,255,255,0.55);
+    max-width: 480px; line-height: 1.7; margin-bottom: 48px;
   }
 
-  .hero-ctas {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 52px;
-  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
   .btn-primary {
     display: inline-block;
-    background: var(--brown);
-    color: var(--white);
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    background: var(--brown); color: var(--white);
+    text-decoration: none; padding: 15px 36px;
+    border-radius: 100px; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
     transition: background 0.2s, transform 0.15s;
   }
 
   .btn-primary:hover { background: var(--brown-dark); transform: translateY(-1px); }
 
   .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: var(--brown);
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid var(--brown);
-    transition: background 0.2s, transform 0.15s;
+    display: inline-block; background: transparent; color: var(--white);
+    text-decoration: none; padding: 15px 36px; border-radius: 100px;
+    font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s, transform 0.15s;
   }
 
-  .btn-secondary:hover { background: var(--cream-dark); transform: translateY(-1px); }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); transform: translateY(-1px); }
 
-  .hero-quote {
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--cream-dark);
+    padding: 13px 0; overflow: hidden; white-space: nowrap;
     border-top: 1px solid var(--border);
-    padding-top: 36px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--text-mid);
-    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
   }
 
-  .hero-quote cite {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-top: 10px;
+  .ticker-track {
+    display: inline-flex;
+    animation: ticker 30s linear infinite;
   }
 
-  /* ── SECTION SHARED ── */
-  section { padding: 80px 5%; }
+  .ticker-item {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--sage-dark); padding: 0 48px;
+  }
 
-  .section-eyebrow {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--brown-light);
-    margin-bottom: 14px;
+  .ticker-item em { font-style: italic; }
+
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { padding: 100px 8%; }
+
+  .eyebrow {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: 3.5px; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 18px;
   }
 
   .section-title {
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    color: var(--brown-dark);
-    margin-bottom: 14px;
+    font-family: 'Cormorant Garant', serif;
+    font-size: clamp(36px, 5vw, 66px);
+    font-weight: 700; line-height: 1.05;
+    color: var(--text); letter-spacing: -0.5px;
   }
 
-  .section-body {
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 1.75;
-    max-width: 560px;
-  }
+  .section-title em { font-style: italic; color: var(--brown); }
 
-  /* ── FOR YOU SECTION ── */
-  .for-you {
-    background: var(--cream-dark);
-  }
+  /* ── FOR YOU ── */
+  .for-you { background: var(--white); }
 
   .for-you-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
   }
 
-  .for-you-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 32px;
-  }
+  .for-you .section-title { margin-bottom: 44px; }
+
+  .for-you-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
 
   .for-you-list li {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 1.55;
+    display: flex; gap: 16px; align-items: flex-start;
+    font-size: 16px; color: var(--text-mid); line-height: 1.55;
+    padding: 18px 0; border-bottom: 1px solid var(--border);
   }
+
+  .for-you-list li:first-child { border-top: 1px solid var(--border); }
 
   .for-you-list li::before {
-    content: '';
-    min-width: 7px;
-    height: 7px;
-    background: var(--brown-light);
-    border-radius: 50%;
-    margin-top: 7px;
+    content: '—'; color: var(--brown);
+    font-weight: 700; min-width: 16px;
   }
 
-  .for-you-scripture {
-    background: var(--white);
-    border-left: 3px solid var(--brown-light);
-    border-radius: 0 12px 12px 0;
-    padding: 24px 28px;
-    margin-top: 32px;
+  .scripture-pull {
+    border-left: 3px solid var(--brown);
+    padding: 28px 32px; margin-bottom: 40px;
   }
 
-  .for-you-scripture p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--text);
-    line-height: 1.6;
-    margin-bottom: 10px;
+  .scripture-pull p {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 26px;
+    color: var(--text); line-height: 1.45; margin-bottom: 12px;
   }
 
-  .for-you-scripture cite {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-light);
-    font-style: normal;
+  .scripture-pull cite {
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--text-light); font-style: normal;
   }
 
-  .for-you-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  .resets-list { list-style: none; }
+
+  .reset-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid var(--border);
   }
 
-  .arch-card {
-    background: var(--white);
-    border-radius: 200px 200px 20px 20px;
-    padding: 48px 40px 36px;
-    text-align: center;
-    max-width: 320px;
-    width: 100%;
-    box-shadow: 0 8px 40px rgba(90,55,30,0.08);
+  .reset-item:first-child { border-top: 1px solid var(--border); }
+
+  .reset-num {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 38px; font-weight: 700; color: var(--cream-mid);
+    line-height: 1; min-width: 48px;
   }
 
-  .arch-card-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .arch-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--brown-dark);
-    margin-bottom: 8px;
-  }
-
-  .arch-card-body {
-    font-size: 13px;
-    color: var(--text-light);
-    line-height: 1.6;
-  }
+  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown-light); margin-bottom: 4px; }
+  .reset-desc { font-size: 14px; color: var(--text-light); line-height: 1.55; }
 
   /* ── PRODUCTS ── */
-  .products {
-    background: var(--cream);
-  }
+  .products { background: var(--cream); }
 
-  .products-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .products-inner { max-width: 1100px; margin: 0 auto; }
 
-  .products-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
+  .products-header { margin-bottom: 56px; }
+  .products-header .section-title { max-width: 600px; margin-bottom: 14px; }
+  .products-header p { font-size: 14px; color: var(--text-light); letter-spacing: 0.5px; }
 
   .products-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.1fr;
-    gap: 20px;
-    align-items: stretch;
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
   }
 
   .product-card {
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 20px;
-    padding: 36px 32px 32px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: box-shadow 0.25s, transform 0.2s;
+    background: var(--white); padding: 44px 36px;
+    display: flex; flex-direction: column; position: relative;
+    transition: background 0.2s;
   }
 
-  .product-card:hover {
-    box-shadow: 0 12px 48px rgba(90,55,30,0.1);
-    transform: translateY(-3px);
-  }
+  .product-card:hover { background: var(--cream); }
 
-  .product-card.featured {
-    border-color: var(--brown);
-    background: var(--brown-dark);
-  }
+  .product-card.featured { background: var(--sage-dark); }
+  .product-card.featured:hover { background: #1f3325; }
 
   .featured-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--brown);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 5px 18px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-
-  .product-icon {
-    font-size: 36px;
-    margin-bottom: 20px;
+    position: absolute; top: 20px; right: 20px;
+    background: var(--brown); color: var(--white);
+    font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px;
   }
 
   .product-type {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--brown-light);
-    margin-bottom: 8px;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 14px;
   }
 
-  .product-card.featured .product-type { color: rgba(255,255,255,0.5); }
+  .product-card.featured .product-type { color: rgba(255,255,255,0.35); }
 
   .product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--brown-dark);
-    margin-bottom: 10px;
-    line-height: 1.25;
+    font-family: 'Cormorant Garant', serif;
+    font-size: 28px; font-weight: 700; color: var(--text);
+    line-height: 1.2; margin-bottom: 14px;
   }
 
   .product-card.featured .product-name { color: var(--white); }
 
   .product-desc {
-    font-size: 14px;
-    color: var(--text-mid);
-    line-height: 1.65;
-    margin-bottom: 24px;
-    flex: 1;
+    font-size: 14px; color: var(--text-mid);
+    line-height: 1.65; margin-bottom: 28px; flex: 1;
   }
 
-  .product-card.featured .product-desc { color: rgba(255,255,255,0.7); }
+  .product-card.featured .product-desc { color: rgba(255,255,255,0.6); }
 
   .product-includes {
-    list-style: none;
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
+    list-style: none; margin-bottom: 32px;
+    display: flex; flex-direction: column; gap: 10px;
   }
 
   .product-includes li {
-    font-size: 13px;
-    color: var(--text-mid);
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    line-height: 1.45;
+    font-size: 13px; color: var(--text-mid);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.45;
   }
 
-  .product-card.featured .product-includes li { color: rgba(255,255,255,0.75); }
+  .product-card.featured .product-includes li { color: rgba(255,255,255,0.65); }
 
   .product-includes li::before {
-    content: '✓';
-    color: var(--sage);
-    font-weight: 700;
-    font-size: 13px;
-    min-width: 14px;
+    content: '✓'; color: var(--sage);
+    font-weight: 700; font-size: 12px; min-width: 14px; margin-top: 1px;
   }
 
-  .product-card.featured .product-includes li::before { color: #a8c5a0; }
+  .product-card.featured .product-includes li::before { color: #8abf98; }
 
-  .product-divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 24px;
-  }
-
-  .product-card.featured .product-divider { background: rgba(255,255,255,0.12); }
-
-  .product-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
+  .product-price-block { margin-bottom: 24px; }
 
   .product-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 700;
-    color: var(--brown-dark);
-    line-height: 1;
+    font-family: 'Cormorant Garant', serif;
+    font-size: 54px; font-weight: 700;
+    color: var(--text); line-height: 1;
   }
 
   .product-card.featured .product-price { color: var(--white); }
 
   .product-price-note {
-    font-size: 12px;
-    color: var(--text-light);
+    font-size: 11px; color: var(--text-light);
+    margin-top: 4px; letter-spacing: 0.5px; text-transform: uppercase;
   }
 
-  .product-card.featured .product-price-note { color: rgba(255,255,255,0.45); }
+  .product-card.featured .product-price-note { color: rgba(255,255,255,0.35); }
 
   .product-savings {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.9);
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 18px;
+    display: inline-block; background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 20px; letter-spacing: 0.5px;
   }
 
   .btn-product {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 14px 24px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
+    display: block; text-align: center; text-decoration: none;
+    padding: 14px 24px; border-radius: 100px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     transition: all 0.2s;
   }
 
-  .btn-product-dark {
-    background: var(--brown);
-    color: var(--white);
-  }
+  .btn-dark { background: var(--text); color: var(--white); }
+  .btn-dark:hover { background: var(--brown); }
 
-  .btn-product-dark:hover { background: var(--brown-dark); }
+  .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--text); }
 
-  .btn-product-outline {
-    background: transparent;
-    color: var(--brown);
-    border: 1.5px solid var(--brown);
-  }
+  .btn-cream { background: var(--cream); color: var(--sage-dark); }
+  .btn-cream:hover { background: var(--cream-dark); }
 
-  .btn-product-outline:hover { background: var(--cream-dark); }
-
-  .btn-product-white {
-    background: var(--white);
-    color: var(--brown-dark);
-  }
-
-  .btn-product-white:hover { background: var(--cream); }
-
-  .product-note {
-    text-align: center;
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 10px;
-  }
-
-  .product-card.featured .product-note { color: rgba(255,255,255,0.4); }
+  .product-note { text-align: center; font-size: 11px; color: var(--text-light); margin-top: 10px; }
+  .product-card.featured .product-note { color: rgba(255,255,255,0.25); }
 
   /* ── WHAT'S INSIDE ── */
-  .inside {
-    background: var(--cream-dark);
-  }
+  .inside { background: var(--white); }
 
-  .inside-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .inside-header {
-    text-align: center;
-    margin-bottom: 52px;
-  }
+  .inside-inner { max-width: 1100px; margin: 0 auto; }
+  .inside-header { margin-bottom: 52px; }
 
   .inside-tabs {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+    display: flex; gap: 0; margin-bottom: 48px;
+    border-bottom: 1.5px solid var(--border);
   }
 
   .inside-tab {
-    padding: 9px 22px;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid var(--border);
-    background: var(--white);
-    color: var(--text-mid);
-    transition: all 0.2s;
+    padding: 12px 28px; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; border: none; background: none;
+    color: var(--text-light); border-bottom: 2px solid transparent;
+    margin-bottom: -1.5px; transition: all 0.2s; font-family: 'Inter', sans-serif;
   }
 
-  .inside-tab:hover { border-color: var(--brown-light); color: var(--brown); }
-  .inside-tab.active { background: var(--brown); color: var(--white); border-color: var(--brown); }
+  .inside-tab:hover { color: var(--text); }
+  .inside-tab.active { color: var(--brown-dark); border-bottom-color: var(--brown); }
 
   .inside-panel { display: none; }
   .inside-panel.active { display: block; }
 
-  .inside-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
+  .inside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
 
-  .inside-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 28px;
-    border: 1px solid var(--border);
-  }
+  .inside-card { background: var(--cream); padding: 36px 32px; }
 
-  .inside-card-icon {
-    font-size: 28px;
-    margin-bottom: 14px;
+  .inside-card-num {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 48px; font-weight: 700; color: var(--cream-mid);
+    line-height: 1; margin-bottom: 16px;
   }
 
   .inside-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--brown-dark);
-    margin-bottom: 8px;
+    font-family: 'Cormorant Garant', serif;
+    font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px;
   }
 
-  .inside-card-body {
-    font-size: 13.5px;
-    color: var(--text-mid);
-    line-height: 1.65;
-  }
+  .inside-card-body { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
 
   /* ── ABOUT ── */
-  .about {
-    background: var(--cream);
-  }
+  .about { background: var(--sage-dark); }
 
   .about-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 64px;
-    align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
   }
 
-  .about-photo {
-    width: 240px;
-    height: 300px;
-    background: var(--cream-mid);
-    border-radius: 200px 200px 20px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid var(--border);
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--text-light);
-    text-align: center;
-    padding: 20px;
-  }
-
-  .about-text .section-title { margin-bottom: 20px; }
-  .about-text .section-body { margin-bottom: 18px; }
-
-  .about-text p {
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
+  .about .eyebrow { color: rgba(255,255,255,0.35); }
+  .about .section-title { color: var(--white); margin-bottom: 28px; }
+  .about .section-title em { color: var(--cream-dark); }
+  .about p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 18px; }
 
   .about-sig {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--brown);
-    margin-top: 24px;
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 32px; color: var(--white); margin-top: 28px;
   }
 
-  .about-handle {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    color: var(--text-light);
-    margin-top: 4px;
+  .about-handle { font-size: 10px; letter-spacing: 2.5px; color: rgba(255,255,255,0.3); margin-top: 6px; text-transform: uppercase; }
+
+  .about-photo {
+    width: 100%; aspect-ratio: 3/4;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garant', serif; font-style: italic;
+    font-size: 15px; color: rgba(255,255,255,0.2); text-align: center; padding: 32px;
   }
+
+  /* ── PROOF ── */
+  .proof { background: var(--cream); }
+
+  .proof-inner { max-width: 1100px; margin: 0 auto; }
+  .proof-header { margin-bottom: 52px; }
+
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+  .proof-card { background: var(--white); padding: 36px 32px; }
+
+  .proof-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 18px; }
+
+  .proof-text {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 20px;
+    color: var(--text); line-height: 1.55; margin-bottom: 20px;
+  }
+
+  .proof-name { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
 
   /* ── FREE GUIDE ── */
-  .free-guide {
-    background: var(--brown-dark);
-    color: var(--white);
-  }
+  .free-guide { background: var(--cream-dark); }
 
-  .free-guide-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-  }
+  .free-guide-inner { max-width: 660px; margin: 0 auto; text-align: center; }
+  .free-guide .section-title { margin-bottom: 18px; }
 
-  .free-guide .section-eyebrow {
-    color: rgba(255,255,255,0.45);
-  }
-
-  .free-guide .section-title {
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .free-guide-body {
-    font-size: 16px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
+  .free-guide-body { font-size: 16px; color: var(--text-mid); line-height: 1.7; margin-bottom: 36px; }
 
   .free-guide-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 40px;
-    text-align: left;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    list-style: none; text-align: left; max-width: 400px;
+    margin: 0 auto 44px; display: flex; flex-direction: column; gap: 0;
   }
 
   .free-guide-bullets li {
-    display: flex;
-    gap: 12px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    align-items: flex-start;
-    line-height: 1.5;
+    display: flex; gap: 14px; font-size: 15px; color: var(--text-mid);
+    align-items: flex-start; line-height: 1.5;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
   }
 
-  .free-guide-bullets li::before {
-    content: '✓';
-    color: #a8c5a0;
-    font-weight: 700;
-    min-width: 14px;
-  }
+  .free-guide-bullets li:last-child { border-bottom: none; }
 
-  .opt-in-form {
-    display: flex;
-    gap: 10px;
-    max-width: 440px;
-    margin: 0 auto;
-  }
+  .free-guide-bullets li::before { content: '—'; color: var(--brown); font-weight: 700; min-width: 16px; }
+
+  .opt-in-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
 
   .opt-in-form input {
-    flex: 1;
-    padding: 14px 20px;
-    border-radius: 100px;
-    border: none;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    background: rgba(255,255,255,0.12);
-    color: var(--white);
-    outline: none;
+    flex: 1; padding: 15px 20px;
+    border: 1.5px solid var(--border); border-radius: 100px;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    background: var(--white); color: var(--text); outline: none;
+    transition: border-color 0.2s;
   }
 
-  .opt-in-form input::placeholder { color: rgba(255,255,255,0.4); }
-  .opt-in-form input:focus { background: rgba(255,255,255,0.18); }
+  .opt-in-form input:focus { border-color: var(--sage-dark); }
+  .opt-in-form input::placeholder { color: var(--text-light); }
 
   .opt-in-form button {
-    padding: 14px 26px;
-    background: var(--white);
-    color: var(--brown-dark);
-    border: none;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: background 0.2s;
-    white-space: nowrap;
+    padding: 15px 28px; background: var(--brown); color: var(--white);
+    border: none; border-radius: 100px; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: background 0.2s; white-space: nowrap;
   }
 
-  .opt-in-form button:hover { background: var(--cream); }
+  .opt-in-form button:hover { background: var(--brown-dark); }
 
-  .opt-in-note {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    margin-top: 12px;
-  }
-
-  /* ── SOCIAL PROOF ── */
-  .proof {
-    background: var(--sage-light);
-  }
-
-  .proof-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .proof-inner .section-title {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
-
-  .proof-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-
-  .proof-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 28px 24px;
-    text-align: left;
-    border: 1px solid rgba(107,128,104,0.2);
-  }
-
-  .proof-stars {
-    color: var(--brown-light);
-    font-size: 14px;
-    margin-bottom: 14px;
-    letter-spacing: 2px;
-  }
-
-  .proof-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-
-  .proof-name {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.5px; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--brown-dark);
-    color: rgba(255,255,255,0.6);
-    padding: 48px 5%;
-    text-align: center;
+    background: var(--brown-dark); color: rgba(255,255,255,0.4);
+    padding: 60px 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
   }
 
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
+  .footer-logo { font-family: 'Cormorant Garant', serif; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .footer-copy { font-size: 11px; line-height: 1.7; }
 
-  .footer-tagline {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 28px;
-    justify-content: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
 
   .footer-links a {
-    text-decoration: none;
-    color: rgba(255,255,255,0.5);
-    font-size: 13px;
+    text-decoration: none; color: rgba(255,255,255,0.35);
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     transition: color 0.2s;
   }
 
   .footer-links a:hover { color: var(--white); }
 
-  .footer-divider {
-    width: 40px;
-    height: 1px;
-    background: rgba(255,255,255,0.15);
-    margin: 20px auto;
-  }
-
-  .footer-copy {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    line-height: 1.6;
-  }
-
   /* ── RESPONSIVE ── */
-  @media (max-width: 800px) {
-    nav { padding: 0 20px; }
-
+  @media (max-width: 820px) {
+    nav { padding: 0 5%; }
     .nav-links { display: none; }
     .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 64px;
-      left: 0; right: 0;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      padding: 20px;
-      gap: 18px;
-      align-items: flex-start;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      display: flex; flex-direction: column;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--cream); border-bottom: 1px solid var(--border);
+      padding: 24px 6%; gap: 20px; align-items: flex-start;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
     }
-
     .nav-mobile-toggle { display: flex; }
-
-    .hero { min-height: 70vh; padding: 60px 20px 40px; }
-
-    .for-you-inner { grid-template-columns: 1fr; gap: 40px; }
-    .for-you-visual { display: none; }
-
-    .products-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-
+    .hero { padding: 64px 6%; min-height: 80vh; }
+    .for-you-inner { grid-template-columns: 1fr; gap: 48px; }
+    .products-grid { grid-template-columns: 1fr; }
     .inside-grid { grid-template-columns: 1fr; }
-
-    .about-inner { grid-template-columns: 1fr; gap: 32px; }
-    .about-photo { width: 180px; height: 220px; margin: 0 auto; }
-
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-photo { aspect-ratio: 4/3; }
+    .proof-grid { grid-template-columns: 1fr; }
     .opt-in-form { flex-direction: column; }
-
-    .proof-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
-
-    section { padding: 60px 20px; }
+    footer { flex-direction: column; align-items: flex-start; }
+    section { padding: 72px 6%; }
   }
 
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     Rooted in Bloom
@@ -985,82 +566,102 @@
     <li><a href="#products">Shop</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#free-guide">Free Guide</a></li>
-    <li><a href="#products" class="nav-cta">Get the Bundle →</a></li>
+    <li><a href="#products" class="nav-cta">Get the Bundle</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Rooted in Bloom</span>
-    <h1>Stop Surviving.<br><em>Start Coming Back.</em></h1>
-    <p class="hero-subhead">For the mom who loves God and her kids — but has quietly lost herself somewhere in the middle.</p>
-    <p class="hero-body">Faith-filled resources for the mom who is done just getting through the day. Simple, honest, and built for the life you are actually living.</p>
+    <span class="hero-eyebrow">Rooted in Bloom &nbsp;·&nbsp; by Ally</span>
+    <h1>Stop Surviving.<br><em>Start Coming<br>Back.</em></h1>
+    <p class="hero-body">For the mom who loves God and her kids — but has quietly lost herself somewhere in the middle.</p>
     <div class="hero-ctas">
       <a href="#products" class="btn-primary">Shop the Collection</a>
-      <a href="#free-guide" class="btn-secondary">Get the Free Reset Guide</a>
+      <a href="#free-guide" class="btn-secondary">Get the Free Reset</a>
     </div>
-    <blockquote class="hero-quote">
-      "Being rooted does not mean having it all together. It means you keep coming back."
-      <cite>— Ally, Rooted in Bloom</cite>
-    </blockquote>
   </div>
 </section>
 
-<!-- ── FOR YOU ── -->
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+  </div>
+</div>
+
+<!-- FOR YOU -->
 <section class="for-you">
   <div class="for-you-inner">
     <div>
-      <p class="section-eyebrow">This is for you</p>
-      <h2 class="section-title">You did not pick this up by accident.</h2>
-      <p class="section-body">Something in you is ready. Ready to stop running on empty. Ready to feel like yourself again.</p>
-      <ul class="for-you-list">
-        <li>You love your kids deeply, but some days you do not recognise the woman in the mirror</li>
-        <li>Your faith used to feel close — now it feels dry and distant, and you feel guilty about that</li>
-        <li>You have tried the planners, the routines, the 5am mornings — and quit all of them</li>
-        <li>You carry the mental load alone and no one really sees how heavy it is</li>
-        <li>You would never say "I am struggling" out loud because it feels ungrateful</li>
-        <li>You want to feel like yourself again — but you are not even sure who that is anymore</li>
-      </ul>
-      <div class="for-you-scripture">
-        <p>"Come to me, all you who are weary and burdened, and I will give you rest."</p>
-        <cite>Matthew 11:28</cite>
+      <span class="eyebrow">This is for you</span>
+      <h2 class="section-title">You did not pick<br>this up by <em>accident.</em></h2>
+      <div style="margin-top:40px;">
+        <div class="scripture-pull">
+          <p>"Come to me, all you who are weary and burdened, and I will give you rest."</p>
+          <cite>Matthew 11:28</cite>
+        </div>
+        <ul class="resets-list">
+          <li class="reset-item">
+            <span class="reset-num">01</span>
+            <div>
+              <div class="reset-label">Faith Reset</div>
+              <div class="reset-desc">Coming back to God — not with perfect words, but with one honest moment.</div>
+            </div>
+          </li>
+          <li class="reset-item">
+            <span class="reset-num">02</span>
+            <div>
+              <div class="reset-label">Identity Reset</div>
+              <div class="reset-desc">Remembering who you are beneath all the doing and giving and surviving.</div>
+            </div>
+          </li>
+          <li class="reset-item">
+            <span class="reset-num">03</span>
+            <div>
+              <div class="reset-label">Motherhood Reset</div>
+              <div class="reset-desc">Building a gentle rhythm — not a perfect routine — that gives your days back to you.</div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="for-you-visual">
-      <div class="arch-card">
-        <span class="arch-card-icon">🌿</span>
-        <div class="arch-card-title">Faith</div>
-        <p class="arch-card-body">Coming back to God — not with a perfect quiet time, but with one honest moment.</p>
-      </div>
-      <div class="arch-card">
-        <span class="arch-card-icon">🤍</span>
-        <div class="arch-card-title">Identity</div>
-        <p class="arch-card-body">Remembering who you are beneath all the doing and giving and surviving.</p>
-      </div>
-      <div class="arch-card">
-        <span class="arch-card-icon">🌸</span>
-        <div class="arch-card-title">Motherhood</div>
-        <p class="arch-card-body">Building a gentle rhythm — not a perfect routine — that gives your days back to you.</p>
-      </div>
+    <div>
+      <ul class="for-you-list">
+        <li>You love your kids deeply, but some days you don't recognise the woman in the mirror</li>
+        <li>Your faith used to feel close — now it feels dry and distant, and you feel guilty about that</li>
+        <li>You've tried the planners, the routines, the 5am mornings — and quit all of them</li>
+        <li>You carry the mental load alone and no one really sees how heavy it is</li>
+        <li>You'd never say "I'm struggling" out loud because it feels ungrateful</li>
+        <li>You want to feel like yourself again — but you're not even sure who that is anymore</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ── PRODUCTS ── -->
+<!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="products-inner">
     <div class="products-header">
-      <p class="section-eyebrow">The Collection</p>
-      <h2 class="section-title">Resources Built for the Mom Who Keeps Showing Up</h2>
-      <p style="font-size:15px;color:var(--text-light);max-width:480px;margin:0 auto;">Instant digital download. Read anywhere, on any device, today.</p>
+      <span class="eyebrow">The Collection</span>
+      <h2 class="section-title">Resources built for the mom<br>who keeps <em>showing up.</em></h2>
+      <p>Instant digital download · Read anywhere, on any device, today</p>
     </div>
 
     <div class="products-grid">
 
-      <!-- PLANNER -->
       <div class="product-card">
-        <div class="product-icon">📖</div>
         <p class="product-type">Devotional Planner</p>
         <h3 class="product-name">Rooted Mom Devotional Planner</h3>
         <p class="product-desc">Your daily companion for the mom who is learning to thrive. A simple, beautiful space to come back to yourself — day by day, with grace.</p>
@@ -1071,19 +672,16 @@
           <li>Reset prompts for hard days</li>
           <li>Space to write one honest thing</li>
         </ul>
-        <div class="product-divider"></div>
-        <div class="product-price-row">
-          <span class="product-price">$17</span>
-          <span class="product-price-note">instant download</span>
+        <div class="product-price-block">
+          <div class="product-price">$17</div>
+          <div class="product-price-note">Instant PDF download</div>
         </div>
-        <a href="#" class="btn-product btn-product-outline">Get Instant Access</a>
+        <a href="#" class="btn-product btn-outline">Get Instant Access</a>
         <p class="product-note">PDF · Download immediately</p>
       </div>
 
-      <!-- BUNDLE -->
       <div class="product-card featured">
-        <span class="featured-badge">Best Value — Save $9</span>
-        <div class="product-icon">✨</div>
+        <span class="featured-badge">Best Value</span>
         <p class="product-type">Bundle</p>
         <h3 class="product-name">The Rooted Mom Bundle</h3>
         <p class="product-desc">Both resources. One purpose. Start with the ebook to understand the why — then use the planner to live it out, every single day.</p>
@@ -1093,35 +691,31 @@
           <li>Instant access to both PDFs</li>
           <li>Read anywhere, on any device</li>
         </ul>
-        <div class="product-divider"></div>
         <span class="product-savings">You save $9</span>
-        <div class="product-price-row">
-          <span class="product-price">$45</span>
-          <span class="product-price-note">for both</span>
+        <div class="product-price-block">
+          <div class="product-price">$45</div>
+          <div class="product-price-note">for both · instant download</div>
         </div>
-        <a href="#" class="btn-product btn-product-white">Get the Bundle →</a>
+        <a href="#" class="btn-product btn-cream">Get the Bundle →</a>
         <p class="product-note">2 PDFs · Download immediately</p>
       </div>
 
-      <!-- EBOOK -->
       <div class="product-card">
-        <div class="product-icon">📚</div>
         <p class="product-type">Ebook</p>
         <h3 class="product-name">From Surviving to Thriving in Motherhood</h3>
-        <p class="product-desc">For the mom who is done just getting through the day. Real stories, honest truth, and the three resets that changed everything — faith, identity, and motherhood.</p>
+        <p class="product-desc">For the mom who is done just getting through the day. Real stories, honest truth, and the three resets that changed everything.</p>
         <ul class="product-includes">
           <li>Faith Reset — coming back to God</li>
           <li>Identity Reset — remembering who you are</li>
           <li>Motherhood Reset — building your rhythm</li>
-          <li>Personal stories from inside the hard seasons</li>
+          <li>Real stories written from inside the hard seasons</li>
           <li>Reflection prompts + next steps</li>
         </ul>
-        <div class="product-divider"></div>
-        <div class="product-price-row">
-          <span class="product-price">$37</span>
-          <span class="product-price-note">instant download</span>
+        <div class="product-price-block">
+          <div class="product-price">$37</div>
+          <div class="product-price-note">Instant PDF download</div>
         </div>
-        <a href="#" class="btn-product btn-product-outline">Get Instant Access</a>
+        <a href="#" class="btn-product btn-outline">Get Instant Access</a>
         <p class="product-note">PDF · Download immediately</p>
       </div>
 
@@ -1129,12 +723,12 @@
   </div>
 </section>
 
-<!-- ── WHAT'S INSIDE ── -->
+<!-- WHAT'S INSIDE -->
 <section class="inside" id="inside">
   <div class="inside-inner">
     <div class="inside-header">
-      <p class="section-eyebrow">What's Inside</p>
-      <h2 class="section-title">Simple. Honest. Built for the life you are actually living.</h2>
+      <span class="eyebrow">What's Inside</span>
+      <h2 class="section-title">Simple. Honest.<br><em>Built for the life you're actually living.</em></h2>
     </div>
 
     <div class="inside-tabs">
@@ -1145,22 +739,22 @@
     <div class="inside-panel active" id="panel-ebook">
       <div class="inside-grid">
         <div class="inside-card">
-          <div class="inside-card-icon">🌿</div>
+          <div class="inside-card-num">01</div>
           <h4 class="inside-card-title">Faith Reset</h4>
-          <p class="inside-card-body">For when God has been pushed to the bottom of the list. Not because you stopped believing — but because life got loud. You will find your way back to one honest moment at a time.</p>
+          <p class="inside-card-body">For when God has been pushed to the bottom of the list. Not because you stopped believing — but because life got loud. You will find your way back one honest moment at a time.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">🤍</div>
+          <div class="inside-card-num">02</div>
           <h4 class="inside-card-title">Identity Reset</h4>
-          <p class="inside-card-body">Identity loss in motherhood happens quietly. A thousand small surrenders. This section names what you have been carrying and reminds you: that woman is not gone. She has just been waiting.</p>
+          <p class="inside-card-body">Identity loss in motherhood happens quietly. A thousand small surrenders. This section names what you've been carrying and reminds you: that woman is not gone. She's been waiting.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">🌸</div>
+          <div class="inside-card-num">03</div>
           <h4 class="inside-card-title">Motherhood Reset</h4>
-          <p class="inside-card-body">Not a perfect routine. A gentle rhythm. A few intentional minutes before the day takes over. This section shows you what it looks like to anchor your day without needing a perfect morning.</p>
+          <p class="inside-card-body">Not a perfect routine. A gentle rhythm. A few intentional minutes before the day takes over. This shows you what it looks like to anchor your day without needing a perfect morning.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">📖</div>
+          <div class="inside-card-num">04</div>
           <h4 class="inside-card-title">Real Stories & Honest Truth</h4>
           <p class="inside-card-body">Written from inside the hard seasons, not from the other side. You will read this and think: she knows exactly what this feels like. Because she has lived it too.</p>
         </div>
@@ -1170,54 +764,53 @@
     <div class="inside-panel" id="panel-planner">
       <div class="inside-grid">
         <div class="inside-card">
-          <div class="inside-card-icon">✝️</div>
+          <div class="inside-card-num">01</div>
           <h4 class="inside-card-title">Daily Scripture Pages</h4>
-          <p class="inside-card-body">A simple space to sit with one verse each day. No long study. No seminary degree required. Just you, the Word, and a quiet corner — even if it is only five minutes.</p>
+          <p class="inside-card-body">A simple space to sit with one verse each day. No long study required. Just you, the Word, and a quiet corner — even if it's only five minutes.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">🙏</div>
+          <div class="inside-card-num">02</div>
           <h4 class="inside-card-title">Guided Prayer Prompts</h4>
-          <p class="inside-card-body">For the days when you do not know what to say to God. These prompts give you the first sentence. From there, it is just you and Him. That is enough.</p>
+          <p class="inside-card-body">For the days when you don't know what to say to God. These prompts give you the first sentence. From there, it's just you and Him. That is enough.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">📅</div>
+          <div class="inside-card-num">03</div>
           <h4 class="inside-card-title">Weekly Rhythm Check-Ins</h4>
-          <p class="inside-card-body">A gentle weekly pause to see how you are really doing — not just how productive you were. Built to help you course-correct before the week runs away from you.</p>
+          <p class="inside-card-body">A gentle weekly pause to see how you're really doing — not just how productive you were. Built to help you course-correct before the week runs away from you.</p>
         </div>
         <div class="inside-card">
-          <div class="inside-card-icon">🔄</div>
+          <div class="inside-card-num">04</div>
           <h4 class="inside-card-title">Reset Prompts</h4>
-          <p class="inside-card-body">For the hard days. The days when everything falls apart before 9am. These prompts bring you back to one honest thing. You do not fail a rhythm — you just return to it.</p>
+          <p class="inside-card-body">For the hard days. These prompts bring you back to one honest thing. You don't fail a rhythm — you just return to it.</p>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
-    <div class="about-photo">
-      Add your photo here
-    </div>
-    <div class="about-text">
-      <p class="section-eyebrow">Hi, I'm Ally</p>
-      <h2 class="section-title">I wrote this from inside the hard season.</h2>
+    <div>
+      <span class="eyebrow">Hi, I'm Ally</span>
+      <h2 class="section-title">I wrote this from inside<br>the <em>hard season.</em></h2>
       <p>There was a time I stopped talking to God. Not because I stopped believing. But because life got loud and somewhere in the noise He got pushed to the bottom of the list.</p>
       <p>There was a morning I looked in the mirror and did not recognise myself. Not because anything was dramatically wrong. But because the woman looking back at me had slowly disappeared into everyone else's needs.</p>
       <p>These resources did not come from the other side of the hard. They came from inside it. That is why they are different. And that is why I believe they can meet you exactly where you are.</p>
-      <p>You do not need a perfect morning or an extra hour in your day. You just need to show up.</p>
       <div class="about-sig">With love, Ally</div>
       <div class="about-handle">@rootedinbloomco_</div>
     </div>
+    <div class="about-photo">Add your photo here</div>
   </div>
 </section>
 
-<!-- ── SOCIAL PROOF ── -->
+<!-- PROOF -->
 <section class="proof">
   <div class="proof-inner">
-    <h2 class="section-title">What Moms Are Saying</h2>
+    <div class="proof-header">
+      <span class="eyebrow">What Moms Are Saying</span>
+      <h2 class="section-title">She said what I couldn't<br>put into <em>words.</em></h2>
+    </div>
     <div class="proof-grid">
       <div class="proof-card">
         <div class="proof-stars">★★★★★</div>
@@ -1238,12 +831,12 @@
   </div>
 </section>
 
-<!-- ── FREE GUIDE ── -->
+<!-- FREE GUIDE -->
 <section class="free-guide" id="free-guide">
   <div class="free-guide-inner">
-    <p class="section-eyebrow">Start here — completely free</p>
+    <span class="eyebrow">Start here — completely free</span>
     <h2 class="section-title">The 3 Day Reset</h2>
-    <p class="free-guide-body">Not ready to buy? That is okay. Start with the free reset guide first. Three days. Three honest moments. That is it.</p>
+    <p class="free-guide-body">Not ready to buy? Start with the free reset guide first. Three days. Three honest moments. That is it.</p>
     <ul class="free-guide-bullets">
       <li>Day 1 — Faith Reset: Coming back to God</li>
       <li>Day 2 — Identity Reset: Remembering who you are</li>
@@ -1252,35 +845,30 @@
     </ul>
     <form class="opt-in-form" onsubmit="return false;">
       <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Send It Free →</button>
+      <button type="submit">Send It Free</button>
     </form>
-    <p class="opt-in-note">No spam. Unsubscribe any time. Just you and the guide.</p>
+    <p class="opt-in-note">No spam. Unsubscribe any time.</p>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Rooted in Bloom</div>
-  <div class="footer-tagline">Stop Surviving. Start Coming Back.</div>
+  <div>
+    <div class="footer-logo">Rooted in Bloom</div>
+    <div class="footer-copy">© 2026 Rooted in Bloom by Ally. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
+  </div>
   <div class="footer-links">
     <a href="#products">Shop</a>
     <a href="#about">About</a>
     <a href="#free-guide">Free Guide</a>
     <a href="https://instagram.com/rootedinbloomco_" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:ally@rootedinbloom.com">Contact</a>
   </div>
-  <div class="footer-divider"></div>
-  <p class="footer-copy">
-    © 2026 Rooted in Bloom by Ally. All rights reserved.<br>
-    Digital products are delivered instantly via download. All sales are final.
-  </p>
 </footer>
 
 <script>
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
   }
-
   function showPanel(name, tab) {
     document.querySelectorAll('.inside-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.inside-tab').forEach(t => t.classList.remove('active'));
