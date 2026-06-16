@@ -10,20 +10,18 @@
 
   /* ── ROOTED IN BLOOM BRAND COLORS ── */
   :root {
-    --cream:       #FAF7F2;
-    --cream-dark:  #F0E8DC;
-    --cream-mid:   #E5D9CB;
-    --brown:       #7D5C44;
-    --brown-light: #A8846A;
-    --brown-dark:  #3E2410;
+    --cream:       #F9F8F4;
+    --cream-dark:  #EEE9DF;
+    --cream-mid:   #E0D9CC;
     --sage:        #4A6B52;
+    --sage-mid:    #6B8C74;
     --sage-dark:   #2A4232;
     --sage-light:  #EBF0E8;
     --white:       #FFFFFF;
-    --text:        #211508;
-    --text-mid:    #5C4030;
-    --text-light:  #9A7C62;
-    --border:      #DDD0C2;
+    --text:        #141E14;
+    --text-mid:    #3C4E3E;
+    --text-light:  #7A8C7E;
+    --border:      #D4DDD6;
     --gold:        #B8943A;
   }
 
@@ -51,7 +49,7 @@
   .nav-logo {
     font-family: 'Cormorant Garant', serif;
     font-size: 20px; font-weight: 700;
-    color: var(--brown-dark); text-decoration: none;
+    color: var(--sage-dark); text-decoration: none;
   }
 
   .nav-logo span {
@@ -70,15 +68,15 @@
     color: var(--text-mid); transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--brown); }
+  .nav-links a:hover { color: var(--sage); }
 
   .nav-cta {
-    background: var(--brown) !important;
+    background: var(--sage) !important;
     color: var(--white) !important;
     padding: 9px 22px; border-radius: 100px;
   }
 
-  .nav-cta:hover { background: var(--brown-dark) !important; color: var(--white) !important; }
+  .nav-cta:hover { background: var(--sage-dark) !important; color: var(--white) !important; }
 
   .nav-mobile-toggle {
     display: none; background: none; border: none;
@@ -131,14 +129,14 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--brown); color: var(--white);
+    background: var(--sage); color: var(--white);
     text-decoration: none; padding: 15px 36px;
     border-radius: 100px; font-size: 12px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     transition: background 0.2s, transform 0.15s;
   }
 
-  .btn-primary:hover { background: var(--brown-dark); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
 
   .btn-secondary {
     display: inline-block; background: transparent; color: var(--white);
@@ -189,7 +187,7 @@
     color: var(--text); letter-spacing: -0.5px;
   }
 
-  .section-title em { font-style: italic; color: var(--brown); }
+  .section-title em { font-style: italic; color: var(--sage); }
 
   /* ── FOR YOU ── */
   .for-you { background: var(--white); }
@@ -213,12 +211,12 @@
   .for-you-list li:first-child { border-top: 1px solid var(--border); }
 
   .for-you-list li::before {
-    content: '—'; color: var(--brown);
+    content: '—'; color: var(--sage);
     font-weight: 700; min-width: 16px;
   }
 
   .scripture-pull {
-    border-left: 3px solid var(--brown);
+    border-left: 3px solid var(--sage);
     padding: 28px 32px; margin-bottom: 40px;
   }
 
@@ -248,7 +246,7 @@
     line-height: 1; min-width: 48px;
   }
 
-  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown-light); margin-bottom: 4px; }
+  .reset-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--sage-mid); margin-bottom: 4px; }
   .reset-desc { font-size: 14px; color: var(--text-light); line-height: 1.55; }
 
   /* ── PRODUCTS ── */
@@ -279,7 +277,7 @@
 
   .featured-badge {
     position: absolute; top: 20px; right: 20px;
-    background: var(--brown); color: var(--white);
+    background: var(--sage); color: var(--white);
     font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     padding: 4px 12px; border-radius: 100px;
   }
@@ -356,7 +354,7 @@
   }
 
   .btn-dark { background: var(--text); color: var(--white); }
-  .btn-dark:hover { background: var(--brown); }
+  .btn-dark:hover { background: var(--sage); }
 
   .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
   .btn-outline:hover { border-color: var(--text); }
@@ -387,7 +385,7 @@
   }
 
   .inside-tab:hover { color: var(--text); }
-  .inside-tab.active { color: var(--brown-dark); border-bottom-color: var(--brown); }
+  .inside-tab.active { color: var(--sage-dark); border-bottom-color: var(--sage); }
 
   .inside-panel { display: none; }
   .inside-panel.active { display: block; }
@@ -478,7 +476,7 @@
 
   .free-guide-bullets li:last-child { border-bottom: none; }
 
-  .free-guide-bullets li::before { content: '—'; color: var(--brown); font-weight: 700; min-width: 16px; }
+  .free-guide-bullets li::before { content: '—'; color: var(--sage); font-weight: 700; min-width: 16px; }
 
   .opt-in-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
 
@@ -494,19 +492,19 @@
   .opt-in-form input::placeholder { color: var(--text-light); }
 
   .opt-in-form button {
-    padding: 15px 28px; background: var(--brown); color: var(--white);
+    padding: 15px 28px; background: var(--sage); color: var(--white);
     border: none; border-radius: 100px; font-size: 11px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
     font-family: 'Inter', sans-serif; transition: background 0.2s; white-space: nowrap;
   }
 
-  .opt-in-form button:hover { background: var(--brown-dark); }
+  .opt-in-form button:hover { background: var(--sage-dark); }
 
   .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.5px; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--brown-dark); color: rgba(255,255,255,0.4);
+    background: var(--sage-dark); color: rgba(255,255,255,0.4);
     padding: 60px 8%;
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 24px;
