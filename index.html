@@ -3,1997 +3,927 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted in Bloom Co. — Instagram Growth Strategy</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
+<meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner, the From Surviving to Thriving ebook, and more.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+
   :root {
-    --cream: #FAF6F0;
-    --warm-white: #FDF9F4;
-    --sage: #5C7A5C;
-    --sage-light: #8AA88A;
-    --sage-dark: #3D5C3D;
-    --gold: #C9A84C;
-    --gold-light: #E8D5A3;
-    --blush: #E8C5B0;
-    --brown: #6B4C3B;
-    --text-dark: #2C2416;
-    --text-mid: #5A4A3A;
-    --text-light: #8A7A6A;
-    --border: #E5DDD0;
+    --white:      #FFFFFF;
+    --cream:      #FDFCF9;
+    --cream-soft: #F7F2EA;
+    --cream-mid:  #EDE5D5;
+    --sand:       #C4A882;
+    --sand-dark:  #9E8060;
+    --sand-pale:  #FAF5EE;
+    --text:       #1C1A16;
+    --text-mid:   #6A6258;
+    --text-light: #AEA898;
+    --border:     #EAE2D4;
+    --gold:       #B8943A;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--cream);
-    color: var(--text-dark);
-    min-height: 100vh;
-    overflow: hidden;
-  }
-
-  /* ── LAYOUT ── */
-  .app {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  /* ── SIDEBAR ── */
-  .sidebar {
-    width: 260px;
-    min-width: 260px;
-    background: var(--sage-dark);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--sage-light) transparent;
-  }
-
-  .sidebar-header {
-    padding: 28px 20px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-
-  .sidebar-header .logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold-light);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .sidebar-header .logo span {
-    display: block;
-    font-size: 11px;
-    color: rgba(255,255,255,0.5);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    margin-top: 4px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .nav-list {
-    padding: 12px 0;
-    list-style: none;
-    flex: 1;
-  }
-
-  .nav-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background 0.2s;
-    border-left: 3px solid transparent;
-  }
-
-  .nav-item:hover { background: rgba(255,255,255,0.07); }
-
-  .nav-item.active {
-    background: rgba(201,168,76,0.15);
-    border-left-color: var(--gold);
-  }
-
-  .nav-num {
-    min-width: 22px;
-    height: 22px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: rgba(255,255,255,0.6);
-    font-weight: 600;
-    margin-top: 1px;
-  }
-
-  .nav-item.active .nav-num {
-    background: var(--gold);
-    color: var(--sage-dark);
-  }
-
-  .nav-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.35;
-    font-weight: 400;
-  }
-
-  .nav-item.active .nav-label { color: #fff; font-weight: 500; }
-
-  .sidebar-footer {
-    padding: 16px 20px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.5;
-  }
-
-  /* ── MAIN CONTENT ── */
-  .main {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── TOPBAR ── */
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 32px;
-    background: var(--warm-white);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .topbar-title {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-mid);
-  }
-
-  .topbar-nav {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .btn {
-    padding: 7px 18px;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .btn-ghost {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-mid);
-  }
-
-  .btn-ghost:hover { background: var(--border); }
-
-  .btn-gold {
-    background: var(--gold);
-    color: #fff;
-  }
-
-  .btn-gold:hover { background: #b8943e; }
-
-  .progress-text {
-    font-size: 12px;
-    color: var(--text-light);
-    margin: 0 8px;
-  }
-
-  /* ── SLIDE ── */
-  .slide {
-    display: none;
-    flex: 1;
-    padding: 40px 40px 60px;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .slide.active { display: block; }
-
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* ── SLIDE 1: COVER ── */
-  .cover-slide {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: calc(100vh - 57px);
-    background: linear-gradient(135deg, var(--sage-dark) 0%, #2a4a2a 100%);
-    max-width: 100% !important;
-    padding: 60px 40px !important;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cover-slide::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .cover-slide::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; left: -40px;
-    width: 250px; height: 250px;
-    background: radial-gradient(circle, rgba(138,168,138,0.2) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .cover-tag {
-    display: inline-block;
-    background: rgba(201,168,76,0.2);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold-light);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 28px;
-    position: relative; z-index: 1;
-  }
-
-  .cover-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    position: relative; z-index: 1;
-  }
-
-  .cover-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .cover-subtitle {
-    font-size: 18px;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 40px;
-    position: relative; z-index: 1;
-  }
-
-  .cover-statement {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: rgba(255,255,255,0.75);
-    max-width: 500px;
+    color: var(--text);
     line-height: 1.6;
-    margin-bottom: 48px;
-    padding: 20px 28px;
-    border-left: 2px solid var(--gold);
-    text-align: left;
-    position: relative; z-index: 1;
   }
 
-  .cover-products {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative; z-index: 1;
-  }
-
-  .product-chip {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .product-chip .price {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--gold-light);
-  }
-
-  .product-chip .name {
-    font-size: 11px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 2px;
-  }
-
-  /* ── SLIDE HEADER ── */
-  .slide-header {
-    margin-bottom: 32px;
-  }
-
-  .slide-tag {
-    display: inline-block;
-    background: var(--gold-light);
-    color: var(--brown);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
-
-  .slide-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 3vw, 36px);
-    color: var(--sage-dark);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  .slide-subtitle {
-    font-size: 14px;
-    color: var(--text-light);
-    margin-top: 6px;
-  }
-
-  .divider {
-    height: 2px;
-    background: linear-gradient(to right, var(--sage), transparent);
-    margin: 20px 0 28px;
-    width: 60px;
-  }
-
-  /* ── STAT GRID ── */
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-
-  .stat-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-  }
-
-  .stat-card .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--sage-dark);
-  }
-
-  .stat-card .stat-num.gold { color: var(--gold); }
-  .stat-card .stat-num.red { color: #c0392b; }
-  .stat-card .stat-num.green { color: var(--sage); }
-
-  .stat-card .stat-label {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-
-  .stat-card .stat-delta {
-    font-size: 11px;
-    color: #27ae60;
-    font-weight: 600;
-    margin-top: 4px;
-  }
-
-  /* ── FLAG BANNER ── */
-  .flag {
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  .flag-icon { font-size: 18px; min-width: 20px; }
-
-  .flag.red { background: #fdf0ef; border: 1px solid #f5c6c2; color: #8b2a22; }
-  .flag.yellow { background: #fdfbef; border: 1px solid #f0e5a0; color: #7a6a10; }
-  .flag.green { background: #f0f7f0; border: 1px solid #b8d8b8; color: #2a5a2a; }
-  .flag.gold { background: #fdf8ef; border: 1px solid var(--gold-light); color: var(--brown); }
-
-  /* ── SWOT ── */
-  .swot-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .swot-box {
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid transparent;
-  }
-
-  .swot-box.s { background: #f0f7f0; border-color: #b8d8b8; }
-  .swot-box.w { background: #fdf0ef; border-color: #f5c6c2; }
-  .swot-box.o { background: #fdf8ef; border-color: var(--gold-light); }
-  .swot-box.t { background: #f5f0f8; border-color: #d8c0e8; }
-
-  .swot-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .swot-box.s .swot-label { color: var(--sage-dark); }
-  .swot-box.w .swot-label { color: #8b2a22; }
-  .swot-box.o .swot-label { color: var(--brown); }
-  .swot-box.t .swot-label { color: #4a2a6a; }
-
-  .swot-item {
-    font-size: 12.5px;
-    line-height: 1.5;
-    padding: 5px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    color: var(--text-mid);
-    display: flex;
-    gap: 8px;
-  }
-
-  .swot-item:last-child { border-bottom: none; }
-  .swot-dot { min-width: 6px; margin-top: 7px; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-
-  /* ── COMPETITOR TABLE ── */
-  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .comp-table th {
-    background: var(--sage-dark);
-    color: rgba(255,255,255,0.85);
-    padding: 10px 14px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .comp-table th:first-child { border-radius: 8px 0 0 0; }
-  .comp-table th:last-child { border-radius: 0 8px 0 0; }
-
-  .comp-table td {
-    padding: 10px 14px;
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,252,249,0.96);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
-    color: var(--text-mid);
-    line-height: 1.4;
-    vertical-align: top;
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
   }
 
-  .comp-table tr:last-child td { border-bottom: none; }
-  .comp-table tr:nth-child(even) td { background: rgba(250,246,240,0.5); }
+  .nav-logo {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 22px; font-weight: 600; font-style: italic;
+    color: var(--text); text-decoration: none; letter-spacing: 0.3px;
+  }
 
-  .comp-badge {
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+
+  .nav-links a {
+    text-decoration: none; font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-mid); transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--sand-dark); }
+
+  .nav-cta {
+    background: var(--sand) !important; color: var(--white) !important;
+    padding: 10px 24px; border-radius: 100px;
+  }
+
+  .nav-cta:hover { background: var(--sand-dark) !important; }
+
+  .nav-mobile-toggle {
+    display: none; background: none; border: none;
+    cursor: pointer; flex-direction: column; gap: 5px; padding: 4px;
+  }
+
+  .nav-mobile-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 2px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--cream-soft);
+    min-height: 90vh;
+    display: flex; align-items: center;
+    padding: 80px 8%;
+    position: relative; overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(196,168,130,0.12) 0%, transparent 65%);
+    border-radius: 50%; pointer-events: none;
+  }
+
+  .hero-inner { max-width: 720px; position: relative; z-index: 1; }
+
+  .hero-soft-label {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 22px;
+    color: var(--sand-dark); margin-bottom: 10px; display: block;
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 700; line-height: 1.05;
+    color: var(--text); margin-bottom: 28px;
+    letter-spacing: -0.5px; text-transform: uppercase;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: clamp(20px, 3vw, 28px);
+    color: var(--sand-dark); margin-bottom: 20px; line-height: 1.4;
+  }
+
+  .hero-body {
+    font-size: 16px; color: var(--text-mid);
+    max-width: 480px; line-height: 1.75; margin-bottom: 44px;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary {
     display: inline-block;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: 600;
+    background: var(--sand); color: var(--white);
+    text-decoration: none; padding: 15px 36px;
+    border-radius: 100px; font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(196,168,130,0.35);
+  }
+
+  .btn-primary:hover { background: var(--sand-dark); transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-block; background: transparent; color: var(--text);
+    text-decoration: none; padding: 15px 36px; border-radius: 100px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--sand); color: var(--sand-dark); transform: translateY(-2px); }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--cream-mid);
+    padding: 14px 0; overflow: hidden; white-space: nowrap;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+
+  .ticker-track { display: inline-flex; animation: ticker 32s linear infinite; }
+
+  .ticker-item {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 17px; font-weight: 500;
+    color: var(--sand-dark); padding: 0 52px;
+  }
+
+  .ticker-item em { font-style: italic; }
+
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SHARED ── */
+  section { padding: 96px 8%; }
+
+  .eyebrow {
+    display: block; font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sand); margin-bottom: 14px;
+  }
+
+  .section-soft {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: clamp(22px, 3vw, 30px);
+    color: var(--sand-dark); margin-bottom: 6px; display: block;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700; line-height: 1.1;
+    color: var(--text); letter-spacing: -0.3px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
-  .comp-badge.gap { background: var(--gold-light); color: var(--brown); }
-  .comp-badge.rib { background: #d8e8d8; color: var(--sage-dark); }
+  .section-body { font-size: 16px; color: var(--text-mid); line-height: 1.75; max-width: 540px; }
 
-  /* ── AUDIENCE PROFILE ── */
-  .audience-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  /* ── FOR YOU ── */
+  .for-you { background: var(--white); }
+
+  .for-you-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
   }
 
-  .audience-card {
-    background: var(--warm-white);
+  .for-you-left .section-soft { margin-bottom: 6px; }
+  .for-you-left .section-title { margin-bottom: 28px; }
+  .for-you-left p { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 32px; }
+
+  .feeling-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text); margin-bottom: 16px; display: block;
+  }
+
+  .for-you-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .for-you-list li {
+    background: var(--cream-soft);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
-
-  .audience-card-title {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--sage);
-    margin-bottom: 14px;
-  }
-
-  .audience-item {
-    font-size: 13px;
-    color: var(--text-mid);
-    padding: 5px 0;
-    border-bottom: 1px solid var(--border);
-    line-height: 1.4;
-    display: flex;
-    gap: 8px;
-  }
-
-  .audience-item:last-child { border-bottom: none; }
-
-  .pain-point {
-    background: #fdf0ef;
-    border-left: 3px solid #e74c3c;
-    padding: 8px 12px;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 8px;
-    font-size: 13px;
+    border-radius: 100px;
+    padding: 13px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
     color: var(--text-mid);
   }
 
-  /* ── OPPORTUNITIES ── */
-  .opp-list { display: flex; flex-direction: column; gap: 14px; }
+  .for-you-right { padding-top: 8px; }
 
-  .opp-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 20px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    transition: border-color 0.2s;
+  .scripture-pull {
+    background: var(--sand-pale);
+    border-radius: 20px; padding: 36px 40px; margin-bottom: 32px;
   }
 
-  .opp-card:hover { border-color: var(--gold); }
+  .scripture-pull p {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 26px;
+    color: var(--text); line-height: 1.45; margin-bottom: 14px;
+  }
 
-  .opp-num {
-    min-width: 36px;
-    height: 36px;
-    background: var(--sage-dark);
-    color: var(--gold-light);
+  .scripture-pull cite {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--text-light); font-style: normal;
+  }
+
+  .resets-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+  .reset-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 24px;
+  }
+
+  .reset-num-circle {
+    min-width: 40px; height: 40px;
+    background: var(--sand-pale); border: 1.5px solid var(--sand);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700; color: var(--sand-dark);
   }
 
-  .opp-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--sage-dark);
-    margin-bottom: 4px;
+  .reset-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text); margin-bottom: 4px;
   }
 
-  .opp-body {
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.5;
+  .reset-desc { font-size: 13.5px; color: var(--text-light); line-height: 1.55; }
+
+  /* ── PRODUCTS ── */
+  .products { background: var(--cream-soft); }
+
+  .products-inner { max-width: 1100px; margin: 0 auto; }
+
+  .products-header { text-align: center; margin-bottom: 60px; }
+  .products-header .section-soft { display: block; text-align: center; }
+  .products-header .section-title { margin-bottom: 14px; }
+  .products-header p { font-size: 14px; color: var(--text-light); margin-top: 12px; }
+
+  .products-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
   }
 
-  /* ── PROFILE SECTION ── */
-  .profile-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  .product-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 24px; padding: 40px 32px;
+    display: flex; flex-direction: column; position: relative;
+    transition: box-shadow 0.25s, transform 0.2s;
   }
 
-  .highlight-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 16px;
+  .product-card:hover { box-shadow: 0 16px 48px rgba(196,168,130,0.15); transform: translateY(-4px); }
+
+  .product-card.featured {
+    background: var(--sand-pale);
+    border-color: var(--sand);
   }
 
-  .highlight-card {
-    background: var(--warm-white);
+  .featured-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--sand); color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 18px; border-radius: 100px; white-space: nowrap;
+  }
+
+  .product-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sand); margin-bottom: 12px;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 28px; font-weight: 700; color: var(--text);
+    line-height: 1.2; margin-bottom: 14px;
+  }
+
+  .product-desc {
+    font-size: 14px; color: var(--text-mid);
+    line-height: 1.65; margin-bottom: 24px; flex: 1;
+  }
+
+  .product-includes {
+    list-style: none; margin-bottom: 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .product-includes li {
+    font-size: 13px; color: var(--text-mid);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.45;
+  }
+
+  .product-includes li::before {
+    content: '✓'; color: var(--sand);
+    font-weight: 700; font-size: 12px; min-width: 14px; margin-top: 1px;
+  }
+
+  .product-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+
+  .product-price-block { margin-bottom: 22px; }
+
+  .product-price {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 52px; font-weight: 700; color: var(--text); line-height: 1;
+  }
+
+  .product-price-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; color: var(--text-light);
+    margin-top: 4px; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .product-savings {
+    display: inline-block; background: var(--sand);
+    color: var(--white); font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700;
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; letter-spacing: 1px;
+  }
+
+  .btn-product {
+    display: block; text-align: center; text-decoration: none;
+    padding: 14px 24px; border-radius: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .btn-sand { background: var(--sand); color: var(--white); box-shadow: 0 4px 16px rgba(196,168,130,0.3); }
+  .btn-sand:hover { background: var(--sand-dark); }
+
+  .btn-outline-sand { background: transparent; color: var(--sand-dark); border: 1.5px solid var(--sand); }
+  .btn-outline-sand:hover { background: var(--sand); color: var(--white); }
+
+  .product-note { text-align: center; font-size: 11px; color: var(--text-light); margin-top: 10px; }
+
+  /* ── WHAT'S INSIDE ── */
+  .inside { background: var(--white); }
+
+  .inside-inner { max-width: 1100px; margin: 0 auto; }
+  .inside-header { margin-bottom: 48px; }
+
+  .inside-tabs {
+    display: flex; gap: 10px; margin-bottom: 44px; flex-wrap: wrap;
+  }
+
+  .inside-tab {
+    padding: 10px 24px; font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; border: 1.5px solid var(--border);
+    background: var(--white); color: var(--text-light);
+    border-radius: 100px; transition: all 0.2s;
+  }
+
+  .inside-tab:hover { border-color: var(--sand); color: var(--sand-dark); }
+  .inside-tab.active { background: var(--sand); color: var(--white); border-color: var(--sand); }
+
+  .inside-panel { display: none; }
+  .inside-panel.active { display: block; }
+
+  .inside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .inside-card {
+    background: var(--cream-soft); border-radius: 20px; padding: 32px 28px;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    text-align: center;
-  }
-
-  .highlight-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 8px;
-    font-size: 20px;
-    background: var(--cream);
-  }
-
-  .highlight-name {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--sage-dark);
-    margin-bottom: 6px;
-  }
-
-  .highlight-desc {
-    font-size: 10px;
-    color: var(--text-light);
-    line-height: 1.4;
-  }
-
-  /* ── PILLARS ── */
-  .pillar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 28px; }
-
-  .pillar-card {
-    border-radius: 10px;
-    padding: 16px 12px;
-    text-align: center;
-    cursor: pointer;
     transition: transform 0.2s;
   }
 
-  .pillar-card:hover { transform: translateY(-3px); }
+  .inside-card:hover { transform: translateY(-2px); }
 
-  .pillar-card.p1 { background: #f0f7f0; border: 1px solid #b8d8b8; }
-  .pillar-card.p2 { background: #fdf8ef; border: 1px solid var(--gold-light); }
-  .pillar-card.p3 { background: #fdf0ef; border: 1px solid #f5c6c2; }
-  .pillar-card.p4 { background: #f0f4f8; border: 1px solid #c0d0e0; }
-  .pillar-card.p5 { background: #f8f0f5; border: 1px solid #e0c0d0; }
-
-  .pillar-icon { font-size: 24px; margin-bottom: 8px; }
-  .pillar-name { font-size: 11px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
-  .pillar-pct { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--sage-dark); }
-  .pillar-goal { font-size: 10px; color: var(--text-light); margin-top: 4px; }
-
-  /* ── WEEKLY SCHEDULE ── */
-  .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
-
-  .day-card {
-    border-radius: 8px;
-    padding: 10px 6px;
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.4;
+  .inside-card-num {
+    width: 40px; height: 40px; background: var(--sand-pale);
+    border: 1.5px solid var(--sand); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--sand-dark); margin-bottom: 16px;
   }
 
-  .day-card .day-name {
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-    color: var(--text-light);
+  .inside-card-title {
+    font-family: 'Cormorant Garant', serif;
+    font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px;
   }
 
-  .day-card .day-type {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 4px;
+  .inside-card-body { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--sand-pale); }
+
+  .about-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 340px 1fr;
+    gap: 72px; align-items: center;
   }
 
-  .day-card .day-desc { font-size: 10px; color: var(--text-light); }
+  .about-photo-wrap { display: flex; justify-content: center; }
 
-  .day-card.d1 { background: #f0f7f0; border: 1px solid #b8d8b8; }
-  .day-card.d2 { background: #fdf8ef; border: 1px solid var(--gold-light); }
-  .day-card.d3 { background: #fdf0ef; border: 1px solid #f5c6c2; }
-  .day-card.d4 { background: #f0f4f8; border: 1px solid #c0d0e0; }
-  .day-card.d5 { background: #f8f0f5; border: 1px solid #e0c0d0; }
-  .day-card.d6 { background: #f5f5f5; border: 1px solid #ddd; }
-  .day-card.d7 { background: #f0f7f0; border: 1px solid #b8d8b8; }
-
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 24px; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 6px; top: 0; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--sage-dark), var(--gold), var(--sage));
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: 20px;
-    padding-left: 20px;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    left: -23px;
-    top: 6px;
-    width: 14px;
-    height: 14px;
+  .about-photo {
+    width: 300px; height: 300px;
     border-radius: 50%;
-    border: 2px solid var(--warm-white);
-    z-index: 1;
+    object-fit: cover;
+    border: 6px solid var(--white);
+    box-shadow: 0 12px 48px rgba(196,168,130,0.25);
   }
 
-  .timeline-item:nth-child(1) .timeline-dot { background: var(--sage-dark); }
-  .timeline-item:nth-child(2) .timeline-dot { background: var(--sage); }
-  .timeline-item:nth-child(3) .timeline-dot { background: var(--gold); }
-  .timeline-item:nth-child(4) .timeline-dot { background: var(--blush); }
-  .timeline-item:nth-child(5) .timeline-dot { background: var(--brown); }
-  .timeline-item:nth-child(6) .timeline-dot { background: var(--gold); }
-
-  .timeline-month {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--sage-dark);
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .timeline-target {
-    display: inline-block;
-    background: var(--sage-dark);
-    color: var(--gold-light);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-  }
-
-  .timeline-body {
-    font-size: 12.5px;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
-
-  /* ── SCRIPTS ── */
-  .script-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-
-  .script-header {
-    background: var(--sage-dark);
-    color: rgba(255,255,255,0.9);
-    padding: 10px 16px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .script-body { padding: 16px; }
-
-  .script-row {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 12px;
-    margin-bottom: 10px;
-    align-items: baseline;
-  }
-
-  .script-label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gold);
-  }
-
-  .script-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--text-dark);
-    line-height: 1.5;
-  }
-
-  .hook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-  .hook-chip {
-    background: var(--sage-dark);
-    color: var(--cream);
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    line-height: 1.4;
-  }
-
-  .cta-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-
-  .cta-card {
-    text-align: center;
-    padding: 12px 8px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-  }
-
-  .cta-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 6px; }
-  .cta-text { font-size: 11px; color: var(--text-mid); line-height: 1.4; font-style: italic; }
-  .cta-card.saves { border-color: #b8d8b8; background: #f0f7f0; }
-  .cta-card.shares { border-color: var(--gold-light); background: #fdf8ef; }
-  .cta-card.comments { border-color: #f5c6c2; background: #fdf0ef; }
-  .cta-card.follow { border-color: #c0d0e0; background: #f0f4f8; }
-  .cta-card.bio { border-color: #e0c0d0; background: #f8f0f5; }
-
-  /* ── FUNNEL ── */
-  .funnel-steps {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    position: relative;
-    margin-bottom: 28px;
-  }
-
-  .funnel-step {
-    text-align: center;
-    padding: 16px 10px;
-    position: relative;
-  }
-
-  .funnel-step:not(:last-child)::after {
-    content: '→';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: var(--gold);
-    z-index: 1;
-  }
-
-  .funnel-circle {
-    width: 48px;
-    height: 48px;
+  .about-photo-placeholder {
+    width: 300px; height: 300px;
     border-radius: 50%;
-    background: var(--sage-dark);
-    color: var(--gold-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 auto 10px;
+    background: var(--cream-mid);
+    border: 6px solid var(--white);
+    box-shadow: 0 12px 48px rgba(196,168,130,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garant', serif; font-style: italic;
+    font-size: 14px; color: var(--text-light); text-align: center; padding: 32px;
   }
 
-  .funnel-title { font-size: 11px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
-  .funnel-desc { font-size: 10px; color: var(--text-light); line-height: 1.4; }
+  .about .eyebrow { margin-bottom: 10px; }
+  .about .section-soft { margin-bottom: 4px; }
+  .about .section-title { margin-bottom: 24px; font-size: clamp(24px, 3.5vw, 40px); }
 
-  .product-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
-  .product-table th {
-    background: var(--sage-dark);
-    color: rgba(255,255,255,0.85);
-    padding: 8px 14px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+  .about p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 16px; }
+
+  .about-sig {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 30px; color: var(--sand-dark); margin-top: 24px;
   }
 
-  .product-table th:first-child { border-radius: 8px 0 0 0; }
-  .product-table th:last-child { border-radius: 0 8px 0 0; }
+  /* ── PROOF ── */
+  .proof { background: var(--cream-soft); }
 
-  .product-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-mid); }
-  .product-table tr:last-child td { border-bottom: none; }
+  .proof-inner { max-width: 1100px; margin: 0 auto; }
+  .proof-header { text-align: center; margin-bottom: 52px; }
+  .proof-header .section-soft { display: block; text-align: center; }
 
-  .lead-badge { background: var(--gold); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-left: 6px; }
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
-  /* ── KPIs ── */
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
-
-  .kpi-card {
-    background: var(--warm-white);
+  .proof-card {
+    background: var(--white); border-radius: 20px; padding: 32px 28px;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-    text-align: center;
+    transition: transform 0.2s;
   }
 
-  .kpi-current { font-size: 11px; color: var(--text-light); margin-bottom: 2px; }
-  .kpi-now { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #c0392b; }
-  .kpi-arrow { font-size: 14px; color: var(--gold); margin: 4px 0; }
-  .kpi-target { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--sage-dark); }
-  .kpi-label { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+  .proof-card:hover { transform: translateY(-2px); }
 
-  .boost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .proof-stars { color: var(--sand); font-size: 14px; letter-spacing: 3px; margin-bottom: 18px; }
 
-  .boost-item {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
+  .proof-text {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 20px;
+    color: var(--text); line-height: 1.55; margin-bottom: 20px;
   }
 
-  .boost-icon { font-size: 18px; min-width: 20px; }
-  .boost-title { font-size: 12.5px; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
-  .boost-desc { font-size: 11.5px; color: var(--text-light); line-height: 1.4; }
-
-  /* ── ACTION PLAN ── */
-  .action-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  .checklist-section {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
+  .proof-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--text-light);
   }
 
-  .checklist-title {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--sage);
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
+  /* ── FREE GUIDE ── */
+  .free-guide { background: var(--cream-mid); }
+
+  .free-guide-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+
+  .free-guide .section-soft { display: block; text-align: center; }
+  .free-guide .section-title { margin-bottom: 18px; }
+
+  .free-guide-body { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 36px; }
+
+  .free-guide-bullets {
+    list-style: none; text-align: left; max-width: 400px;
+    margin: 0 auto 44px; display: flex; flex-direction: column; gap: 0;
   }
 
-  .check-item {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 6px 0;
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.4;
+  .free-guide-bullets li {
+    display: flex; gap: 14px; font-size: 15px; color: var(--text-mid);
+    align-items: flex-start; line-height: 1.5;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
   }
 
-  .checkbox {
-    min-width: 18px;
-    height: 18px;
-    border: 1.5px solid var(--sage-light);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-top: 1px;
-    transition: all 0.2s;
+  .free-guide-bullets li:last-child { border-bottom: none; }
+  .free-guide-bullets li::before { content: '✦'; color: var(--sand); font-size: 10px; margin-top: 4px; }
+
+  .opt-in-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+
+  .opt-in-form input {
+    flex: 1; padding: 15px 22px;
+    border: 1.5px solid var(--border); border-radius: 100px;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    background: var(--white); color: var(--text); outline: none;
+    transition: border-color 0.2s;
   }
 
-  .checkbox:hover { border-color: var(--sage-dark); background: #f0f7f0; }
-  .checkbox.checked { background: var(--sage-dark); border-color: var(--sage-dark); }
-  .checkbox.checked::after { content: '✓'; color: #fff; font-size: 11px; }
+  .opt-in-form input:focus { border-color: var(--sand); }
+  .opt-in-form input::placeholder { color: var(--text-light); }
 
-  .brand-statement-box {
-    background: var(--sage-dark);
-    border-radius: 12px;
-    padding: 24px 28px;
-    text-align: center;
-    margin-top: 20px;
+  .opt-in-form button {
+    padding: 15px 28px; background: var(--sand); color: var(--white);
+    border: none; border-radius: 100px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(196,168,130,0.3);
   }
 
-  .brand-statement-box p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.6;
-    margin-bottom: 16px;
+  .opt-in-form button:hover { background: var(--sand-dark); }
+  .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.5px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45);
+    padding: 56px 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
   }
 
-  .goal-chips { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-  .goal-chip {
-    background: rgba(201,168,76,0.2);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold-light);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
+  .footer-logo {
+    font-family: 'Cormorant Garant', serif;
+    font-style: italic; font-size: 26px; font-weight: 600;
+    color: var(--white); margin-bottom: 6px;
   }
+
+  .footer-copy { font-size: 11px; line-height: 1.7; }
+
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
+
+  .footer-links a {
+    text-decoration: none; color: rgba(255,255,255,0.4);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .sidebar { display: none; }
-    .swot-grid { grid-template-columns: 1fr; }
-    .pillar-grid { grid-template-columns: repeat(3, 1fr); }
-    .week-grid { grid-template-columns: repeat(4, 1fr); }
-    .audience-grid { grid-template-columns: 1fr; }
-    .highlight-row { grid-template-columns: repeat(2, 1fr); }
-    .funnel-steps { grid-template-columns: 1fr; }
-    .cta-grid { grid-template-columns: repeat(3, 1fr); }
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .action-cols { grid-template-columns: 1fr; }
-    .hook-grid { grid-template-columns: 1fr; }
+  @media (max-width: 860px) {
+    nav { padding: 0 5%; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: var(--cream); border-bottom: 1px solid var(--border);
+      padding: 24px 6%; gap: 20px; align-items: flex-start;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+    .nav-mobile-toggle { display: flex; }
+    .hero { padding: 64px 6%; min-height: 75vh; }
+    .for-you-inner { grid-template-columns: 1fr; gap: 48px; }
+    .products-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .inside-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .about-photo-wrap { margin: 0 auto; }
+    .proof-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .opt-in-form { flex-direction: column; }
+    footer { flex-direction: column; align-items: flex-start; }
+    section { padding: 72px 6%; }
   }
+
 </style>
 </head>
 <body>
 
-<div class="app">
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rooted in Bloom</a>
+  <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#free-guide">Free Guide</a></li>
+    <li><a href="#products" class="nav-cta">Get the Bundle</a></li>
+  </ul>
+</nav>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="logo">
-        Rooted in Bloom Co.
-        <span>Instagram Growth Strategy</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-soft-label">For the mom who is ready —</span>
+    <h1>Stop Surviving.<br>Start Coming Back.</h1>
+    <p class="hero-tagline">For the mom who loves God and her kids,<br>but has quietly lost herself somewhere in the middle.</p>
+    <p class="hero-body">Faith-filled resources for the mom who is done just getting through the day. Simple, honest, and built for the life you are actually living.</p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-primary">Shop the Collection</a>
+      <a href="#free-guide" class="btn-secondary">Get the Free Reset</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
+    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
+  </div>
+</div>
+
+<!-- FOR YOU -->
+<section class="for-you">
+  <div class="for-you-inner">
+    <div class="for-you-left">
+      <span class="section-soft">This is for you</span>
+      <h2 class="section-title">Motherhood Was Meant to Feel Different Than This.</h2>
+      <p>You love your family deeply. But somewhere along the way you stopped recognising yourself — and you're not sure how to find your way back.</p>
+      <span class="feeling-label">You are probably feeling...</span>
+      <ul class="for-you-list">
+        <li>Like a stranger in your own life</li>
+        <li>Disconnected from God and your faith</li>
+        <li>Exhausted and running on empty</li>
+        <li>Guilty for wanting more</li>
+        <li>Unsure where to even start</li>
+        <li>Like you've lost who you were before</li>
+      </ul>
+    </div>
+    <div class="for-you-right">
+      <div class="scripture-pull">
+        <p>"Come to me, all you who are weary and burdened, and I will give you rest."</p>
+        <cite>Matthew 11:28</cite>
+      </div>
+      <ul class="resets-list">
+        <li class="reset-item">
+          <div class="reset-num-circle">01</div>
+          <div>
+            <div class="reset-label">Faith Reset</div>
+            <div class="reset-desc">Coming back to God — not with perfect words, but with one honest moment.</div>
+          </div>
+        </li>
+        <li class="reset-item">
+          <div class="reset-num-circle">02</div>
+          <div>
+            <div class="reset-label">Identity Reset</div>
+            <div class="reset-desc">Remembering who you are beneath all the doing and giving and surviving.</div>
+          </div>
+        </li>
+        <li class="reset-item">
+          <div class="reset-num-circle">03</div>
+          <div>
+            <div class="reset-label">Motherhood Reset</div>
+            <div class="reset-desc">Building a gentle rhythm — not a perfect routine — that gives your days back to you.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="products-header">
+      <span class="section-soft">The Collection</span>
+      <h2 class="section-title">Resources Built for the Mom Who Keeps Showing Up</h2>
+      <p>Instant digital download · Read anywhere, on any device, today</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <p class="product-type">Devotional Planner</p>
+        <h3 class="product-name">Rooted Mom Devotional Planner</h3>
+        <p class="product-desc">Your daily companion for the mom who is learning to thrive. A simple space to come back to yourself — day by day, with grace.</p>
+        <ul class="product-includes">
+          <li>Daily scripture study pages</li>
+          <li>Guided prayer prompts</li>
+          <li>Weekly rhythm check-ins</li>
+          <li>Reset prompts for hard days</li>
+          <li>Space to write one honest thing</li>
+        </ul>
+        <div class="product-divider"></div>
+        <div class="product-price-block">
+          <div class="product-price">$17</div>
+          <div class="product-price-note">Instant PDF download</div>
+        </div>
+        <a href="#" class="btn-product btn-outline-sand">Get Instant Access</a>
+        <p class="product-note">PDF · Download immediately</p>
+      </div>
+
+      <div class="product-card featured">
+        <span class="featured-badge">Best Value — Save $9</span>
+        <p class="product-type">Bundle</p>
+        <h3 class="product-name">The Rooted Mom Bundle</h3>
+        <p class="product-desc">Both resources. One purpose. Start with the ebook — then use the planner to live it out, every single day.</p>
+        <ul class="product-includes">
+          <li>From Surviving to Thriving Ebook ($37 value)</li>
+          <li>Rooted Mom Devotional Planner ($17 value)</li>
+          <li>Instant access to both PDFs</li>
+          <li>Read anywhere, on any device</li>
+        </ul>
+        <div class="product-divider"></div>
+        <span class="product-savings">You save $9</span>
+        <div class="product-price-block">
+          <div class="product-price">$45</div>
+          <div class="product-price-note">for both · instant download</div>
+        </div>
+        <a href="#" class="btn-product btn-sand">Get the Bundle →</a>
+        <p class="product-note">2 PDFs · Download immediately</p>
+      </div>
+
+      <div class="product-card">
+        <p class="product-type">Ebook</p>
+        <h3 class="product-name">From Surviving to Thriving in Motherhood</h3>
+        <p class="product-desc">For the mom who is done just getting through the day. Real stories, honest truth, and the three resets that changed everything.</p>
+        <ul class="product-includes">
+          <li>Faith Reset — coming back to God</li>
+          <li>Identity Reset — remembering who you are</li>
+          <li>Motherhood Reset — building your rhythm</li>
+          <li>Real stories from inside the hard seasons</li>
+          <li>Reflection prompts + next steps</li>
+        </ul>
+        <div class="product-divider"></div>
+        <div class="product-price-block">
+          <div class="product-price">$37</div>
+          <div class="product-price-note">Instant PDF download</div>
+        </div>
+        <a href="#" class="btn-product btn-outline-sand">Get Instant Access</a>
+        <p class="product-note">PDF · Download immediately</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside" id="inside">
+  <div class="inside-inner">
+    <div class="inside-header">
+      <span class="section-soft">What's Inside</span>
+      <h2 class="section-title">Simple. Honest. Built for Real Life.</h2>
+    </div>
+    <div class="inside-tabs">
+      <button class="inside-tab active" onclick="showPanel('ebook', this)">The Ebook</button>
+      <button class="inside-tab" onclick="showPanel('planner', this)">The Planner</button>
+    </div>
+    <div class="inside-panel active" id="panel-ebook">
+      <div class="inside-grid">
+        <div class="inside-card">
+          <div class="inside-card-num">01</div>
+          <h4 class="inside-card-title">Faith Reset</h4>
+          <p class="inside-card-body">For when God has been pushed to the bottom of the list. Not because you stopped believing — but because life got loud. One honest moment is all it takes to come back.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">02</div>
+          <h4 class="inside-card-title">Identity Reset</h4>
+          <p class="inside-card-body">Identity loss in motherhood happens quietly. A thousand small surrenders. This section names what you've been carrying and reminds you: that woman is not gone.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">03</div>
+          <h4 class="inside-card-title">Motherhood Reset</h4>
+          <p class="inside-card-body">Not a perfect routine — a gentle rhythm. A few intentional minutes before the day takes over. Anchor your day without needing a perfect morning.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">04</div>
+          <h4 class="inside-card-title">Real Stories & Honest Truth</h4>
+          <p class="inside-card-body">Written from inside the hard seasons, not from the other side. You will read this and think: she knows exactly what this feels like. Because she has lived it.</p>
+        </div>
       </div>
     </div>
-    <ul class="nav-list" id="navList">
-      <li class="nav-item active" onclick="goTo(0)">
-        <div class="nav-num">1</div>
-        <div class="nav-label">Cover</div>
-      </li>
-      <li class="nav-item" onclick="goTo(1)">
-        <div class="nav-num">2</div>
-        <div class="nav-label">Profile Audit</div>
-      </li>
-      <li class="nav-item" onclick="goTo(2)">
-        <div class="nav-num">3</div>
-        <div class="nav-label">SWOT Analysis</div>
-      </li>
-      <li class="nav-item" onclick="goTo(3)">
-        <div class="nav-num">4</div>
-        <div class="nav-label">Niche & Competitors</div>
-      </li>
-      <li class="nav-item" onclick="goTo(4)">
-        <div class="nav-num">5</div>
-        <div class="nav-label">Target Audience</div>
-      </li>
-      <li class="nav-item" onclick="goTo(5)">
-        <div class="nav-num">6</div>
-        <div class="nav-label">Key Opportunities</div>
-      </li>
-      <li class="nav-item" onclick="goTo(6)">
-        <div class="nav-num">7</div>
-        <div class="nav-label">Profile Optimization</div>
-      </li>
-      <li class="nav-item" onclick="goTo(7)">
-        <div class="nav-num">8</div>
-        <div class="nav-label">Content Strategy</div>
-      </li>
-      <li class="nav-item" onclick="goTo(8)">
-        <div class="nav-num">9</div>
-        <div class="nav-label">6-Month Plan</div>
-      </li>
-      <li class="nav-item" onclick="goTo(9)">
-        <div class="nav-num">10</div>
-        <div class="nav-label">Reels Scripts & Hooks</div>
-      </li>
-      <li class="nav-item" onclick="goTo(10)">
-        <div class="nav-num">11</div>
-        <div class="nav-label">Sales Strategy</div>
-      </li>
-      <li class="nav-item" onclick="goTo(11)">
-        <div class="nav-num">12</div>
-        <div class="nav-label">KPIs & Boosting</div>
-      </li>
-      <li class="nav-item" onclick="goTo(12)">
-        <div class="nav-num">13</div>
-        <div class="nav-label">Action Plan</div>
-      </li>
+    <div class="inside-panel" id="panel-planner">
+      <div class="inside-grid">
+        <div class="inside-card">
+          <div class="inside-card-num">01</div>
+          <h4 class="inside-card-title">Daily Scripture Pages</h4>
+          <p class="inside-card-body">A simple space to sit with one verse each day. No long study required. Just you, the Word, and a quiet corner — even if it's only five minutes.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">02</div>
+          <h4 class="inside-card-title">Guided Prayer Prompts</h4>
+          <p class="inside-card-body">For the days when you don't know what to say to God. These prompts give you the first sentence. From there, it's just you and Him.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">03</div>
+          <h4 class="inside-card-title">Weekly Rhythm Check-Ins</h4>
+          <p class="inside-card-body">A gentle weekly pause to see how you're really doing — not just how productive you were. Course-correct before the week runs away from you.</p>
+        </div>
+        <div class="inside-card">
+          <div class="inside-card-num">04</div>
+          <h4 class="inside-card-title">Reset Prompts</h4>
+          <p class="inside-card-body">For the hard days. These prompts bring you back to one honest thing. You don't fail a rhythm — you just return to it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo-wrap">
+      <img src="ally-photo.jpg" alt="Ally, founder of Rooted in Bloom" class="about-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="about-photo-placeholder" style="display:none;">Add your photo here</div>
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">Hey, there!</span>
+      <span class="section-soft">My name is Ally</span>
+      <h2 class="section-title">And I'm Here to Help You Come Back.</h2>
+      <p>There was a time I stopped talking to God. Not because I stopped believing. But because life got loud and somewhere in the noise He got pushed to the bottom of the list.</p>
+      <p>There was a morning I looked in the mirror and did not recognise myself. Not because anything was dramatically wrong — but because the woman looking back at me had slowly disappeared into everyone else's needs.</p>
+      <p>These resources did not come from the other side of the hard. They came from inside it. That is why they are different. And that is why I believe they can meet you exactly where you are.</p>
+      <div class="about-sig">With love, Ally</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="proof-inner">
+    <div class="proof-header">
+      <span class="section-soft">What Moms Are Saying</span>
+      <h2 class="section-title">She Said What I Couldn't Put Into Words.</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I cried reading the identity reset chapter. She said what I have been feeling but could not put into words. I did not know how much I needed this."</p>
+        <div class="proof-name">— Sarah M.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"The planner is the first one I have actually kept up with. It is not overwhelming. It is just enough to anchor my day. I reach for it every single morning."</p>
+        <div class="proof-name">— Jessica T.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I bought the bundle and finished the ebook in one sitting. I kept stopping to text passages to my mom friends. This is not just a book — it is permission."</p>
+        <div class="proof-name">— Rachel K.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE GUIDE -->
+<section class="free-guide" id="free-guide">
+  <div class="free-guide-inner">
+    <span class="eyebrow">Start here — completely free</span>
+    <span class="section-soft">The 3 Day Reset</span>
+    <h2 class="section-title">Not Ready to Buy? Start Here.</h2>
+    <p class="free-guide-body">Three days. Three honest moments. No perfect morning needed. Just you and this guide.</p>
+    <ul class="free-guide-bullets">
+      <li>Day 1 — Faith Reset: Coming back to God</li>
+      <li>Day 2 — Identity Reset: Remembering who you are</li>
+      <li>Day 3 — Motherhood Reset: Building your rhythm</li>
+      <li>10 minutes a day. Completely free.</li>
     </ul>
-    <div class="sidebar-footer">
-      Based on your Instagram data export,<br>
-      Notion strategy docs &amp; Google Drive audit.<br>
-      June 2026
-    </div>
-  </aside>
+    <form class="opt-in-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address" aria-label="Email address">
+      <button type="submit">Send It Free</button>
+    </form>
+    <p class="opt-in-note">No spam. Unsubscribe any time.</p>
+  </div>
+</section>
 
-  <!-- MAIN -->
-  <div class="main" id="mainContent">
-
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <div class="topbar-title" id="topbarTitle">Rooted in Bloom Co. — Instagram Growth Strategy</div>
-      <div class="topbar-nav">
-        <button class="btn btn-ghost" onclick="prev()">← Prev</button>
-        <span class="progress-text" id="progressText">1 / 13</span>
-        <button class="btn btn-gold" onclick="next()">Next →</button>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 1: COVER ─────────────── -->
-    <div class="slide cover-slide active" id="slide-0">
-      <div class="cover-tag">Instagram Growth Strategy · July – December 2026</div>
-      <h1 class="cover-title">Rooted in<br><em>Bloom Co.</em></h1>
-      <p class="cover-subtitle">From 136 followers to 10,000 in 6 months.</p>
-      <blockquote class="cover-statement">
-        "Being rooted doesn't mean having it all together —<br>it means you keep coming back."
-      </blockquote>
-      <div class="cover-products">
-        <div class="product-chip">
-          <div class="price">$47</div>
-          <div class="name">The Bundle</div>
-        </div>
-        <div class="product-chip">
-          <div class="price">$37</div>
-          <div class="name">From Surviving to Thriving</div>
-        </div>
-        <div class="product-chip">
-          <div class="price">$17</div>
-          <div class="name">Devotional Planner</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 2: AUDIT ─────────────── -->
-    <div class="slide" id="slide-1">
-      <div class="slide-header">
-        <div class="slide-tag">Profile Audit</div>
-        <h2 class="slide-title">Where We Are Right Now</h2>
-        <p class="slide-subtitle">Mar 4 – Jun 1, 2026 · 89 days of data</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-num">136</div>
-          <div class="stat-label">Current Followers</div>
-          <div class="stat-delta">+117 net this period</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num gold">5,612</div>
-          <div class="stat-label">Total Accounts Reached</div>
-          <div class="stat-delta">41× your follower count</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num green">410</div>
-          <div class="stat-label">Content Interactions</div>
-          <div class="stat-delta">+925% vs prior period</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num green">39</div>
-          <div class="stat-label">Reel Shares</div>
-          <div class="stat-delta">Exceptional for 136 followers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">236</div>
-          <div class="stat-label">Profile Visits</div>
-          <div class="stat-delta">4.2% visit rate</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num gold">55.5%</div>
-          <div class="stat-label">Profile-to-Follow Conversion</div>
-          <div class="stat-delta">Strong bio performance</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num red">2</div>
-          <div class="stat-label">Bio Link Taps (89 days)</div>
-          <div class="stat-delta">0.8% conversion — critical gap</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num red">0</div>
-          <div class="stat-label">Stories Posted</div>
-          <div class="stat-delta">Entire warm channel unused</div>
-        </div>
-      </div>
-
-      <div class="flag red">
-        <span class="flag-icon">🚨</span>
-        <div><strong>Critical:</strong> All 3 static posts were cross-posted from Facebook. Instagram's algorithm suppresses detected cross-posts — this is why static posts averaged only 5–61 impressions vs thousands from Reels.</div>
-      </div>
-      <div class="flag yellow">
-        <span class="flag-icon">⚠️</span>
-        <div><strong>Format split:</strong> Reels = 94.4% of all engagement · Static posts = 5.6% · Stories = 0% · Lives = 0%. The account is a single-format operation.</div>
-      </div>
-      <div class="flag green">
-        <span class="flag-icon">✅</span>
-        <div><strong>Real signal:</strong> 95.5% of engaged accounts are non-followers. Your Reels are already reaching cold audiences at a rate that belies your follower count. The content premise works.</div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 3: SWOT ─────────────── -->
-    <div class="slide" id="slide-2">
-      <div class="slide-header">
-        <div class="slide-tag">SWOT Analysis</div>
-        <h2 class="slide-title">Strengths, Weaknesses,<br>Opportunities & Threats</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="swot-grid">
-        <div class="swot-box s">
-          <div class="swot-label">💚 Strengths</div>
-          <div class="swot-item"><div class="swot-dot"></div>Emotionally resonant content premise — content stops scrollers</div>
-          <div class="swot-item"><div class="swot-dot"></div>39 shares on 136 followers — exceptional shareability signal</div>
-          <div class="swot-item"><div class="swot-dot"></div>95.5% non-follower reach — discovery engine already working</div>
-          <div class="swot-item"><div class="swot-dot"></div>55.5% profile-to-follow conversion — bio performing well</div>
-          <div class="swot-item"><div class="swot-dot"></div>Authentic lived-experience voice — "from inside the season"</div>
-          <div class="swot-item"><div class="swot-dot"></div>Two clear, positioned products with real origin stories</div>
-        </div>
-        <div class="swot-box w">
-          <div class="swot-label">🔴 Weaknesses</div>
-          <div class="swot-item"><div class="swot-dot"></div>Zero Stories posted — no warm-audience relationship channel</div>
-          <div class="swot-item"><div class="swot-dot"></div>All static posts Facebook cross-posted (algorithm suppressed)</div>
-          <div class="swot-item"><div class="swot-dot"></div>Only 2 bio link taps in 89 days — funnel entry not working</div>
-          <div class="swot-item"><div class="swot-dot"></div>No carousels in feed — highest save format untapped</div>
-          <div class="swot-item"><div class="swot-dot"></div>No email list or live lead magnet</div>
-          <div class="swot-item"><div class="swot-dot"></div>6 total comments — no comment community built yet</div>
-        </div>
-        <div class="swot-box o">
-          <div class="swot-label">🌿 Opportunities</div>
-          <div class="swot-item"><div class="swot-dot"></div>Underserved "raw honesty" lane in saturated faith-mom niche</div>
-          <div class="swot-item"><div class="swot-dot"></div>High share rate signals viral potential waiting to be tapped</div>
-          <div class="swot-item"><div class="swot-dot"></div>Identity carousels completely untouched — fastest save driver</div>
-          <div class="swot-item"><div class="swot-dot"></div>Seasonal spikes: Mother's Day, back-to-school, New Year</div>
-          <div class="swot-item"><div class="swot-dot"></div>Email list = audience you own outside the algorithm</div>
-          <div class="swot-item"><div class="swot-dot"></div>Trial Reels (2026 feature) for low-risk non-follower testing</div>
-        </div>
-        <div class="swot-box t">
-          <div class="swot-label">⚡ Threats</div>
-          <div class="swot-item"><div class="swot-dot"></div>Saturated Christian mom niche with established accounts</div>
-          <div class="swot-item"><div class="swot-dot"></div>Algorithm changes deprioritising passive-consumption content</div>
-          <div class="swot-item"><div class="swot-dot"></div>Cross-platform competition: TikTok, YouTube Shorts</div>
-          <div class="swot-item"><div class="swot-dot"></div>Burnout risk from unsustainable posting pace</div>
-          <div class="swot-item"><div class="swot-dot"></div>Continued Facebook cross-posting can permanently throttle growth</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 4: NICHE & COMPETITORS ─────────────── -->
-    <div class="slide" id="slide-3">
-      <div class="slide-header">
-        <div class="slide-tag">Niche & Competitor Analysis</div>
-        <h2 class="slide-title">Faith-Based Motherhood:<br>The Landscape</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="flag gold" style="margin-bottom:24px;">
-        <span class="flag-icon">🌿</span>
-        <div><strong>Your niche:</strong> Faith-based motherhood / Christian maternal burnout recovery. 250K+ active creators in the broader Christian family space. Demand for unfiltered honesty is growing and chronically underserved.</div>
-      </div>
-
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Tier</th>
-            <th>Accounts</th>
-            <th>Style</th>
-            <th>Weakness / Gap</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Tier 1</strong><br><span style="font-size:11px;color:var(--text-light)">100K+ followers</span></td>
-            <td>Risen Motherhood, The Joy Filled Podcast</td>
-            <td>Polished, curriculum-style, educational. High production value.</td>
-            <td><span class="comp-badge gap">Gap</span> Feel distant and aspirational. Don't name the mess from inside it.</td>
-          </tr>
-          <tr>
-            <td><strong>Tier 2</strong><br><span style="font-size:11px;color:var(--text-light)">10K–100K</span></td>
-            <td>Raw Christian mom creators</td>
-            <td>Story-led, personal, high shares. Growing fast.</td>
-            <td><span class="comp-badge gap">Gap</span> Often tip-forward after hook. Miss the "sit with her in it" angle.</td>
-          </tr>
-          <tr>
-            <td><strong>Tier 3</strong><br><span style="font-size:11px;color:var(--text-light)">Under 10K</span></td>
-            <td>Emerging faith-mom creators</td>
-            <td>High engagement rates, lower production, unpolished.</td>
-            <td><span class="comp-badge gap">Gap</span> Lack product infrastructure and consistent sales strategy.</td>
-          </tr>
-          <tr>
-            <td><strong>Rooted in Bloom</strong></td>
-            <td><span class="comp-badge rib">@rootedinbloomco_</span></td>
-            <td>NOT tips-based. NOT polished. NOT toxic positivity. Written from INSIDE the hard season, not from the other side.</td>
-            <td style="color:var(--sage-dark);font-weight:500;">This IS the gap. "Permission slip" content is chronically underserved across all tiers.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="flag green">
-          <span class="flag-icon">📡</span>
-          <div><strong>Distribution advantage:</strong> Reels reaching cold audiences at 41× your follower count. The algorithm already signals content-audience alignment. That is rare and real.</div>
-        </div>
-        <div class="flag gold">
-          <span class="flag-icon">🎯</span>
-          <div><strong>The white space:</strong> "Say the shame without fixing it" — permission slip content. Your Jun 1 post IS this format. You've done it once. It needs to be your primary engine.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 5: AUDIENCE ─────────────── -->
-    <div class="slide" id="slide-4">
-      <div class="slide-header">
-        <div class="slide-tag">Target Audience</div>
-        <h2 class="slide-title">She Is</h2>
-        <p class="slide-subtitle">The one specific woman you are trying to find — not everyone, her.</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="audience-grid">
-        <div class="audience-card">
-          <div class="audience-card-title">📊 Demographics</div>
-          <div class="audience-item"><span>👩</span>Women aged 25–44 (68.5% of your current audience)</div>
-          <div class="audience-item"><span>🌍</span>Primarily US, UK, Australia, Canada</div>
-          <div class="audience-item"><span>✝️</span>Christian faith background</div>
-          <div class="audience-item"><span>👶</span>Mother of young children (toddler to early school age)</div>
-          <div class="audience-item"><span>🏠</span>Middle-income household, likely college-educated</div>
-          <div class="audience-item"><span>📱</span>Active on Instagram and Facebook; likely uses Pinterest</div>
-        </div>
-        <div class="audience-card">
-          <div class="audience-card-title">🧠 Psychographics</div>
-          <div class="audience-item"><span>💚</span>Loves her kids deeply but feels invisible in her own life</div>
-          <div class="audience-item"><span>⚖️</span>Carries the entire mental and emotional load</div>
-          <div class="audience-item"><span>🙏</span>Faith used to feel close — now feels dry or distant</div>
-          <div class="audience-item"><span>📓</span>Has tried planners, devotionals and routines — quit all of them</div>
-          <div class="audience-item"><span>💬</span>Does NOT want to be fixed — wants to feel understood</div>
-          <div class="audience-item"><span>🤫</span>Would never say "I'm struggling" because it sounds ungrateful</div>
-        </div>
-
-        <div class="audience-card" style="grid-column:1;">
-          <div class="audience-card-title">💔 Pain Points</div>
-          <div class="pain-point">Feeling invisible and unseen in the home</div>
-          <div class="pain-point">No village, no support system, no backup plan</div>
-          <div class="pain-point">Constant overstimulation and decision fatigue</div>
-          <div class="pain-point">Spiritual dryness and guilt about feeling distant from God</div>
-          <div class="pain-point">Lost sense of identity outside of "mom"</div>
-          <div class="pain-point">Crying in private, feeling like a failure — quietly</div>
-        </div>
-
-        <div class="audience-card" style="grid-column:2;">
-          <div class="audience-card-title">🌱 What She Wants</div>
-          <div class="audience-item"><span>🤍</span>Someone who names what she's carrying without judging it</div>
-          <div class="audience-item"><span>🕊️</span>Permission to be imperfect and still be loved by God</div>
-          <div class="audience-item"><span>🚪</span>A gentle, low-barrier way back to herself and her faith</div>
-          <div class="audience-item"><span>😮</span>Content that makes her think: "How did she know exactly what I'm going through?"</div>
-          <div class="audience-item"><span>📖</span>5 minutes and a page to write one honest thing — not a system</div>
-          <div class="audience-item"><span>🫂</span>To feel less alone in the quiet, relentless, invisible hard</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 6: OPPORTUNITIES ─────────────── -->
-    <div class="slide" id="slide-5">
-      <div class="slide-header">
-        <div class="slide-tag">Key Growth Opportunities</div>
-        <h2 class="slide-title">6 Levers That Will Move<br>the Needle</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="opp-list">
-        <div class="opp-card">
-          <div class="opp-num">1</div>
-          <div>
-            <div class="opp-title">Identity Carousels — "For the mom who…"</div>
-            <div class="opp-body">Drives saves + shares at scale. Zero carousels posted to date = completely untapped engine. Each carousel slide should feel like turning a page in a simple story. Cover = identity hook. Final slide = faith encouragement.</div>
-          </div>
-        </div>
-        <div class="opp-card">
-          <div class="opp-num">2</div>
-          <div>
-            <div class="opp-title">Stories — The Relationship Bridge</div>
-            <div class="opp-body">Reels bring strangers in. Stories make them stay. Zero Stories posted = no warm community whatsoever. Starting Stories today converts your 95.5% cold-reach followers into loyal regulars. Polls, behind-the-scenes, honest check-ins.</div>
-          </div>
-        </div>
-        <div class="opp-card">
-          <div class="opp-num">3</div>
-          <div>
-            <div class="opp-title">Lead Magnet + Email List — The Owned Audience</div>
-            <div class="opp-body">236 profile visits, only 2 link taps (0.8%). A free PDF — "5 Things Nobody Tells You About Losing Yourself in Motherhood" — captures emails and owns the relationship outside Instagram. Set up on Flodesk or ConvertKit free tier.</div>
-          </div>
-        </div>
-        <div class="opp-card">
-          <div class="opp-num">4</div>
-          <div>
-            <div class="opp-title">Comment Bait Posts — Algorithm Priority</div>
-            <div class="opp-body">6 total comments in 89 days is the weakest metric on the account. Instagram 2026 weights comment velocity heavily. One direct question per post — "Drop a 🤍 if you've cried in the car this week" — can 10× comment volume with zero extra effort.</div>
-          </div>
-        </div>
-        <div class="opp-card">
-          <div class="opp-num">5</div>
-          <div>
-            <div class="opp-title">Trial Reels — Low-Risk Testing</div>
-            <div class="opp-body">Instagram's 2026 Trial Reels feature shows content to non-followers first before your existing audience sees it. Test new hooks without risking your current community's trust. Ideal for experimenting with content that feels different from your current tone.</div>
-          </div>
-        </div>
-        <div class="opp-card">
-          <div class="opp-num">6</div>
-          <div>
-            <div class="opp-title">Seasonal Viral Moments</div>
-            <div class="opp-body">Mother's Day, back-to-school, New Year devotional content spikes reach in the faith-mom niche annually without fail. Each is a planned virality window. Your Sept back-to-school push and Dec New Year reset series are key momentum builders for the 10K push.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 7: PROFILE OPTIMIZATION ─────────────── -->
-    <div class="slide" id="slide-6">
-      <div class="slide-header">
-        <div class="slide-tag">Profile Optimization</div>
-        <h2 class="slide-title">Bio, Highlights & Profile Mistakes</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="profile-grid" style="margin-bottom:24px;">
-        <div>
-          <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sage);margin-bottom:12px;">✍️ Bio Rewrite</div>
-            <div style="font-size:13px;color:var(--text-mid);margin-bottom:12px;">Replace current bio with:</div>
-            <div style="background:var(--sage-dark);color:rgba(255,255,255,0.9);padding:14px;border-radius:8px;font-style:italic;font-size:14px;line-height:1.6;font-family:'Playfair Display',serif;">
-              "For the mom who loves her kids but lost herself somewhere in the middle. Faith, identity, and the honest parts nobody posts about. [Free resource link]"
-            </div>
-            <div style="font-size:11px;color:var(--text-light);margin-top:8px;">Speaks to the lost mom, not the thriving one. She reads it and thinks: this is for me.</div>
-          </div>
-
-          <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:20px;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sage);margin-bottom:12px;">📌 3 Pinned Posts</div>
-            <div class="audience-item"><span>1.</span>"What is Rooted in Bloom?" — welcome carousel (pin first)</div>
-            <div class="audience-item"><span>2.</span>Best-performing permission-slip Reel</div>
-            <div class="audience-item"><span>3.</span>Product origin story ("I wrote this because…")</div>
-          </div>
-        </div>
-        <div>
-          <div style="background:#fdf0ef;border:1px solid #f5c6c2;border-radius:12px;padding:20px;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8b2a22;margin-bottom:12px;">🚨 Profile Mistakes to Fix</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>Stop cross-posting from Facebook to Instagram — permanently</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>Add a CTA to every single post (save, share, comment, or link)</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>Bio link converting at 0.8% — replace with lead magnet page</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>No carousels in feed — add 2 per week immediately</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>Name field has no keywords — add "Faith | Motherhood | Christian Mom"</div>
-            <div class="swot-item" style="color:#8b2a22;"><div class="swot-dot"></div>No Stories in 89 days — start immediately, daily</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:12px;">Story Highlights — 4 Recommended Covers</div>
-      <div class="highlight-row">
-        <div class="highlight-card">
-          <div class="highlight-circle">🌱</div>
-          <div class="highlight-name">Start Here</div>
-          <div class="highlight-desc">Who you are · What this account is · Free resource · Products · "DM me anytime"</div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-circle">🛍️</div>
-          <div class="highlight-name">The Shop</div>
-          <div class="highlight-desc">Bundle $47 · Ebook $37 · Planner $17 · Origin stories · Warm no-pressure close</div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-circle">💛</div>
-          <div class="highlight-name">For Moms</div>
-          <div class="highlight-desc">Best permission-slip + identity posts saved as highlight frames</div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-circle">✝️</div>
-          <div class="highlight-name">Faith</div>
-          <div class="highlight-desc">Best faith encouragement + scripture + "God meets you in the mess" content</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 8: CONTENT STRATEGY ─────────────── -->
-    <div class="slide" id="slide-7">
-      <div class="slide-header">
-        <div class="slide-tag">Content Strategy</div>
-        <h2 class="slide-title">5 Pillars + Weekly Rhythm</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="pillar-grid">
-        <div class="pillar-card p1">
-          <div class="pillar-icon">🌿</div>
-          <div class="pillar-name">Identity</div>
-          <div class="pillar-pct">35%</div>
-          <div class="pillar-goal">Saves + Shares<br>"For the mom who…"</div>
-        </div>
-        <div class="pillar-card p2">
-          <div class="pillar-icon">✝️</div>
-          <div class="pillar-name">Faith</div>
-          <div class="pillar-pct">25%</div>
-          <div class="pillar-goal">Reach + New Followers<br>Discovery engine</div>
-        </div>
-        <div class="pillar-card p3">
-          <div class="pillar-icon">🤍</div>
-          <div class="pillar-name">Permission Slip</div>
-          <div class="pillar-pct">20%</div>
-          <div class="pillar-goal">Comments + Shares<br>Most emotionally explosive</div>
-        </div>
-        <div class="pillar-card p4">
-          <div class="pillar-icon">📖</div>
-          <div class="pillar-name">Practical Faith</div>
-          <div class="pillar-pct">10%</div>
-          <div class="pillar-goal">Saves<br>High bookmark value</div>
-        </div>
-        <div class="pillar-card p5">
-          <div class="pillar-icon">🛍️</div>
-          <div class="pillar-name">Soft Sell</div>
-          <div class="pillar-pct">10%</div>
-          <div class="pillar-goal">Bio clicks + Sales<br>Every 4th–5th post</div>
-        </div>
-      </div>
-
-      <div style="font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:12px;">Weekly Posting Rhythm</div>
-      <div class="week-grid" style="margin-bottom:24px;">
-        <div class="day-card d1">
-          <div class="day-name">Mon</div>
-          <div class="day-type">Identity</div>
-          <div class="day-desc">Carousel<br>"For the mom who…"</div>
-        </div>
-        <div class="day-card d2">
-          <div class="day-name">Tue</div>
-          <div class="day-type">Reel</div>
-          <div class="day-desc">Short emotional hook</div>
-        </div>
-        <div class="day-card d3">
-          <div class="day-name">Wed</div>
-          <div class="day-type">Faith</div>
-          <div class="day-desc">God meets you in the mess</div>
-        </div>
-        <div class="day-card d4">
-          <div class="day-name">Thu</div>
-          <div class="day-type">Reel</div>
-          <div class="day-desc">Mental load or no-village</div>
-        </div>
-        <div class="day-card d5">
-          <div class="day-name">Fri</div>
-          <div class="day-type">Soft CTA</div>
-          <div class="day-desc">Product or freebie mention</div>
-        </div>
-        <div class="day-card d6">
-          <div class="day-name">Sat</div>
-          <div class="day-type">Personal</div>
-          <div class="day-desc">Motherhood reflection</div>
-        </div>
-        <div class="day-card d7">
-          <div class="day-name">Sun</div>
-          <div class="day-type">Reset</div>
-          <div class="day-desc">Scripture or gentle reminder</div>
-        </div>
-      </div>
-
-      <div class="flag gold">
-        <span class="flag-icon">📋</span>
-        <div><strong>Format mix per week:</strong> 3–4 Reels · 2–3 Carousels · Stories daily · 1 comment-bait post · Every 4th–5th post includes soft CTA: "If this hit home, I made something for you. Link in bio."</div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 9: 6-MONTH PLAN ─────────────── -->
-    <div class="slide" id="slide-8">
-      <div class="slide-header">
-        <div class="slide-tag">6-Month Growth Plan</div>
-        <h2 class="slide-title">Month by Month to 10K</h2>
-        <p class="slide-subtitle">July – December 2026</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 1 — July · Foundation <span class="timeline-target">Target: 300</span></div>
-          <div class="timeline-body">Rewrite bio · Set up free lead magnet PDF · Create "Start Here" + "The Shop" Highlights · Stop Facebook cross-posting permanently · Post 4×/week · Start daily Stories</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 2 — August · Consistency <span class="timeline-target">Target: 600</span></div>
-          <div class="timeline-body">Launch identity carousel series · Post 1 comment-bait per week · Begin email welcome sequence · Respond to every DM and comment within 1 hour · Build comment culture</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 3 — September · Amplify <span class="timeline-target">Target: 1,200</span></div>
-          <div class="timeline-body">Introduce Trial Reels for hook testing · Seasonal back-to-school content push · First collaboration with 1–2 micro faith-mom accounts · Increase to 5 Reels/week</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 4 — October · Convert <span class="timeline-target">Target: 2,500</span></div>
-          <div class="timeline-body">First dedicated sales post (story-first, offer at end) · Add first testimonial to bio link page · Full 3-part email welcome sequence active · DM conversations converting to purchases</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 5 — November · Scale <span class="timeline-target">Target: 5,000</span></div>
-          <div class="timeline-body">Holiday/gratitude content series · Bundle promotion for Christmas gifting · Guest story post or collab Reel · Analyse top 5 Reels and replicate formula · Email list 200+</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-month">Month 6 — December · 10K Push <span class="timeline-target">Target: 10,000</span></div>
-          <div class="timeline-body">New Year reset content series · "God meets you in the mess this season" campaign · Stories daily with polls + Q&amp;A · Final push with best-performing hook formats · Email list 500+</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 10: SCRIPTS ─────────────── -->
-    <div class="slide" id="slide-9">
-      <div class="slide-header">
-        <div class="slide-tag">Content Scripts</div>
-        <h2 class="slide-title">Reels, Carousel Hooks & CTAs</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="script-card">
-        <div class="script-header">
-          Reel Script 1 — Permission Slip
-          <span style="font-size:10px;opacity:0.7;">COPY & FILM THIS</span>
-        </div>
-        <div class="script-body">
-          <div class="script-row">
-            <div class="script-label">Hook</div>
-            <div class="script-text">"I'm going to say what a lot of moms feel but don't say out loud."</div>
-          </div>
-          <div class="script-row">
-            <div class="script-label">Body</div>
-            <div class="script-text">"You can love your kids and still miss yourself. You can be grateful and still be exhausted. You can believe in God and still feel like He's been quiet for a while. None of that makes you a bad mom. It makes you a real one."</div>
-          </div>
-          <div class="script-row">
-            <div class="script-label">CTA</div>
-            <div class="script-text">"Save this for the day you forget it. And follow for more of the honest parts."</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="script-card">
-        <div class="script-header">
-          Reel Script 2 — Mental Load
-          <span style="font-size:10px;opacity:0.7;">COPY & FILM THIS</span>
-        </div>
-        <div class="script-body">
-          <div class="script-row">
-            <div class="script-label">Hook</div>
-            <div class="script-text">"Nobody talks about the mental load of Christian motherhood."</div>
-          </div>
-          <div class="script-row">
-            <div class="script-label">Body</div>
-            <div class="script-text">"It's not just the laundry and the lunches. It's carrying the spiritual weight of your family. The prayers when everyone's asleep. The Bible you keep meaning to open. The guilt that you're not doing enough. God sees that work. Even when no one else does."</div>
-          </div>
-          <div class="script-row">
-            <div class="script-label">CTA</div>
-            <div class="script-text">"Share this with a mom who needs to hear it."</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:10px;">Carousel Hook Pack — Copy These Covers</div>
-      <div class="hook-grid" style="margin-bottom:24px;">
-        <div class="hook-chip">For the mom who loves her kids but misses herself</div>
-        <div class="hook-chip">For the Christian mom who feels far from God right now</div>
-        <div class="hook-chip">For the mom raising kids without a village</div>
-        <div class="hook-chip">For the mom carrying the entire mental load</div>
-        <div class="hook-chip">For the mom who is tired of being strong</div>
-        <div class="hook-chip">For the mom who feels invisible in her own life</div>
-        <div class="hook-chip">For the mom who cries after bedtime</div>
-        <div class="hook-chip">For the mom who lost herself somewhere in motherhood</div>
-      </div>
-
-      <div style="font-size:13px;font-weight:600;color:var(--sage-dark);margin-bottom:10px;">CTA Toolkit — End Every Post With One of These</div>
-      <div class="cta-grid">
-        <div class="cta-card saves">
-          <div class="cta-type">💾 Save</div>
-          <div class="cta-text">"Save this for your next hard day."</div>
-        </div>
-        <div class="cta-card shares">
-          <div class="cta-type">📤 Share</div>
-          <div class="cta-text">"Send this to a mom who needs it."</div>
-        </div>
-        <div class="cta-card comments">
-          <div class="cta-type">💬 Comment</div>
-          <div class="cta-text">"Drop a 🤍 if you've cried in the car this week."</div>
-        </div>
-        <div class="cta-card follow">
-          <div class="cta-type">➕ Follow</div>
-          <div class="cta-text">"Follow for the honest parts of faith and motherhood."</div>
-        </div>
-        <div class="cta-card bio">
-          <div class="cta-type">🔗 Bio</div>
-          <div class="cta-text">"If this hit home, I made something for you. Link in bio."</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 11: SALES STRATEGY ─────────────── -->
-    <div class="slide" id="slide-10">
-      <div class="slide-header">
-        <div class="slide-tag">Sales Strategy</div>
-        <h2 class="slide-title">The 5-Step Funnel</h2>
-        <p class="slide-subtitle">From stranger to buyer — without ever feeling like a sales account.</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="funnel-steps" style="margin-bottom:28px;">
-        <div class="funnel-step">
-          <div class="funnel-circle">1</div>
-          <div class="funnel-title">She Finds You</div>
-          <div class="funnel-desc">Reel reaches cold audience. She recognises herself. Follows or saves.</div>
-        </div>
-        <div class="funnel-step">
-          <div class="funnel-circle">2</div>
-          <div class="funnel-title">Soft CTA</div>
-          <div class="funnel-desc">Every 4th post: "If this hit home, I made something for you. Link in bio."</div>
-        </div>
-        <div class="funnel-step">
-          <div class="funnel-circle">3</div>
-          <div class="funnel-title">Free Download</div>
-          <div class="funnel-desc">"5 Things Nobody Tells You About Losing Yourself in Motherhood" PDF — she gives her email.</div>
-        </div>
-        <div class="funnel-step">
-          <div class="funnel-circle">4</div>
-          <div class="funnel-title">Email Sequence</div>
-          <div class="funnel-desc">3 emails over 6 days. No pitch until email 3. Story → reason → invite.</div>
-        </div>
-        <div class="funnel-step">
-          <div class="funnel-circle">5</div>
-          <div class="funnel-title">She Buys</div>
-          <div class="funnel-desc">Gumroad page just confirms what she already decided. Trust closes the sale.</div>
-        </div>
-      </div>
-
-      <table class="product-table" style="margin-bottom:20px;">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Who It's For</th>
-            <th>Positioning</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>The Bundle</strong> <span class="lead-badge">Lead With This</span></td>
-            <td><strong style="color:var(--sage-dark);">$47</strong></td>
-            <td>The mom ready for the complete experience</td>
-            <td>"The ebook and the journal were made to go together. $47 for both."</td>
-          </tr>
-          <tr>
-            <td>From Surviving to Thriving</td>
-            <td>$37</td>
-            <td>Still in the thick of it. Not ready to commit to both.</td>
-            <td>"A companion, not a course. Written from the middle of it, not the other side."</td>
-          </tr>
-          <tr>
-            <td>Rooted Mom Devotional Planner</td>
-            <td>$17</td>
-            <td>Ready for one small step. Lowest barrier.</td>
-            <td>"For the mom with a drawer full of journals she quit. One honest sentence is enough."</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="flag gold">
-          <span class="flag-icon">📧</span>
-          <div><strong>Email sequence structure:</strong> Email 1: Thank + one honest story, no ask · Email 2: Why you made the ebook, your real reason · Email 3: Gentle invite — "If you want to go further, here's what I made."</div>
-        </div>
-        <div class="flag green">
-          <span class="flag-icon">📊</span>
-          <div><strong>Content ratio:</strong> Every 4–5 posts, 1 soft product mention. Alternate ebook and planner. Never pitch two posts in a row. Lead with story, offer at the end.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 12: KPIs ─────────────── -->
-    <div class="slide" id="slide-11">
-      <div class="slide-header">
-        <div class="slide-tag">Performance & KPIs</div>
-        <h2 class="slide-title">What to Track, Boost & Ignore</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-current">Bio Link CTR</div>
-          <div class="kpi-now">0.8%</div>
-          <div class="kpi-arrow">↓ fix →</div>
-          <div class="kpi-target">10%+</div>
-          <div class="kpi-label">Target by Week 8</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-current">Saves per Post</div>
-          <div class="kpi-now">~0</div>
-          <div class="kpi-arrow">↑ grow →</div>
-          <div class="kpi-target">5+</div>
-          <div class="kpi-label">Target per post</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-current">Shares per Reel</div>
-          <div class="kpi-now">avg low</div>
-          <div class="kpi-arrow">↑ grow →</div>
-          <div class="kpi-target">10+</div>
-          <div class="kpi-label">Per individual Reel</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-current">Email List</div>
-          <div class="kpi-now">0</div>
-          <div class="kpi-arrow">↑ build →</div>
-          <div class="kpi-target">500+</div>
-          <div class="kpi-label">By Month 6</div>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
-        <div style="background:#fdf0ef;border:1px solid #f5c6c2;border-radius:10px;padding:16px;">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8b2a22;margin-bottom:10px;">🚫 Ignore for 8 Weeks</div>
-          <div class="audience-item" style="color:#8b2a22;"><span>✗</span>Follower count</div>
-          <div class="audience-item" style="color:#8b2a22;"><span>✗</span>Like count</div>
-          <div class="audience-item" style="color:#8b2a22;"><span>✗</span>Overall reach numbers</div>
-        </div>
-        <div style="background:#f0f7f0;border:1px solid #b8d8b8;border-radius:10px;padding:16px;">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sage-dark);margin-bottom:10px;">✅ Watch Instead</div>
-          <div class="audience-item" style="color:var(--sage-dark);"><span>✓</span>Saves per post (buyer intent signal)</div>
-          <div class="audience-item" style="color:var(--sage-dark);"><span>✓</span>DM shares (weighted 3–5× higher than likes)</div>
-          <div class="audience-item" style="color:var(--sage-dark);"><span>✓</span>Profile visit rate → follow conversion</div>
-          <div class="audience-item" style="color:var(--sage-dark);"><span>✓</span>Bio link click rate</div>
-          <div class="audience-item" style="color:var(--sage-dark);"><span>✓</span>Email signups per week</div>
-        </div>
-      </div>
-
-      <div class="boost-grid">
-        <div class="boost-item">
-          <div class="boost-icon">⚡</div>
-          <div><div class="boost-title">Hook ON SCREEN in first 2 seconds</div><div class="boost-desc">Text overlay must appear immediately. 50% of viewers drop off before 3 seconds if no visual hook.</div></div>
-        </div>
-        <div class="boost-item">
-          <div class="boost-icon">💬</div>
-          <div><div class="boost-title">Reply to every comment in hour 1</div><div class="boost-desc">Comment velocity in the first 60 minutes is a major 2026 algorithm ranking signal.</div></div>
-        </div>
-        <div class="boost-item">
-          <div class="boost-icon">🎵</div>
-          <div><div class="boost-title">Trending audio under 5,000 uses</div><div class="boost-desc">Catch trends before saturation. Jumping on tracks within 24–48 hours of trending boosts reach significantly.</div></div>
-        </div>
-        <div class="boost-item">
-          <div class="boost-icon">📤</div>
-          <div><div class="boost-title">Share every carousel to Stories same day</div><div class="boost-desc">Amplifies a post's early signal window. Stories views feed back into the original post's distribution.</div></div>
-        </div>
-        <div class="boost-item">
-          <div class="boost-icon">🔤</div>
-          <div><div class="boost-title">Add subtitles to every Reel</div><div class="boost-desc">Non-negotiable for silent scrollers. Subtitles boost retention by keeping sound-off viewers engaged.</div></div>
-        </div>
-        <div class="boost-item">
-          <div class="boost-icon">🧪</div>
-          <div><div class="boost-title">Use Trial Reels for new hooks</div><div class="boost-desc">Instagram shows Trial Reels to non-followers first. Test without risking current audience relationship.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────── SLIDE 13: ACTION PLAN ─────────────── -->
-    <div class="slide" id="slide-12">
-      <div class="slide-header">
-        <div class="slide-tag">Action Plan</div>
-        <h2 class="slide-title">Start This Week</h2>
-        <p class="slide-subtitle">The non-negotiables that unlock everything else.</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="action-cols">
-        <div>
-          <div class="checklist-section" style="margin-bottom:16px;">
-            <div class="checklist-title">🚨 This Week — Non-Negotiable</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Stop cross-posting from Facebook permanently</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Post 3 Stories (poll, behind-the-scenes, honest check-in)</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Rewrite bio with the exact template on Slide 7</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Design free lead magnet PDF in Canva (cream + gold + Playfair Display)</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Set up Flodesk or ConvertKit free tier for email capture</div>
-          </div>
-
-          <div class="checklist-section" style="margin-bottom:16px;">
-            <div class="checklist-title">📅 Week 2</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Create "What is Rooted in Bloom?" welcome carousel and pin it</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Set up "Start Here" and "The Shop" Highlights</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Film first identity Reel: "For the mom who loves her kids but lost herself"</div>
-          </div>
-
-          <div class="checklist-section">
-            <div class="checklist-title">🗓️ Weeks 3–4</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Post 4×/week consistently — no gaps</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Add a CTA to the end of every post</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Track saves per post each week</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Reply to every comment within 1 hour</div>
-            <div class="check-item"><div class="checkbox" onclick="this.classList.toggle('checked')"></div>Send first welcome email to new subscribers</div>
-          </div>
-        </div>
-
-        <div>
-          <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sage);margin-bottom:12px;">📊 Week 8 Targets</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-              <div style="text-align:center;padding:10px;background:var(--cream);border-radius:8px;border:1px solid var(--border);">
-                <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--sage-dark);">5+</div>
-                <div style="font-size:11px;color:var(--text-light);">saves per post</div>
-              </div>
-              <div style="text-align:center;padding:10px;background:var(--cream);border-radius:8px;border:1px solid var(--border);">
-                <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--sage-dark);">20+</div>
-                <div style="font-size:11px;color:var(--text-light);">bio link clicks/week</div>
-              </div>
-              <div style="text-align:center;padding:10px;background:var(--cream);border-radius:8px;border:1px solid var(--border);">
-                <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--sage-dark);">10+</div>
-                <div style="font-size:11px;color:var(--text-light);">email signups/week</div>
-              </div>
-              <div style="text-align:center;padding:10px;background:var(--cream);border-radius:8px;border:1px solid var(--border);">
-                <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);">5</div>
-                <div style="font-size:11px;color:var(--text-light);">first product sales</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sage);margin-bottom:10px;">🛒 Start DM Selling Now</div>
-            <div style="font-size:13px;color:var(--text-mid);line-height:1.6;">At 136 followers you can have a personal conversation with almost everyone. When someone comments something personal — reply and ask one genuine follow-up question. When a conversation goes 2–3 exchanges deep — naturally mention the product that fits her situation. This window closes as you grow. Use it now.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="brand-statement-box">
-        <p>"You are not trying to go viral. You are trying to be found by one specific woman who feels invisible. When she reads a post that names exactly what she is carrying — she won't just like it. She will save it, share it, and come back. That behaviour builds a real audience. Likes do not."</p>
-        <div class="goal-chips">
-          <div class="goal-chip">10,000 followers by December 2026</div>
-          <div class="goal-chip">First sales by Month 2</div>
-          <div class="goal-chip">Email list of 500+ by Month 6</div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /main -->
-</div><!-- /app -->
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Rooted in Bloom</div>
+    <div class="footer-copy">© 2026 Rooted in Bloom. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#products">Shop</a>
+    <a href="#about">About</a>
+    <a href="#free-guide">Free Guide</a>
+    <a href="https://instagram.com/rootedinbloomco_" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
 
 <script>
-  let current = 0;
-  const total = 13;
-  const slides = document.querySelectorAll('.slide');
-  const navItems = document.querySelectorAll('.nav-item');
-  const titles = [
-    'Rooted in Bloom Co. — Instagram Growth Strategy',
-    'Profile Audit: Where We Are Right Now',
-    'SWOT Analysis',
-    'Niche & Competitor Analysis',
-    'Target Audience: She Is',
-    'Key Growth Opportunities',
-    'Profile Optimization & Highlights',
-    'Content Strategy: 5 Pillars',
-    '6-Month Growth Plan',
-    'Reels Scripts, Carousel Hooks & CTAs',
-    'Sales Strategy & Funnel',
-    'Performance Boosting & KPIs',
-    'Your Action Plan: Start This Week'
-  ];
-
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    navItems[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    navItems[current].classList.add('active');
-    document.getElementById('progressText').textContent = (current + 1) + ' / ' + total;
-    document.getElementById('topbarTitle').textContent = titles[current];
-    document.getElementById('mainContent').scrollTo({ top: 0, behavior: 'smooth' });
-    navItems[current].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
   }
-
-  function next() { if (current < total - 1) goTo(current + 1); }
-  function prev() { if (current > 0) goTo(current - 1); }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
-  });
+  function showPanel(name, tab) {
+    document.querySelectorAll('.inside-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.inside-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    tab.classList.add('active');
+  }
 </script>
+
 </body>
 </html>
