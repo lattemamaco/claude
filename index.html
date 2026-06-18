@@ -269,31 +269,32 @@ section { padding: 100px 8%; }
 }
 
 .page-card {
-  --r: 0deg; --x: 0px; --y: 0px; --delay: 0s;
   position: absolute; inset: 0;
   overflow: hidden;
   background: var(--cream-soft);
   box-shadow: 0 6px 26px rgba(28,26,22,0.14), 0 1px 4px rgba(28,26,22,0.08);
   opacity: 0;
-  transform: rotate(var(--r)) translate(var(--x), calc(var(--y) + 50px));
-  transition: opacity 0.55s ease var(--delay),
-              transform 0.6s cubic-bezier(0.22,0.61,0.36,1) var(--delay);
+  will-change: transform, opacity;
+  transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.22,0.61,0.36,1);
 }
 
 .page-card img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
-.page-card:nth-child(1) { z-index: 5; --r: -3.5deg; --x: -8px;  --y: -4px; --delay: 0s;   }
-.page-card:nth-child(2) { z-index: 4; --r:  2deg;   --x:  10px; --y:  2px; --delay: 0.1s; }
-.page-card:nth-child(3) { z-index: 3; --r: -1deg;   --x: -5px;  --y:  5px; --delay: 0.2s; }
-.page-card:nth-child(4) { z-index: 2; --r:  3deg;   --x:  7px;  --y:  7px; --delay: 0.3s; }
-.page-card:nth-child(5) { z-index: 1; --r: -2.5deg; --x:  1px;  --y:  9px; --delay: 0.4s; }
+/* Initial state: each card offset below its landing spot */
+.page-card:nth-child(1) { z-index: 5; transform: rotate(-4deg)   translate(-16px, 64px); transition-delay: 0s;    }
+.page-card:nth-child(2) { z-index: 4; transform: rotate( 3deg)   translate( 16px, 62px); transition-delay: 0.12s; }
+.page-card:nth-child(3) { z-index: 3; transform: rotate(-1.5deg) translate( -8px, 66px); transition-delay: 0.24s; }
+.page-card:nth-child(4) { z-index: 2; transform: rotate( 4deg)   translate( 12px, 68px); transition-delay: 0.36s; }
+.page-card:nth-child(5) { z-index: 1; transform: rotate(-2.5deg) translate(  2px, 70px); transition-delay: 0.48s; }
 
-.page-stack-wrap.revealed .page-card {
-  opacity: 1;
-  transform: rotate(var(--r)) translate(var(--x), var(--y));
-}
+/* Revealed: slide up into fanned resting position */
+.page-stack-wrap.revealed .page-card:nth-child(1) { opacity: 1; transform: rotate(-4deg)   translate(-16px,  -6px); }
+.page-stack-wrap.revealed .page-card:nth-child(2) { opacity: 1; transform: rotate( 3deg)   translate( 16px,   2px); }
+.page-stack-wrap.revealed .page-card:nth-child(3) { opacity: 1; transform: rotate(-1.5deg) translate( -8px,   6px); }
+.page-stack-wrap.revealed .page-card:nth-child(4) { opacity: 1; transform: rotate( 4deg)   translate( 12px,  10px); }
+.page-stack-wrap.revealed .page-card:nth-child(5) { opacity: 1; transform: rotate(-2.5deg) translate(  2px,  14px); }
 
 /* ── MINI PAGE CONTENT ── */
 .mini-page {
@@ -1212,7 +1213,7 @@ footer {
           stackObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.15 });
     stacks.forEach(function(stack) { stackObserver.observe(stack); });
   } else {
     stacks.forEach(function(stack) { stack.classList.add('revealed'); });
