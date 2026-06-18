@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
 <meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner and the From Surviving to Thriving ebook.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 
 :root {
@@ -173,59 +173,11 @@ section { padding: 100px 8%; }
   gap: 80px; align-items: center;
 }
 .about-photo-wrap { display: flex; justify-content: center; }
-.polaroid {
-  position: relative;
-  background: var(--white);
-  padding: 14px 14px 60px;
-  box-shadow:
-    0 1px 2px rgba(28,26,22,0.10),
-    0 4px 10px rgba(28,26,22,0.12),
-    0 16px 32px rgba(28,26,22,0.10),
-    0 30px 54px rgba(28,26,22,0.07);
-  transform: rotate(-1.5deg);
-  display: inline-block;
-}
-.polaroid-caption {
-  position: absolute;
-  bottom: 14px; left: 14px; right: 14px;
-  text-align: center;
-  font-family: 'Kaushan Script', cursive;
-  font-size: 24px; font-weight: 600;
-  color: #2C2A26;
-  line-height: 1;
-  pointer-events: none;
-}
-.polaroid::before {
-  content: '';
-  position: absolute;
-  top: -15px; left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
-  width: 86px; height: 28px;
-  background:
-    repeating-linear-gradient(
-      -55deg,
-      transparent 0px, transparent 3px,
-      rgba(255,255,255,0.07) 3px, rgba(255,255,255,0.07) 4px
-    ),
-    rgba(228, 210, 160, 0.60);
-  box-shadow: 0 2px 5px rgba(28,26,22,0.18), 0 1px 2px rgba(28,26,22,0.10);
-  border-radius: 1px;
-  z-index: 2;
-}
-.about-photo {
-  width: 240px; height: 285px;
-  border-radius: 0;
-  object-fit: cover; object-position: 50% 30%;
+.about-feature-img {
+  width: 300px; max-width: 100%;
   display: block;
-  border: none; box-shadow: none;
-}
-.about-photo-placeholder {
-  width: 240px; height: 285px;
-  border-radius: 0;
-  background: var(--cream-mid);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 13px; color: var(--text-light); text-align: center; padding: 28px;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 8px 32px rgba(28,26,22,0.14);
 }
 .about .section-soft { margin-bottom: 6px; }
 .about .section-title { margin-bottom: 26px; font-size: clamp(18px, 2.5vw, 28px); }
@@ -661,12 +613,7 @@ footer {
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-photo-wrap">
-      <div class="polaroid">
-        <img src="ally-photo.jpg.JPG" alt="Ally, founder of Rooted in Bloom" class="about-photo"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="about-photo-placeholder" style="display:none;">Your photo here</div>
-        <span class="polaroid-caption">My name is Ally</span>
-      </div>
+      <img src="The name is Ally.png" alt="My name is Ally" class="about-feature-img">
     </div>
     <div class="about-text">
       <span class="eyebrow">Hey, there!</span>
