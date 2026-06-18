@@ -222,7 +222,7 @@ section { padding: 100px 8%; }
 .offers-list { display: flex; flex-direction: column; gap: 88px; }
 
 .offer-item {
-  display: grid; grid-template-columns: 240px 1fr;
+  display: grid; grid-template-columns: 260px 1fr;
   gap: 72px; align-items: center;
 }
 .offer-arch { flex-shrink: 0; }
@@ -243,6 +243,20 @@ section { padding: 100px 8%; }
   font-family: 'Playfair Display', serif; font-style: italic;
   color: var(--text-light); font-size: 13px; text-align: center; padding: 28px;
 }
+
+/* product mockup image */
+.product-mockup {
+  width: 240px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.product-mockup img {
+  width: 100%; max-width: 240px;
+  border-radius: 8px;
+  box-shadow: 8px 12px 40px rgba(28,26,22,0.18), 0 2px 8px rgba(28,26,22,0.08);
+  display: block;
+  transform: rotate(-1.5deg);
+}
+.product-mockup img:hover { transform: rotate(0deg) scale(1.02); transition: transform 0.3s; }
 .offer-num {
   width: 52px; height: 52px; background: var(--sand-pale);
   border: 2px solid var(--sand); border-radius: 50%;
@@ -403,6 +417,8 @@ footer {
   .about-sig { text-align: center; }
   .offer-item { grid-template-columns: 1fr; gap: 36px; }
   .offer-arch { display: flex; justify-content: center; }
+  .product-mockup { justify-content: center; }
+  .product-mockup img { max-width: 200px; }
   .proof-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .opt-in-form { flex-direction: column; }
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
@@ -494,12 +510,8 @@ footer {
 
       <!-- 01 PLANNER -->
       <div class="offer-item">
-        <div class="offer-arch">
-          <div class="arch-frame">
-            <img src="ally-photo1.jpg.JPG" alt="Rooted Mom Devotional Planner"
-              onerror="this.style.display='none';">
-            <div class="arch-frame-placeholder">Your photo here</div>
-          </div>
+        <div class="product-mockup">
+          <img src="Rooted In Mom Devotional Planner.JPEG" alt="Rooted Mom Devotional Planner">
         </div>
         <div class="offer-text">
           <div class="offer-num">01</div>
@@ -512,12 +524,8 @@ footer {
 
       <!-- 02 EBOOK -->
       <div class="offer-item">
-        <div class="offer-arch">
-          <div class="arch-frame">
-            <img src="ally-photo2.jpg.JPG" alt="From Surviving to Thriving"
-              onerror="this.style.display='none';">
-            <div class="arch-frame-placeholder">Your photo here</div>
-          </div>
+        <div class="product-mockup">
+          <img src="From Surviving to Thriving .jpg" alt="From Surviving to Thriving in Motherhood">
         </div>
         <div class="offer-text">
           <div class="offer-num">02</div>
@@ -538,7 +546,8 @@ footer {
     <span class="eyebrow">Best Value — Save $9</span>
     <span class="section-soft">Want both?</span>
     <h2 class="section-title">The Rooted Mom Bundle</h2>
-    <p class="bundle-body">Both resources. One purpose. Start with the ebook — then use the planner to live it out, every single day.</p>
+    <img src="Bundle .PNG" alt="The Rooted Mom Bundle" style="max-width:340px; width:100%; border-radius:10px; box-shadow: 8px 14px 48px rgba(28,26,22,0.16); margin: 28px auto 0; display:block;">
+    <p class="bundle-body" style="margin-top:36px;">Both resources. One purpose. Start with the ebook — then use the planner to live it out, every single day.</p>
     <ul class="bundle-includes">
       <li>From Surviving to Thriving Ebook ($37 value)</li>
       <li>Rooted Mom Devotional Planner ($17 value)</li>
