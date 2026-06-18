@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
 <meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner and the From Surviving to Thriving ebook.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 <style>
 
 :root {
@@ -184,6 +184,16 @@ section { padding: 100px 8%; }
     0 30px 54px rgba(28,26,22,0.07);
   transform: rotate(-1.5deg);
   display: inline-block;
+}
+.polaroid-caption {
+  position: absolute;
+  bottom: 14px; left: 14px; right: 14px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px; font-weight: 600;
+  color: #2C2A26;
+  line-height: 1;
+  pointer-events: none;
 }
 .polaroid::before {
   content: '';
@@ -655,6 +665,7 @@ footer {
         <img src="ally-photo.jpg.JPG" alt="Ally, founder of Rooted in Bloom" class="about-photo"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="about-photo-placeholder" style="display:none;">Your photo here</div>
+        <span class="polaroid-caption">My name is Ally</span>
       </div>
     </div>
     <div class="about-text">
