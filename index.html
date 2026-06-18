@@ -391,7 +391,7 @@ section { padding: 100px 8%; }
 .faq-deco {
   position: absolute; top: 48px; left: 6%;
   font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: clamp(64px, 13vw, 196px); font-weight: 700;
+  font-size: clamp(52px, 11vw, 160px); font-weight: 700;
   color: var(--sand-dark); opacity: 0.14;
   white-space: nowrap; line-height: 1;
   user-select: none; pointer-events: none;
@@ -508,6 +508,14 @@ footer {
   .familiar-bridge { flex-direction: column; gap: 20px; }
   .faq-layout { grid-template-columns: 1fr; gap: 24px; }
   .faq-left { display: none; }
+  .faq-deco {
+    position: static;
+    display: block;
+    font-size: clamp(40px, 10vw, 68px);
+    opacity: 0.22;
+    margin-bottom: 12px;
+    line-height: 0.9;
+  }
   .proof-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .opt-in-form { flex-direction: column; }
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
