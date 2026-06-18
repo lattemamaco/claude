@@ -507,8 +507,16 @@ footer {
 
   .familiar-bridge { flex-direction: column; gap: 20px; padding: 28px 24px; }
   .familiar-bridge { flex-direction: column; gap: 20px; }
-  .faq-layout { grid-template-columns: 1fr; }
-  .faq-left { display: none; }
+  .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+  .faq-left { padding-top: 0; }
+  .faq-photo { display: none; }
+  .faq-deco {
+    position: static;
+    font-size: clamp(56px, 16vw, 90px);
+    opacity: 0.18;
+    display: block;
+    margin-bottom: 8px;
+  }
   .proof-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .opt-in-form { flex-direction: column; }
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
