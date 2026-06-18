@@ -83,8 +83,8 @@ nav.scrolled .nav-mobile-toggle span { background: var(--text); }
   position: absolute; inset: 0;
   background-image: url('ally-photo.jpg.JPG');
   background-size: cover; background-position: center 30%;
-  background-attachment: fixed;
   background-color: var(--cream-mid);
+  will-change: background-position;
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -718,9 +718,12 @@ footer {
 </footer>
 
 <script>
+  const heroBg = document.querySelector('.hero-bg');
   window.addEventListener('scroll', function () {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-  });
+    const s = window.scrollY;
+    document.getElementById('mainNav').classList.toggle('scrolled', s > 60);
+    if (heroBg) heroBg.style.backgroundPositionY = 'calc(30% + ' + (s * 0.35) + 'px)';
+  }, { passive: true });
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
   }
