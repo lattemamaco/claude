@@ -250,6 +250,56 @@ section { padding: 100px 8%; }
 .product-cta {
   display: block; width: 100%; text-align: center; padding: 20px 32px; font-size: 13px; letter-spacing: 2px;
 }
+
+/* ── PRODUCT 2-COL + PAGE STACK ── */
+.product-cols {
+  max-width: 1080px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+
+.page-stack-wrap {
+  display: flex; justify-content: center; align-items: center;
+  padding: 44px 24px;
+}
+
+.page-stack-scene {
+  position: relative;
+  width: 240px; height: 308px;
+}
+
+.page-card {
+  --r: 0deg; --x: 0px; --y: 0px; --delay: 0s;
+  position: absolute; inset: 0;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--cream-soft) 0px, var(--cream-soft) 24px,
+      var(--cream-mid) 24px, var(--cream-mid) 25px
+    );
+  box-shadow: 0 6px 26px rgba(28,26,22,0.14), 0 1px 4px rgba(28,26,22,0.08);
+  opacity: 0;
+  transform: rotate(var(--r)) translate(var(--x), calc(var(--y) + 50px));
+  transition: opacity 0.55s ease var(--delay),
+              transform 0.6s cubic-bezier(0.22,0.61,0.36,1) var(--delay);
+}
+
+.page-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.page-card:nth-child(1) { z-index: 5; --r: -3.5deg; --x: -8px;  --y: -4px; --delay: 0s;   }
+.page-card:nth-child(2) { z-index: 4; --r:  2deg;   --x:  10px; --y:  2px; --delay: 0.1s; }
+.page-card:nth-child(3) { z-index: 3; --r: -1deg;   --x: -5px;  --y:  5px; --delay: 0.2s; }
+.page-card:nth-child(4) { z-index: 2; --r:  3deg;   --x:  7px;  --y:  7px; --delay: 0.3s; }
+.page-card:nth-child(5) { z-index: 1; --r: -2.5deg; --x:  1px;  --y:  9px; --delay: 0.4s; }
+
+.page-stack-wrap.revealed .page-card {
+  opacity: 1;
+  transform: rotate(var(--r)) translate(var(--x), var(--y));
+}
+
 .bundle-img {
   max-width: 380px; width: 100%; display: block;
   margin: 32px auto 40px;
@@ -510,6 +560,10 @@ footer {
   .products-inner { padding: 0 6% 52px; }
   .product-section { padding: 52px 6%; }
   .product-price { font-size: 40px; }
+  .product-cols { grid-template-columns: 1fr; gap: 36px; }
+  .page-stack-wrap { order: -1; padding: 24px 0; }
+  .page-stack-scene { width: 200px; height: 257px; }
+  .product-cols .product-copy { order: 1; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -661,41 +715,69 @@ footer {
 
   <!-- EBOOK -->
   <div class="product-section product-section-a">
-    <div class="product-section-inner">
-      <span class="product-label">The Ebook</span>
-      <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
-      <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
-      <ul class="product-inside">
-        <li>Three complete resets: faith, identity, and rhythm</li>
-        <li>Language for what you've been carrying but couldn't name</li>
-        <li>Honest steps that work in a real, imperfect life</li>
-        <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
-      </ul>
-      <div class="product-price-row">
-        <span class="product-price">$37</span>
-        <span class="product-price-note">Instant PDF download</span>
+    <div class="product-cols">
+
+      <div class="page-stack-wrap">
+        <div class="page-stack-scene">
+          <div class="page-card"><img src="ebook-page-1.jpg" alt="Dear Mama — opening letter" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="ebook-page-2.jpg" alt="God chose you to shepherd these children" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="ebook-page-3.jpg" alt="I Was Sitting In My Car — story" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="ebook-page-4.jpg" alt="Practical Ways To Connect Daily" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="ebook-page-5.jpg" alt="Who Was I Before Worksheet" onerror="this.style.visibility='hidden'"></div>
+        </div>
       </div>
-      <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
+
+      <div class="product-copy">
+        <span class="product-label">The Ebook</span>
+        <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
+        <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
+        <ul class="product-inside">
+          <li>Three complete resets: faith, identity, and rhythm</li>
+          <li>Language for what you've been carrying but couldn't name</li>
+          <li>Honest steps that work in a real, imperfect life</li>
+          <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
+        </ul>
+        <div class="product-price-row">
+          <span class="product-price">$37</span>
+          <span class="product-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
+      </div>
+
     </div>
   </div>
 
   <!-- PLANNER -->
   <div class="product-section product-section-b">
-    <div class="product-section-inner">
-      <span class="product-label">The Planner</span>
-      <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
-      <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
-      <ul class="product-inside">
-        <li>Daily scripture prompts that take five minutes, not fifty</li>
-        <li>Space to check in with yourself and your faith every morning</li>
-        <li>No guilt for missing a day. The practice is in coming back</li>
-        <li>Undated so you can start any day, any season, any mood</li>
-      </ul>
-      <div class="product-price-row">
-        <span class="product-price">$17</span>
-        <span class="product-price-note">Instant PDF download</span>
+    <div class="product-cols">
+
+      <div class="product-copy">
+        <span class="product-label">The Planner</span>
+        <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
+        <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
+        <ul class="product-inside">
+          <li>Daily scripture prompts that take five minutes, not fifty</li>
+          <li>Space to check in with yourself and your faith every morning</li>
+          <li>No guilt for missing a day. The practice is in coming back</li>
+          <li>Undated so you can start any day, any season, any mood</li>
+        </ul>
+        <div class="product-price-row">
+          <span class="product-price">$17</span>
+          <span class="product-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
       </div>
-      <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
+
+      <div class="page-stack-wrap">
+        <div class="page-stack-scene">
+          <div class="page-card"><img src="planner-page-1.jpg" alt="Rooted Mom Devotional Planner — daily page" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="planner-page-2.jpg" alt="Rooted Mom Devotional Planner — scripture prompt" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="planner-page-3.jpg" alt="Rooted Mom Devotional Planner — morning check-in" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="planner-page-4.jpg" alt="Rooted Mom Devotional Planner — reflection page" onerror="this.style.visibility='hidden'"></div>
+          <div class="page-card"><img src="planner-page-5.jpg" alt="Rooted Mom Devotional Planner — weekly spread" onerror="this.style.visibility='hidden'"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -877,6 +959,22 @@ footer {
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
+  }
+
+  // Page stack scroll-triggered animation
+  var stacks = document.querySelectorAll('.page-stack-wrap');
+  if (stacks.length && 'IntersectionObserver' in window) {
+    var stackObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          stackObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    stacks.forEach(function(stack) { stackObserver.observe(stack); });
+  } else {
+    stacks.forEach(function(stack) { stack.classList.add('revealed'); });
   }
 </script>
 
