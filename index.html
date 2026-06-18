@@ -205,63 +205,50 @@ section { padding: 100px 8%; }
 .btn-outline-rect:hover { background: var(--sand); color: var(--white); }
 
 /* ── PRODUCTS (Discover) ── */
-.products { background: var(--cream-soft); }
-.products-inner { max-width: 1080px; margin: 0 auto; }
-.products-header { margin-bottom: 56px; }
+.products { background: var(--cream-soft); padding: 100px 0 0; }
+.products-inner { max-width: 1080px; margin: 0 auto; padding: 0 8% 72px; }
 .products-header .section-title { margin-bottom: 0; }
 
-.offers-list {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; align-items: start;
-}
-.offer-card {
-  background: var(--white); padding: 40px 36px;
-  border: 1px solid var(--border);
-  display: flex; flex-direction: column;
-}
-.offer-card-top {
-  display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
-}
-.offer-num {
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 22px; font-weight: 700; color: var(--sand); line-height: 1;
-}
-.offer-tag {
+.product-section { padding: 80px 8%; border-top: 1px solid var(--border); }
+.product-section-a { background: var(--white); }
+.product-section-b { background: var(--sand-pale); }
+.product-section-inner { max-width: 720px; margin: 0 auto; }
+.product-label {
   font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; color: var(--text-light);
+  letter-spacing: 3px; text-transform: uppercase; color: var(--sand);
+  display: block; margin-bottom: 20px;
 }
-.offer-name {
+.product-situation {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(28px, 4vw, 48px); font-weight: 700;
+  color: var(--text); line-height: 1.15; margin-bottom: 28px;
+}
+.product-outcome {
+  font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 36px;
+}
+.product-inside {
+  list-style: none; display: flex; flex-direction: column; margin-bottom: 44px;
+}
+.product-inside li {
+  font-size: 15px; color: var(--text-mid); line-height: 1.6;
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.product-inside li:first-child { border-top: 1px solid var(--border); }
+.product-inside li::before { content: '✦'; color: var(--sand); font-size: 10px; flex-shrink: 0; margin-top: 4px; }
+.product-price-row {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px;
+}
+.product-price {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 2.5vw, 30px); font-weight: 700;
-  color: var(--text); line-height: 1.2; margin-bottom: 12px;
+  font-size: 56px; font-weight: 700; color: var(--text); line-height: 1;
 }
-.offer-hook {
-  font-size: 15px; color: var(--text-mid); line-height: 1.7;
-  margin-bottom: 28px; font-style: italic;
-}
-.offer-inside {
-  list-style: none; display: flex; flex-direction: column; gap: 10px;
-  margin-bottom: 32px; padding: 22px 24px;
-  background: var(--sand-pale); border-left: 3px solid var(--sand);
-}
-.offer-inside li {
-  font-size: 14px; color: var(--text-mid); line-height: 1.6;
-  display: flex; gap: 10px; align-items: flex-start;
-}
-.offer-inside li::before { content: '✦'; color: var(--sand); font-size: 10px; flex-shrink: 0; margin-top: 3px; }
-.offer-price-row {
-  display: flex; align-items: baseline; gap: 10px; margin-bottom: 24px;
-}
-.offer-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px; font-weight: 700; color: var(--text); line-height: 1;
-}
-.offer-price-note {
+.product-price-note {
   font-family: 'Montserrat', sans-serif; font-size: 10px;
   color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase;
 }
-.offer-btn {
-  display: block; width: 100%; text-align: center; padding: 18px 32px;
+.product-cta {
+  display: block; width: 100%; text-align: center; padding: 20px 32px; font-size: 13px; letter-spacing: 2px;
 }
 .bundle-img {
   max-width: 380px; width: 100%; display: block;
@@ -519,9 +506,10 @@ footer {
   .about .section-soft,
   .about .section-title { text-align: center; }
   .about-sig { text-align: center; }
-  .offers-list { grid-template-columns: 1fr; gap: 20px; }
-  .offer-card { padding: 28px 24px; }
-  .offer-price { font-size: 36px; }
+  .products { padding: 72px 0 0; }
+  .products-inner { padding: 0 6% 52px; }
+  .product-section { padding: 52px 6%; }
+  .product-price { font-size: 40px; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -669,54 +657,48 @@ footer {
       <h2 class="section-title">Here's Where You Start.</h2>
     </div>
 
-    <div class="offers-list">
+  </div>
 
-      <!-- 01 EBOOK -->
-      <div class="offer-card">
-        <div class="offer-card-top">
-          <span class="offer-num">01</span>
-          <span class="offer-tag">Ebook · 60 pages</span>
-        </div>
-        <h3 class="offer-name">From Surviving to Thriving in Motherhood</h3>
-        <p class="offer-hook">The honest reset for the mom who has been running on empty for way too long.</p>
-        <ul class="offer-inside">
-          <li>Three complete resets — faith, identity, and daily rhythm</li>
-          <li>Language for what you've been carrying but couldn't name</li>
-          <li>Honest, real-life steps that work in an imperfect day</li>
-          <li>Chapters that feel like a conversation, not a lecture</li>
-          <li>Most moms read it in one sitting — many cry, pray, and text a friend a passage</li>
-        </ul>
-        <div class="offer-price-row">
-          <span class="offer-price">$37</span>
-          <span class="offer-price-note">Instant PDF download</span>
-        </div>
-        <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary offer-btn">Get Instant Access →</a>
+  <!-- EBOOK -->
+  <div class="product-section product-section-a">
+    <div class="product-section-inner">
+      <span class="product-label">The Ebook</span>
+      <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
+      <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets — for your faith, your identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
+      <ul class="product-inside">
+        <li>Three complete resets — faith, identity, and rhythm</li>
+        <li>Language for what you've been carrying but couldn't name</li>
+        <li>Honest steps that work in a real, imperfect life</li>
+        <li>Read in one sitting — most moms cry, pray, and text a passage to a friend</li>
+      </ul>
+      <div class="product-price-row">
+        <span class="product-price">$37</span>
+        <span class="product-price-note">Instant PDF download</span>
       </div>
-
-      <!-- 02 PLANNER -->
-      <div class="offer-card">
-        <div class="offer-card-top">
-          <span class="offer-num">02</span>
-          <span class="offer-tag">Devotional Planner</span>
-        </div>
-        <h3 class="offer-name">Rooted Mom Devotional Planner</h3>
-        <p class="offer-hook">Five minutes a day to anchor your morning with God — simple enough to actually stick to.</p>
-        <ul class="offer-inside">
-          <li>Daily scripture prompts that take five minutes, not fifty</li>
-          <li>Space to check in with yourself and your faith every morning</li>
-          <li>Gratitude and intention pages built for a real mom's day</li>
-          <li>No guilt for missing a day — the practice is in coming back</li>
-          <li>Undated — start any day, any season, any mood</li>
-        </ul>
-        <div class="offer-price-row">
-          <span class="offer-price">$17</span>
-          <span class="offer-price-note">Instant PDF download</span>
-        </div>
-        <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary offer-btn">Get Instant Access →</a>
-      </div>
-
+      <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Get the Ebook — Start Today</a>
     </div>
   </div>
+
+  <!-- PLANNER -->
+  <div class="product-section product-section-b">
+    <div class="product-section-inner">
+      <span class="product-label">The Planner</span>
+      <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
+      <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
+      <ul class="product-inside">
+        <li>Daily scripture prompts — five minutes, not fifty</li>
+        <li>Space to check in with yourself and your faith every morning</li>
+        <li>No guilt for missing a day — the practice is in coming back</li>
+        <li>Undated — start any day, any season, any mood</li>
+      </ul>
+      <div class="product-price-row">
+        <span class="product-price">$17</span>
+        <span class="product-price-note">Instant PDF download</span>
+      </div>
+      <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Get the Planner — Start Tomorrow Morning</a>
+    </div>
+  </div>
+
 </section>
 
 <!-- BUNDLE -->
