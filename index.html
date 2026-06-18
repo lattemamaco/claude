@@ -75,22 +75,23 @@ nav.scrolled .nav-mobile-toggle span { background: var(--text); }
 /* ── HERO ── */
 .hero {
   position: relative; min-height: 100vh;
-  display: flex; align-items: flex-end;
-  padding: 0 8% 110px;
+  display: flex; align-items: flex-start;
+  padding: 130px 8% 80px;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0;
   background-image: url('ally-photo.jpg.JPG');
-  background-size: cover; background-position: center 25%;
+  background-size: cover; background-position: center 30%;
   background-color: var(--cream-mid);
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top,
-    rgba(20,18,14,0.80) 0%,
-    rgba(20,18,14,0.45) 45%,
-    rgba(20,18,14,0.18) 100%);
+  background: linear-gradient(to bottom,
+    rgba(20,18,14,0.78) 0%,
+    rgba(20,18,14,0.50) 40%,
+    rgba(20,18,14,0.10) 70%,
+    rgba(20,18,14,0.00) 100%);
 }
 .hero-inner {
   position: relative; z-index: 1;
@@ -452,7 +453,7 @@ footer {
   }
   .nav-links.open a { color: var(--text-mid) !important; }
   .nav-mobile-toggle { display: flex; }
-  .hero { padding: 0 6% 80px; }
+  .hero { padding: 110px 6% 60px; }
   section { padding: 72px 6%; }
   .about-inner { grid-template-columns: 1fr; gap: 44px; text-align: center; }
   .about-photo-wrap { justify-content: center; }
