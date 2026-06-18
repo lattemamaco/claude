@@ -417,17 +417,39 @@ section { padding: 100px 8%; }
 .familiar-header p { font-size: 17px; color: var(--text-mid); line-height: 1.75; margin-top: 14px; }
 
 .familiar-grid {
-  display: flex; flex-direction: column; gap: 1px;
-  border: 1px solid var(--border); background: var(--border);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px 28px; background: none; border: none;
 }
 .familiar-item {
-  background: var(--cream); padding: 22px 24px;
+  background: var(--white); padding: 28px 22px 22px;
+  position: relative;
+  box-shadow: 2px 4px 14px rgba(28,26,22,0.09), 0 1px 3px rgba(28,26,22,0.06);
 }
-.familiar-item-mark {
-  color: var(--sand); font-size: 16px; display: block; margin-bottom: 8px; line-height: 1;
+.familiar-item::before {
+  content: '';
+  position: absolute; top: -11px; left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 58px; height: 20px;
+  background:
+    repeating-linear-gradient(-55deg, transparent 0px, transparent 3px, rgba(255,255,255,0.08) 3px, rgba(255,255,255,0.08) 4px),
+    rgba(228, 210, 160, 0.58);
+  box-shadow: 0 1px 3px rgba(28,26,22,0.10);
+  border-radius: 1px;
+}
+.familiar-item:nth-child(1) { transform: rotate(-1.2deg); }
+.familiar-item:nth-child(2) { transform: rotate(0.9deg); }
+.familiar-item:nth-child(3) { transform: rotate(1.1deg); }
+.familiar-item:nth-child(4) { transform: rotate(-0.8deg); }
+.familiar-item:nth-child(5) { transform: rotate(-1.3deg); }
+.familiar-item:nth-child(6) { transform: rotate(0.7deg); }
+.familiar-item-num {
+  display: block;
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 38px; font-weight: 700;
+  color: var(--sand); line-height: 1; margin-bottom: 12px;
 }
 .familiar-item p {
-  font-size: 14px; color: var(--text-mid); line-height: 1.65;
+  font-size: 14px; color: var(--text-mid); line-height: 1.7;
 }
 .familiar-bridge {
   margin-top: 60px; padding: 40px 48px;
@@ -494,6 +516,7 @@ footer {
   .product-mockup { justify-content: center; }
   .product-mockup img { max-width: 200px; }
 
+  .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar-bridge { flex-direction: column; gap: 20px; padding: 28px 24px; }
   .familiar-bridge { flex-direction: column; gap: 20px; }
   .faq-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -575,27 +598,27 @@ footer {
 
     <div class="familiar-grid">
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">01</span>
         <p>You haven't really talked to God in weeks. Not because you stopped believing — but because life got so loud, and you don't even know what to say anymore.</p>
       </div>
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">02</span>
         <p>You love your kids more than anything in this world. And you also feel completely invisible inside your own life. Both things are true, and the guilt of that exhausts you.</p>
       </div>
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">03</span>
         <p>You snap, feel guilty, apologise, repeat. The cycle wears you down more than the actual day does — and you desperately want to break it.</p>
       </div>
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">04</span>
         <p>You scroll past moms who seem to have it all together and wonder what is wrong with you. Then feel guilty for comparing. Then do it again tomorrow.</p>
       </div>
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">05</span>
         <p>You know — somewhere deep down — that you are meant for more than just surviving. But the day keeps winning. And you keep putting yourself last.</p>
       </div>
       <div class="familiar-item">
-        <span class="familiar-item-mark">✦</span>
+        <span class="familiar-item-num">06</span>
         <p>You miss the woman you were before. The one with dreams and spark and a quiet faith that actually felt alive. You wonder if she is still in there somewhere.</p>
       </div>
     </div>
