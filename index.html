@@ -214,60 +214,59 @@ section { padding: 100px 8%; }
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 32px; align-items: start;
 }
-
-.offer-item {
+.offer-card {
+  background: var(--white); padding: 40px 36px;
+  border: 1px solid var(--border);
   display: flex; flex-direction: column;
-  align-items: flex-start;
 }
-.product-img {
-  width: 100%; display: block;
-  border-radius: 8px;
-  box-shadow: 6px 12px 36px rgba(28,26,22,0.16);
-  margin-bottom: 28px;
+.offer-card-top {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+}
+.offer-num {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 22px; font-weight: 700; color: var(--sand); line-height: 1;
+}
+.offer-tag {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-light);
+}
+.offer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 2.5vw, 30px); font-weight: 700;
+  color: var(--text); line-height: 1.2; margin-bottom: 12px;
+}
+.offer-hook {
+  font-size: 15px; color: var(--text-mid); line-height: 1.7;
+  margin-bottom: 28px; font-style: italic;
+}
+.offer-inside {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 32px; padding: 22px 24px;
+  background: var(--sand-pale); border-left: 3px solid var(--sand);
+}
+.offer-inside li {
+  font-size: 14px; color: var(--text-mid); line-height: 1.6;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.offer-inside li::before { content: '✦'; color: var(--sand); font-size: 10px; flex-shrink: 0; margin-top: 3px; }
+.offer-price-row {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 24px;
+}
+.offer-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700; color: var(--text); line-height: 1;
+}
+.offer-price-note {
+  font-family: 'Montserrat', sans-serif; font-size: 10px;
+  color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase;
+}
+.offer-btn {
+  display: block; width: 100%; text-align: center; padding: 18px 32px;
 }
 .bundle-img {
   max-width: 380px; width: 100%; display: block;
   margin: 32px auto 40px;
   mix-blend-mode: multiply;
-}
-
-/* product mockup image */
-.product-mockup {
-  width: 240px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.product-mockup img {
-  width: 100%; max-width: 240px;
-  border-radius: 8px;
-  box-shadow: 8px 12px 40px rgba(28,26,22,0.18), 0 2px 8px rgba(28,26,22,0.08);
-  display: block;
-  transform: rotate(-1.5deg);
-}
-.product-mockup img:hover { transform: rotate(0deg) scale(1.02); transition: transform 0.3s; }
-.offer-num {
-  width: 52px; height: 52px; background: var(--sand-pale);
-  border: 2px solid var(--sand); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px; font-weight: 700; color: var(--sand-dark);
-  margin-bottom: 20px;
-}
-.offer-text h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 3vw, 40px); font-weight: 700;
-  color: var(--text); margin-bottom: 16px; line-height: 1.15;
-}
-.offer-text p {
-  font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 28px;
-}
-.offer-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 28px;
-}
-.offer-price-note {
-  font-family: 'Montserrat', sans-serif; font-size: 10px;
-  color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase;
-  margin-top: 6px;
 }
 
 /* ── BUNDLE ── */
@@ -374,6 +373,13 @@ section { padding: 100px 8%; }
 .opt-in-form button:hover { background: var(--sand-dark); }
 .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 14px; letter-spacing: 0.5px; }
 
+/* ── STILL DECIDING ── */
+.still-deciding { background: var(--cream-mid); }
+.still-deciding-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+.still-deciding .section-soft { display: block; }
+.still-deciding .section-title { margin-bottom: 24px; }
+.still-deciding p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 36px; }
+
 /* ── FAQ ── */
 .faq { background: var(--cream-soft); position: relative; overflow: hidden; }
 .faq-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
@@ -394,20 +400,36 @@ section { padding: 100px 8%; }
   object-fit: cover; object-position: center top;
   display: block;
 }
-.faq-blocks { display: flex; flex-direction: column; gap: 4px; }
-.faq-item { padding: 26px 30px; }
-.faq-item:nth-child(1) { background: #EDE5D5; }
-.faq-item:nth-child(2) { background: #E4D9C6; }
-.faq-item:nth-child(3) { background: #F0E8DC; }
-.faq-item:nth-child(4) { background: #E8DFCF; }
-.faq-item:nth-child(5) { background: #DDD3C2; }
-.faq-item:nth-child(6) { background: #EAE2D4; }
+.faq-blocks { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-toggle {
+  width: 100%; display: flex; justify-content: space-between;
+  align-items: center; padding: 22px 0;
+  background: none; border: none; cursor: pointer;
+  text-align: left; gap: 16px;
+}
 .faq-q {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(15px, 1.6vw, 19px); font-weight: 600;
-  color: var(--text); margin-bottom: 10px; line-height: 1.35;
+  font-size: clamp(15px, 1.6vw, 18px); font-weight: 600;
+  color: var(--text); line-height: 1.35;
 }
-.faq-a { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+.faq-plus {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border: 1.5px solid var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--sand);
+  transition: transform 0.3s, background 0.2s, color 0.2s;
+}
+.faq-item.open .faq-plus {
+  background: var(--sand); color: var(--white); transform: rotate(45deg);
+}
+.faq-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-item.open .faq-body { max-height: 400px; }
+.faq-a { font-size: 15px; color: var(--text-mid); line-height: 1.75; padding-bottom: 22px; }
 
 
 .familiar { background: var(--white); }
@@ -507,14 +529,9 @@ footer {
   .about .section-soft,
   .about .section-title { text-align: center; }
   .about-sig { text-align: center; }
-  .offers-list { gap: 16px; }
-  .offer-num { width: 36px; height: 36px; font-size: 11px; margin-bottom: 12px; }
-  .offer-text h3 { font-size: 18px; margin-bottom: 10px; }
-  .offer-text p { font-size: 13px; margin-bottom: 16px; }
-  .offer-price { font-size: 32px; margin-bottom: 16px; }
-  .btn-outline-rect { padding: 11px 16px; font-size: 10px; letter-spacing: 1px; }
-  .product-mockup { justify-content: center; }
-  .product-mockup img { max-width: 200px; }
+  .offers-list { grid-template-columns: 1fr; gap: 20px; }
+  .offer-card { padding: 28px 24px; }
+  .offer-price { font-size: 36px; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -664,29 +681,48 @@ footer {
 
     <div class="offers-list">
 
-      <!-- 01 PLANNER -->
       <!-- 01 EBOOK -->
-      <div class="offer-item">
-        <img src="From Surviving to Thriving .jpg" alt="From Surviving to Thriving in Motherhood" class="product-img">
-        <div class="offer-text">
-          <div class="offer-num">01</div>
-          <h3>From Surviving to Thriving in Motherhood</h3>
-          <p>It names what you have been carrying and walks you through three honest resets — for your faith, your identity, and your rhythm. You will feel less alone. And then something will shift.</p>
-          <div class="offer-price">$37 <span class="offer-price-note">Instant PDF download</span></div>
-          <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-outline-rect">Get Instant Access</a>
+      <div class="offer-card">
+        <div class="offer-card-top">
+          <span class="offer-num">01</span>
+          <span class="offer-tag">Ebook · 60 pages</span>
         </div>
+        <h3 class="offer-name">From Surviving to Thriving in Motherhood</h3>
+        <p class="offer-hook">The honest reset for the mom who has been running on empty for way too long.</p>
+        <ul class="offer-inside">
+          <li>Three complete resets — faith, identity, and daily rhythm</li>
+          <li>Language for what you've been carrying but couldn't name</li>
+          <li>Honest, real-life steps that work in an imperfect day</li>
+          <li>Chapters that feel like a conversation, not a lecture</li>
+          <li>Most moms read it in one sitting — many cry, pray, and text a friend a passage</li>
+        </ul>
+        <div class="offer-price-row">
+          <span class="offer-price">$37</span>
+          <span class="offer-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary offer-btn">Get Instant Access →</a>
       </div>
 
       <!-- 02 PLANNER -->
-      <div class="offer-item">
-        <img src="Rooted In Mom Devotional Planner.JPEG" alt="Rooted Mom Devotional Planner" class="product-img">
-        <div class="offer-text">
-          <div class="offer-num">02</div>
-          <h3>Rooted Mom Devotional Planner</h3>
-          <p>Five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
-          <div class="offer-price">$17 <span class="offer-price-note">Instant PDF download</span></div>
-          <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-outline-rect">Get Instant Access</a>
+      <div class="offer-card">
+        <div class="offer-card-top">
+          <span class="offer-num">02</span>
+          <span class="offer-tag">Devotional Planner</span>
         </div>
+        <h3 class="offer-name">Rooted Mom Devotional Planner</h3>
+        <p class="offer-hook">Five minutes a day to anchor your morning with God — simple enough to actually stick to.</p>
+        <ul class="offer-inside">
+          <li>Daily scripture prompts that take five minutes, not fifty</li>
+          <li>Space to check in with yourself and your faith every morning</li>
+          <li>Gratitude and intention pages built for a real mom's day</li>
+          <li>No guilt for missing a day — the practice is in coming back</li>
+          <li>Undated — start any day, any season, any mood</li>
+        </ul>
+        <div class="offer-price-row">
+          <span class="offer-price">$17</span>
+          <span class="offer-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary offer-btn">Get Instant Access →</a>
       </div>
 
     </div>
@@ -740,6 +776,17 @@ footer {
   </div>
 </section>
 
+<!-- STILL DECIDING -->
+<section class="still-deciding">
+  <div class="still-deciding-inner">
+    <span class="eyebrow">Before you go</span>
+    <span class="section-soft">Still deciding?</span>
+    <h2 class="section-title">Here's the honest answer.</h2>
+    <p>You've probably bought something before that felt like the answer and sat untouched in your downloads folder. I know — that's why I designed these differently. The ebook can be read in one sitting. The planner takes five minutes a day. They don't ask for time you don't have. If you're not sure where to start, the free guide is a no-risk way to feel what this is about before you spend a single dollar.</p>
+    <a href="#free-guide" class="btn-sand-rect">Start Free — No Credit Card</a>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-deco">Got Questions</div>
@@ -757,33 +804,63 @@ footer {
         <div class="faq-blocks">
 
           <div class="faq-item">
-            <p class="faq-q">Is this right for me if I don't feel like a "good" Christian right now?</p>
-            <p class="faq-a">Especially then. These resources weren't made for the woman who has it all together. They were made for the one who is tired, disconnected, and quietly asking God if He still sees her. He does. And so does this.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">Is this right for me if I don't feel like a "good" Christian right now?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">Especially then. These resources weren't made for the woman who has it all together. They were made for the one who is tired, disconnected, and quietly asking God if He still sees her. He does. And so does this.</p>
+            </div>
           </div>
 
           <div class="faq-item">
-            <p class="faq-q">How long does the ebook take to read?</p>
-            <p class="faq-a">Most moms finish it in one sitting — though many stop to cry, pray, or text a passage to a friend. It's honest and easy to read. Not heavy, not academic. Just real.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">How long does the ebook take to read?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">Most moms finish it in one sitting — though many stop to cry, pray, or text a passage to a friend. It's honest and easy to read. Not heavy, not academic. Just real.</p>
+            </div>
           </div>
 
           <div class="faq-item">
-            <p class="faq-q">What format are these and how do I get them?</p>
-            <p class="faq-a">Both are instant PDF digital downloads. The moment you purchase, you'll receive a link by email. Read them on your phone, tablet, laptop, or print at home — whatever works for your life.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">What format are these and how do I get them?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">Both are instant PDF digital downloads. The moment you purchase, you'll receive a link by email. Read them on your phone, tablet, laptop, or print at home — whatever works for your life.</p>
+            </div>
           </div>
 
           <div class="faq-item">
-            <p class="faq-q">Do I have to use the planner every single day?</p>
-            <p class="faq-a">No — and that's the whole point. The planner is built for real life, not a perfect life. You don't fail the rhythm by missing a day. You just come back to it. That's the practice.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">Do I have to use the planner every single day?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">No — and that's the whole point. The planner is built for real life, not a perfect life. You don't fail the rhythm by missing a day. You just come back to it. That's the practice.</p>
+            </div>
           </div>
 
           <div class="faq-item">
-            <p class="faq-q">Is this just another devotional planner/book?</p>
-            <p class="faq-a">Honestly? No. I wrote these because I needed them and couldn't find anything like them anywhere. They're part real story, part faith, part guide — born from a season where I was desperately looking for something that actually met me where I was. These didn't come from a formula. They came from my life.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">Is this just another devotional planner/book?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">Honestly? No. I wrote these because I needed them and couldn't find anything like them anywhere. They're part real story, part faith, part guide — born from a season where I was desperately looking for something that actually met me where I was. These didn't come from a formula. They came from my life.</p>
+            </div>
           </div>
 
           <div class="faq-item">
-            <p class="faq-q">What is your refund policy?</p>
-            <p class="faq-a">Because these are instant digital downloads, all sales are final. If you have any questions before purchasing, reach out on Instagram <a href="https://instagram.com/rootedinbloomco_" target="_blank" rel="noopener" style="color:var(--sand-dark);">@rootedinbloomco_</a> — I'm happy to help you find the right fit.</p>
+            <button class="faq-toggle" onclick="toggleFaq(this)">
+              <span class="faq-q">What is your refund policy?</span>
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-a">Because these are instant digital downloads, all sales are final. If you have any questions before purchasing, reach out on Instagram <a href="https://instagram.com/rootedinbloomco_" target="_blank" rel="noopener" style="color:var(--sand-dark);">@rootedinbloomco_</a> — I'm happy to help you find the right fit.</p>
+            </div>
           </div>
 
         </div>
@@ -833,6 +910,12 @@ footer {
   });
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
+  }
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   }
 </script>
 
