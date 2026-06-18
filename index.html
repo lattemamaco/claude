@@ -373,7 +373,41 @@ section { padding: 100px 8%; }
 .opt-in-form button:hover { background: var(--sand-dark); }
 .opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 14px; letter-spacing: 0.5px; }
 
-/* ── FOOTER ── */
+/* ── FAMILIAR ── */
+.familiar { background: var(--white); }
+.familiar-inner { max-width: 1080px; margin: 0 auto; }
+.familiar-header { max-width: 600px; margin-bottom: 56px; }
+.familiar-header .section-soft { margin-bottom: 8px; }
+.familiar-header p { font-size: 17px; color: var(--text-mid); line-height: 1.75; margin-top: 14px; }
+
+.familiar-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  border: 1px solid var(--border); background: var(--border);
+}
+.familiar-item {
+  background: var(--cream); padding: 36px 40px;
+}
+.familiar-item-mark {
+  color: var(--sand); font-size: 20px; display: block; margin-bottom: 12px; line-height: 1;
+}
+.familiar-item p {
+  font-size: 16px; color: var(--text-mid); line-height: 1.75;
+}
+.familiar-bridge {
+  margin-top: 60px; padding: 40px 48px;
+  background: var(--sand-pale); border: 1px solid var(--border);
+  display: flex; gap: 32px; align-items: center;
+}
+.familiar-bridge-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: clamp(19px, 2.2vw, 26px);
+  color: var(--text); line-height: 1.5; flex: 1;
+}
+.familiar-bridge-cta { flex-shrink: 0; }
+
+/* ── FAMILIAR RESPONSIVE ── */
+
+
 footer {
   background: var(--text); color: rgba(255,255,255,0.45);
   padding: 56px 8%;
@@ -419,6 +453,8 @@ footer {
   .offer-arch { display: flex; justify-content: center; }
   .product-mockup { justify-content: center; }
   .product-mockup img { max-width: 200px; }
+  .familiar-grid { grid-template-columns: 1fr; }
+  .familiar-bridge { flex-direction: column; gap: 20px; }
   .proof-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .opt-in-form { flex-direction: column; }
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
@@ -448,12 +484,12 @@ footer {
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <span class="hero-soft-label">For the mom who is ready —</span>
+    <span class="hero-soft-label">For the mom who is done just getting through the day —</span>
     <h1>Stop Surviving.<br>Start Coming<br>Back.</h1>
-    <p class="hero-body">Faith-filled resources for the mom who is done just getting through the day. Simple, honest, and built for the life you are actually living.</p>
+    <p class="hero-body">You love your babies fiercely. You love God. But somewhere between the laundry and the sleepless nights and everyone needing a piece of you — you quietly disappeared. These resources were made for this exact moment.</p>
     <div class="hero-ctas">
       <a href="#products" class="btn-primary">Shop the Collection</a>
-      <a href="#free-guide" class="btn-secondary">Get the Free Reset</a>
+      <a href="#free-guide" class="btn-secondary">Start Free</a>
     </div>
   </div>
 </section>
@@ -476,6 +512,51 @@ footer {
   </div>
 </div>
 
+<!-- FAMILIAR -->
+<section class="familiar">
+  <div class="familiar-inner">
+    <div class="familiar-header">
+      <span class="eyebrow">If you're still reading, this is for you</span>
+      <span class="section-soft">Does any of this sound familiar?</span>
+      <p>You don't have to have it all figured out to be in the right place. Read these and see if your heart says yes.</p>
+    </div>
+
+    <div class="familiar-grid">
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You haven't really talked to God in weeks. Not because you stopped believing — but because life got so loud, and you don't even know what to say anymore.</p>
+      </div>
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You love your kids more than anything in this world. And you also feel completely invisible inside your own life. Both things are true, and the guilt of that exhausts you.</p>
+      </div>
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You snap, feel guilty, apologise, repeat. The cycle wears you down more than the actual day does — and you desperately want to break it.</p>
+      </div>
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You scroll past moms who seem to have it all together and wonder what is wrong with you. Then feel guilty for comparing. Then do it again tomorrow.</p>
+      </div>
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You know — somewhere deep down — that you are meant for more than just surviving. But the day keeps winning. And you keep putting yourself last.</p>
+      </div>
+      <div class="familiar-item">
+        <span class="familiar-item-mark">✦</span>
+        <p>You miss the woman you were before. The one with dreams and spark and a quiet faith that actually felt alive. You wonder if she is still in there somewhere.</p>
+      </div>
+    </div>
+
+    <div class="familiar-bridge">
+      <p class="familiar-bridge-text">"If even one of those made you pause and think <em>yes, that's me</em> — you are in exactly the right place. You are not broken. You are not too far gone. You are just a woman who needs to come back to herself. And that is exactly what we do here."</p>
+      <div class="familiar-bridge-cta">
+        <a href="#about" class="btn-sand-rect">Read My Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
@@ -487,12 +568,13 @@ footer {
     <div class="about-text">
       <span class="eyebrow">Hey, there!</span>
       <span class="section-soft">My name is Ally</span>
-      <h2 class="section-title">And I'm here to help you come back.</h2>
-      <p>There was a time I stopped talking to God. Not because I stopped believing. But because life got loud and somewhere in the noise He got pushed to the bottom of the list.</p>
-      <p>There was a morning I looked in the mirror and did not recognise myself. Not because anything was dramatically wrong — but because the woman looking back at me had slowly disappeared into everyone else's needs.</p>
-      <p>These resources did not come from the other side of the hard. They came from inside it. That is why they are different. And that is why I believe they can meet you exactly where you are.</p>
+      <h2 class="section-title">And I have lived everything you just read.</h2>
+      <p>There was a season I stopped talking to God. Not because I stopped believing — but because life got so loud that He got pushed to the very bottom of the list. I felt too busy, too tired, and honestly? Too far gone to even know where to start coming back.</p>
+      <p>There was a morning I looked in the mirror and genuinely did not recognise myself. Not because anything was dramatically wrong — but because I had slowly disappeared into everyone else's needs. A little at a time, until there was nothing left that felt like me.</p>
+      <p>I know what it is to love your family and also feel completely lost inside of it. I know the guilt of wanting something for yourself. I know the quiet ache of missing who you used to be.</p>
+      <p>These resources did not come from the other side of the hard. They came from right inside it. That is why they are different — and that is why I believe they will meet you exactly where you are.</p>
       <div class="about-sig">With love, Ally</div>
-      <a href="#products" class="btn-sand-rect">See My Resources</a>
+      <a href="#products" class="btn-sand-rect">See What I've Created for You</a>
     </div>
   </div>
 </section>
@@ -502,8 +584,8 @@ footer {
   <div class="products-inner">
     <div class="products-header">
       <span class="eyebrow">The Collection</span>
-      <span class="section-soft">Discover</span>
-      <h2 class="section-title">What I've Created for You</h2>
+      <span class="section-soft">Ready to do something for yourself?</span>
+      <h2 class="section-title">Here's Where You Start.</h2>
     </div>
 
     <div class="offers-list">
@@ -516,7 +598,8 @@ footer {
         <div class="offer-text">
           <div class="offer-num">01</div>
           <h3>Rooted Mom Devotional Planner</h3>
-          <p>Your daily companion for the mom who is learning to thrive. A simple space to come back to yourself — day by day, with grace. Daily scripture study pages, guided prayer prompts, weekly rhythm check-ins, and reset prompts for the hard days.</p>
+          <p>This is not another planner that makes you feel behind before the day even starts. It is a gentle daily space to sit with God, check in with yourself, and anchor your day with grace. Five minutes. One honest moment. That is all it takes to begin.</p>
+          <p style="font-size:14px; color:var(--text-light); margin-top:-12px;">Daily scripture pages · Guided prayer prompts · Weekly rhythm check-ins · Reset prompts for the hard days</p>
           <div class="offer-price">$17 <span class="offer-price-note">Instant PDF download</span></div>
           <a href="#" class="btn-outline-rect">Get Instant Access</a>
         </div>
@@ -530,7 +613,8 @@ footer {
         <div class="offer-text">
           <div class="offer-num">02</div>
           <h3>From Surviving to Thriving in Motherhood</h3>
-          <p>For the mom who is done just getting through the day. Real stories, honest truth, and the three resets that changed everything — Faith Reset, Identity Reset, and Motherhood Reset. Written from inside the hard seasons, not from the other side.</p>
+          <p>This ebook will make you feel understood in a way you have been craving. It names what you have been carrying, tells the truth about what motherhood can quietly take from you, and walks you through three honest resets — for your faith, your identity, and your daily rhythm. You will read it and feel less alone. And then you will feel something shift.</p>
+          <p style="font-size:14px; color:var(--text-light); margin-top:-12px;">Faith Reset · Identity Reset · Motherhood Reset · Real stories from inside the hard seasons</p>
           <div class="offer-price">$37 <span class="offer-price-note">Instant PDF download</span></div>
           <a href="#" class="btn-outline-rect">Get Instant Access</a>
         </div>
@@ -543,20 +627,20 @@ footer {
 <!-- BUNDLE -->
 <section class="bundle" id="bundle">
   <div class="bundle-inner">
-    <span class="eyebrow">Best Value — Save $9</span>
-    <span class="section-soft">Want both?</span>
+    <span class="eyebrow">Most Popular · Save $9</span>
+    <span class="section-soft">The most complete yes you can give yourself.</span>
     <h2 class="section-title">The Rooted Mom Bundle</h2>
     <img src="Bundle .PNG" alt="The Rooted Mom Bundle" style="max-width:340px; width:100%; border-radius:10px; box-shadow: 8px 14px 48px rgba(28,26,22,0.16); margin: 28px auto 0; display:block;">
-    <p class="bundle-body" style="margin-top:36px;">Both resources. One purpose. Start with the ebook — then use the planner to live it out, every single day.</p>
+    <p class="bundle-body" style="margin-top:36px;">Start with the ebook — let it name what you've been carrying and show you the way forward. Then reach for the planner every morning and actually live it out, day by day, with grace. Together, they are the full reset your soul has been asking for.</p>
     <ul class="bundle-includes">
       <li>From Surviving to Thriving Ebook ($37 value)</li>
       <li>Rooted Mom Devotional Planner ($17 value)</li>
-      <li>Instant access to both PDFs — download today</li>
+      <li>Instant access to both PDFs — start today</li>
     </ul>
     <span class="bundle-savings">You save $9</span>
     <span class="bundle-price">$45</span>
     <span class="bundle-price-note">for both · instant download</span>
-    <a href="#" class="btn-sand-rect">Get the Bundle</a>
+    <a href="#" class="btn-sand-rect">Yes — I'm Ready to Thrive</a>
   </div>
 </section>
 
@@ -590,21 +674,20 @@ footer {
 <!-- FREE GUIDE -->
 <section class="free-guide" id="free-guide">
   <div class="free-guide-inner">
-    <span class="eyebrow">Start here — completely free</span>
+    <span class="eyebrow">A gift — completely free</span>
     <span class="section-soft">The 3 Day Reset</span>
-    <h2 class="section-title">Not Ready to Buy? Start Here.</h2>
-    <p class="free-guide-body">Three days. Three honest moments. No perfect morning needed. Just you and this guide.</p>
+    <h2 class="section-title">Not sure yet? Let me meet you where you are.</h2>
+    <p class="free-guide-body">Before you spend a dollar, I want you to experience what this feels like. The 3 Day Reset is a free guide that walks you through three honest moments — one for your faith, one for your identity, and one for your rhythm. Ten minutes a day. No perfect morning required. Just you, exactly as you are right now.</p>
     <ul class="free-guide-bullets">
-      <li>Day 1 — Faith Reset: Coming back to God</li>
-      <li>Day 2 — Identity Reset: Remembering who you are</li>
-      <li>Day 3 — Motherhood Reset: Building your rhythm</li>
-      <li>10 minutes a day. Completely free.</li>
+      <li>Day 1 — Faith Reset: One honest moment with God, even if you don't know what to say</li>
+      <li>Day 2 — Identity Reset: Remembering who you are beneath all the doing</li>
+      <li>Day 3 — Motherhood Reset: Building one small rhythm that gives your days back to you</li>
     </ul>
     <form class="opt-in-form" onsubmit="return false;">
       <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Send It Free</button>
+      <button type="submit">Send Me the Free Guide</button>
     </form>
-    <p class="opt-in-note">No spam. Unsubscribe any time.</p>
+    <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
   </div>
 </section>
 
