@@ -273,17 +273,41 @@ section { padding: 100px 8%; }
   overflow: hidden;
   background: var(--cream-soft);
   box-shadow: 0 6px 26px rgba(28,26,22,0.14), 0 1px 4px rgba(28,26,22,0.08);
+  will-change: transform, opacity;
 }
 
 .page-card img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
-.page-card:nth-child(1) { z-index: 5; transform: rotate(-4deg)   translate(-16px,  -6px); }
-.page-card:nth-child(2) { z-index: 4; transform: rotate( 3deg)   translate( 16px,   2px); }
-.page-card:nth-child(3) { z-index: 3; transform: rotate(-1.5deg) translate( -8px,   6px); }
-.page-card:nth-child(4) { z-index: 2; transform: rotate( 4deg)   translate( 12px,  10px); }
-.page-card:nth-child(5) { z-index: 1; transform: rotate(-2.5deg) translate(  2px,  14px); }
+@keyframes card1In {
+  from { opacity: 0; transform: rotate(-4deg)   translate(-16px,  54px); }
+  to   { opacity: 1; transform: rotate(-4deg)   translate(-16px,  -6px); }
+}
+@keyframes card2In {
+  from { opacity: 0; transform: rotate( 3deg)   translate( 16px,  62px); }
+  to   { opacity: 1; transform: rotate( 3deg)   translate( 16px,   2px); }
+}
+@keyframes card3In {
+  from { opacity: 0; transform: rotate(-1.5deg) translate( -8px,  66px); }
+  to   { opacity: 1; transform: rotate(-1.5deg) translate( -8px,   6px); }
+}
+@keyframes card4In {
+  from { opacity: 0; transform: rotate( 4deg)   translate( 12px,  70px); }
+  to   { opacity: 1; transform: rotate( 4deg)   translate( 12px,  10px); }
+}
+@keyframes card5In {
+  from { opacity: 0; transform: rotate(-2.5deg) translate(  2px,  74px); }
+  to   { opacity: 1; transform: rotate(-2.5deg) translate(  2px,  14px); }
+}
+
+.page-card:nth-child(1) { z-index: 5; animation: card1In 0.7s cubic-bezier(0.22,1,0.36,1) 0s    both paused; }
+.page-card:nth-child(2) { z-index: 4; animation: card2In 0.7s cubic-bezier(0.22,1,0.36,1) 0.13s both paused; }
+.page-card:nth-child(3) { z-index: 3; animation: card3In 0.7s cubic-bezier(0.22,1,0.36,1) 0.26s both paused; }
+.page-card:nth-child(4) { z-index: 2; animation: card4In 0.7s cubic-bezier(0.22,1,0.36,1) 0.39s both paused; }
+.page-card:nth-child(5) { z-index: 1; animation: card5In 0.7s cubic-bezier(0.22,1,0.36,1) 0.52s both paused; }
+
+.page-stack-wrap.play .page-card { animation-play-state: running; }
 
 /* ── MINI PAGE CONTENT ── */
 .mini-page {
@@ -1043,6 +1067,21 @@ footer {
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // Page stack entrance animation
+  (function () {
+    var stacks = document.querySelectorAll('.page-stack-wrap');
+    if (!stacks.length) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('play');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+    stacks.forEach(function (el) { obs.observe(el); });
+  }());
 
 </script>
 
