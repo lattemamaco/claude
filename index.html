@@ -250,6 +250,136 @@ section { padding: 100px 8%; }
 .product-cta {
   display: block; width: 100%; text-align: center; padding: 20px 32px; font-size: 13px; letter-spacing: 2px;
 }
+
+/* ── PRODUCT 2-COL + PAGE STACK ── */
+.product-cols {
+  max-width: 1080px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+
+.page-stack-wrap {
+  display: flex; justify-content: center; align-items: center;
+  padding: 44px 24px;
+}
+
+.page-stack-scene {
+  position: relative;
+  width: 240px; height: 308px;
+}
+
+.page-card {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  background: var(--cream-soft);
+  box-shadow: 0 6px 26px rgba(28,26,22,0.14), 0 1px 4px rgba(28,26,22,0.08);
+}
+
+.page-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.page-card:nth-child(1) { z-index: 5; transform: rotate(-4deg)   translate(-16px,  -6px); }
+.page-card:nth-child(2) { z-index: 4; transform: rotate( 3deg)   translate( 16px,   2px); }
+.page-card:nth-child(3) { z-index: 3; transform: rotate(-1.5deg) translate( -8px,   6px); }
+.page-card:nth-child(4) { z-index: 2; transform: rotate( 4deg)   translate( 12px,  10px); }
+.page-card:nth-child(5) { z-index: 1; transform: rotate(-2.5deg) translate(  2px,  14px); }
+
+/* ── MINI PAGE CONTENT ── */
+.mini-page {
+  width: 100%; height: 100%;
+  background: var(--white);
+  display: flex; flex-direction: column;
+  padding: 14px 12px 10px;
+  overflow: hidden;
+}
+.mini-page.cream-bg { background: var(--cream-soft); }
+
+.mp-title {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  text-align: center; line-height: 1.25; margin-bottom: 7px;
+}
+.mp-title .mp-upright {
+  font-style: normal; display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+}
+.mp-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 5px; color: var(--text-mid);
+  text-align: center; margin-bottom: 3px; line-height: 1.4;
+}
+.mp-bar {
+  background: var(--cream-soft);
+  padding: 3px 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 5px; color: var(--text-mid);
+  text-align: center; margin-bottom: 2px;
+}
+.mp-box {
+  border: 0.5px solid #d8cfc4;
+  flex: 1; min-height: 18px; margin-bottom: 3px;
+}
+.mp-box.sm { min-height: 10px; flex: 0.4; }
+.mp-grid-2 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-bottom: 2px;
+}
+.mp-grid-col {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.mp-text-area {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px;
+}
+.mp-line {
+  height: 3px; background: var(--cream-mid); border-radius: 1px;
+}
+.mp-line.w95 { width: 95%; }
+.mp-line.w85 { width: 85%; }
+.mp-line.w80 { width: 80%; }
+.mp-line.w70 { width: 70%; }
+.mp-line.w60 { width: 60%; }
+.mp-line.w55 { width: 55%; }
+.mp-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-light); text-align: center;
+  margin-top: auto; padding-top: 5px;
+}
+.mp-quote-wrap {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 6px 2px;
+}
+.mp-quote {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 7.5px; color: var(--text); line-height: 1.55;
+  text-align: center;
+  background: rgba(196,168,130,0.18);
+  padding: 8px 6px;
+}
+.mp-photo {
+  background: var(--cream-mid);
+  height: 52px; margin-bottom: 5px;
+  border-radius: 1px;
+}
+.mp-num-list {
+  display: flex; flex-direction: column; gap: 5px; flex: 1;
+}
+.mp-num-item { display: flex; gap: 4px; align-items: flex-start; }
+.mp-num {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 9px; color: var(--sand); line-height: 1; flex-shrink: 0; margin-top: 1px;
+}
+.mp-num-lines { flex: 1; display: flex; flex-direction: column; gap: 2px; padding-top: 2px; }
+.mp-prompt {
+  font-family: 'Inter', sans-serif;
+  font-size: 5px; color: var(--text-mid); margin-bottom: 2px; line-height: 1.4;
+}
+.mp-divider {
+  height: 0.5px; background: var(--border); margin: 3px 0;
+}
+
 .bundle-img {
   max-width: 380px; width: 100%; display: block;
   margin: 32px auto 40px;
@@ -510,6 +640,10 @@ footer {
   .products-inner { padding: 0 6% 52px; }
   .product-section { padding: 52px 6%; }
   .product-price { font-size: 40px; }
+  .product-cols { grid-template-columns: 1fr; gap: 36px; }
+  .page-stack-wrap { order: -1; padding: 24px 0; }
+  .page-stack-scene { width: 200px; height: 257px; }
+  .product-cols .product-copy { order: 1; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -661,41 +795,72 @@ footer {
 
   <!-- EBOOK -->
   <div class="product-section product-section-a">
-    <div class="product-section-inner">
-      <span class="product-label">The Ebook</span>
-      <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
-      <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
-      <ul class="product-inside">
-        <li>Three complete resets: faith, identity, and rhythm</li>
-        <li>Language for what you've been carrying but couldn't name</li>
-        <li>Honest steps that work in a real, imperfect life</li>
-        <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
-      </ul>
-      <div class="product-price-row">
-        <span class="product-price">$37</span>
-        <span class="product-price-note">Instant PDF download</span>
+    <div class="product-cols">
+
+      <div class="page-stack-wrap">
+        <div class="page-stack-scene">
+
+          <div class="page-card"><img src="Ebook%20pg%201.jpg" alt="Dear Mama — opening letter"></div>
+          <div class="page-card"><img src="Ebook%20pg%202.jpg" alt="God chose you to shepherd these children"></div>
+          <div class="page-card"><img src="Ebook%20pg%203.jpg" alt="I Was Sitting In My Car"></div>
+          <div class="page-card"><img src="Ebook%20pg%204.jpg" alt="Practical Ways To Connect Daily"></div>
+          <div class="page-card"><img src="Ebook%20pg%205.jpg" alt="Who Was I Before Worksheet"></div>
+
+        </div>
       </div>
-      <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
+
+      <div class="product-copy">
+        <span class="product-label">The Ebook</span>
+        <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
+        <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
+        <ul class="product-inside">
+          <li>Three complete resets: faith, identity, and rhythm</li>
+          <li>Language for what you've been carrying but couldn't name</li>
+          <li>Honest steps that work in a real, imperfect life</li>
+          <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
+        </ul>
+        <div class="product-price-row">
+          <span class="product-price">$37</span>
+          <span class="product-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
+      </div>
+
     </div>
   </div>
 
   <!-- PLANNER -->
   <div class="product-section product-section-b">
-    <div class="product-section-inner">
-      <span class="product-label">The Planner</span>
-      <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
-      <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
-      <ul class="product-inside">
-        <li>Daily scripture prompts that take five minutes, not fifty</li>
-        <li>Space to check in with yourself and your faith every morning</li>
-        <li>No guilt for missing a day. The practice is in coming back</li>
-        <li>Undated so you can start any day, any season, any mood</li>
-      </ul>
-      <div class="product-price-row">
-        <span class="product-price">$17</span>
-        <span class="product-price-note">Instant PDF download</span>
+    <div class="product-cols">
+
+      <div class="product-copy">
+        <span class="product-label">The Planner</span>
+        <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
+        <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
+        <ul class="product-inside">
+          <li>Daily scripture prompts that take five minutes, not fifty</li>
+          <li>Space to check in with yourself and your faith every morning</li>
+          <li>No guilt for missing a day. The practice is in coming back</li>
+          <li>Undated so you can start any day, any season, any mood</li>
+        </ul>
+        <div class="product-price-row">
+          <span class="product-price">$17</span>
+          <span class="product-price-note">Instant PDF download</span>
+        </div>
+        <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
       </div>
-      <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
+
+      <div class="page-stack-wrap">
+        <div class="page-stack-scene">
+
+          <div class="page-card"><img src="Planner%20pg%201.jpg" alt="Who Was I Before Worksheet"></div>
+          <div class="page-card"><img src="Planner%20pg%202.jpg" alt="My Reset Intentions For This Year"></div>
+          <div class="page-card"><img src="Planner%20pg%203.jpg" alt="My Weekly Gratitude"></div>
+          <div class="page-card"><img src="Planner%20pg%204.jpg" alt="God's Faithfulness"></div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -878,6 +1043,7 @@ footer {
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
 </script>
 
 </body>
