@@ -251,12 +251,26 @@ section { padding: 100px 8%; }
   display: block; width: 100%; text-align: center; padding: 20px 32px; font-size: 13px; letter-spacing: 2px;
 }
 
-/* ── PRODUCT 2-COL + PAGE STACK ── */
-.product-cols {
-  max-width: 1080px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 72px; align-items: center;
+/* ── PRODUCT LAYOUT ── */
+.product-copy { max-width: 1080px; margin: 0 auto; }
+
+.product-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "text  stack"
+    "cta   stack";
+  gap: 24px 64px;
+  align-items: start;
 }
+.product-section-b .product-inner {
+  grid-template-areas:
+    "stack text"
+    "stack cta";
+}
+.product-text      { grid-area: text; }
+.product-cta-block { grid-area: cta; }
+.page-stack-wrap   { grid-area: stack; }
 
 .page-stack-wrap {
   display: flex; justify-content: center; align-items: center;
@@ -720,10 +734,15 @@ footer {
   .products-inner { padding: 0 6% 52px; }
   .product-section { padding: 52px 6%; }
   .product-price { font-size: 40px; }
-  .product-cols { grid-template-columns: 1fr; gap: 36px; }
-  .page-stack-wrap { order: -1; padding: 24px 0; }
+  .product-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text" "stack" "cta";
+  }
+  .product-section-b .product-inner {
+    grid-template-areas: "text" "stack" "cta";
+  }
+  .page-stack-wrap { padding: 24px 0; }
   .page-stack-scene { width: 200px; height: 257px; }
-  .product-cols .product-copy { order: 1; }
   .notepad-card { padding: 40px 28px 32px; }
   .product-section-a .notepad-card,
   .product-section-b .notepad-card { transform: none; }
@@ -878,70 +897,80 @@ footer {
 
   <!-- EBOOK -->
   <div class="product-section product-section-a">
-    <div class="product-cols">
+    <div class="product-copy notepad-card">
+      <div class="product-inner">
 
-      <div class="page-stack-wrap ebook-stack">
-        <div class="page-stack-scene">
-          <div class="page-card"><img src="Ebook%20pg%203.jpg" alt="I Was Sitting In My Car"></div>
-          <div class="page-card"><img src="Ebook%20pg%205.jpg" alt="Who Was I Before Worksheet"></div>
-          <div class="page-card"><img src="Ebook%20pg%201.jpg" alt="Dear Mama — opening letter"></div>
-          <div class="page-card"><img src="Ebook%20pg%202.jpg" alt="God chose you to shepherd these children"></div>
-          <div class="page-card"><img src="Ebook%20pg%204.jpg" alt="Practical Ways To Connect Daily"></div>
+        <div class="product-text">
+          <span class="product-label">The Ebook</span>
+          <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
+          <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
+          <ul class="product-inside">
+            <li>Three complete resets: faith, identity, and rhythm</li>
+            <li>Language for what you've been carrying but couldn't name</li>
+            <li>Honest steps that work in a real, imperfect life</li>
+            <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
+          </ul>
         </div>
-      </div>
 
-      <div class="product-copy notepad-card">
-        <span class="product-label">The Ebook</span>
-        <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
-        <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
-        <ul class="product-inside">
-          <li>Three complete resets: faith, identity, and rhythm</li>
-          <li>Language for what you've been carrying but couldn't name</li>
-          <li>Honest steps that work in a real, imperfect life</li>
-          <li>Read in one sitting. Most moms cry, pray, and text a passage to a friend</li>
-        </ul>
-        <div class="product-price-row">
-          <span class="product-price">$37</span>
-          <span class="product-price-note">Instant PDF download</span>
+        <div class="page-stack-wrap ebook-stack">
+          <div class="page-stack-scene">
+            <div class="page-card"><img src="Ebook%20pg%203.jpg" alt="I Was Sitting In My Car"></div>
+            <div class="page-card"><img src="Ebook%20pg%205.jpg" alt="Who Was I Before Worksheet"></div>
+            <div class="page-card"><img src="Ebook%20pg%201.jpg" alt="Dear Mama — opening letter"></div>
+            <div class="page-card"><img src="Ebook%20pg%202.jpg" alt="God chose you to shepherd these children"></div>
+            <div class="page-card"><img src="Ebook%20pg%204.jpg" alt="Practical Ways To Connect Daily"></div>
+          </div>
         </div>
-        <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
-      </div>
 
+        <div class="product-cta-block">
+          <div class="product-price-row">
+            <span class="product-price">$37</span>
+            <span class="product-price-note">Instant PDF download</span>
+          </div>
+          <a href="https://stan.store/Rootedinbloom/p/from-surviving-to-thriving-in-motherhood" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Ebook</a>
+        </div>
+
+      </div>
     </div>
   </div>
 
   <!-- PLANNER -->
   <div class="product-section product-section-b">
-    <div class="product-cols">
+    <div class="product-copy notepad-card">
+      <div class="product-inner">
 
-      <div class="product-copy notepad-card">
-        <span class="product-label">The Planner</span>
-        <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
-        <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
-        <ul class="product-inside">
-          <li>Daily scripture prompts that take five minutes, not fifty</li>
-          <li>Space to check in with yourself and your faith every morning</li>
-          <li>No guilt for missing a day. The practice is in coming back</li>
-          <li>Undated so you can start any day, any season, any mood</li>
-        </ul>
-        <div class="product-price-row">
-          <span class="product-price">$17</span>
-          <span class="product-price-note">Instant PDF download</span>
+        <div class="product-text">
+          <span class="product-label">The Planner</span>
+          <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
+          <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
+          <ul class="product-inside">
+            <li>Daily scripture prompts that take five minutes, not fifty</li>
+            <li>Space to check in with yourself and your faith every morning</li>
+            <li>No guilt for missing a day. The practice is in coming back</li>
+            <li>Undated so you can start any day, any season, any mood</li>
+          </ul>
         </div>
-        <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
-      </div>
 
-      <div class="page-stack-wrap planner-stack">
-        <div class="page-stack-scene">
-          <div class="page-card"><img src="Planner%20pg%201.jpg" alt="Who Was I Before Worksheet"></div>
-          <div class="page-card"><img src="Planner%20pg%202.jpg" alt="My Reset Intentions For This Year"></div>
-          <div class="page-card"><img src="Planner%20pg%203.jpg" alt="My Weekly Gratitude"></div>
-          <div class="page-card"><img src="Planner%20pg%204.jpg" alt="God's Faithfulness"></div>
-          <div class="page-card"><img src="Planner%20pg%205.jpg" alt="Rooted Mom Devotional Planner — page 5"></div>
-          <div class="page-card"><img src="Planner%20pg%206.jpg" alt="Rooted Mom Devotional Planner — page 6"></div>
+        <div class="page-stack-wrap planner-stack">
+          <div class="page-stack-scene">
+            <div class="page-card"><img src="Planner%20pg%201.jpg" alt="Who Was I Before Worksheet"></div>
+            <div class="page-card"><img src="Planner%20pg%202.jpg" alt="My Reset Intentions For This Year"></div>
+            <div class="page-card"><img src="Planner%20pg%203.jpg" alt="My Weekly Gratitude"></div>
+            <div class="page-card"><img src="Planner%20pg%204.jpg" alt="God's Faithfulness"></div>
+            <div class="page-card"><img src="Planner%20pg%205.jpg" alt="Rooted Mom Devotional Planner — page 5"></div>
+            <div class="page-card"><img src="Planner%20pg%206.jpg" alt="Rooted Mom Devotional Planner — page 6"></div>
+          </div>
         </div>
-      </div>
 
+        <div class="product-cta-block">
+          <div class="product-price-row">
+            <span class="product-price">$17</span>
+            <span class="product-price-note">Instant PDF download</span>
+          </div>
+          <a href="https://stan.store/Rootedinbloom/p/rooted-mom-devotional-planner-" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want the Planner</a>
+        </div>
+
+      </div>
     </div>
   </div>
 
