@@ -341,6 +341,30 @@ section { padding: 100px 8%; }
 
 .page-stack-wrap.play .page-card { animation-play-state: running; }
 
+/* ── NOTEPAD CARD ── */
+.notepad-card {
+  position: relative;
+  background-color: #FEFEF9;
+  padding: 52px 44px 44px;
+  box-shadow: 2px 5px 22px rgba(28,26,22,0.12), 0 1px 4px rgba(28,26,22,0.07);
+}
+.notepad-card::before,
+.notepad-card::after {
+  content: '';
+  position: absolute; top: -14px;
+  width: 66px; height: 24px;
+  background:
+    repeating-linear-gradient(-55deg, transparent 0, transparent 3px, rgba(255,255,255,0.10) 3px, rgba(255,255,255,0.10) 4px),
+    rgba(228,210,160,0.64);
+  box-shadow: 0 1px 4px rgba(28,26,22,0.13);
+  border-radius: 1px;
+  z-index: 1;
+}
+.notepad-card::before { left: 17%; transform: rotate(-2.5deg); }
+.notepad-card::after  { right: 17%; transform: rotate(2deg); }
+.product-section-a .notepad-card { transform: rotate(-1deg); }
+.product-section-b .notepad-card { transform: rotate(0.8deg); }
+
 /* ── MINI PAGE CONTENT ── */
 .mini-page {
   width: 100%; height: 100%;
@@ -445,6 +469,8 @@ section { padding: 100px 8%; }
 /* ── BUNDLE ── */
 .bundle { background: var(--cream-mid); text-align: center; }
 .bundle-inner { max-width: 680px; margin: 0 auto; }
+.bundle .notepad-card::before { left: 22%; transform: rotate(-2deg); }
+.bundle .notepad-card::after  { right: 22%; transform: rotate(1.5deg); }
 .bundle .section-soft { text-align: center; display: block; }
 .bundle .section-title { margin-bottom: 20px; }
 .bundle-body { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 40px; }
@@ -700,6 +726,9 @@ footer {
   .page-stack-wrap { order: -1; padding: 24px 0; }
   .page-stack-scene { width: 200px; height: 257px; }
   .product-cols .product-copy { order: 1; }
+  .notepad-card { padding: 40px 28px 32px; }
+  .product-section-a .notepad-card,
+  .product-section-b .notepad-card { transform: none; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -865,7 +894,7 @@ footer {
         </div>
       </div>
 
-      <div class="product-copy">
+      <div class="product-copy notepad-card">
         <span class="product-label">The Ebook</span>
         <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
         <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
@@ -889,7 +918,7 @@ footer {
   <div class="product-section product-section-b">
     <div class="product-cols">
 
-      <div class="product-copy">
+      <div class="product-copy notepad-card">
         <span class="product-label">The Planner</span>
         <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
         <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
@@ -926,7 +955,7 @@ footer {
 
 <!-- BUNDLE -->
 <section class="bundle" id="bundle">
-  <div class="bundle-inner">
+  <div class="bundle-inner notepad-card">
     <span class="eyebrow">Most Popular · Save $9</span>
     <span class="section-soft">The most complete yes you can give yourself.</span>
     <h2 class="section-title">The Rooted Mom Bundle</h2>
