@@ -252,16 +252,11 @@ section { padding: 100px 8%; }
 }
 
 /* ── PRODUCT 2-COL + PAGE STACK ── */
-.product-header {
-  max-width: 1080px; margin: 0 auto 52px;
-}
-
 .product-cols {
   max-width: 1080px; margin: 0 auto;
-  display: grid; grid-template-columns: 300px 1fr;
-  gap: 64px; align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
 }
-.product-cols-reverse { grid-template-columns: 1fr 300px; }
 
 .page-stack-wrap {
   display: flex; justify-content: center; align-items: center;
@@ -725,12 +720,13 @@ footer {
   .products-inner { padding: 0 6% 52px; }
   .product-section { padding: 52px 6%; }
   .product-price { font-size: 40px; }
-  .product-header { margin-bottom: 28px; }
-  .product-cols { grid-template-columns: 160px 1fr; gap: 16px; align-items: start; }
-  .product-cols-reverse { grid-template-columns: 1fr 160px; }
-  .page-stack-wrap { padding: 8px 0; overflow: hidden; }
-  .page-stack-scene { width: 130px; height: 167px; }
+  .product-cols { grid-template-columns: 1fr; gap: 36px; }
+  .page-stack-wrap { order: -1; padding: 24px 0; }
+  .page-stack-scene { width: 200px; height: 257px; }
+  .product-cols .product-copy { order: 1; }
   .notepad-card { padding: 40px 28px 32px; }
+  .product-section-a .notepad-card,
+  .product-section-b .notepad-card { transform: none; }
 
   .familiar-grid { grid-template-columns: 1fr; gap: 32px; }
   .familiar { padding-bottom: 44px; }
@@ -882,13 +878,6 @@ footer {
 
   <!-- EBOOK -->
   <div class="product-section product-section-a">
-
-    <div class="product-header notepad-card">
-      <span class="product-label">The Ebook</span>
-      <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
-      <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
-    </div>
-
     <div class="product-cols">
 
       <div class="page-stack-wrap ebook-stack">
@@ -901,7 +890,10 @@ footer {
         </div>
       </div>
 
-      <div class="product-detail">
+      <div class="product-copy notepad-card">
+        <span class="product-label">The Ebook</span>
+        <h3 class="product-situation">You keep saying you'll start<br>when things slow down.<br>They never slow down.</h3>
+        <p class="product-outcome">From Surviving to Thriving in Motherhood names what you've been carrying and walks you through three honest resets: faith, identity, and your daily rhythm. You will feel less alone. And then something will shift.</p>
         <ul class="product-inside">
           <li>Three complete resets: faith, identity, and rhythm</li>
           <li>Language for what you've been carrying but couldn't name</li>
@@ -920,16 +912,12 @@ footer {
 
   <!-- PLANNER -->
   <div class="product-section product-section-b">
+    <div class="product-cols">
 
-    <div class="product-header notepad-card">
-      <span class="product-label">The Planner</span>
-      <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
-      <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
-    </div>
-
-    <div class="product-cols product-cols-reverse">
-
-      <div class="product-detail">
+      <div class="product-copy notepad-card">
+        <span class="product-label">The Planner</span>
+        <h3 class="product-situation">You've tried planners before.<br>They lasted three days.</h3>
+        <p class="product-outcome">The Rooted Mom Devotional Planner is five minutes a day to sit with God, check in with yourself, and anchor your morning with grace. Simple enough to actually stick to. Meaningful enough to change everything.</p>
         <ul class="product-inside">
           <li>Daily scripture prompts that take five minutes, not fifty</li>
           <li>Space to check in with yourself and your faith every morning</li>
