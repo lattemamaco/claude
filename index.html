@@ -1203,21 +1203,26 @@ footer {
     if (!isOpen) item.classList.add('open');
   }
 
-  // Page stack scroll-triggered animation
-  var stacks = document.querySelectorAll('.page-stack-wrap');
-  if (stacks.length && 'IntersectionObserver' in window) {
-    var stackObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          stackObserver.unobserve(entry.target);
+  // Page stack animation
+  (function() {
+    var stacks = document.querySelectorAll('.page-stack-wrap');
+    if (!stacks.length) return;
+    function revealVisible() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      stacks.forEach(function(el) {
+        if (!el.classList.contains('revealed')) {
+          var top = el.getBoundingClientRect().top;
+          if (top < vh * 0.92) el.classList.add('revealed');
         }
       });
-    }, { threshold: 0.15 });
-    stacks.forEach(function(stack) { stackObserver.observe(stack); });
-  } else {
-    stacks.forEach(function(stack) { stack.classList.add('revealed'); });
-  }
+    }
+    window.addEventListener('scroll', revealVisible, { passive: true });
+    revealVisible();
+    setTimeout(revealVisible, 300);
+    setTimeout(function() {
+      stacks.forEach(function(el) { el.classList.add('revealed'); });
+    }, 2500);
+  })();
 </script>
 
 </body>
