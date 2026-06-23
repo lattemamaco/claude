@@ -525,6 +525,35 @@ section { padding: 100px 8%; }
 .bundle-arch:first-child { transform: rotate(-4deg) translateX(18px); z-index: 1; }
 .bundle-arch:last-child  { transform: rotate(4deg)  translateX(-18px); z-index: 0; }
 
+/* ── POLAROID BREAK ── */
+.polaroid-break {
+  background: var(--cream-soft);
+  padding: 80px 0 64px;
+  display: flex;
+  justify-content: center;
+}
+.polaroid {
+  background: #FEFEFE;
+  padding: 14px 14px 58px;
+  box-shadow: 0 12px 44px rgba(28,26,22,0.16), 0 2px 8px rgba(28,26,22,0.06);
+  transform: rotate(-2.5deg);
+  max-width: 310px;
+  width: 80%;
+  transition: transform 0.4s ease;
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.polaroid img {
+  width: 100%; height: 370px;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.polaroid-caption {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 15px;
+  color: var(--text-mid); text-align: center;
+  margin-top: 18px; line-height: 1.5;
+}
+
 /* ── PROOF ── */
 .proof { background: var(--cream-soft); }
 .proof-inner { max-width: 1080px; margin: 0 auto; }
@@ -995,6 +1024,14 @@ footer {
     <a href="https://stan.store/Rootedinbloom/p/the-rooted-bundle" target="_blank" rel="noopener" class="btn-sand-rect">Yes, I'm Ready to Thrive</a>
   </div>
 </section>
+
+<!-- POLAROID BREAK -->
+<div class="polaroid-break">
+  <div class="polaroid">
+    <img src="ally-photo.jpg.JPG" alt="Ally, founder of Rooted in Bloom">
+    <p class="polaroid-caption">still becoming</p>
+  </div>
+</div>
 
 <!-- PROOF -->
 <section class="proof">
