@@ -353,6 +353,33 @@ section { padding: 100px 8%; }
 .planner-stack .page-card:nth-child(5) { z-index: 2; animation: plannerCard5In 1.1s cubic-bezier(0.22,1,0.36,1) 0.8s  both paused; }
 .planner-stack .page-card:nth-child(6) { z-index: 1; animation: plannerCard6In 1.1s cubic-bezier(0.22,1,0.36,1) 1.0s  both paused; }
 
+@keyframes ishowupCard1In {
+  from { opacity: 0; transform: rotate( -8deg) translate(276px,  -4px); }
+  to   { opacity: 1; transform: rotate( -8deg) translate(-24px,  -4px); }
+}
+@keyframes ishowupCard2In {
+  from { opacity: 0; transform: rotate( 13deg) translate(330px,   8px); }
+  to   { opacity: 1; transform: rotate( 13deg) translate( 30px,   8px); }
+}
+@keyframes ishowupCard3In {
+  from { opacity: 0; transform: rotate( -3deg) translate(288px,  12px); }
+  to   { opacity: 1; transform: rotate( -3deg) translate(-12px,  12px); }
+}
+@keyframes ishowupCard4In {
+  from { opacity: 0; transform: rotate(  9deg) translate(316px,  18px); }
+  to   { opacity: 1; transform: rotate(  9deg) translate( 16px,  18px); }
+}
+@keyframes ishowupCard5In {
+  from { opacity: 0; transform: rotate( -5deg) translate(294px,  22px); }
+  to   { opacity: 1; transform: rotate( -5deg) translate( -6px,  22px); }
+}
+
+.ishowup-stack .page-card:nth-child(1) { z-index: 5; animation: ishowupCard1In 1.1s cubic-bezier(0.22,1,0.36,1) 0s    both paused; }
+.ishowup-stack .page-card:nth-child(2) { z-index: 4; animation: ishowupCard2In 1.1s cubic-bezier(0.22,1,0.36,1) 0.22s both paused; }
+.ishowup-stack .page-card:nth-child(3) { z-index: 3; animation: ishowupCard3In 1.1s cubic-bezier(0.22,1,0.36,1) 0.44s both paused; }
+.ishowup-stack .page-card:nth-child(4) { z-index: 2; animation: ishowupCard4In 1.1s cubic-bezier(0.22,1,0.36,1) 0.66s both paused; }
+.ishowup-stack .page-card:nth-child(5) { z-index: 1; animation: ishowupCard5In 1.1s cubic-bezier(0.22,1,0.36,1) 0.88s both paused; }
+
 .page-stack-wrap.play .page-card { animation-play-state: running; }
 
 /* ── NOTEPAD CARD ── */
@@ -526,62 +553,24 @@ section { padding: 100px 8%; }
 .bundle-arch:last-child  { transform: rotate(4deg)  translateX(-18px); z-index: 0; }
 
 /* ── PROOF ── */
-.proof { background: var(--cream-soft); }
+.proof { background: var(--cream-mid); }
 .proof-inner { max-width: 1080px; margin: 0 auto; }
-.proof-header { margin-bottom: 48px; }
+.proof-header { margin-bottom: 52px; }
 .proof-header .section-soft { display: block; }
-.proof-content { display: grid; grid-template-columns: 1fr 300px; gap: 52px; align-items: start; }
-.proof-cards { display: flex; flex-direction: column; gap: 20px; }
+.proof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
 .proof-card {
-  background: var(--white); padding: 32px 28px;
-  border: 1px solid var(--border);
+  background: var(--white); padding: 36px 30px;
+  box-shadow: 0 4px 24px rgba(28,26,22,0.09), 0 1px 4px rgba(28,26,22,0.05);
 }
-.proof-stars { color: var(--sand); font-size: 14px; letter-spacing: 3px; margin-bottom: 18px; }
+.proof-stars { color: var(--sand); font-size: 13px; letter-spacing: 4px; margin-bottom: 20px; }
 .proof-text {
   font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 18px;
-  color: var(--text); line-height: 1.55; margin-bottom: 20px;
+  font-style: italic; font-size: 17px;
+  color: var(--text); line-height: 1.65; margin-bottom: 24px;
 }
 .proof-name {
   font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 2px; color: var(--text-light);
-}
-.proof-polaroid { display: flex; justify-content: center; padding-top: 10px; }
-.proof-polaroid .polaroid {
-  background: #FEFEFE;
-  padding: 12px 12px 52px;
-  box-shadow: 0 12px 44px rgba(28,26,22,0.16), 0 2px 8px rgba(28,26,22,0.06);
-  transform: rotate(2deg);
-  max-width: 250px;
-  width: 100%;
-  position: relative;
-  transition: transform 0.4s ease;
-}
-.proof-polaroid .polaroid::before,
-.proof-polaroid .polaroid::after {
-  content: '';
-  position: absolute; top: -12px;
-  width: 54px; height: 22px;
-  background:
-    repeating-linear-gradient(-55deg, transparent 0, transparent 3px, rgba(255,255,255,0.10) 3px, rgba(255,255,255,0.10) 4px),
-    rgba(228,210,160,0.64);
-  box-shadow: 0 1px 4px rgba(28,26,22,0.13);
-  border-radius: 1px;
-  z-index: 1;
-}
-.proof-polaroid .polaroid::before { left: 18%; transform: rotate(-2.5deg); }
-.proof-polaroid .polaroid::after  { right: 18%; transform: rotate(2deg); }
-.proof-polaroid .polaroid:hover { transform: rotate(0deg) scale(1.02); }
-.proof-polaroid .polaroid img {
-  width: 100%; height: 300px;
-  object-fit: cover; object-position: center top;
-  display: block;
-}
-.proof-polaroid .polaroid-caption {
-  font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: 14px;
-  color: var(--text-mid); text-align: center;
-  margin-top: 16px; line-height: 1.5;
 }
 
 /* ── FREE GUIDE ── */
@@ -800,8 +789,7 @@ footer {
     margin-bottom: 12px;
     line-height: 0.9;
   }
-  .proof-content { grid-template-columns: 1fr; }
-  .proof-polaroid { margin-top: 36px; }
+  .proof-grid { grid-template-columns: 1fr; }
   .opt-in-form { flex-direction: column; }
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
   footer { flex-direction: column; align-items: flex-start; }
@@ -1013,6 +1001,97 @@ footer {
     </div>
   </div>
 
+  <!-- I STILL SHOW UP -->
+  <div class="product-section product-section-a">
+    <div class="product-copy notepad-card">
+      <div class="product-inner">
+
+        <div class="product-text">
+          <span class="product-label">The New Ebook</span>
+          <h3 class="product-situation">You are still showing up. But you cannot remember the last time you felt like yourself.</h3>
+          <p class="product-outcome">I Still Show Up is an honest guide for the Christian mom who has lost herself inside motherhood. It names what survival mode actually cost you, walks you back to a faith you do not have to perform, and gives you the one thread that brings you back — without asking you to be tidy, together, or further along than you actually are.</p>
+          <ul class="product-inside">
+            <li>The Quiet Disappearance Framework — naming what you lost without making it worse</li>
+            <li>Why your faith feels like one more area of failure, and the truth that dismantles it</li>
+            <li>How to come back to God without arriving cleaned up or sorted out first</li>
+            <li>The one thread back to yourself — and exactly how to protect it</li>
+          </ul>
+        </div>
+
+        <div class="page-stack-wrap ishowup-stack">
+          <div class="page-stack-scene">
+            <div class="page-card">
+              <div class="mini-page" style="background:#1C1A16; justify-content:center; align-items:center; padding:20px 16px; gap:0;">
+                <p class="mp-title" style="color:var(--cream); font-size:14px; margin-bottom:6px; line-height:1.2;">I Still<br>Show Up</p>
+                <div style="width:32px; height:1px; background:var(--sand); margin:8px auto;"></div>
+                <p class="mp-brand" style="color:rgba(255,255,255,0.5); margin-top:0;">BY ALLY CARMICHAEL</p>
+              </div>
+            </div>
+            <div class="page-card">
+              <div class="mini-page cream-bg">
+                <p class="mp-sub" style="font-style:italic; color:var(--sand-dark); margin-bottom:4px;">The Disappearing Was</p>
+                <p class="mp-sub" style="font-style:italic; color:var(--sand-dark); margin-bottom:10px;">Not a Failure.</p>
+                <div class="mp-text-area">
+                  <div class="mp-line w95"></div>
+                  <div class="mp-line w85"></div>
+                  <div class="mp-line w90"></div>
+                  <div class="mp-line w80"></div>
+                  <div class="mp-line w95"></div>
+                  <div class="mp-line w70"></div>
+                </div>
+              </div>
+            </div>
+            <div class="page-card">
+              <div class="mini-page">
+                <p class="mp-title" style="font-size:8px; margin-bottom:8px;">The Quiet Disappearance Framework</p>
+                <div class="mp-num-list">
+                  <div class="mp-num-item"><span class="mp-num">01</span><div class="mp-num-lines"><div class="mp-line w80"></div><div class="mp-line w60"></div></div></div>
+                  <div class="mp-num-item"><span class="mp-num">02</span><div class="mp-num-lines"><div class="mp-line w85"></div><div class="mp-line w65"></div></div></div>
+                  <div class="mp-num-item"><span class="mp-num">03</span><div class="mp-num-lines"><div class="mp-line w75"></div><div class="mp-line w55"></div></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="page-card">
+              <div class="mini-page cream-bg" style="justify-content:center;">
+                <div class="mp-quote-wrap">
+                  <p class="mp-quote">"You are not more broken than God can reach."</p>
+                </div>
+                <p class="mp-brand">I STILL SHOW UP</p>
+              </div>
+            </div>
+            <div class="page-card">
+              <div class="mini-page">
+                <p class="mp-title" style="font-size:7px; text-transform:uppercase; letter-spacing:1px; font-style:normal; font-family:'Montserrat',sans-serif; margin-bottom:8px;">You Are Allowed</p>
+                <div class="mp-text-area">
+                  <div class="mp-line w95"></div>
+                  <div class="mp-line w85"></div>
+                  <div class="mp-line w90"></div>
+                  <div class="mp-line w60"></div>
+                </div>
+                <div class="mp-divider"></div>
+                <div class="mp-text-area">
+                  <div class="mp-line w95"></div>
+                  <div class="mp-line w80"></div>
+                  <div class="mp-line w85"></div>
+                  <div class="mp-line w55"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-cta-block">
+          <div class="product-price-row">
+            <span class="product-price">$37</span>
+            <span class="product-price-note">Instant PDF download</span>
+          </div>
+          <a href="https://stan.store/Rootedinbloom/p/i-still-show-up" target="_blank" rel="noopener" class="btn-primary product-cta">Yes, I Want This Ebook</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- BUNDLE -->
@@ -1042,29 +1121,21 @@ footer {
       <span class="section-soft">What Moms Are Saying</span>
       <h2 class="section-title">She Said What I Couldn't Put Into Words.</h2>
     </div>
-    <div class="proof-content">
-      <div class="proof-cards">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I cried reading the identity reset chapter. She said what I have been feeling but could not put into words. I did not know how much I needed this."</p>
-          <div class="proof-name">— Sarah M.</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"The planner is the first one I have actually kept up with. It is not overwhelming. It is just enough to anchor my day. I reach for it every single morning."</p>
-          <div class="proof-name">— Jessica T.</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I bought the bundle and finished the ebook in one sitting. I kept stopping to text passages to my mom friends. This is not just a book. It is permission."</p>
-          <div class="proof-name">— Rachel K.</div>
-        </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I cried reading the identity reset chapter. She said what I have been feeling but could not put into words. I did not know how much I needed this."</p>
+        <div class="proof-name">— Sarah M.</div>
       </div>
-      <div class="proof-polaroid">
-        <div class="polaroid">
-          <img src="ally-photo.jpg.JPG" alt="Ally, founder of Rooted in Bloom">
-          <p class="polaroid-caption">still becoming</p>
-        </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"The planner is the first one I have actually kept up with. It is not overwhelming. It is just enough to anchor my day. I reach for it every single morning."</p>
+        <div class="proof-name">— Jessica T.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-text">"I bought the bundle and finished the ebook in one sitting. I kept stopping to text passages to my mom friends. This is not just a book. It is permission."</p>
+        <div class="proof-name">— Rachel K.</div>
       </div>
     </div>
   </div>
@@ -1157,13 +1228,13 @@ footer {
 <section class="free-guide" id="free-guide">
   <div class="free-guide-inner">
     <span class="eyebrow">Completely free, just for you</span>
-    <span class="section-soft">The 3 Day Reset</span>
-    <h2 class="section-title">Not sure yet? Let me meet you where you are.</h2>
-    <p class="free-guide-body">Before you spend a dollar, I want you to experience what this feels like. The 3 Day Reset is a free guide that walks you through three honest moments: one for your faith, one for your identity, and one for your rhythm. Ten minutes a day. No perfect morning required. Just you, exactly as you are right now.</p>
+    <span class="section-soft">I Still Exist</span>
+    <h2 class="section-title">Not sure yet? Start right here.</h2>
+    <p class="free-guide-body">Before you spend a dollar, I want you to feel what this is. I Still Exist is a quiet reflection that names five specific ways you may have disappeared inside motherhood, offers a returning prayer for the woman who doesn't know where to start, and gives you the first honest step back. Ten minutes. It might undo something you have been carrying for months.</p>
     <ul class="free-guide-bullets">
-      <li>Day 1: Faith Reset. One honest moment with God, even if you don't know what to say</li>
-      <li>Day 2: Identity Reset. Remembering who you are beneath all the doing</li>
-      <li>Day 3: Motherhood Reset. Building one small rhythm that gives your days back to you</li>
+      <li>Five specific ways you may have disappeared — and why none of them are your fault</li>
+      <li>A returning prayer for the woman who feels too far gone to go back to God</li>
+      <li>Language for the grief you have been carrying but couldn't name</li>
     </ul>
     <form class="opt-in-form" onsubmit="return false;">
       <input type="email" placeholder="Your email address" aria-label="Email address">
