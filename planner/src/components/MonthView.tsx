@@ -37,7 +37,8 @@ export function MonthView() {
   return (
     <div style={{ animation: 'rwaFade var(--dur-base) var(--ease-soft)' }}>
       <TypeLegend />
-      <div style={{ borderTop: '1px solid var(--border-soft)', borderLeft: '1px solid var(--border-soft)' }}>
+      <div className="rw-calendar-scroll">
+      <div className="rw-calendar-scroll-inner" style={{ borderTop: '1px solid var(--border-soft)', borderLeft: '1px solid var(--border-soft)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)' }}>
           {WEEKDAYS.map((w) => (
             <div
@@ -126,6 +127,7 @@ export function MonthView() {
             );
           })}
         </div>
+      </div>
       </div>
     </div>
   );

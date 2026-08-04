@@ -40,9 +40,10 @@ const NAV_ITEMS: { id: 'month' | 'week' | 'day' | 'ideas'; label: string }[] = [
   { id: 'ideas', label: 'content ideas' },
 ];
 
-export function Sidebar() {
+export function Sidebar({ onNavigate }: { onNavigate?: () => void } = {}) {
   const { userId, displayName, view, setView, filter, setFilter, stats, setGenOpen, setPlanOpen, sidebarPhoto, setSidebarPhotoUrl } =
     usePlanner();
+  const navigate = onNavigate || (() => {});
   const s = stats();
   const todayLong = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
@@ -96,7 +97,10 @@ export function Sidebar() {
             return (
               <button
                 key={pl.id}
-                onClick={() => setFilter(on ? null : pl.id)}
+                onClick={() => {
+                  setFilter(on ? null : pl.id);
+                  navigate();
+                }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -140,7 +144,10 @@ export function Sidebar() {
             return (
               <button
                 key={item.id}
-                onClick={() => setView(item.id)}
+                onClick={() => {
+                  setView(item.id);
+                  navigate();
+                }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -167,7 +174,10 @@ export function Sidebar() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
         <button
-          onClick={() => setGenOpen(true)}
+          onClick={() => {
+            setGenOpen(true);
+            navigate();
+          }}
           style={{
             padding: '12px 18px',
             borderRadius: '999px',
@@ -185,7 +195,10 @@ export function Sidebar() {
           Generate ideas with AI
         </button>
         <button
-          onClick={() => setPlanOpen(true)}
+          onClick={() => {
+            setPlanOpen(true);
+            navigate();
+          }}
           style={{
             padding: '12px 18px',
             borderRadius: '999px',

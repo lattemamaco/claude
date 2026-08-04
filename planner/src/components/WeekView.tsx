@@ -41,7 +41,8 @@ export function WeekView() {
           </span>
         </div>
       ) : null}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', borderTop: '1px solid var(--border-soft)' }}>
+      <div className="rw-calendar-scroll">
+      <div className="rw-calendar-scroll-inner" style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', borderTop: '1px solid var(--border-soft)' }}>
         {days.map((c, idx) => {
           const key = keyOf(c);
           const dayPosts = postsForDay(key);
@@ -124,6 +125,7 @@ export function WeekView() {
             </div>
           );
         })}
+      </div>
       </div>
     </div>
   );

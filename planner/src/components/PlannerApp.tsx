@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { PlannerProvider } from './PlannerContext';
 import { Banner } from './Banner';
 import { Sidebar } from './Sidebar';
@@ -7,19 +8,21 @@ import { MainHeader } from './MainHeader';
 import { Toolbar } from './Toolbar';
 import { Body } from './Body';
 import { ModalHost } from './ModalHost';
-import { SignOutButton } from './SignOutButton';
+import { TopBar } from './TopBar';
 
 export function PlannerApp({ userId, displayName }: { userId: string; displayName: string }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <PlannerProvider userId={userId} displayName={displayName}>
-      <div style={{ minHeight: '100vh', background: 'var(--rw-white)', padding: '40px 44px 72px' }}>
+      <div className="rw-shell">
         <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <SignOutButton />
-          </div>
+          <TopBar onOpenMenu={() => setMenuOpen(true)} />
           <Banner />
-          <div style={{ display: 'grid', gridTemplateColumns: '262px minmax(0,1fr)', gap: 44, alignItems: 'start', marginTop: 30 }}>
-            <Sidebar />
+          <div className="rw-content-grid">
+            <div className={`rw-sidebar-wrap${menuOpen ? ' rw-open' : ''}`}>
+              <Sidebar onNavigate={() => setMenuOpen(false)} />
+            </div>
             <div style={{ minWidth: 0 }}>
               <MainHeader />
               <Toolbar />
@@ -30,6 +33,7 @@ export function PlannerApp({ userId, displayName }: { userId: string; displayNam
           </div>
         </div>
       </div>
+      <div className={`rw-sidebar-backdrop${menuOpen ? ' rw-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <ModalHost />
     </PlannerProvider>
   );

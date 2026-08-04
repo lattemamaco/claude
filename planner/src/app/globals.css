@@ -56,6 +56,12 @@ body {
   margin: 0;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--rw-white);
   color: var(--text-body);
@@ -118,4 +124,137 @@ button {
   background: #e0d4bc;
   border-radius: 999px;
   border: 3px solid var(--surface-page);
+}
+
+/* ---- responsive layout ---- */
+
+.rw-shell {
+  min-height: 100vh;
+  background: var(--rw-white);
+  padding: 40px 44px 72px;
+}
+
+.rw-content-grid {
+  display: grid;
+  grid-template-columns: 262px minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.rw-menu-toggle {
+  display: none;
+}
+
+.rw-mobile-new-post {
+  display: none;
+}
+
+.rw-sidebar-backdrop {
+  display: none;
+}
+
+.rw-banner-strip {
+  height: 230px;
+}
+
+.rw-banner-eyebrow {
+  font-size: 0.6875rem;
+}
+
+.rw-banner-title {
+  font-size: 4.2rem;
+}
+
+.rw-banner-script {
+  font-size: 1.35rem;
+}
+
+.rw-calendar-scroll {
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rw-calendar-scroll-inner {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .rw-shell {
+    padding: 20px 16px 56px;
+  }
+
+  .rw-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .rw-menu-toggle {
+    display: inline-flex;
+  }
+
+  .rw-mobile-new-post {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rw-banner-new-post {
+    display: none;
+  }
+
+  .rw-sidebar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(84vw, 300px);
+    z-index: 60;
+    background: var(--rw-white);
+    padding: 24px 20px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    transform: translateX(-100%);
+    transition: transform var(--dur-base) var(--ease-soft);
+  }
+
+  .rw-sidebar-wrap.rw-open {
+    transform: translateX(0);
+  }
+
+  .rw-sidebar-backdrop.rw-open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(60, 42, 28, 0.32);
+    z-index: 55;
+    animation: rwaOverlay var(--dur-fast) var(--ease-soft);
+  }
+
+  .rw-banner-strip {
+    height: 130px;
+  }
+
+  .rw-banner-eyebrow {
+    font-size: 0.5625rem;
+  }
+
+  .rw-banner-title {
+    font-size: 2.1rem;
+  }
+
+  .rw-banner-script {
+    font-size: 0.85rem;
+  }
+
+  .rw-calendar-scroll {
+    overflow-x: auto;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .rw-calendar-scroll-inner {
+    min-width: 680px;
+  }
 }

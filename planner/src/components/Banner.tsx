@@ -19,7 +19,7 @@ export function Banner() {
         marginBottom: 30,
       }}
     >
-      <div style={{ display: 'flex', gap: 0, height: 230 }}>
+      <div className="rw-banner-strip" style={{ display: 'flex', gap: 0 }}>
         {PLACEHOLDERS.map((placeholder, i) => (
           <PhotoSlot
             key={i}
@@ -55,13 +55,13 @@ export function Banner() {
           padding: '0 24px',
         }}
       >
-        <span className="rw-eyebrow" style={{ color: 'var(--rw-shell)', textShadow: '0 1px 8px rgba(60,42,28,0.55)' }}>
+        <span className="rw-eyebrow rw-banner-eyebrow" style={{ color: 'var(--rw-shell)', textShadow: '0 1px 8px rgba(60,42,28,0.55)' }}>
           The Content Planner
         </span>
         <span
+          className="rw-banner-title"
           style={{
             fontFamily: 'var(--font-banner)',
-            fontSize: '4.2rem',
             lineHeight: 0.88,
             letterSpacing: '-0.04em',
             textTransform: 'uppercase',
@@ -72,10 +72,10 @@ export function Banner() {
           Becoming
         </span>
         <span
+          className="rw-banner-script"
           style={{
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
-            fontSize: '1.35rem',
             color: 'var(--rw-buttermilk)',
             textShadow: '0 1px 8px rgba(60,42,28,0.55)',
           }}
@@ -83,7 +83,7 @@ export function Banner() {
           little by little · an Instagram studio
         </span>
       </div>
-      <div style={{ position: 'absolute', top: 18, right: 18 }}>
+      <div className="rw-banner-new-post" style={{ position: 'absolute', top: 18, right: 18 }}>
         <button
           onClick={() => openNew(null)}
           style={{
