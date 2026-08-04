@@ -1,0 +1,121 @@
+:root {
+  /* ---- Rooted With Ally colors ---- */
+  --rw-white: #fffefb;
+  --rw-shell: #f7f2e7;
+  --rw-cream: #fbf6ec;
+  --rw-cream-deep: #f0e6d2;
+  --surface-page: var(--rw-cream);
+
+  --rw-buttermilk: #fff1b5;
+  --rw-buttermilk-100: #fff8da;
+  --rw-buttermilk-200: #fff3c4;
+
+  --rw-pastel-blue: #c1dbe8;
+  --rw-golden-honey: #ba8c5a;
+  --rw-sandy-shore: #d4c2a8;
+  --rw-dark-tortoise: #3c2a1c;
+
+  --text-heading: var(--rw-dark-tortoise);
+  --text-body: #5a4a3a;
+  --text-muted: #8a7a68;
+  --border-soft: #e7dccb;
+  --border-ink: var(--rw-dark-tortoise);
+
+  --rw-burgundy: #b0553e;
+
+  /* ---- type ---- */
+  --font-body: var(--font-poppins), -apple-system, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-banner: var(--font-archivo), var(--font-body);
+
+  /* ---- radii ---- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* ---- shadows (warm brown-based, never grey) ---- */
+  --shadow-sm: 0 2px 8px rgba(60, 42, 28, 0.08);
+  --shadow-md: 0 8px 24px rgba(60, 42, 28, 0.12);
+  --shadow-lg: 0 20px 50px rgba(60, 42, 28, 0.22);
+  --shadow-sunny: 0 8px 20px rgba(186, 140, 90, 0.28);
+
+  /* ---- motion ---- */
+  --dur-fast: 160ms;
+  --dur-base: 320ms;
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--rw-white);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.rw-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@keyframes rwaFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rwaOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e0d4bc;
+  border-radius: 999px;
+  border: 3px solid var(--surface-page);
+}
