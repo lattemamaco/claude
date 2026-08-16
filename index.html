@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
+<title>Rooted With Ally — For the Mom Ready to Come Back to Herself</title>
 <meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner and the From Surviving to Thriving ebook.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -801,7 +801,7 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Rooted in Bloom</a>
+  <a href="#" class="nav-logo">Rooted With Ally</a>
   <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -1153,8 +1153,25 @@ footer {
       <li>A returning prayer for the woman who feels too far gone to go back to God</li>
       <li>Language for the grief you have been carrying but couldn't name</li>
     </ul>
-    <form class="opt-in-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
+    <!--
+      EMAIL LIST SETUP (do this once):
+      1. Create a free account at mailerlite.com.
+      2. Create a Group (e.g. "Free Guide - I Still Exist") to hold these subscribers.
+      3. Dashboard > Forms > Embedded form. Design it (or skip styling, we already
+         style it below), then open the "HTML" tab and copy the <form ...> block
+         it gives you — it contains your account's real action URL and field names.
+      4. Replace the <form class="opt-in-form" ...> tag below with that copied
+         <form> tag, but keep class="opt-in-form" on it and keep the existing
+         <input> and <button> elements (or match their name attributes to the
+         ones MailerLite gives you) so the page styling still applies.
+      5. In MailerLite, build an Automation: "Subscriber joins group" -> that
+         Group -> send an email with the download link to the "I Still Exist" PDF
+         (upload the PDF to Drive/Dropbox and share a public link, or use
+         MailerLite's file attachment).
+      Until step 4 is done, this form will not actually collect emails.
+    -->
+    <form class="opt-in-form" action="https://REPLACE-WITH-YOUR-MAILERLITE-FORM-ACTION-URL" method="post" target="_blank">
+      <input type="email" name="fields[email]" placeholder="Your email address" aria-label="Email address" required>
       <button type="submit">Send Me the Free Guide</button>
     </form>
     <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
@@ -1171,7 +1188,7 @@ footer {
     <div class="faq-layout">
 
       <div class="faq-left">
-        <img src="ally-photo2.jpg.JPG" alt="Ally, founder of Rooted in Bloom" class="faq-photo">
+        <img src="ally-photo2.jpg.JPG" alt="Ally, founder of Rooted With Ally" class="faq-photo">
       </div>
 
       <div class="faq-right">
@@ -1247,8 +1264,8 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="footer-logo">Rooted in Bloom</div>
-    <div class="footer-copy">© 2026 Rooted in Bloom. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
+    <div class="footer-logo">Rooted With Ally</div>
+    <div class="footer-copy">© 2026 Rooted With Ally. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
   </div>
   <div class="footer-links">
     <a href="#products">Shop</a>
