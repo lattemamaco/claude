@@ -2,11 +2,12 @@
 // Requires `npm run dev` running against a local dev.db. Not for use
 // against a real/production database — it creates test users and content,
 // and resets the seeded admin's password to a known value.
+import "dotenv/config";
 import { chromium } from "playwright";
 import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { PrismaClient } from "../src/generated/prisma/client.ts";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 const base = "http://localhost:3000";
 const results = [];
@@ -17,7 +18,10 @@ function log(step, ok, extra = "") {
 }
 
 // --- Set up fixtures directly in the DB so this script is rerunnable ---
-const adapter = new PrismaBetterSqlite3({ url: process.env.DATABASE_URL ?? "file:./dev.db" });
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is not set");
+}
+const adapter = new PrismaPg(process.env.DATABASE_URL);
 const db = new PrismaClient({ adapter });
 
 const runId = Date.now();
