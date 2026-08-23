@@ -1,0 +1,103 @@
+// Prisma schema for the community app
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  role         Role     @default(MEMBER)
+  createdAt    DateTime @default(now())
+
+  journalEntries JournalEntry[]
+  threads        Thread[]
+  replies        Reply[]
+  invitesCreated InviteCode[]   @relation("InviteCreator")
+  sessions       Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model InviteCode {
+  id          String    @id @default(cuid())
+  code        String    @unique
+  note        String?
+  createdById String
+  createdBy   User      @relation("InviteCreator", fields: [createdById], references: [id])
+  usedByEmail String?
+  usedAt      DateTime?
+  createdAt   DateTime  @default(now())
+}
+
+model Devotional {
+  id               String   @id @default(cuid())
+  title            String
+  body             String
+  scriptureRef     String
+  scriptureText    String
+  scriptureContext String
+  publishedAt      DateTime @default(now())
+  createdAt        DateTime @default(now())
+}
+
+model JournalEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Thread {
+  id          String   @id @default(cuid())
+  prompt      String
+  body        String
+  isAnonymous Boolean  @default(false)
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
+  replies Reply[]
+}
+
+model Reply {
+  id          String   @id @default(cuid())
+  threadId    String
+  thread      Thread   @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  body        String
+  isAnonymous Boolean  @default(false)
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model LiveSession {
+  id          String   @id @default(cuid())
+  title       String
+  scheduledAt DateTime
+  link        String
+  notes       String?
+  createdAt   DateTime @default(now())
+}
