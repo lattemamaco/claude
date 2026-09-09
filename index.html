@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted in Bloom — For the Mom Ready to Come Back to Herself</title>
+<title>Rooted with Ally — For the Mom Ready to Come Back to Herself</title>
 <meta name="description" content="Faith-based resources for the mom who is done just surviving. Shop the Rooted Mom Devotional Planner and the From Surviving to Thriving ebook.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -16,6 +16,9 @@
   --sand:       #C4A882;
   --sand-dark:  #9E8060;
   --sand-pale:  #FAF5EE;
+  --blush:      #E8C9CE;
+  --blush-dark: #C98F9B;
+  --blush-pale: #F7E9EB;
   --text:       #1C1A16;
   --text-mid:   #6A6258;
   --text-light: #AEA898;
@@ -65,12 +68,18 @@ nav.scrolled .nav-links a:hover { color: var(--sand-dark); }
 .nav-mobile-toggle {
   display: none; background: none; border: none;
   cursor: pointer; flex-direction: column; gap: 5px; padding: 4px;
+  z-index: 210;
 }
 .nav-mobile-toggle span {
   display: block; width: 22px; height: 1.5px; background: var(--white);
-  border-radius: 2px; transition: background 0.35s;
+  border-radius: 2px; transition: background 0.35s, transform 0.3s ease, opacity 0.2s ease;
 }
 nav.scrolled .nav-mobile-toggle span { background: var(--text); }
+nav.menu-open .nav-mobile-toggle span { background: var(--white); }
+nav.menu-open .nav-logo { color: var(--white); }
+.nav-mobile-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-mobile-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-mobile-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ── HERO ── */
 .hero {
@@ -474,7 +483,7 @@ section { padding: 100px 8%; }
   font-family: 'Playfair Display', serif; font-style: italic;
   font-size: 7.5px; color: var(--text); line-height: 1.55;
   text-align: center;
-  background: rgba(196,168,130,0.18);
+  background: rgba(232,201,206,0.35);
   padding: 8px 6px;
 }
 .mp-photo {
@@ -574,7 +583,7 @@ section { padding: 100px 8%; }
 }
 
 /* ── FREE GUIDE ── */
-.free-guide { background: var(--sand-pale); }
+.free-guide { background: var(--blush-pale); }
 .free-guide-inner { max-width: 600px; margin: 0 auto; text-align: center; }
 .free-guide .section-soft { display: block; text-align: center; }
 .free-guide .section-title { margin-bottom: 20px; }
@@ -619,7 +628,7 @@ section { padding: 100px 8%; }
   position: absolute; top: 48px; left: 6%;
   font-family: 'Playfair Display', serif; font-style: italic;
   font-size: clamp(52px, 11vw, 160px); font-weight: 700;
-  color: var(--sand-dark); opacity: 0.14;
+  color: var(--blush-dark); opacity: 0.16;
   white-space: nowrap; line-height: 1;
   user-select: none; pointer-events: none;
   z-index: 0;
@@ -698,6 +707,7 @@ section { padding: 100px 8%; }
   font-size: 38px; font-weight: 700;
   color: var(--sand); line-height: 1; margin-bottom: 12px;
 }
+.familiar-item:nth-child(even) .familiar-item-num { color: var(--blush-dark); }
 .familiar-item p {
   font-size: 14px; color: var(--text-mid); line-height: 1.7;
 }
@@ -743,12 +753,35 @@ footer {
   .nav-links { display: none; }
   .nav-links.open {
     display: flex; flex-direction: column;
-    position: fixed; top: 72px; left: 0; right: 0;
-    background: var(--cream); border-bottom: 1px solid var(--border);
-    padding: 24px 6%; gap: 20px; align-items: flex-start;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+    position: fixed; inset: 0; z-index: 190;
+    background:
+      linear-gradient(160deg, rgba(20,18,14,0.95), rgba(28,24,19,0.92)),
+      url('ally-photo2.jpg.JPG');
+    background-size: cover; background-position: center 20%;
+    padding: 130px 8% 60px; gap: 0;
+    align-items: stretch; justify-content: flex-start;
+    box-shadow: none; border-bottom: none;
+    overflow-y: auto;
   }
-  .nav-links.open a { color: var(--text-mid) !important; }
+  .nav-links.open li { list-style: none; border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .nav-links.open li:first-child { border-top: 1px solid rgba(255,255,255,0.16); }
+  .nav-links.open a {
+    display: block; padding: 20px 0;
+    color: var(--white) !important;
+    font-family: 'Playfair Display', serif;
+    font-style: normal; font-weight: 500;
+    font-size: clamp(26px, 8vw, 38px);
+    text-transform: none; letter-spacing: 0;
+    transition: color 0.2s;
+  }
+  .nav-links.open a:hover { color: var(--blush) !important; }
+  .nav-links.open .nav-cta {
+    background: none !important; border: 1.5px solid var(--sand);
+    text-align: center; margin-top: 28px;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase; padding: 18px;
+  }
+  .nav-links.open .nav-cta:hover { background: var(--sand) !important; }
   .nav-mobile-toggle { display: flex; }
   .hero { padding: 110px 6% 60px; }
   section { padding: 72px 6%; }
@@ -801,11 +834,12 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Rooted in Bloom</a>
+  <a href="#" class="nav-logo">Rooted with Ally</a>
   <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#">Home</a></li>
     <li><a href="#products">Shop</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -1021,10 +1055,10 @@ footer {
         <div class="page-stack-wrap ishowup-stack">
           <div class="page-stack-scene">
             <div class="page-card">
-              <div class="mini-page" style="background:#1C1A16; justify-content:center; align-items:center; padding:20px 16px; gap:0;">
-                <p class="mp-title" style="color:var(--cream); font-size:14px; margin-bottom:6px; line-height:1.2;">I Still<br>Show Up</p>
-                <div style="width:32px; height:1px; background:var(--sand); margin:8px auto;"></div>
-                <p class="mp-brand" style="color:rgba(255,255,255,0.5); margin-top:0;">BY ALLY CARMICHAEL</p>
+              <div class="mini-page" style="background:var(--blush); justify-content:center; align-items:center; padding:20px 16px; gap:0;">
+                <p class="mp-title" style="color:var(--white); font-size:14px; margin-bottom:6px; line-height:1.2;">I Still<br>Show Up</p>
+                <div style="width:32px; height:1px; background:var(--white); margin:8px auto; opacity:0.7;"></div>
+                <p class="mp-brand" style="color:rgba(255,255,255,0.75); margin-top:0;">BY ALLY CARMICHAEL</p>
               </div>
             </div>
             <div class="page-card">
@@ -1171,7 +1205,7 @@ footer {
     <div class="faq-layout">
 
       <div class="faq-left">
-        <img src="ally-photo2.jpg.JPG" alt="Ally, founder of Rooted in Bloom" class="faq-photo">
+        <img src="ally-photo2.jpg.JPG" alt="Ally, founder of Rooted with Ally" class="faq-photo">
       </div>
 
       <div class="faq-right">
@@ -1247,8 +1281,8 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="footer-logo">Rooted in Bloom</div>
-    <div class="footer-copy">© 2026 Rooted in Bloom. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
+    <div class="footer-logo">Rooted with Ally</div>
+    <div class="footer-copy">© 2026 Rooted with Ally. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
   </div>
   <div class="footer-links">
     <a href="#products">Shop</a>
@@ -1263,8 +1297,16 @@ footer {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
   });
   function toggleNav() {
-    document.getElementById('navLinks').classList.toggle('open');
+    var isOpen = document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('mainNav').classList.toggle('menu-open', isOpen);
+    document.querySelector('.nav-mobile-toggle').classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (document.getElementById('navLinks').classList.contains('open')) toggleNav();
+    });
+  });
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
