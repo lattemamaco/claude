@@ -889,10 +889,33 @@ footer {
     if (!isOpen) item.classList.add('open');
   }
 
+  var proofSlideCount = document.querySelectorAll('.proof-slide').length;
+  var proofSlideIndex = 0;
+
   function showProofSlide(i) {
-    document.querySelectorAll('.proof-slide').forEach((el, idx) => el.classList.toggle('active', idx === i));
-    document.querySelectorAll('.proof-dot').forEach((el, idx) => el.classList.toggle('active', idx === i));
+    proofSlideIndex = (i + proofSlideCount) % proofSlideCount;
+    document.querySelectorAll('.proof-slide').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
+    document.querySelectorAll('.proof-dot').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
   }
+
+  (function () {
+    var proof = document.querySelector('.proof');
+    if (!proof || !proofSlideCount) return;
+    var startX = 0, startY = 0, tracking = false;
+    proof.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+    proof.addEventListener('touchend', function (e) {
+      if (!tracking) return;
+      tracking = false;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      showProofSlide(dx < 0 ? proofSlideIndex + 1 : proofSlideIndex - 1);
+    }, { passive: true });
+  }());
 
 </script>
 
