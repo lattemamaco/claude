@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Welcome to Still Here | Rooted in Bloom</title>
+<meta name="description" content="Your order is confirmed. Here are your downloads.">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="mini-nav">
+  <a href="../index.html" class="mini-nav-logo">Rooted in Bloom</a>
+</nav>
+
+<section class="center" style="padding-bottom: 30px;">
+  <div class="wrap">
+    <div class="check-badge">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#5C7A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="eyebrow">Order Confirmed</span>
+    <span class="section-soft">You're In.</span>
+    <p class="lede" style="max-width: 500px; margin: 16px auto 0;">Thank you for trusting me with this part of your story. Your downloads are ready below, and a receipt with the same links is on its way to your inbox now.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="download-card">
+    <div class="book-cover dark small" style="transform:none; box-shadow:none; width:56px; height:78px; padding:6px;">
+      <span class="book-cover-title" style="font-size:9px; margin-bottom:0;">Still<br>Here</span>
+    </div>
+    <div>
+      <div class="download-card-title">Still Here — Ebook</div>
+      <div class="download-card-sub">PDF · Download now</div>
+    </div>
+    <a href="#" class="btn-outline">Download</a>
+  </div>
+
+  <div class="download-card" id="journalCard" style="display:none;">
+    <div class="book-cover sand small" style="transform:none; box-shadow:none; width:56px; height:78px; padding:6px;">
+      <span class="book-cover-title" style="font-size:9px; margin-bottom:0;">Still<br>Here</span>
+    </div>
+    <div>
+      <div class="download-card-title">Still Here — Guided Journal</div>
+      <div class="download-card-sub">PDF · Download now</div>
+    </div>
+    <a href="#" class="btn-outline">Download</a>
+  </div>
+
+  <p class="center" style="font-size: 12.5px; color: var(--text-light); margin-top: 20px;">
+    Trouble with a link? Message <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener" style="color:var(--sand-dark);">@rootedwithally</a> and I'll send it straight to you.
+  </p>
+</section>
+
+<section style="background: var(--sand-pale);">
+  <div class="wrap">
+    <span class="eyebrow center" style="display:block; text-align:center;">What Happens Next</span>
+    <span class="section-soft center" style="display:block; text-align:center;">A Few Ways To Start.</span>
+
+    <ul class="next-steps">
+      <li>
+        <span class="next-num">01</span>
+        <p><strong>Find somewhere quiet tonight.</strong> Even ten minutes. Read the first chapter of Still Here before your day catches up with you again.</p>
+      </li>
+      <li>
+        <span class="next-num">02</span>
+        <p><strong>Keep the guided journal open beside it.</strong> Answer one prompt honestly. Not the polished answer, the true one.</p>
+      </li>
+      <li>
+        <span class="next-num">03</span>
+        <p><strong>Come find me on Instagram.</strong> I'd love to hear which page hit you first. <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener" style="color:var(--sand-dark);">@rootedwithally</a></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="center">
+  <div class="wrap">
+    <span class="eyebrow">Not Ready To Stop Here?</span>
+    <span class="section-soft">Explore The Rest Of The Collection.</span>
+    <p class="lede" style="max-width: 480px; margin: 14px auto 30px;">The Rooted Mom Devotional Planner, the original From Surviving to Thriving ebook, and more are waiting for you back on the main site.</p>
+    <a href="../index.html#products" class="btn-outline">Browse The Collection</a>
+  </div>
+</section>
+
+<footer class="mini-footer">
+  <div class="footer-logo-sm">Rooted in Bloom</div>
+  <p class="footer-copy-sm">© 2026 Rooted in Bloom. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</p>
+</footer>
+
+<script>
+  /*
+    FULFILLMENT PLACEHOLDER
+    The "Download" buttons above point to "#" until real file links
+    exist. Two ways to wire this up:
+    1. Simplest: let Stripe email the PDF automatically by attaching
+       it to the Payment Link's receipt / using a delivery tool like
+       SendOwl or a fulfillment app connected to Stripe.
+    2. Direct links: host the PDFs (e.g. in this repo or on Google
+       Drive/Dropbox) and paste their URLs into the two href="#"
+       attributes above.
+
+    The line below shows the journal download card only when a buyer
+    arrives here after actually buying the journal upsell. Point your
+    Journal Payment Link's "After payment" redirect at:
+      welcome.html?journal=1
+  */
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('journal') === '1') {
+    document.getElementById('journalCard').style.display = 'flex';
+  }
+</script>
+
+</body>
+</html>

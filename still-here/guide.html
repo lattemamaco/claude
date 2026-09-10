@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Faith Goes Quiet — Free Guide | Rooted in Bloom</title>
+<meta name="description" content="A free guide for the Christian mom whose faith has gone quiet. Five honest reasons it happens, and the first small step back.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="mini-nav">
+  <a href="../index.html" class="mini-nav-logo">Rooted in Bloom</a>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">100% Free · Instant PDF</span>
+    <span class="hero-kicker">For the mom who still believes,</span>
+    <h1>When Faith<br>Goes <em>Quiet</em></h1>
+    <p class="hero-body">You haven't stopped believing. You've just gone quiet. This free guide names five honest reasons your faith feels distant right now, and gives you one small, doable way back. No guilt. No pressure to have it all figured out.</p>
+  </div>
+
+  <div class="cover-stage">
+    <div class="book-cover dark">
+      <span class="book-cover-eyebrow">Free Guide</span>
+      <span class="book-cover-title">When Faith<br>Goes Quiet</span>
+      <div class="book-cover-rule"></div>
+      <span class="book-cover-sub">Five honest reasons, and the first step back</span>
+      <span class="book-cover-author">Ally Carmichael</span>
+    </div>
+  </div>
+
+  <ul class="benefit-list">
+    <li>Five specific reasons your faith may have gone quiet — and why none of them mean you've failed</li>
+    <li>A short, honest prayer for the woman who doesn't know what to say to God anymore</li>
+    <li>One small step back that takes less than five minutes today</li>
+  </ul>
+
+  <form class="opt-in-form" id="optInForm">
+    <input type="email" id="optInEmail" placeholder="Your email address" aria-label="Email address" required>
+    <button type="submit">Send Me the Free Guide</button>
+  </form>
+  <p class="opt-in-note center">No spam, ever. Unsubscribe any time. It's truly free.</p>
+</section>
+
+<footer class="mini-footer">
+  <div class="footer-logo-sm">Rooted in Bloom</div>
+  <p class="footer-copy-sm">© 2026 Rooted in Bloom. All rights reserved.</p>
+</footer>
+
+<script>
+  /*
+    ESP PLACEHOLDER
+    This form does not send email anywhere yet. When your email
+    provider (ConvertKit, MailerLite, Flodesk, etc.) is ready, replace
+    this handler with that provider's real form action / API call so
+    it actually adds the subscriber and triggers your delivery email
+    with the "When Faith Goes Quiet" PDF attached or linked.
+  */
+  document.getElementById('optInForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('optInEmail').value;
+    window.location.href = 'confirm.html?email=' + encodeURIComponent(email);
+  });
+</script>
+
+</body>
+</html>

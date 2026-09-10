@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Still Here | Rooted in Bloom</title>
+<meta name="description" content="Complete your order for Still Here.">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="mini-nav">
+  <a href="index.html" class="mini-nav-logo">Rooted in Bloom</a>
+</nav>
+
+<section style="padding-top: 20px;">
+  <div class="center" style="margin-bottom: 50px;">
+    <span class="eyebrow">Step 2 of 2 · Secure Checkout</span>
+    <span class="section-soft">You're One Step From Still Here.</span>
+  </div>
+
+  <div class="checkout-grid">
+
+    <div>
+      <div class="form-group">
+        <label for="ckName">Full Name</label>
+        <input type="text" id="ckName" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="ckEmail">Email Address</label>
+        <input type="email" id="ckEmail" placeholder="Where we'll send your download" required>
+      </div>
+      <p style="font-size: 12.5px; color: var(--text-light); margin: -6px 0 26px;">Your download link and receipt go here, so double check it.</p>
+
+      <button id="ckSubmit" class="btn-primary btn-block">Continue to Secure Checkout</button>
+
+      <div class="guarantee-note">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M12 2L4 5V11C4 16 7.5 20.5 12 22C16.5 20.5 20 16 20 11V5L12 2Z" stroke="#9E8060" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <p>You'll be taken to our secure payment processor (Stripe) to safely enter your card details. Rooted in Bloom never sees or stores your card information.</p>
+      </div>
+
+      <div class="trust-row" style="justify-content:flex-start; margin-top:26px;">
+        <span class="trust-item">256-Bit Encrypted</span>
+        <span class="trust-item">Instant Delivery</span>
+        <span class="trust-item">One-Time Payment</span>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <div class="order-summary-title">Order Summary</div>
+      <div class="order-line">
+        <div class="book-cover dark small" style="transform:none; box-shadow:none; width:64px; height:88px; padding:8px;">
+          <span class="book-cover-title" style="font-size:11px; margin-bottom:0;">Still<br>Here</span>
+        </div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px;">Still Here</div>
+          <div style="font-size:12px; color:var(--text-light);">Ebook · Instant PDF</div>
+        </div>
+        <div class="order-line-price">$37.00</div>
+      </div>
+      <div class="order-total">
+        <span class="order-total-label">Total Due Today</span>
+        <span class="order-total-price">$37</span>
+      </div>
+      <p style="font-size:12px; color:var(--text-light); line-height:1.6;">All sales are final on digital products. Questions before you buy? Message <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener" style="color:var(--sand-dark);">@rootedwithally</a>.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="mini-footer">
+  <div class="footer-logo-sm">Rooted in Bloom</div>
+  <p class="footer-copy-sm">© 2026 Rooted in Bloom. All rights reserved.</p>
+</footer>
+
+<script>
+  /*
+    STRIPE PAYMENT LINK PLACEHOLDER
+    Create a Payment Link in your Stripe dashboard for the Still Here
+    ebook ($37), then paste it below. In that Payment Link's settings,
+    set the "After payment" confirmation page to redirect to your
+    upsell.html page (e.g. https://yourdomain.com/still-here/upsell.html)
+    so buyers land on the journal offer right after paying.
+  */
+  var STRIPE_PAYMENT_LINK_EBOOK = 'https://buy.stripe.com/REPLACE_WITH_YOUR_EBOOK_LINK';
+
+  document.getElementById('ckSubmit').addEventListener('click', function () {
+    var name = document.getElementById('ckName').value;
+    var email = document.getElementById('ckEmail').value;
+    if (!name || !email) {
+      alert('Please enter your name and email to continue.');
+      return;
+    }
+    window.location.href = STRIPE_PAYMENT_LINK_EBOOK + '?prefilled_email=' + encodeURIComponent(email);
+  });
+</script>
+
+</body>
+</html>
