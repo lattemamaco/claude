@@ -272,10 +272,19 @@ section { padding: 100px 8%; }
 /* ── SHOWCASE (module-card style) ── */
 .showcase { background: var(--cobalt-pale); }
 .showcase-inner { max-width: 1040px; margin: 0 auto; }
-.showcase-header { max-width: 620px; margin-bottom: 68px; }
-.showcase-header .section-soft { color: var(--text); }
+.showcase-header { max-width: 620px; margin: 0 auto 56px; text-align: center; }
+.showcase-header .section-soft { color: var(--text); font-style: normal; }
 .showcase-header p {
   font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-top: 14px;
+}
+.showcase-peek-label {
+  display: block; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--crimson); margin: 18px 0 24px;
+}
+.showcase-peek-arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--crimson);
+  color: var(--crimson); font-size: 18px; margin: 0 auto;
 }
 
 .showcase-item {
@@ -740,9 +749,9 @@ footer {
 <section class="showcase" id="products">
   <div class="showcase-inner">
     <div class="showcase-header">
-      <span class="eyebrow">The Collection</span>
-      <span class="section-soft">Ready to do something for yourself?</span>
-      <p>One honest resource, written from inside the season you're in right now — not from the other side of it.</p>
+      <span class="section-soft">What's Inside? Glad You Asked.</span>
+      <span class="showcase-peek-label">Take a Peek</span>
+      <span class="showcase-peek-arrow">↓</span>
     </div>
 
     <!-- STILL HERE -->
