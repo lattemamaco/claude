@@ -357,7 +357,10 @@ section { padding: 100px 8%; }
   background-size: cover; background-position: center 15%;
   filter: grayscale(1);
 }
-.proof-overlay { position: absolute; inset: 0; background: rgba(16,14,12,0.76); }
+.proof-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(165deg, rgba(16,14,12,0.88) 0%, rgba(140,0,0,0.58) 100%);
+}
 .proof-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
 .proof .eyebrow { color: var(--crimson-pale); }
 .proof-slide { display: none; }
@@ -370,7 +373,7 @@ section { padding: 100px 8%; }
 }
 .proof-name {
   font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.75);
+  text-transform: uppercase; letter-spacing: 3px; color: var(--crimson-pale);
   margin-bottom: 40px;
 }
 .proof-dots { display: flex; gap: 10px; justify-content: center; }
