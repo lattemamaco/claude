@@ -186,6 +186,34 @@ nav.menu-open .nav-tagline { color: var(--white); opacity: 1; max-height: 20px; 
 /* ── SHARED ── */
 section { padding: 100px 8%; }
 
+/* ── MOTION ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-group > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-group.is-visible > * { opacity: 1; transform: translateY(0); }
+.reveal-group.is-visible > *:nth-child(1) { transition-delay: 0.02s; }
+.reveal-group.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+.reveal-group.is-visible > *:nth-child(3) { transition-delay: 0.18s; }
+.reveal-group.is-visible > *:nth-child(4) { transition-delay: 0.26s; }
+.reveal-group.is-visible > *:nth-child(5) { transition-delay: 0.34s; }
+.reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.42s; }
+.hover-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.hover-lift:hover { transform: translateY(-5px); }
+.btn-secondary, .btn-sand-rect, .btn-outline-rect, .btn-cream-outline,
+.showcase-cta, .opt-in-form button, .nav-cta, .proof-nav-btn {
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.btn-secondary:hover, .btn-sand-rect:hover, .btn-outline-rect:hover, .btn-cream-outline:hover,
+.showcase-cta:hover, .opt-in-form button:hover, .nav-cta:hover {
+  transform: translateY(-3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-group > * { opacity: 1; transform: none; transition: none; }
+  .hover-lift:hover,
+  .btn-secondary:hover, .btn-sand-rect:hover, .btn-outline-rect:hover, .btn-cream-outline:hover,
+  .showcase-cta:hover, .opt-in-form button:hover, .nav-cta:hover { transform: none; }
+}
+
 .eyebrow {
   display: block; font-family: 'Montserrat', sans-serif;
   font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
@@ -625,7 +653,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner reveal">
     <span class="hero-eyebrow">For the Mom Done Just Surviving</span>
     <h1>Stop Surviving.<br>Start Coming Back.</h1>
     <p class="hero-subhead">You love your family fiercely. You love God. But you can't remember the last time you felt like you.</p>
@@ -637,7 +665,7 @@ footer {
 
 <!-- STATEMENT -->
 <section class="statement">
-  <div class="statement-inner">
+  <div class="statement-inner reveal">
     <span class="eyebrow">Does This Sound Familiar?</span>
     <h2 class="statement-title">Come home to the woman<br>you used to be.</h2>
     <p class="statement-sub">I help Christian moms reset their faith, their identity, and their daily rhythm — with resources honest enough to actually meet you where you are.</p>
@@ -647,44 +675,44 @@ footer {
 <!-- FAMILIAR -->
 <section class="familiar">
   <div class="familiar-inner">
-    <div class="familiar-header">
+    <div class="familiar-header reveal">
       <span class="eyebrow">If you're still reading, this is for you</span>
     </div>
 
-    <div class="familiar-grid">
-      <div class="familiar-item">
+    <div class="familiar-grid reveal-group">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You haven't really talked to God in weeks</span>
         <p>Not because you stopped believing. Life just got so loud, and you don't even know what to say anymore.</p>
       </div>
-      <div class="familiar-item">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You feel invisible inside your own life</span>
         <p>You love your kids more than anything in this world. And you also feel like you've disappeared a little more each day. Both things are true, and the guilt of that exhausts you.</p>
       </div>
-      <div class="familiar-item">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You snap, feel guilty, and repeat the cycle</span>
         <p>You apologise, you try harder, and somehow you end up right back here. The cycle wears you down more than the actual day does.</p>
       </div>
-      <div class="familiar-item">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You keep comparing yourself to moms who seem fine</span>
         <p>You scroll past moms who seem to have it all together and wonder what is wrong with you. Then feel guilty for comparing. Then do it again tomorrow.</p>
       </div>
-      <div class="familiar-item">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You know you're meant for more than surviving</span>
         <p>Somewhere deep down you know it. But the day keeps winning, and you keep putting yourself last.</p>
       </div>
-      <div class="familiar-item">
+      <div class="familiar-item hover-lift">
         <div class="familiar-item-dots"><span></span><span></span><span></span></div>
         <span class="familiar-item-num">You miss the woman you used to be</span>
         <p>The one with dreams and spark and a quiet faith that actually felt alive. You wonder if she's still in there somewhere.</p>
       </div>
     </div>
 
-    <div class="familiar-bridge">
+    <div class="familiar-bridge reveal">
       <p class="familiar-bridge-text">If even one of those made you pause and think <em>yes, that's me</em>... you are in exactly the right place. You are not broken. You are not too far gone. You are just a woman who needs to come back to herself. And that is exactly what we do here.</p>
       <div class="familiar-bridge-cta">
         <a href="#about" class="btn-cream-outline">Read My Story</a>
@@ -696,7 +724,7 @@ footer {
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
-    <div class="about-photo-wrap">
+    <div class="about-photo-wrap reveal">
       <div class="pinned-card">
         <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
           <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
@@ -714,7 +742,7 @@ footer {
         </div>
       </div>
     </div>
-    <div class="about-text">
+    <div class="about-text reveal">
       <span class="eyebrow">You're in the right place</span>
       <h2 class="section-title">I have lived every single thing you just read.</h2>
       <p>There was a season I stopped talking to God. Not because I stopped believing. Life just got so loud that He got pushed to the very bottom of the list. I felt too busy, too tired, and honestly? Too far gone to even know where to start coming back.</p>
@@ -748,14 +776,14 @@ footer {
 <!-- PRODUCTS -->
 <section class="showcase" id="products">
   <div class="showcase-inner">
-    <div class="showcase-header">
+    <div class="showcase-header reveal">
       <span class="section-soft">What's Inside? Glad You Asked.</span>
       <span class="showcase-peek-label">Take a Peek</span>
       <span class="showcase-peek-arrow">↓</span>
     </div>
 
     <!-- STILL HERE -->
-    <div class="showcase-item">
+    <div class="showcase-item reveal">
       <div>
         <span class="showcase-label">The Ebook</span>
         <h3 class="showcase-title">This is not a devotional. This is a permission slip.</h3>
@@ -797,7 +825,7 @@ footer {
 <section class="proof">
   <div class="proof-inner">
     <span class="eyebrow">Testimonials</span>
-    <div class="proof-card">
+    <div class="proof-card reveal">
       <div class="proof-card-body">
         <div class="proof-slide active">
           <div class="proof-stars">★★★★★</div>
@@ -825,7 +853,7 @@ footer {
 
 <!-- FREE GUIDE -->
 <section class="free-guide" id="free-guide">
-  <div class="free-guide-inner">
+  <div class="free-guide-inner reveal">
     <span class="free-badge">Free</span>
     <span class="eyebrow">Completely free, just for you</span>
     <h2 class="free-guide-title">When Faith <em>Goes Quiet.</em></h2>
@@ -849,14 +877,14 @@ footer {
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
-    <div class="faq-header">
+    <div class="faq-header reveal">
       <span class="eyebrow">FAQ</span>
       <h2 class="faq-headline">A few things people usually ask</h2>
       <p class="faq-sub">If something isn't covered here, just reach out — I'm happy to help.</p>
     </div>
     <div class="faq-layout">
 
-      <div class="faq-left">
+      <div class="faq-left reveal">
         <div class="pinned-card">
           <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
             <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
@@ -871,9 +899,9 @@ footer {
       </div>
 
       <div class="faq-right">
-        <div class="faq-blocks">
+        <div class="faq-blocks reveal-group">
 
-          <div class="faq-item">
+          <div class="faq-item hover-lift">
             <button class="faq-toggle" onclick="toggleFaq(this)">
               <span class="faq-q">Is this right for me if I don't feel like a "good" Christian right now?</span>
               <span class="faq-plus">+</span>
@@ -883,7 +911,7 @@ footer {
             </div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item hover-lift">
             <button class="faq-toggle" onclick="toggleFaq(this)">
               <span class="faq-q">How long does it take to read?</span>
               <span class="faq-plus">+</span>
@@ -893,7 +921,7 @@ footer {
             </div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item hover-lift">
             <button class="faq-toggle" onclick="toggleFaq(this)">
               <span class="faq-q">What format is this and how do I get it?</span>
               <span class="faq-plus">+</span>
@@ -903,7 +931,7 @@ footer {
             </div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item hover-lift">
             <button class="faq-toggle" onclick="toggleFaq(this)">
               <span class="faq-q">Is this just another devotional book?</span>
               <span class="faq-plus">+</span>
@@ -913,7 +941,7 @@ footer {
             </div>
           </div>
 
-          <div class="faq-item">
+          <div class="faq-item hover-lift">
             <button class="faq-toggle" onclick="toggleFaq(this)">
               <span class="faq-q">What is your refund policy?</span>
               <span class="faq-plus">+</span>
@@ -932,7 +960,7 @@ footer {
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <div class="final-cta-inner">
+  <div class="final-cta-inner reveal">
     <h2 class="final-cta-title">Ready to come back to yourself?</h2>
     <p class="final-cta-sub">You don't need a five-step plan. You need something honest enough to meet you exactly where you are. This is it.</p>
     <a href="https://stan.store/Rootedinbloom/p/i-still-show-up" target="_blank" rel="noopener" class="btn-sand-rect">Get Still Here</a>
@@ -957,6 +985,24 @@ footer {
   window.addEventListener('scroll', function () {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
   });
+
+  (function () {
+    var targets = document.querySelectorAll('.reveal, .reveal-group');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  }());
   function toggleNav() {
     var isOpen = document.getElementById('navLinks').classList.toggle('open');
     document.getElementById('mainNav').classList.toggle('menu-open', isOpen);
