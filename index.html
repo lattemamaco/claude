@@ -1002,7 +1002,8 @@ footer {
       targets.forEach(function (el) { observer.observe(el); });
       // Failsafe: guarantee full content is visible for crawlers, link-preview bots,
       // or anyone who lands mid-page, even if a scroll never triggers the observer.
-      setTimeout(revealAll, 4000);
+      // Long delay so it never fires during normal browsing and cuts the reveal short.
+      setTimeout(revealAll, 20000);
     } catch (e) {
       revealAll();
     }
