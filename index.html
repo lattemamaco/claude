@@ -130,32 +130,37 @@ nav.menu-open { backdrop-filter: none; -webkit-backdrop-filter: none; }
 
 /* ── HERO ── */
 .hero {
-  position: relative; min-height: 78vh;
+  position: relative;
   background: var(--cobalt);
-  display: flex; align-items: center; justify-content: center;
-  padding: 150px 8% 90px;
+  padding: 130px 0 90px;
   text-align: center; overflow: hidden;
 }
-.hero-inner {
-  position: relative; z-index: 1;
-  max-width: 780px;
+.hero-photo-frame {
+  position: relative;
+  width: min(680px, 92vw);
+  margin: 0 auto;
+}
+.hero-photo { width: 100%; display: block; }
+.hero-text {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+  padding: clamp(22px, 4vw, 42px) 6% 0;
 }
 .hero-eyebrow {
   display: block; font-family: 'Montserrat', sans-serif;
   font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--cream); margin-bottom: 22px;
+  color: var(--cream); margin-bottom: 18px;
 }
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 9vw, 104px);
+  font-size: clamp(38px, 7.6vw, 90px);
   font-weight: 700; line-height: 0.98; letter-spacing: -1px;
-  color: var(--cream); margin-bottom: 28px;
+  color: var(--cream); margin: 0;
 }
-.hero-photo-card {
-  width: min(360px, 62vw);
-  margin: 6px auto 20px;
+.hero-bottom {
+  position: relative; z-index: 1;
+  margin-top: 36px;
+  max-width: 780px; margin-left: auto; margin-right: auto;
 }
-.hero-photo { width: 100%; display: block; }
 .hero-subhead {
   font-family: 'Inter', sans-serif; font-weight: 400;
   font-size: clamp(16px, 1.6vw, 19px); color: rgba(255,255,255,0.88);
@@ -659,12 +664,14 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner reveal">
-    <span class="hero-eyebrow">For the Mom Done Just Surviving</span>
-    <h1>Stop Surviving.<br>Start Coming Back.</h1>
-    <div class="hero-photo-card reveal-img">
-      <img src="ally-hero.jpg" alt="Ally Carmichael" class="hero-photo">
+  <div class="hero-photo-frame">
+    <img src="ally-hero.jpg" alt="Ally Carmichael" class="hero-photo reveal-img">
+    <div class="hero-text reveal">
+      <span class="hero-eyebrow">For the Mom Done Just Surviving</span>
+      <h1>Stop Surviving.<br>Start Coming<br>Back.</h1>
     </div>
+  </div>
+  <div class="hero-bottom reveal">
     <p class="hero-subhead">You love your family fiercely. You love God. But you can't remember the last time you felt like you.</p>
     <div class="hero-ctas">
       <a href="#products" class="btn-secondary">Get Started</a>
