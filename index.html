@@ -85,9 +85,9 @@ nav.scrolled .nav-mobile-toggle { top: 18px; }
   border-radius: 2px; transition: background 0.35s, transform 0.3s ease, opacity 0.2s ease;
 }
 nav.scrolled .nav-mobile-toggle span { background: var(--text); }
-nav.menu-open .nav-mobile-toggle span { background: var(--white); }
+nav.menu-open .nav-mobile-toggle span { background: var(--text); }
 nav.menu-open .nav-logo,
-nav.menu-open .nav-tagline { color: var(--white); opacity: 1; max-height: 20px; }
+nav.menu-open .nav-tagline { color: var(--text); opacity: 1; max-height: 20px; }
 /* backdrop-filter creates a new containing block, which would confine the
    fixed-position full-screen menu below to the (short) nav bar's own box
    instead of the viewport once scrolled. Drop it while the menu is open. */
@@ -99,32 +99,34 @@ nav.menu-open { backdrop-filter: none; -webkit-backdrop-filter: none; }
 .nav-links.open {
   display: flex; flex-direction: column;
   position: fixed; inset: 0; z-index: 190;
-  background: var(--noir);
-  padding: 130px 8% 60px; gap: 0;
+  background: var(--cream);
+  padding: 110px 8% 50px; gap: 0;
   align-items: stretch; justify-content: flex-start;
   box-shadow: none; border-bottom: none;
   overflow-y: auto;
 }
-.nav-links.open li { list-style: none; border-bottom: 1px solid rgba(255,255,255,0.16); }
-.nav-links.open li:first-child { border-top: 1px solid rgba(255,255,255,0.16); }
+.nav-links.open li { list-style: none; border-bottom: 1px solid var(--border); }
+.nav-links.open li:first-child { border-top: 1px solid var(--border); }
+.nav-links.open li:last-child { border-bottom: none; }
 .nav-links.open a {
-  display: block; padding: 20px 0;
-  color: var(--white) !important;
+  display: block; padding: 13px 0;
+  color: var(--text) !important;
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-style: normal; font-weight: 500;
-  font-size: clamp(26px, 8vw, 38px);
+  font-size: clamp(19px, 5.5vw, 25px);
   text-transform: none; letter-spacing: 0;
   transition: color 0.2s;
 }
-.nav-links.open a:hover { color: var(--cream) !important; }
+.nav-links.open a:hover { color: var(--crimson) !important; }
 .nav-links.open .nav-cta {
-  background: none !important; border: 1.5px solid var(--crimson);
-  text-align: center; margin-top: 28px;
+  display: block; background: var(--crimson) !important; border: none;
+  border-radius: 999px; color: var(--cream) !important;
+  text-align: center; margin-top: 22px;
   font-family: 'Montserrat', sans-serif; font-size: 11px;
-  letter-spacing: 2px; text-transform: uppercase; padding: 18px;
+  letter-spacing: 2px; text-transform: uppercase; padding: 16px;
 }
-.nav-links.open .nav-cta:hover { background: var(--crimson) !important; }
+.nav-links.open .nav-cta:hover { background: var(--crimson-dark) !important; }
 
 /* ── HERO ── */
 .hero {
