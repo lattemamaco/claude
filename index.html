@@ -137,8 +137,10 @@ nav.menu-open { backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 .hero-photo-frame {
   position: relative;
-  width: min(680px, 92vw);
-  margin: 0 auto;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 0;
 }
 .hero-photo { width: 100%; display: block; position: relative; z-index: 2; }
 .hero-text {
@@ -610,7 +612,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
-  .hero { padding: 110px 6% 60px; }
+  .hero { padding: 110px 0 60px; }
   section { padding: 72px 6%; }
   .statement-inner { padding: 0; }
   .showcase-item { padding: 56px 0; }
@@ -655,7 +657,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-photo-frame">
-    <img src="ally-hero.png" alt="Ally Carmichael" class="hero-photo reveal-img">
+    <picture>
+      <source media="(max-width: 640px)" srcset="ally-hero-mobile.png">
+      <img src="ally-hero.png" alt="Ally Carmichael" class="hero-photo reveal-img">
+    </picture>
     <div class="hero-text reveal">
       <span class="hero-eyebrow">For the Mom Done Just Surviving</span>
       <h1>Stop Surviving.<br>Start Coming<br>Back.</h1>
