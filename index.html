@@ -346,14 +346,32 @@ section { padding: 100px 8%; }
   padding: 8px 32px; margin: 0 auto 32px; max-width: 460px; text-align: left;
 }
 .showcase-list-card .showcase-list-item {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
   padding: 20px 0; border-bottom: 1px solid rgba(28,26,22,0.1);
 }
 .showcase-list-card .showcase-list-item:last-child { border-bottom: none; }
-.showcase-list-card .showcase-list-item strong {
+.showcase-list-item-text strong {
   display: block; font-family: 'Playfair Display', serif; font-weight: 600;
   font-size: 16px; color: var(--text); margin-bottom: 4px;
 }
-.showcase-list-card .showcase-list-item span { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+.showcase-list-item-text span { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+.showcase-list-item-value {
+  flex-shrink: 0; margin-top: 2px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; color: var(--crimson-dark); white-space: nowrap;
+}
+.showcase-value-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 20px 4px 4px; margin-top: 4px; border-top: 1.5px solid var(--text);
+}
+.showcase-value-total span:first-child {
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-mid);
+}
+.showcase-value-total span:last-child {
+  font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text);
+  text-decoration: line-through; text-decoration-color: var(--text-light);
+}
 
 .showcase-price-row { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 8px; }
 .showcase-price-old {
@@ -792,24 +810,43 @@ footer {
         <p class="showcase-body">Still Here is an honest survival guide for the Christian mom who has stopped pretending she's okay — written by someone who was sitting in the same dark room, not standing outside it with a flashlight. It walks you through five honest moves: five conversations with God, with yourself, and with the parts of you that motherhood buried but did not destroy.</p>
         <div class="showcase-list-card reveal-group">
           <div class="showcase-list-item">
-            <strong>Confess</strong>
-            <span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span>
+            <div class="showcase-list-item-text">
+              <strong>Confess</strong>
+              <span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span>
+            </div>
+            <span class="showcase-list-item-value">$20 value</span>
           </div>
           <div class="showcase-list-item">
-            <strong>Grieve</strong>
-            <span>Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</span>
+            <div class="showcase-list-item-text">
+              <strong>Grieve</strong>
+              <span>Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</span>
+            </div>
+            <span class="showcase-list-item-value">$20 value</span>
           </div>
           <div class="showcase-list-item">
-            <strong>Reconnect</strong>
-            <span>Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</span>
+            <div class="showcase-list-item-text">
+              <strong>Reconnect</strong>
+              <span>Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
           </div>
           <div class="showcase-list-item">
-            <strong>Reclaim</strong>
-            <span>Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</span>
+            <div class="showcase-list-item-text">
+              <strong>Reclaim</strong>
+              <span>Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
           </div>
           <div class="showcase-list-item">
-            <strong>Root</strong>
-            <span>Stop waiting until you feel okay before you decide you're worth staying for</span>
+            <div class="showcase-list-item-text">
+              <strong>Root</strong>
+              <span>Stop waiting until you feel okay before you decide you're worth staying for</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
+          </div>
+          <div class="showcase-value-total">
+            <span>Total Value</span>
+            <span>$97</span>
           </div>
         </div>
         <div class="showcase-price-row">
