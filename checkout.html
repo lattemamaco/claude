@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted with Ally — For the Mom Ready to Come Back to Herself</title>
-<meta name="description" content="Faith-based resources for the mom who is done just surviving. Get Still Here, an honest survival guide for the Christian mom who lost herself and is finding her way back.">
+<title>Checkout — Still Here | Rooted with Ally</title>
+<meta name="description" content="Complete your order for Still Here, the honest survival guide for the Christian mom who lost herself and is finding her way back.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 
@@ -628,6 +628,105 @@ footer {
 }
 
 </style>
+<style>
+/* ── CHECKOUT ── */
+.checkout-hero {
+  background: var(--cobalt);
+  padding: 150px 8% 56px;
+  text-align: center;
+}
+.checkout-hero .eyebrow { color: var(--cream); }
+.checkout-hero h1 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: clamp(30px, 4.6vw, 50px); color: var(--cream);
+  line-height: 1.15; margin: 12px 0 0;
+}
+.checkout-back {
+  display: inline-block; margin-top: 22px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  transition: color 0.2s;
+}
+.checkout-back:hover { color: var(--cream); }
+
+.checkout-section { background: var(--cream); padding: 72px 8% 100px; }
+.checkout-card {
+  max-width: 940px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr; gap: 56px;
+  align-items: start;
+}
+.checkout-cover {
+  width: 100%; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+  position: sticky; top: 110px;
+}
+.checkout-cover img { width: 100%; display: block; }
+
+.checkout-details .eyebrow { color: var(--crimson); }
+.checkout-details h2 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 38px); color: var(--text);
+  margin: 10px 0 6px; line-height: 1.2;
+}
+.checkout-details .checkout-subtitle {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 16px; color: var(--text-mid); margin-bottom: 20px; display: block;
+}
+.checkout-details p { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 26px; }
+
+.checkout-includes-label {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-light);
+  display: block; margin-bottom: 12px;
+}
+.checkout-includes { list-style: none; margin: 0 0 32px; padding: 0; }
+.checkout-includes li {
+  display: flex; gap: 14px; align-items: baseline;
+  font-size: 14px; color: var(--text-mid); line-height: 1.6;
+  padding: 13px 0; border-bottom: 1px solid var(--border);
+}
+.checkout-includes li:first-child { border-top: 1px solid var(--border); }
+.checkout-includes li strong {
+  color: var(--crimson-dark); flex-shrink: 0; min-width: 92px;
+  font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+}
+
+.checkout-order-box {
+  background: var(--cream-soft); border: 1px solid var(--border);
+  border-radius: 6px; padding: 28px 30px; margin-bottom: 20px;
+}
+.checkout-order-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-mid);
+  padding: 9px 0;
+}
+.checkout-order-row.total {
+  border-top: 1.5px solid var(--border); margin-top: 6px; padding-top: 16px;
+  font-family: 'Playfair Display', serif; font-size: 23px; color: var(--text);
+}
+.checkout-buy-btn {
+  display: block; width: 100%; text-align: center;
+  background: var(--crimson); color: var(--cream);
+  text-decoration: none; padding: 19px; border-radius: 4px;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.checkout-buy-btn:hover { background: var(--crimson-dark); }
+.checkout-secure-note {
+  text-align: center; margin-top: 14px;
+  font-size: 12px; color: var(--text-light);
+}
+.checkout-policy {
+  margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-light); line-height: 1.7;
+}
+@media (max-width: 700px) {
+  .checkout-card { grid-template-columns: 1fr; gap: 32px; }
+  .checkout-cover { max-width: 240px; margin: 0 auto; position: static; }
+}
+</style>
 </head>
 <body>
 
@@ -635,333 +734,68 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Rooted with Ally</a>
+  <a href="index.html" class="nav-logo">Rooted with Ally</a>
   <span class="nav-tagline">A Little of My Story</span>
   <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#">Home</a></li>
-    <li><a href="#products">Shop</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#free-guide">Free Guide</a></li>
-    <li><a href="checkout.html" class="nav-cta">Get Still Here</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#products">Shop</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#free-guide">Free Guide</a></li>
+    <li><a href="#order" class="nav-cta">Checkout</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="ally-hero-bg.jpg" alt="Ally Carmichael" class="reveal-img">
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content reveal">
-    <span class="hero-eyebrow">For the Mom Done Performing Fine</span>
-    <h1>Stop Surviving.<br>Start Coming Back.</h1>
-    <p class="hero-subhead">You love your kids with your whole heart. You also feel like you're disappearing inside the role — and you're terrified to say that part out loud.</p>
-    <div class="hero-ctas">
-      <a href="#products" class="btn-secondary">Get Started</a>
-    </div>
+<!-- CHECKOUT HERO -->
+<section class="checkout-hero">
+  <div class="reveal">
+    <span class="eyebrow">Checkout</span>
+    <h1>You're One Step Closer to Coming Back.</h1>
+    <a href="index.html#products" class="checkout-back">&larr; Back to the shop</a>
   </div>
 </section>
 
-<!-- STATEMENT -->
-<section class="statement">
-  <div class="statement-inner reveal">
-    <span class="eyebrow">Does This Sound Familiar?</span>
-    <h2 class="statement-title">A path back to the woman<br>who was always there.</h2>
-    <p class="statement-sub">I help Christian moms who are parenting without a village find their way back — to God, to themselves, to a daily rhythm — with something honest enough to actually meet you where you are.</p>
-  </div>
-</section>
-
-<!-- FAMILIAR -->
-<section class="familiar">
-  <div class="familiar-inner">
-    <div class="familiar-header reveal">
-      <span class="eyebrow">If you're still reading, this is for you</span>
+<!-- CHECKOUT ORDER -->
+<section class="checkout-section" id="order">
+  <div class="checkout-card">
+    <div class="checkout-cover reveal-img">
+      <img src="still-here-cover.jpg" alt="Still Here — an honest survival guide, by Ally">
     </div>
+    <div class="checkout-details reveal">
+      <span class="eyebrow">The Ebook</span>
+      <h2>Still Here</h2>
+      <span class="checkout-subtitle">The honest survival guide for the Christian mom who lost herself and is still finding her way back.</span>
+      <p>This is not a devotional. This is a permission slip. Still Here walks you through five honest moves — five conversations with God, with yourself, and with the parts of you that motherhood buried but did not destroy.</p>
 
-    <div class="familiar-grid">
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You love them with your whole heart — and you're disappearing anyway</span>
-        <p>Not balance. Not burnout. You finish sentences other people started and realize you don't have an opinion of your own anymore. You've decided you can't say that out loud without sounding like a monster.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You open your Bible, then close it again</span>
-        <p>Not because you stopped believing. Motherhood swallowed every hour you used to give God, and now you don't even know where to start. The guilt of that distance feels heavier than the exhaustion itself.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You've had thoughts you will never say to another human being</span>
-        <p>You've decided those thoughts make you a bad mom, or an ungrateful Christian. So you bury them, smile at church, and perform being fine — while slowly suffocating inside the performance.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You have no village, and no one is checking on you</span>
-        <p>No one texts to ask if you're okay. No one shows up to take the kids for two hours so you can breathe. It's you, maybe a partner who doesn't fully understand, and the weight of all of it with no one to hand any of it to.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You compare yourself to moms who seem fine</span>
-        <p>You scroll past women who look like they have it together and wonder what's wrong with you. Then you feel guilty for comparing. Then you do it again tomorrow.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You miss the woman you used to be</span>
-        <p>The one with a real relationship with God, dreams of her own, a sense of herself outside of everyone's needs. You wonder if she's still in there. She is. She just got covered — and covered is a completely different situation than gone.</p>
-      </div>
-    </div>
+      <span class="checkout-includes-label">What's Included</span>
+      <ul class="checkout-includes">
+        <li><strong>Confess</strong><span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span></li>
+        <li><strong>Grieve</strong><span>Mourn the version of you motherhood covered, not destroyed</span></li>
+        <li><strong>Reconnect</strong><span>Pray on the nights you have nothing holy left to bring</span></li>
+        <li><strong>Reclaim</strong><span>Remember who you were before you forgot</span></li>
+        <li><strong>Root</strong><span>Stop waiting until you feel okay before you decide you're worth staying for</span></li>
+      </ul>
 
-    <div class="familiar-bridge reveal">
-      <p class="familiar-bridge-text">If even one of those made you pause and think <em>yes, that's me</em>... you are not broken, and you are not too far gone. You are just a woman who has been carrying this alone for too long. You don't have to anymore.</p>
-      <div class="familiar-bridge-cta">
-        <a href="#about" class="btn-cream-outline">Read My Story</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-photo-wrap reveal">
-      <div class="pinned-card">
-        <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
-          <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
-          <rect x="52" y="38" width="16" height="18" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="none" stroke="#8C6A2E" stroke-width="1.5"/>
-        </svg>
-        <div class="pinned-card-frame about-photo reveal-img">
-          <img src="ally-bio-portrait.jpg" alt="Ally Carmichael">
+      <div class="checkout-order-box">
+        <div class="checkout-order-row">
+          <span>Still Here — Instant PDF Download</span>
+          <span>$27.00</span>
         </div>
-      </div>
-    </div>
-    <div class="about-text reveal">
-      <span class="eyebrow">You're in the right place</span>
-      <h2 class="section-title">I'm not the expert. I'm just further down the same road.</h2>
-      <p>There was a Sunday morning I sat in my car in the church parking lot for eleven minutes because I could not make my face do the thing it was supposed to do when I walked through those doors. I was exhausted. I was angry at God in a way I had never admitted out loud. And I was terrified that both of those things made me a fraud.</p>
-      <p>I'm a mom of a seven-year-old. I work full-time, eight to five, five days a week. I've felt the specific 2am ceiling-stare where you think: <em>I prayed for this child. So why does this feel like drowning?</em></p>
-      <p>I was afraid to write Still Here. I was afraid Christian women would decide I was faithless. I was afraid moms would decide I was ungrateful. I wrote it anyway, because the silence was doing more damage than the honesty ever could.</p>
-      <p>These resources didn't come from the other side of the hard. They came from right inside it. I have no credentials that belong on a wall — just the decision to stop performing my way through this, and the belief that you deserve to stop performing too.</p>
-      <div class="about-sig">Not fixed. Just honest.</div>
-      <a href="#products" class="btn-sand-rect">See What I've Created for You</a>
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
-<section class="showcase" id="products">
-  <div class="showcase-inner">
-    <div class="showcase-header reveal">
-      <span class="section-soft">What's Inside? Glad You Asked.</span>
-      <span class="showcase-peek-label">Take a Peek</span>
-      <span class="showcase-peek-arrow">↓</span>
-    </div>
-
-    <!-- STILL HERE -->
-    <div class="showcase-item reveal">
-      <div>
-        <span class="showcase-label">The Ebook</span>
-        <h3 class="showcase-title">This is not a devotional. This is a permission slip.</h3>
-        <p class="showcase-body">Still Here is an honest survival guide for the Christian mom who has stopped pretending she's okay — written by someone who was sitting in the same dark room, not standing outside it with a flashlight. It walks you through five honest moves: five conversations with God, with yourself, and with the parts of you that motherhood buried but did not destroy.</p>
-        <div class="showcase-list-card reveal-group">
-          <div class="showcase-list-item">
-            <strong>Confess</strong>
-            <span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span>
-          </div>
-          <div class="showcase-list-item">
-            <strong>Grieve</strong>
-            <span>Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</span>
-          </div>
-          <div class="showcase-list-item">
-            <strong>Reconnect</strong>
-            <span>Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</span>
-          </div>
-          <div class="showcase-list-item">
-            <strong>Reclaim</strong>
-            <span>Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</span>
-          </div>
-          <div class="showcase-list-item">
-            <strong>Root</strong>
-            <span>Stop waiting until you feel okay before you decide you're worth staying for</span>
-          </div>
-        </div>
-        <div class="showcase-price-row">
-          <span class="showcase-price">$27</span>
-          <span class="showcase-price-note">Instant PDF download</span>
-        </div>
-        <a href="checkout.html" class="showcase-cta">Yes, I Want This Ebook</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof">
-  <div class="proof-inner">
-    <span class="eyebrow">Testimonials</span>
-    <div class="proof-card reveal">
-      <div class="proof-card-body">
-        <div class="proof-slide active">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I cried reading the Grieve chapter. She named a loss I was never allowed to admit I was carrying. I did not know how much I needed permission to feel it."</p>
-          <div class="proof-name">Sarah M.</div>
-        </div>
-        <div class="proof-slide">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"This is the first thing that met me in survival mode without asking me to be further along than I was. I read it in one sitting and felt like I could breathe again."</p>
-          <div class="proof-name">Jessica T.</div>
-        </div>
-        <div class="proof-slide">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I've read devotionals that made me feel behind. This one didn't. It just told me the truth: I am still here, and that is enough."</p>
-          <div class="proof-name">Rachel K.</div>
-        </div>
-      </div>
-      <div class="proof-nav">
-        <button class="proof-nav-btn prev" onclick="showProofSlide(proofSlideIndex - 1)">← Prev</button>
-        <button class="proof-nav-btn" onclick="showProofSlide(proofSlideIndex + 1)">Next →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FREE GUIDE -->
-<section class="free-guide" id="free-guide">
-  <div class="free-guide-inner reveal">
-    <span class="free-badge">Free</span>
-    <span class="eyebrow">Completely free, just for you</span>
-    <h2 class="free-guide-title">When Faith <em>Goes Quiet.</em></h2>
-    <p class="free-guide-body">For the Christian mom who misses God but can't find the words anymore, and is too exhausted and ashamed to fake it. Five honest prayers, already written for you — because sometimes the most faithful thing you can do is borrow the words when your own have run out.</p>
-    <ul class="free-guide-bullets reveal-group">
-      <li>When you are angry — and ashamed of being angry</li>
-      <li>The guilt about the distance between you and God</li>
-      <li>The thoughts you have never said out loud</li>
-      <li>The loneliness nobody talks about</li>
-      <li>The woman you were before all of this</li>
-    </ul>
-    <p class="free-guide-quote">You cannot pray this wrong. Whisper them into your pillow at 2am — they belong to you now.</p>
-    <form class="opt-in-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Send Me the 5 Prayers</button>
-    </form>
-    <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="faq-inner">
-    <div class="faq-header reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="faq-headline">A few things people usually ask</h2>
-      <p class="faq-sub">If something isn't covered here, just reach out — I'm happy to help.</p>
-    </div>
-    <div class="faq-layout">
-
-      <div class="faq-left reveal">
-        <div class="pinned-card">
-          <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
-            <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
-            <rect x="52" y="38" width="16" height="18" fill="#CBA25A"/>
-            <rect x="14" y="52" width="92" height="26" rx="7" fill="#CBA25A"/>
-            <rect x="14" y="52" width="92" height="26" rx="7" fill="none" stroke="#8C6A2E" stroke-width="1.5"/>
-          </svg>
-          <div class="pinned-card-frame reveal-img">
-            <img src="ally-faq-portrait.jpg" alt="Ally, founder of Rooted with Ally" class="faq-photo">
-          </div>
+        <div class="checkout-order-row total">
+          <span>Total</span>
+          <span>$27.00</span>
         </div>
       </div>
 
-      <div class="faq-right">
-        <div class="faq-blocks reveal-group">
+      <!-- TODO: Replace href="#" with your real Stripe Payment Link URL once created in the Stripe Dashboard. -->
+      <a href="#" class="checkout-buy-btn" id="stripeCheckoutBtn">Complete Your Purchase</a>
+      <p class="checkout-secure-note">You'll be taken to a secure Stripe checkout to complete payment.</p>
 
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">Is this right for me if I don't feel like a "good" Christian right now?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Especially then. This wasn't made for the woman who has it all together. It was made for the one who is tired, disconnected, and quietly asking God if He still sees her. He does. And so does this.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">How long does it take to read?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Most moms finish it in one sitting, though many stop to cry, pray, or text a passage to a friend. It's honest and easy to read. Not heavy, not academic. Just real.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">What format is this and how do I get it?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">It's an instant PDF digital download. The moment you purchase, you'll get a link by email. Read it on your phone, tablet, laptop, or print at home. Whatever works for your life.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">Is this just another devotional book?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Honestly? No. I wrote it because I needed it and it did not exist. It skips the words "reflect," "heal," and "thrive" on purpose — those words skip something, and you've spent long enough feeling like you missed a step. This one starts exactly where you actually are.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">What is your refund policy?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Because this is an instant digital download, all sales are final. If you have any questions before purchasing, reach out on Instagram <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener" style="color:var(--crimson-dark);">@rootedwithally</a>. I'm happy to help you figure out the right fit.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
+      <p class="checkout-policy">Because this is an instant digital download, all sales are final. The moment your payment is complete, you'll get a link by email to download your PDF — read it on your phone, tablet, or laptop, or print it at home.</p>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner reveal">
-    <h2 class="final-cta-title">Ready to come back to yourself?</h2>
-    <p class="final-cta-sub">You don't need a five-step plan. You need something honest enough to meet you exactly where you are. This is it.</p>
-    <a href="checkout.html" class="btn-sand-rect">Get Still Here</a>
   </div>
 </section>
 
@@ -972,9 +806,9 @@ footer {
     <div class="footer-copy">© 2026 Rooted with Ally. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
   </div>
   <div class="footer-links">
-    <a href="#products">Shop</a>
-    <a href="#about">About</a>
-    <a href="#free-guide">Free Guide</a>
+    <a href="index.html#products">Shop</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#free-guide">Free Guide</a>
     <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
@@ -1002,9 +836,6 @@ footer {
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
       targets.forEach(function (el) { observer.observe(el); });
-      // Failsafe: guarantee full content is visible for crawlers, link-preview bots,
-      // or anyone who lands mid-page, even if a scroll never triggers the observer.
-      // Long delay so it never fires during normal browsing and cuts the reveal short.
       setTimeout(revealAll, 20000);
     } catch (e) {
       revealAll();
@@ -1021,41 +852,6 @@ footer {
       if (document.getElementById('navLinks').classList.contains('open')) toggleNav();
     });
   });
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
-  var proofSlideCount = document.querySelectorAll('.proof-slide').length;
-  var proofSlideIndex = 0;
-
-  function showProofSlide(i) {
-    proofSlideIndex = (i + proofSlideCount) % proofSlideCount;
-    document.querySelectorAll('.proof-slide').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
-    document.querySelectorAll('.proof-dot').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
-  }
-
-  (function () {
-    var proof = document.querySelector('.proof');
-    if (!proof || !proofSlideCount) return;
-    var startX = 0, startY = 0, tracking = false;
-    proof.addEventListener('touchstart', function (e) {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      tracking = true;
-    }, { passive: true });
-    proof.addEventListener('touchend', function (e) {
-      if (!tracking) return;
-      tracking = false;
-      var dx = e.changedTouches[0].clientX - startX;
-      var dy = e.changedTouches[0].clientY - startY;
-      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-      showProofSlide(dx < 0 ? proofSlideIndex + 1 : proofSlideIndex - 1);
-    }, { passive: true });
-  }());
-
 </script>
 
 </body>
