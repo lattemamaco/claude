@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted with Ally — For the Mom Ready to Come Back to Herself</title>
-<meta name="description" content="Faith-based resources for the mom who is done just surviving. Get Still Here, an honest survival guide for the Christian mom who lost herself and is finding her way back.">
+<title>Checkout — Still Here | Rooted with Ally</title>
+<script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+window.scrollTo(0, 0);
+window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+</script>
+<meta name="description" content="Complete your order for Still Here, the honest survival guide for the Christian mom who lost herself and is finding her way back.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 
@@ -346,47 +351,20 @@ section { padding: 100px 8%; }
   padding: 8px 32px; margin: 0 auto 32px; max-width: 460px; text-align: left;
 }
 .showcase-list-card .showcase-list-item {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
   padding: 20px 0; border-bottom: 1px solid rgba(28,26,22,0.1);
 }
 .showcase-list-card .showcase-list-item:last-child { border-bottom: none; }
-.showcase-list-item-text strong {
+.showcase-list-card .showcase-list-item strong {
   display: block; font-family: 'Playfair Display', serif; font-weight: 600;
   font-size: 16px; color: var(--text); margin-bottom: 4px;
 }
-.showcase-list-item-text span { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
-.showcase-list-item-value {
-  flex-shrink: 0; margin-top: 2px;
-  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 0.5px; color: var(--crimson-dark); white-space: nowrap;
-}
-.showcase-value-total {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 20px 4px 4px; margin-top: 4px; border-top: 1.5px solid var(--text);
-}
-.showcase-value-total span:first-child {
-  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-mid);
-}
-.showcase-value-total span:last-child {
-  font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text);
-  text-decoration: line-through; text-decoration-color: var(--text-light);
-}
+.showcase-list-card .showcase-list-item span { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
 
-.showcase-price-row { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 8px; }
-.showcase-price-old {
-  font-family: 'Playfair Display', serif; font-size: 20px;
-  color: var(--text-mid); text-decoration: line-through;
-}
-.showcase-price { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--crimson-dark); line-height: 1.1; }
+.showcase-price-row { display: flex; align-items: baseline; gap: 12px; justify-content: center; margin-bottom: 24px; }
+.showcase-price { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--text); }
 .showcase-price-note {
-  display: block; font-family: 'Montserrat', sans-serif; font-size: 10px;
-  color: var(--text-mid); letter-spacing: 1.5px; text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.showcase-price-sale {
-  font-family: 'Inter', sans-serif; font-size: 13px; color: var(--crimson-dark);
-  max-width: 340px; margin: 0 auto 24px; line-height: 1.6;
+  font-family: 'Montserrat', sans-serif; font-size: 10px;
+  color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase;
 }
 .showcase-cta {
   display: inline-block; background: var(--crimson); color: var(--cream);
@@ -510,23 +488,6 @@ section { padding: 100px 8%; }
   max-width: 480px; margin: 0 auto 36px;
 }
 
-/* ── BOTTOM PHOTO ROW (card-stock) ── */
-.bottom-photos-row {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px;
-  max-width: 780px; margin: 56px auto 0;
-}
-.bottom-photos-row .card-stock {
-  background: var(--white); padding: 6px 6px 16px; box-sizing: border-box;
-  border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
-}
-.bottom-photos-row .card-stock:nth-child(1) { transform: rotate(-2deg); }
-.bottom-photos-row .card-stock:nth-child(2) { transform: rotate(1.5deg); }
-.bottom-photos-row .card-stock:nth-child(3) { transform: rotate(-1.5deg); }
-.bottom-photos-row img {
-  width: 100%; aspect-ratio: 4/5; object-fit: cover;
-  border-radius: 2px; display: block;
-}
-
 /* ── PINNED CARD (clip-mounted photo) ── */
 .pinned-card { position: relative; margin-top: 44px; }
 .pinned-clip {
@@ -542,8 +503,7 @@ section { padding: 100px 8%; }
 
 /* ── FAQ ── */
 .faq { background: var(--crimson); position: relative; overflow: hidden; }
-.faq-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-.faq-photo-wrap { max-width: 300px; margin: 0 auto 48px; position: relative; }
+.faq-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 .faq-header { max-width: 640px; margin: 0 auto 56px; text-align: center; }
 .faq-header .eyebrow { color: var(--cream); }
 .faq-headline {
@@ -552,12 +512,14 @@ section { padding: 100px 8%; }
   color: var(--white); margin-bottom: 16px;
 }
 .faq-sub { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+.faq-layout { display: grid; grid-template-columns: minmax(220px, 360px) 1fr; gap: 40px; align-items: start; }
+.faq-left { position: relative; }
 .faq-photo {
   width: 100%; aspect-ratio: 4/5; height: auto;
   object-fit: cover; object-position: center top;
   display: block;
 }
-.faq-blocks { display: flex; flex-direction: column; gap: 14px; max-width: 700px; margin: 0 auto; }
+.faq-blocks { display: flex; flex-direction: column; gap: 14px; }
 .faq-item { background: var(--cream); border-radius: 4px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
 .faq-toggle {
   width: 100%; display: flex; justify-content: space-between;
@@ -665,7 +627,153 @@ footer {
   .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
 }
 
+@media (max-width: 640px) {
+  .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+  .faq-left { max-width: 320px; margin: 0 auto; }
+}
 
+</style>
+<style>
+/* ── CHECKOUT ── */
+.checkout-hero {
+  background: var(--cream);
+  padding: 150px 8% 24px;
+  text-align: center;
+}
+.checkout-hero h1 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: clamp(30px, 4.6vw, 50px); color: var(--crimson);
+  line-height: 1.15; margin: 12px 0 0;
+}
+.checkout-hero-sub {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(14px, 1.7vw, 16.5px); color: var(--text-mid);
+  max-width: 460px; margin: 14px auto 0; line-height: 1.6;
+}
+
+.checkout-photo-pair {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px;
+  max-width: 780px; margin: 48px auto 0;
+}
+.checkout-photo-pair .card-stock {
+  background: var(--white); padding: 6px 6px 16px; box-sizing: border-box;
+  border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+.checkout-photo-pair .card-stock:nth-child(1) { transform: rotate(-2deg); }
+.checkout-photo-pair .card-stock:nth-child(2) { transform: rotate(1.5deg); }
+.checkout-photo-pair .card-stock:nth-child(3) { transform: rotate(-1.5deg); }
+.checkout-photo-pair img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  border-radius: 2px; display: block;
+}
+
+/* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
+#mainNav .nav-logo { color: var(--text); }
+#mainNav .nav-tagline { color: var(--text-light); }
+#mainNav .nav-mobile-toggle span { background: var(--text); }
+
+.checkout-section { background: var(--cream); padding: 28px 8% 100px; }
+.checkout-mini { max-width: 460px; margin: 0 auto; }
+
+.checkout-reminder {
+  background: var(--cream-soft); border: 1px solid var(--border);
+  border-radius: 8px; padding: 22px 24px; margin-bottom: 24px;
+}
+.checkout-reminder-text p {
+  font-size: 14px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;
+}
+.checkout-reminder-text .price { color: var(--crimson-dark); font-weight: 700; }
+.checkout-reminder-text .price-old { color: var(--text-mid); text-decoration: line-through; font-weight: 400; }
+.checkout-reminder-text .note { font-size: 12.5px; color: var(--text-mid); margin: 0; }
+.checkout-reminder-text .sale { font-size: 12.5px; color: var(--crimson-dark); margin: 0 0 6px; }
+
+.checkout-checklist {
+  list-style: none; margin: 16px 0 0; padding: 14px 0 0;
+  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.checkout-checklist li {
+  position: relative; padding-left: 24px;
+  font-size: 13.5px; color: var(--text-mid); line-height: 1.5;
+}
+.checkout-checklist li::before {
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: var(--crimson); font-weight: 700;
+}
+
+.checkout-testimonial {
+  background: var(--cream-soft); border-left: 3px solid var(--crimson);
+  border-radius: 0 6px 6px 0; padding: 20px 22px; margin-bottom: 24px;
+}
+.checkout-testimonial p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 14.5px; color: var(--text); line-height: 1.6; margin: 0 0 8px;
+}
+.checkout-testimonial span {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson-dark);
+}
+
+.checkout-trust {
+  margin-top: 16px; text-align: center;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.checkout-trust p { font-size: 12.5px; color: var(--text-mid); margin: 0; }
+
+.checkout-personal-note {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 14px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border);
+}
+.checkout-personal-note img {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+.checkout-personal-note p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 15px; color: var(--text); line-height: 1.6; max-width: 380px; margin: 0;
+}
+.checkout-personal-note span {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson-dark);
+}
+
+.checkout-form { display: flex; flex-direction: column; gap: 16px; }
+.checkout-field label {
+  display: block; margin-bottom: 6px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light);
+}
+.checkout-field input {
+  width: 100%; padding: 14px 16px; border: 1.5px solid var(--border);
+  border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 15px;
+  color: var(--text); background: var(--white); transition: border-color 0.2s;
+}
+.checkout-field input:focus { outline: none; border-color: var(--crimson); }
+
+.checkout-payment-note {
+  border: 1.5px dashed var(--border); border-radius: 4px;
+  padding: 14px 16px;
+}
+.checkout-payment-note span {
+  display: block; font-family: 'Montserrat', sans-serif; font-size: 10px;
+  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-light); margin-bottom: 4px;
+}
+.checkout-payment-note p { font-size: 13px; color: var(--text-mid); margin: 0; line-height: 1.5; }
+
+.checkout-buy-btn {
+  display: block; width: 100%; text-align: center;
+  background: var(--crimson); color: var(--cream);
+  text-decoration: none; padding: 19px; border-radius: 4px;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
+  transition: background 0.2s; margin-top: 4px;
+}
+.checkout-buy-btn:hover { background: var(--crimson-dark); }
+.checkout-policy {
+  margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-mid); line-height: 1.7; text-align: center;
+}
 </style>
 </head>
 <body>
@@ -674,362 +782,85 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Rooted with Ally</a>
+  <a href="index.html" class="nav-logo">Rooted with Ally</a>
   <span class="nav-tagline">A Little of My Story</span>
   <button class="nav-mobile-toggle" onclick="toggleNav()" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#">Home</a></li>
-    <li><a href="#products">Shop</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#free-guide">Free Guide</a></li>
-    <li><a href="checkout.html" class="nav-cta">Get Still Here</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#products">Shop</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#free-guide">Free Guide</a></li>
+    <li><a href="#order" class="nav-cta">Checkout</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="ally-hero-bg.jpg" alt="Ally Carmichael" class="reveal-img">
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content reveal">
-    <span class="hero-eyebrow">For the Mom Done Performing Fine</span>
-    <h1>Stop Surviving.<br>Start Coming Back.</h1>
-    <p class="hero-subhead">You love your kids with your whole heart. You also feel like you're disappearing inside the role — and you're terrified to say that part out loud.</p>
-    <div class="hero-ctas">
-      <a href="#products" class="btn-secondary">Get Started</a>
-    </div>
+<!-- CHECKOUT HERO -->
+<section class="checkout-hero">
+  <div class="reveal">
+    <span class="eyebrow">Checkout</span>
+    <h1>You're One Step Away From Finding Your Way Back, Mama.</h1>
+    <p class="checkout-hero-sub">Still Here: The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back</p>
   </div>
 </section>
 
-<!-- STATEMENT -->
-<section class="statement">
-  <div class="statement-inner reveal">
-    <span class="eyebrow">Does This Sound Familiar?</span>
-    <h2 class="statement-title">A path back to the woman<br>who was always there.</h2>
-    <p class="statement-sub">I help Christian moms who are parenting without a village find their way back — to God, to themselves, to a daily rhythm — with something honest enough to actually meet you where you are.</p>
-  </div>
-</section>
+<!-- CHECKOUT ORDER -->
+<section class="checkout-section" id="order">
+  <div class="checkout-mini">
 
-<!-- FAMILIAR -->
-<section class="familiar">
-  <div class="familiar-inner">
-    <div class="familiar-header reveal">
-      <span class="eyebrow">If you're still reading, this is for you</span>
+    <div class="checkout-reminder reveal">
+      <div class="checkout-reminder-text">
+        <p><strong>Still Here</strong> — <span class="price-old">$37</span> <span class="price">$27</span></p>
+        <p class="sale">Launch price. Goes up to $37 soon — your price is locked in once you buy.</p>
+      </div>
+      <ul class="checkout-checklist">
+        <li>Instant digital download — no waiting</li>
+        <li>Written for the mom who loves God and is still drowning</li>
+        <li>No performance required. Just raw, honest truth</li>
+        <li>Yours forever — read it at 2am when you need it most</li>
+      </ul>
     </div>
 
-    <div class="familiar-grid">
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You love them with your whole heart — and you're disappearing anyway</span>
-        <p>Not balance. Not burnout. You finish sentences other people started and realize you don't have an opinion of your own anymore. You've decided you can't say that out loud without sounding like a monster.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You open your Bible, then close it again</span>
-        <p>Not because you stopped believing. Motherhood swallowed every hour you used to give God, and now you don't even know where to start. The guilt of that distance feels heavier than the exhaustion itself.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You've had thoughts you will never say to another human being</span>
-        <p>You've decided those thoughts make you a bad mom, or an ungrateful Christian. So you bury them, smile at church, and perform being fine — while slowly suffocating inside the performance.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You have no village, and no one is checking on you</span>
-        <p>No one texts to ask if you're okay. No one shows up to take the kids for two hours so you can breathe. It's you, maybe a partner who doesn't fully understand, and the weight of all of it with no one to hand any of it to.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You compare yourself to moms who seem fine</span>
-        <p>You scroll past women who look like they have it together and wonder what's wrong with you. Then you feel guilty for comparing. Then you do it again tomorrow.</p>
-      </div>
-      <div class="familiar-item hover-lift reveal">
-        <div class="familiar-item-dots"><span></span><span></span><span></span></div>
-        <span class="familiar-item-num">You miss the woman you used to be</span>
-        <p>The one with a real relationship with God, dreams of her own, a sense of herself outside of everyone's needs. You wonder if she's still in there. She is. She just got covered — and covered is a completely different situation than gone.</p>
-      </div>
+    <div class="checkout-testimonial reveal">
+      <p>"I didn't know I needed permission to be honest about how hard this is. This guide gave me that."</p>
+      <span>— Rachel T.</span>
     </div>
 
-    <div class="familiar-bridge reveal">
-      <p class="familiar-bridge-text">If even one of those made you pause and think <em>yes, that's me</em>... you are not broken, and you are not too far gone. You are just a woman who has been carrying this alone for too long. You don't have to anymore.</p>
-      <div class="familiar-bridge-cta">
-        <a href="#about" class="btn-cream-outline">Read My Story</a>
+    <form class="checkout-form reveal" id="checkoutForm">
+      <div class="checkout-field">
+        <label for="ckFirstName">First Name</label>
+        <input type="text" id="ckFirstName" name="firstName" required autocomplete="given-name">
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-photo-wrap reveal">
-      <div class="pinned-card">
-        <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
-          <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
-          <rect x="52" y="38" width="16" height="18" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="none" stroke="#8C6A2E" stroke-width="1.5"/>
-        </svg>
-        <div class="pinned-card-frame about-photo reveal-img">
-          <img src="ally-bio-portrait.jpg" alt="Ally Carmichael">
-        </div>
+      <div class="checkout-field">
+        <label for="ckEmail">Email Address</label>
+        <input type="email" id="ckEmail" name="email" required autocomplete="email">
       </div>
-    </div>
-    <div class="about-text reveal">
-      <span class="eyebrow">You're in the right place</span>
-      <h2 class="section-title">I'm not the expert. I'm just further down the same road.</h2>
-      <p>I know what it feels like to wake up and immediately dread the day before your feet hit the floor.</p>
-      <p>I know the specific shame of crying during bedtime routines — the one moment that's supposed to be tender — and not being able to explain why to a child who just wants their mom.</p>
-      <p>I know what it looks like when the arguing doesn't stop, when your marriage starts showing cracks you're terrified are permanent, when you can see your family life fraying at the edges and you don't know how to hold it all together when you can barely hold yourself.</p>
-      <p>My faith didn't leave dramatically. It just quietly slid to the bottom of the list — buried under responsibilities, appointments, exhaustion, and the weight of keeping everyone else alive. And I let it. Because there was always something more urgent. Until one day I looked up and realized I hadn't actually talked to God in longer than I could remember.</p>
-      <p>And without Him, my life was heading somewhere I didn't want to go.</p>
-      <p>That realization didn't fix everything overnight. But it was the moment I stopped pretending the distance wasn't there — and started being honest about it for the first time.</p>
-      <p>I wrote <em>Still Here</em> because I needed it to exist. Because the silence was doing more damage than the honesty ever could.</p>
-      <p>No credentials on a wall. No perfectly reconstructed faith. Just a mom who got honest — and believes you deserve to too.</p>
-      <div class="about-sig">Not fixed. Just honest.</div>
-      <a href="#products" class="btn-sand-rect">See What I've Created for You</a>
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Faith Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item"><em>Identity Reset</em> &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Motherhood Reset &nbsp;✦&nbsp; </span>
-    <span class="ticker-item">Stop Surviving. <em>Start Coming Back.</em> &nbsp;✦&nbsp; </span>
-  </div>
-</div>
-
-<!-- PRODUCTS -->
-<section class="showcase" id="products">
-  <div class="showcase-inner">
-    <div class="showcase-header reveal">
-      <span class="section-soft">What's Inside? Glad You Asked.</span>
-      <span class="showcase-peek-label">Take a Peek</span>
-      <span class="showcase-peek-arrow">↓</span>
-    </div>
-
-    <!-- STILL HERE -->
-    <div class="showcase-item reveal">
-      <div>
-        <span class="showcase-label">The Ebook</span>
-        <h3 class="showcase-title">This is not a devotional. This is a permission slip.</h3>
-        <p class="showcase-body">Still Here is an honest survival guide for the Christian mom who has stopped pretending she's okay — written by someone who was sitting in the same dark room, not standing outside it with a flashlight. It walks you through five honest moves: five conversations with God, with yourself, and with the parts of you that motherhood buried but did not destroy.</p>
-        <div class="showcase-list-card reveal-group">
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Confess</strong>
-              <span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span>
-            </div>
-            <span class="showcase-list-item-value">$17 value</span>
-          </div>
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Grieve</strong>
-              <span>Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</span>
-            </div>
-            <span class="showcase-list-item-value">$16 value</span>
-          </div>
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Reconnect</strong>
-              <span>Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</span>
-            </div>
-            <span class="showcase-list-item-value">$16 value</span>
-          </div>
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Reclaim</strong>
-              <span>Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</span>
-            </div>
-            <span class="showcase-list-item-value">$16 value</span>
-          </div>
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Root</strong>
-              <span>Stop waiting until you feel okay before you decide you're worth staying for</span>
-            </div>
-            <span class="showcase-list-item-value">$18 value</span>
-          </div>
-          <div class="showcase-list-item">
-            <div class="showcase-list-item-text">
-              <strong>Prompts + Room to Write</strong>
-              <span>Questions to sit with and blank space built right into the book to put it in your own words — no one else has to see it</span>
-            </div>
-            <span class="showcase-list-item-value">$14 value</span>
-          </div>
-          <div class="showcase-value-total">
-            <span>Total Value</span>
-            <span>$97</span>
-          </div>
-        </div>
-        <div class="showcase-price-row">
-          <span class="showcase-price-old">$37</span>
-          <span class="showcase-price">$27</span>
-        </div>
-        <span class="showcase-price-note">Instant PDF download</span>
-        <p class="showcase-price-sale">Launch price — $27 while I'm still building this out. It goes up to $37 soon, and once you buy, your price never changes.</p>
-        <a href="checkout.html" class="showcase-cta">Yes, I Want This Ebook</a>
+      <div class="checkout-payment-note">
+        <span>Payment</span>
+        <p>You'll enter your card on the next, secure screen — nothing is charged on this page.</p>
       </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof">
-  <div class="proof-inner">
-    <span class="eyebrow">Testimonials</span>
-    <div class="proof-card reveal">
-      <div class="proof-card-body">
-        <div class="proof-slide active">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I cried reading the Grieve chapter. She named a loss I was never allowed to admit I was carrying. I did not know how much I needed permission to feel it."</p>
-          <div class="proof-name">Sarah M.</div>
-        </div>
-        <div class="proof-slide">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"This is the first thing that met me in survival mode without asking me to be further along than I was. I read it in one sitting and felt like I could breathe again."</p>
-          <div class="proof-name">Jessica T.</div>
-        </div>
-        <div class="proof-slide">
-          <div class="proof-stars">★★★★★</div>
-          <p class="proof-text">"I've read devotionals that made me feel behind. This one didn't. It just told me the truth: I am still here, and that is enough."</p>
-          <div class="proof-name">Rachel K.</div>
-        </div>
+      <!-- TODO: Paste your real Stripe Payment Link URL below. Leave STRIPE_LINK empty and the button will let you know payment isn't connected yet instead of failing silently. -->
+      <button type="submit" class="checkout-buy-btn">Yes — Send Me Still Here for $27</button>
+      <div class="checkout-trust">
+        <p>🔒 Secure, encrypted checkout</p>
+        <p>📧 Delivered instantly to your inbox</p>
+        <p>💳 One-time payment — no subscriptions, ever</p>
       </div>
-      <div class="proof-nav">
-        <button class="proof-nav-btn prev" onclick="showProofSlide(proofSlideIndex - 1)">← Prev</button>
-        <button class="proof-nav-btn" onclick="showProofSlide(proofSlideIndex + 1)">Next →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FREE GUIDE -->
-<section class="free-guide" id="free-guide">
-  <div class="free-guide-inner reveal">
-    <span class="free-badge">Free</span>
-    <span class="eyebrow">Completely free, just for you</span>
-    <h2 class="free-guide-title">When Faith <em>Goes Quiet.</em></h2>
-    <p class="free-guide-body">For the Christian mom who misses God but can't find the words anymore, and is too exhausted and ashamed to fake it. Five honest prayers, already written for you — because sometimes the most faithful thing you can do is borrow the words when your own have run out.</p>
-    <ul class="free-guide-bullets reveal-group">
-      <li>When you are angry — and ashamed of being angry</li>
-      <li>The guilt about the distance between you and God</li>
-      <li>The thoughts you have never said out loud</li>
-      <li>The loneliness nobody talks about</li>
-      <li>The woman you were before all of this</li>
-    </ul>
-    <p class="free-guide-quote">You cannot pray this wrong. Whisper them into your pillow at 2am — they belong to you now.</p>
-    <form class="opt-in-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Send Me the 5 Prayers</button>
     </form>
-    <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="faq-inner">
-    <div class="faq-photo-wrap reveal">
-      <div class="pinned-card">
-        <svg class="pinned-clip" viewBox="0 0 120 100" aria-hidden="true">
-          <circle cx="60" cy="26" r="18" fill="none" stroke="#CBA25A" stroke-width="9"/>
-          <rect x="52" y="38" width="16" height="18" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="#CBA25A"/>
-          <rect x="14" y="52" width="92" height="26" rx="7" fill="none" stroke="#8C6A2E" stroke-width="1.5"/>
-        </svg>
-        <div class="pinned-card-frame reveal-img">
-          <img src="ally-faq-portrait.jpg" alt="Ally, founder of Rooted with Ally" class="faq-photo">
-        </div>
-      </div>
-    </div>
+    <p class="checkout-policy">This is a digital product, delivered instantly to the email you enter above. Because of that, all sales are final — but I promise you, I needed this. I think you might too.</p>
 
-    <div class="faq-header reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="faq-headline">A few things people usually ask</h2>
-      <p class="faq-sub">If something isn't covered here, just reach out — I'm happy to help.</p>
-    </div>
-
-    <div class="faq-blocks reveal-group">
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">Is this right for me if I don't feel like a "good" Christian right now?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Especially then. This wasn't made for the woman who has it all together. It was made for the one who is tired, disconnected, and quietly asking God if He still sees her. He does. And so does this.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">How long does it take to read?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Most moms finish it in one sitting, though many stop to cry, pray, or text a passage to a friend. It's honest and easy to read. Not heavy, not academic. Just real.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">What format is this and how do I get it?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">It's an instant PDF digital download. The moment you purchase, you'll get a link by email. Read it on your phone, tablet, laptop, or print at home. Whatever works for your life.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">Is this just another devotional book?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Honestly? No. I wrote it because I needed it and it did not exist. It skips the words "reflect," "heal," and "thrive" on purpose — those words skip something, and you've spent long enough feeling like you missed a step. This one starts exactly where you actually are.</p>
-            </div>
-          </div>
-
-          <div class="faq-item hover-lift">
-            <button class="faq-toggle" onclick="toggleFaq(this)">
-              <span class="faq-q">What is your refund policy?</span>
-              <span class="faq-plus">+</span>
-            </button>
-            <div class="faq-body">
-              <p class="faq-a">Because this is an instant digital download, all sales are final. If you have any questions before purchasing, reach out on Instagram <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener" style="color:var(--crimson-dark);">@rootedwithally</a>. I'm happy to help you figure out the right fit.</p>
-            </div>
-          </div>
-
+    <div class="checkout-personal-note reveal">
+      <img src="ally-bio-portrait.jpg" alt="Ally Carmichael">
+      <p>"I created Still Here because I was that woman. I needed someone to say the hard part first — so I did. I hope it finds you exactly when you need it."</p>
+      <span>— Ally</span>
     </div>
   </div>
-</section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner reveal">
-    <h2 class="final-cta-title">Ready to come back to yourself?</h2>
-    <p class="final-cta-sub">You don't need a five-step plan. You need something honest enough to meet you exactly where you are. This is it.</p>
-    <a href="checkout.html" class="btn-sand-rect">Get Still Here</a>
-  </div>
-  <div class="bottom-photos-row reveal-img">
+  <div class="checkout-photo-pair reveal-img">
     <div class="card-stock"><img src="ally-checkout-photo.jpg" alt="Ally with a mug of coffee on the couch"></div>
     <div class="card-stock"><img src="ally-checkout-journal.jpg" alt="Ally writing in her journal"></div>
     <div class="card-stock"><img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch"></div>
@@ -1043,9 +874,9 @@ footer {
     <div class="footer-copy">© 2026 Rooted with Ally. All rights reserved.<br>Digital products are delivered instantly. All sales are final.</div>
   </div>
   <div class="footer-links">
-    <a href="#products">Shop</a>
-    <a href="#about">About</a>
-    <a href="#free-guide">Free Guide</a>
+    <a href="index.html#products">Shop</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#free-guide">Free Guide</a>
     <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
@@ -1073,9 +904,6 @@ footer {
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
       targets.forEach(function (el) { observer.observe(el); });
-      // Failsafe: guarantee full content is visible for crawlers, link-preview bots,
-      // or anyone who lands mid-page, even if a scroll never triggers the observer.
-      // Long delay so it never fires during normal browsing and cuts the reveal short.
       setTimeout(revealAll, 20000);
     } catch (e) {
       revealAll();
@@ -1092,41 +920,19 @@ footer {
       if (document.getElementById('navLinks').classList.contains('open')) toggleNav();
     });
   });
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
 
-  var proofSlideCount = document.querySelectorAll('.proof-slide').length;
-  var proofSlideIndex = 0;
-
-  function showProofSlide(i) {
-    proofSlideIndex = (i + proofSlideCount) % proofSlideCount;
-    document.querySelectorAll('.proof-slide').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
-    document.querySelectorAll('.proof-dot').forEach((el, idx) => el.classList.toggle('active', idx === proofSlideIndex));
-  }
-
-  (function () {
-    var proof = document.querySelector('.proof');
-    if (!proof || !proofSlideCount) return;
-    var startX = 0, startY = 0, tracking = false;
-    proof.addEventListener('touchstart', function (e) {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      tracking = true;
-    }, { passive: true });
-    proof.addEventListener('touchend', function (e) {
-      if (!tracking) return;
-      tracking = false;
-      var dx = e.changedTouches[0].clientX - startX;
-      var dy = e.changedTouches[0].clientY - startY;
-      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
-      showProofSlide(dx < 0 ? proofSlideIndex + 1 : proofSlideIndex - 1);
-    }, { passive: true });
-  }());
-
+  // TODO: paste your real Stripe Payment Link URL here once it exists.
+  var STRIPE_LINK = '';
+  document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!STRIPE_LINK) {
+      alert("Payment isn't connected yet — check back soon!");
+      return;
+    }
+    var email = document.getElementById('ckEmail').value;
+    var separator = STRIPE_LINK.indexOf('?') === -1 ? '?' : '&';
+    window.location.href = STRIPE_LINK + separator + 'prefilled_email=' + encodeURIComponent(email);
+  });
 </script>
 
 </body>
