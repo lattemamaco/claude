@@ -660,18 +660,15 @@ footer {
   max-width: 460px; margin: 14px auto 0; line-height: 1.6;
 }
 
-.checkout-scatter {
-  width: 42%; max-width: 170px;
-  background: var(--white); padding: 6px 6px 20px; box-sizing: border-box;
-  border-radius: 4px; box-shadow: 0 16px 32px rgba(0,0,0,0.18);
-  margin: 40px 0;
+.checkout-photo-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  max-width: 400px; margin: 48px auto 0;
 }
-.checkout-scatter img {
+.checkout-photo-pair img {
   width: 100%; aspect-ratio: 4/5; object-fit: cover;
-  border-radius: 2px; display: block;
+  border-radius: 6px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+  display: block;
 }
-.checkout-scatter.scatter-left { margin-right: auto; transform: rotate(-4deg); }
-.checkout-scatter.scatter-right { margin-left: auto; transform: rotate(3deg); }
 
 /* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
 #mainNav .nav-logo { color: var(--text); }
@@ -809,9 +806,6 @@ footer {
     <span class="eyebrow">Checkout</span>
     <h1>You're One Step Away From Finding Your Way Back, Mama.</h1>
     <p class="checkout-hero-sub">Still Here: The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back</p>
-    <div class="checkout-scatter scatter-left reveal-img">
-      <img src="ally-checkout-kitchen.jpg" alt="Ally in her kitchen">
-    </div>
     <a href="index.html#products" class="checkout-back">&larr; Back to the shop</a>
   </div>
 </section>
@@ -833,17 +827,9 @@ footer {
       </ul>
     </div>
 
-    <div class="checkout-scatter scatter-right reveal-img">
-      <img src="ally-checkout-journal.jpg" alt="Ally writing in her journal">
-    </div>
-
     <div class="checkout-testimonial reveal">
       <p>"I didn't know I needed permission to be honest about how hard this is. This guide gave me that."</p>
       <span>— Rachel T.</span>
-    </div>
-
-    <div class="checkout-scatter scatter-left reveal-img">
-      <img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch">
     </div>
 
     <form class="checkout-form reveal" id="checkoutForm">
@@ -877,8 +863,9 @@ footer {
       <span>— Ally</span>
     </div>
 
-    <div class="checkout-scatter scatter-right reveal-img">
+    <div class="checkout-photo-pair reveal-img">
       <img src="ally-checkout-photo.jpg" alt="Ally with a mug of coffee on the couch">
+      <img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch">
     </div>
   </div>
 </section>
