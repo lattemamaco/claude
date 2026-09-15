@@ -631,36 +631,35 @@ footer {
 <style>
 /* ── CHECKOUT ── */
 .checkout-hero {
-  background: var(--cobalt);
+  background: var(--cream);
   padding: 150px 8% 56px;
   text-align: center;
 }
-.checkout-hero .eyebrow { color: var(--cream); }
 .checkout-hero h1 {
   font-family: 'Playfair Display', serif; font-weight: 700;
-  font-size: clamp(30px, 4.6vw, 50px); color: var(--cream);
+  font-size: clamp(30px, 4.6vw, 50px); color: var(--crimson);
   line-height: 1.15; margin: 12px 0 0;
 }
 .checkout-back {
   display: inline-block; margin-top: 22px;
   font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
   letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.75); text-decoration: none;
+  color: var(--text-light); text-decoration: none;
   transition: color 0.2s;
 }
-.checkout-back:hover { color: var(--cream); }
+.checkout-back:hover { color: var(--crimson); }
+
+/* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
+#mainNav .nav-logo { color: var(--text); }
+#mainNav .nav-tagline { color: var(--text-light); }
+#mainNav .nav-mobile-toggle span { background: var(--text); }
 
 .checkout-section { background: var(--cream); padding: 64px 8% 100px; }
 .checkout-mini { max-width: 460px; margin: 0 auto; }
 
 .checkout-reminder {
-  display: flex; gap: 18px; align-items: center;
   background: var(--cream-soft); border: 1px solid var(--border);
   border-radius: 8px; padding: 22px 24px; margin-bottom: 36px;
-}
-.checkout-reminder img {
-  width: 64px; flex-shrink: 0; border-radius: 3px; display: block;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 .checkout-reminder-text p {
   font-size: 14px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;
@@ -746,7 +745,6 @@ footer {
   <div class="checkout-mini">
 
     <div class="checkout-reminder reveal">
-      <img src="still-here-cover.jpg" alt="Still Here, by Ally">
       <div class="checkout-reminder-text">
         <p><strong>Still Here:</strong> The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back — <span class="price">$27</span></p>
         <p class="note">An immediate digital download. No waiting. No perfection required.</p>
