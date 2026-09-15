@@ -510,6 +510,29 @@ section { padding: 100px 8%; }
   max-width: 480px; margin: 0 auto 36px;
 }
 
+/* ── BOTTOM PHOTO ROW (card-stock) ── */
+.bottom-photos { background: var(--cream); text-align: center; }
+.bottom-photos-label {
+  display: block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--text-light);
+  margin-bottom: 32px;
+}
+.bottom-photos-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px;
+  max-width: 780px; margin: 0 auto;
+}
+.bottom-photos-row .card-stock {
+  background: var(--white); padding: 6px 6px 16px; box-sizing: border-box;
+  border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+.bottom-photos-row .card-stock:nth-child(1) { transform: rotate(-2deg); }
+.bottom-photos-row .card-stock:nth-child(2) { transform: rotate(1.5deg); }
+.bottom-photos-row .card-stock:nth-child(3) { transform: rotate(-1.5deg); }
+.bottom-photos-row img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  border-radius: 2px; display: block;
+}
+
 /* ── PINNED CARD (clip-mounted photo) ── */
 .pinned-card { position: relative; margin-top: 44px; }
 .pinned-clip {
@@ -1011,6 +1034,16 @@ footer {
     <h2 class="final-cta-title">Ready to come back to yourself?</h2>
     <p class="final-cta-sub">You don't need a five-step plan. You need something honest enough to meet you exactly where you are. This is it.</p>
     <a href="checkout.html" class="btn-sand-rect">Get Still Here</a>
+  </div>
+</section>
+
+<!-- BOTTOM PHOTOS -->
+<section class="bottom-photos">
+  <span class="bottom-photos-label">A Little of My Story</span>
+  <div class="bottom-photos-row reveal-img">
+    <div class="card-stock"><img src="ally-checkout-photo.jpg" alt="Ally with a mug of coffee on the couch"></div>
+    <div class="card-stock"><img src="ally-checkout-journal.jpg" alt="Ally writing in her journal"></div>
+    <div class="card-stock"><img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch"></div>
   </div>
 </section>
 
