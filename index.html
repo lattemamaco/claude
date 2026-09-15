@@ -341,46 +341,36 @@ section { padding: 100px 8%; }
 }
 .showcase-body { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin: 0 auto 28px; max-width: 480px; }
 
-.showcase-value-heading {
-  font-family: 'Playfair Display', serif; font-weight: 500; font-style: italic;
-  font-size: clamp(20px, 2.6vw, 26px); color: var(--text); text-align: center;
-  margin-bottom: 20px;
-}
-.showcase-value-heading-price {
-  font-style: normal; font-weight: 700; color: var(--crimson-dark);
-  text-decoration: underline; text-decoration-color: var(--crimson);
-}
 .showcase-list-card {
   background: var(--cream); border-radius: 12px;
-  padding: 8px 32px; margin: 0 auto 32px; max-width: 500px; text-align: left;
+  padding: 8px 32px; margin: 0 auto 32px; max-width: 460px; text-align: left;
 }
-.showcase-bullet {
-  display: flex; gap: 14px; align-items: flex-start;
-  padding: 18px 0; border-bottom: 1px solid rgba(28,26,22,0.1);
+.showcase-list-card .showcase-list-item {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
+  padding: 20px 0; border-bottom: 1px solid rgba(28,26,22,0.1);
 }
-.showcase-bullet:last-of-type { border-bottom: none; }
-.showcase-bullet-icon {
-  flex-shrink: 0; width: 24px; height: 24px; margin-top: 3px; border-radius: 50%;
-  border: 1.5px solid var(--crimson); color: var(--crimson);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700;
+.showcase-list-card .showcase-list-item:last-child { border-bottom: none; }
+.showcase-list-item-text strong {
+  display: block; font-family: 'Playfair Display', serif; font-weight: 600;
+  font-size: 16px; color: var(--text); margin-bottom: 4px;
 }
-.showcase-bullet p { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; }
-.showcase-bullet p strong {
-  color: var(--text); font-family: 'Playfair Display', serif;
-  font-weight: 600; font-size: 15.5px;
+.showcase-list-item-text span { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+.showcase-list-item-value {
+  flex-shrink: 0; margin-top: 2px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; color: var(--crimson-dark); white-space: nowrap;
 }
 .showcase-value-total {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  padding: 28px 0 6px; margin-top: 6px; border-top: 1.5px solid var(--text);
-  text-align: center;
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 20px 4px 4px; margin-top: 4px; border-top: 1.5px solid var(--text);
 }
 .showcase-value-total span:first-child {
-  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; color: var(--text-mid);
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-mid);
 }
 .showcase-value-total span:last-child {
-  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 30px; color: var(--text);
+  font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text);
+  text-decoration: line-through; text-decoration-color: var(--text-light);
 }
 
 .showcase-price-row { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 8px; }
@@ -818,35 +808,52 @@ footer {
         <span class="showcase-label">The Ebook</span>
         <h3 class="showcase-title">This is not a devotional. This is a permission slip.</h3>
         <p class="showcase-body">Still Here is an honest survival guide for the Christian mom who has stopped pretending she's okay — written by someone who was sitting in the same dark room, not standing outside it with a flashlight. It walks you through five honest moves: five conversations with God, with yourself, and with the parts of you that motherhood buried but did not destroy.</p>
-        <h4 class="showcase-value-heading">Here's What You'll Have <span class="showcase-value-heading-price">for Just $27</span>:</h4>
         <div class="showcase-list-card reveal-group">
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Confess:</strong> Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Confess</strong>
+              <span>Name the thought you've never said out loud — unsoftened, exactly as it lives in you at 2am</span>
+            </div>
+            <span class="showcase-list-item-value">$20 value</span>
           </div>
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Grieve:</strong> Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Grieve</strong>
+              <span>Mourn the version of you motherhood covered, not destroyed. Covered is a completely different situation than gone</span>
+            </div>
+            <span class="showcase-list-item-value">$20 value</span>
           </div>
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Reconnect:</strong> Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Reconnect</strong>
+              <span>Pray on the nights you have nothing holy left to bring. Empty is still showing up, and showing up is still the whole thing</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
           </div>
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Reclaim:</strong> Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Reclaim</strong>
+              <span>Remember who you were before you forgot. She's still in there — this part asks you to believe that, even before you feel it</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
           </div>
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Root:</strong> Stop waiting until you feel okay before you decide you're worth staying for</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Root</strong>
+              <span>Stop waiting until you feel okay before you decide you're worth staying for</span>
+            </div>
+            <span class="showcase-list-item-value">$19 value</span>
           </div>
-          <div class="showcase-bullet">
-            <span class="showcase-bullet-icon">✓</span>
-            <p><strong>Prompts + Room to Write:</strong> Questions to sit with and blank space built right into the book to put it in your own words — no one else has to see it</p>
+          <div class="showcase-list-item">
+            <div class="showcase-list-item-text">
+              <strong>Prompts + Room to Write</strong>
+              <span>Questions to sit with and blank space built right into the book to put it in your own words — no one else has to see it</span>
+            </div>
+            <span class="showcase-list-item-value">$20 value</span>
           </div>
           <div class="showcase-value-total">
             <span>Total Value</span>
-            <span>$120</span>
+            <span>$117</span>
           </div>
         </div>
         <div class="showcase-price-row">
