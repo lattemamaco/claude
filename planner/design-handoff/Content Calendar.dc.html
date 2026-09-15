@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/tokens/base.css">
+  <link rel="stylesheet" href="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/styles.css">
+  <script src="_ds/rooted-with-ally-design-system-b9800705-a64f-426f-93c8-9d58e5db427a/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap">
+  <script src="./image-slot.js"></script>
+  <style>
+    @keyframes rwaFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes rwaOverlay { from { opacity: 0; } to { opacity: 1; } }
+    *::-webkit-scrollbar { width: 9px; height: 9px; }
+    *::-webkit-scrollbar-thumb { background: #E0D4BC; border-radius: 999px; border: 3px solid var(--surface-page); }
+  </style>
+</helmet>
+<div style="min-height:100vh;background:var(--rw-white);padding:40px 44px 72px;">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:30px;">
+      <div style="display:flex;gap:0;height:230px;">
+        <image-slot id="bm-banner-1" shape="rect" fit="cover" placeholder="coffee & linen" style="flex:1;height:100%;"></image-slot>
+        <image-slot id="bm-banner-2" shape="rect" fit="cover" placeholder="sunlit desk" style="flex:1;height:100%;"></image-slot>
+        <image-slot id="bm-banner-3" shape="rect" fit="cover" placeholder="open journal" style="flex:1.2;height:100%;"></image-slot>
+        <image-slot id="bm-banner-4" shape="rect" fit="cover" placeholder="lemons & daisies" style="flex:1;height:100%;"></image-slot>
+        <image-slot id="bm-banner-5" shape="rect" fit="cover" placeholder="cozy corner" style="flex:1;height:100%;"></image-slot>
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 52% 78% at 50% 54%, rgba(60,42,28,0.40) 0%, rgba(60,42,28,0.16) 48%, rgba(60,42,28,0) 78%), linear-gradient(180deg, rgba(60,42,28,0.12) 0%, rgba(60,42,28,0.06) 45%, rgba(60,42,28,0.20) 100%), rgba(60,42,28,0.30);"></div>
+      <div style="position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:0 24px;">
+        <span class="rw-eyebrow" style="color:var(--rw-shell);text-shadow:0 1px 8px rgba(60,42,28,0.55);">The Content Planner</span>
+        <span style="font-family:'Archivo Black',var(--font-body);font-size:4.2rem;line-height:0.88;letter-spacing:-0.04em;text-transform:uppercase;color:var(--rw-pastel-blue);text-shadow:0 2px 4px rgba(60,42,28,0.45), 0 1px 20px rgba(60,42,28,0.4);">Becoming</span>
+        <span style="font-family:var(--font-display);font-style:italic;font-size:1.35rem;color:var(--rw-buttermilk);text-shadow:0 1px 8px rgba(60,42,28,0.55);">little by little · an Instagram studio</span>
+      </div>
+      <div style="position:absolute;top:18px;right:18px;">
+        <x-import component-from-global-scope="RootedWithAllyDesignSystem_b98007.Button" variant="primary" size="sm" onClick="{{ onNewPost }}" hint-size="130px,40px">+ New post</x-import>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:262px minmax(0,1fr);gap:44px;align-items:start;margin-top:30px;">
+      {{ sidebar }}
+      <div style="min-width:0;">
+        {{ mainHeader }}
+        {{ toolbar }}
+        <div style="margin-top:22px;">{{ body }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ modal }}
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:860}}">
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.state = { view:'month', cursor: this.keyOf(new Date(2026,7,3)), posts:[], editing:null, dragId:null, filter:null, sfilter:null, planOpen:false, hover:null, copied:false,
+      genOpen:false, genPillar:'', genFormat:'', genTopic:'', genLoading:false, genResults:[], genError:null, capLoading:false };
+    this.STORE = 'rwa_ig_calendar_v1';
+  }
+  componentDidMount(){
+    let saved=null;
+    try{ saved = JSON.parse(localStorage.getItem(this.STORE)); }catch(e){}
+    if(saved && Array.isArray(saved.posts)) this.setState({posts:saved.posts, view:['month','week','day','ideas'].includes(saved.view)?saved.view:'month'});
+    else this.setState({posts:this.seed()});
+  }
+  save(posts, view){
+    try{ localStorage.setItem(this.STORE, JSON.stringify({posts:posts??this.state.posts, view:view??this.state.view})); }catch(e){}
+  }
+  // ---- data ----
+  PILLARS(){ return [
+    {id:'quiet', name:'The Quiet Disappearing', short:'Quiet Disappearing', color:'#C9B48F', tint:'#EFE7D3'},
+    {id:'faith', name:'Faith That Went Silent', short:'Faith Went Silent', color:'#8FBBD1', tint:'#DCEAF1'},
+    {id:'coming', name:'Coming Back Without Fixing', short:'Coming Back', color:'#E4C24E', tint:'#FDF6D3'},
+    {id:'real', name:'The Real Thoughts', short:'Real Thoughts', color:'#BA8C5A', tint:'#EEE0CD'},
+  ];}
+  pillar(id){ return this.PILLARS().find(p=>p.id===id) || this.PILLARS()[0]; }
+  TYPES(){ return ['Reel','Carousel','Story','Post']; }
+  STATUSES(){ return [
+    {id:'idea', label:'Idea', dot:'#C9B48F'},
+    {id:'drafted', label:'Drafted', dot:'#E4C24E'},
+    {id:'scheduled', label:'Scheduled', dot:'#8FBBD1'},
+    {id:'posted', label:'Posted', dot:'#3C2A1C'},
+  ];}
+  status(id){ return this.STATUSES().find(s=>s.id===id)||this.STATUSES()[0]; }
+  seed(){
+    const P=(d,type,pillar,status,title,caption,hashtags,cta)=>({id:this.uid(),date:d,time:'09:00',type,pillar,status,title,caption,hashtags,cta,thumb:null});
+    return [
+      P('2026-08-03','Reel','real','drafted','i love him & i resent this','The thought I was too scared to say out loud \u2014 and why saying it made me feel less alone.','#christianmotherhood #momlife #faithandmotherhood','Save this if you needed it today.'),
+      P('2026-08-04','Carousel','coming','scheduled','15 minutes & a sleeping baby','What coming back to yourself actually looks like when nothing is tidy.','#burnoutrecovery #momsofinstagram #slowliving','Free guide in bio.'),
+      P('2026-08-05','Story','faith','idea','the prayer i whispered at 3am','God didn\u2019t leave just because you went quiet.',' ','Reply YES for the devotional.'),
+      P('2026-08-06','Post','quiet','scheduled','you didn\u2019t lose yourself','You buried her to survive. She\u2019s still in there.','#identity #motherhood #youarebecoming','Comment \u201cme too.\u201d'),
+      P('2026-08-07','Reel','faith','idea','faith that went silent','What happens to faith under the weight of a body with nothing left to give.','#faithjourney #christianmom #realtalk','Full story on the blog.'),
+      P('2026-08-10','Carousel','real','idea','i prayed & felt nothing','\u2026and I told no one. Naming the unspeakable is what makes us less alone.','#christianmomlife #honestfaith','Send to a friend who needs it.'),
+      P('2026-08-12','Post','coming','drafted','coming back \u2260 fixing','Small, accessible pieces for the woman already running on empty.','#gentlefaith #momencouragement','Grab the guide \u2192 bio.'),
+      {id:this.uid(),date:null,time:'09:00',type:'Reel',pillar:'quiet',status:'idea',title:'the slow erosion of identity',caption:'The thing she\u2019s only thought at midnight.',hashtags:'#motherhood',cta:'',thumb:null},
+      {id:this.uid(),date:null,time:'09:00',type:'Post',pillar:'real',status:'idea',title:'the midnight thoughts series',caption:'Private thoughts she\u2019s too scared to say out loud.',hashtags:'#realtalk',cta:'',thumb:null},
+      {id:this.uid(),date:null,time:'09:00',type:'Story',pillar:'coming',status:'idea',title:'one word for this month',caption:'A gentle, low-pressure journal prompt.',hashtags:'',cta:'',thumb:null},
+    ];
+  }
+  WEEK_TEMPLATE(){ return [
+    {type:'Reel', pillar:'real', title:'The thought I was too scared to say'},
+    {type:'Carousel', pillar:'coming', title:'Coming back in 15 minutes'},
+    {type:'Story', pillar:'faith', title:'A whispered prayer'},
+    {type:'Post', pillar:'quiet', title:'You didn\u2019t lose yourself'},
+    {type:'Reel', pillar:'faith', title:'God didn\u2019t leave when you went quiet'},
+    {type:'Carousel', pillar:'real', title:'The unspeakable, named'},
+    {type:'Story', pillar:'coming', title:'One gentle word for today'},
+  ];}
+  // ---- date utils ----
+  pad(n){ return String(n).padStart(2,'0'); }
+  keyOf(d){ return `${d.getFullYear()}-${this.pad(d.getMonth()+1)}-${this.pad(d.getDate())}`; }
+  fromKey(k){ const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d,12); }
+  addDays(d,n){ const x=new Date(d); x.setDate(x.getDate()+n); return x; }
+  startOfWeek(d){ const x=new Date(d); const dow=(x.getDay()+6)%7; x.setDate(x.getDate()-dow); x.setHours(12,0,0,0); return x; }
+  todayKey(){ return this.keyOf(new Date(2026,7,3)); }
+  uid(){ return 'p'+Math.random().toString(36).slice(2,9); }
+  // ---- mutations ----
+  upsert(post){
+    const posts=this.state.posts.slice();
+    const i=posts.findIndex(p=>p.id===post.id);
+    if(i>=0) posts[i]=post; else posts.push(post);
+    this.setState({posts, editing:null}); this.save(posts);
+  }
+  remove(id){ const posts=this.state.posts.filter(p=>p.id!==id); this.setState({posts, editing:null}); this.save(posts); }
+  moveTo(id, dateKey){
+    const posts=this.state.posts.map(p=> p.id===id ? {...p, date:dateKey} : p);
+    this.setState({posts, dragId:null}); this.save(posts);
+  }
+  newPost(dateKey){
+    this.setState({editing:{id:this.uid(), date:dateKey||null, time:'09:00', type:'Reel', pillar:'quiet', status:'idea', title:'', caption:'', hashtags:'', cta:'', thumb:null, _isNew:true}});
+  }
+  applyWeekTemplate(){
+    const start=this.startOfWeek(this.fromKey(this.state.cursor));
+    const tmpl=this.WEEK_TEMPLATE();
+    const add=tmpl.map((t,i)=>({id:this.uid(), date:this.keyOf(this.addDays(start,i)), time:'09:00', type:t.type, pillar:t.pillar, status:'idea', title:t.title, caption:'', hashtags:'', cta:'', thumb:null}));
+    const posts=this.state.posts.concat(add);
+    this.setState({posts, planOpen:false}); this.save(posts);
+  }
+  // ---- render ----
+  renderVals(){
+    return {
+      onNewPost: ()=>this.newPost(null),
+      sidebar: this.h_sidebar(),
+      mainHeader: this.mainHeader(),
+      toolbar: this.h_toolbar(),
+      body: this.h_body(),
+      modal: this.state.editing ? this.h_modal() : (this.state.planOpen ? this.h_plan() : (this.state.genOpen ? this.h_gen() : null)),
+    };
+  }
+  // ---- AI helpers ----
+  brandSystem(){
+    return "You write for \"Rooted With Ally\", a warm, honest, faith-led Instagram creator helping burned-out Christian moms find themselves again. "+
+      "Voice: warm, gentle, honest, encouraging \u2014 a trusted mom-friend who has been in the hard season, never preachy, never a guru, never hype or hustle. "+
+      "Faith is woven in naturally, the way it lives in a real day. Speak to \"you\" directly; the author is \"I\"/Ally and shares her own mess (\"me too\"). "+
+      "Short lines, soft affirmations, present-tense verbs of growth. Em-dashes for honest asides. No emoji. No exclamation-storms, no toxic positivity, no guilt/shame framing. "+
+      "The four content pillars are: The Quiet Disappearing (losing yourself in motherhood), Faith That Went Silent (faith under exhaustion), Coming Back Without Fixing (small returns to yourself, not tidy fixes), The Real Thoughts (the honest midnight thoughts said out loud).";
+  }
+  pillarByName(n){ const m=this.PILLARS().find(p=>p.name.toLowerCase()===String(n||'').toLowerCase()); return m?m.id:null; }
+  async runGen(viral){
+    if(this.state.genLoading) return;
+    this.setState({genLoading:true, genError:null, genResults:[], genViral:!!viral});
+    const pl=this.state.genPillar? this.pillar(this.state.genPillar) : null;
+    const fmt=this.state.genFormat||null;
+    const topic=this.state.genTopic.trim();
+    const parts=[
+      viral
+        ? 'Brainstorm 6 Instagram content ideas for Rooted With Ally built to travel far \u2014 high shareability and saves.'
+        : 'Brainstorm 6 fresh Instagram content ideas for Rooted With Ally.',
+      viral
+        ? 'Adapt proven viral Instagram formats to this niche without losing the warm, honest voice: relatable POV Reels, "the thing no one tells you about\u2026" hooks, carousels of hard-won truths, "tell me you\u2019re a burned-out mom without telling me", myth-vs-truth, before/after-of-the-heart, save-worthy list carousels, whispered-confession Reels, trending-audio-style openers. Never clickbait, never shame \u2014 shareable because it is true, not because it is loud.'
+        : '',
+      pl? ('Focus every idea on the pillar: "'+pl.name+'".') : 'Spread the ideas across the four pillars.',
+      fmt? ('Intended format for all of them: '+fmt+'.') : 'Vary the format across Reel, Carousel, Story, and Post.',
+      topic? ('Center them on this theme the audience is thinking about: "'+topic+'".') : '',
+      'For each idea give: a scroll-stopping hook/title in the brand voice (lowercase, lyrical, under 9 words), a full caption (2\u20134 short lines, in voice), 3\u20135 relevant hashtags, and a gentle call to action.',
+      'Return ONLY a JSON array, no prose, no markdown fences. Each item: {"title":"","caption":"","hashtags":"#a #b #c","cta":"","format":"Reel|Carousel|Story|Post","pillar":"The Quiet Disappearing|Faith That Went Silent|Coming Back Without Fixing|The Real Thoughts"}.'
+    ].filter(Boolean).join(' ');
+    try{
+      const raw=await window.claude.complete({ system:this.brandSystem(), max_tokens:2000,
+        messages:[{role:'user',content:parts}] });
+      let txt=String(raw||'').trim().replace(/^```(?:json)?/i,'').replace(/```$/,'').trim();
+      const s=txt.indexOf('['), e=txt.lastIndexOf(']');
+      if(s>=0&&e>s) txt=txt.slice(s,e+1);
+      let arr=JSON.parse(txt);
+      if(!Array.isArray(arr)) throw new Error('bad shape');
+      const results=arr.map(o=>({
+        _id:this.uid(), _state:'pending',
+        title:String(o.title||'').trim(),
+        caption:String(o.caption||'').trim(),
+        hashtags:String(o.hashtags||'').trim(),
+        cta:String(o.cta||'').trim(),
+        type:this.TYPES().includes(o.format)? o.format : (fmt||'Reel'),
+        pillar:this.pillarByName(o.pillar)||this.state.genPillar||'real',
+      })).filter(r=>r.title);
+      this.setState({genResults:results, genLoading:false, genError: results.length?null:'No ideas came back \u2014 try again.'});
+    }catch(err){
+      this.setState({genLoading:false, genError:'Something went sideways generating ideas. Try again in a moment.'});
+    }
+  }
+  approveIdea(id){
+    const r=this.state.genResults.find(x=>x._id===id); if(!r) return;
+    const post={id:this.uid(),date:null,time:'09:00',type:r.type,pillar:r.pillar,status:'idea',title:r.title,caption:r.caption,hashtags:r.hashtags,cta:r.cta,thumb:null};
+    const posts=this.state.posts.concat([post]);
+    const genResults=this.state.genResults.map(x=>x._id===id?{...x,_state:'approved'}:x);
+    this.setState({posts,genResults}); this.save(posts);
+  }
+  dismissIdea(id){ this.setState({genResults:this.state.genResults.map(x=>x._id===id?{...x,_state:'dismissed'}:x)}); }
+  approveAll(){
+    const pending=this.state.genResults.filter(x=>x._state==='pending');
+    if(!pending.length) return;
+    const add=pending.map(r=>({id:this.uid(),date:null,time:'09:00',type:r.type,pillar:r.pillar,status:'idea',title:r.title,caption:r.caption,hashtags:r.hashtags,cta:r.cta,thumb:null}));
+    const posts=this.state.posts.concat(add);
+    const genResults=this.state.genResults.map(x=>x._state==='pending'?{...x,_state:'approved'}:x);
+    this.setState({posts,genResults}); this.save(posts);
+  }
+  async writeCaption(){
+    if(this.state.capLoading||!this.state.editing) return;
+    const e=this.state.editing; const pl=this.pillar(e.pillar);
+    this.setState({capLoading:true});
+    const prompt='Write one Instagram caption for a '+e.type+' in the "'+pl.name+'" pillar'+
+      (e.title? (', for the hook: "'+e.title+'"') : '')+'. '+
+      '2\u20134 short lines in the brand voice, honest and warm. '+
+      (e.cta? ('End with this call to action woven in naturally: "'+e.cta+'". ') : '')+
+      'Return ONLY the caption text \u2014 no hashtags, no quotes, no preamble.';
+    try{
+      const raw=await window.claude.complete({ system:this.brandSystem(), max_tokens:400, messages:[{role:'user',content:prompt}] });
+      const cap=String(raw||'').trim().replace(/^["\u201c]|["\u201d]$/g,'').trim();
+      if(cap) this.setState({editing:{...this.state.editing,caption:cap}, capLoading:false});
+      else this.setState({capLoading:false});
+    }catch(err){ this.setState({capLoading:false}); }
+  }
+  h(t,p,...c){ return React.createElement(t,p,...c); }
+  periodLabel(){
+    const d=this.fromKey(this.state.cursor);
+    if(this.state.view==='home') return 'Hello, Ally';
+    if(this.state.view==='month') return d.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    if(this.state.view==='week'){ const s=this.startOfWeek(d), e=this.addDays(s,6);
+      const so=s.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+      const eo=e.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+      return `${so} \u2013 ${eo}`; }
+    if(this.state.view==='day') return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    return 'The idea backlog';
+  }
+  periodSub(){
+    const d=this.fromKey(this.state.cursor);
+    if(this.state.view==='home') return new Date(2026,7,3).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    if(this.state.view==='week') return d.getFullYear();
+    if(this.state.view==='ideas') return 'no date, no pressure';
+    return null;
+  }
+  shift(n){
+    const d=this.fromKey(this.state.cursor); let nd;
+    if(this.state.view==='month') nd=new Date(d.getFullYear(), d.getMonth()+n, 1, 12);
+    else if(this.state.view==='week') nd=this.addDays(d, n*7);
+    else nd=this.addDays(d, n);
+    this.setState({cursor:this.keyOf(nd)});
+  }
+  setView(v){ this.setState({view:v}); this.save(null,v); }
+  h_toolbar(){
+    const h=this.h.bind(this);
+    const navBtn=(label,fn)=>h('button',{onClick:fn,style:{width:34,height:34,borderRadius:'999px',border:'1px solid var(--border-soft)',
+      background:'transparent',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontSize:'1.05rem',lineHeight:1,
+      display:'flex',alignItems:'center',justifyContent:'center'}}, label);
+    const isIdeas=this.state.view==='ideas'; const sub=this.periodSub();
+    const filterChips = this.PILLARS().map(p=>{ const on=this.state.filter===p.id; const dim=this.state.filter&&!on;
+      return h('button',{key:p.id, onClick:()=>this.setState({filter:on?null:p.id}),
+        style:{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 12px',borderRadius:'999px',cursor:'pointer',
+          border:'1px solid '+(on?'var(--rw-dark-tortoise)':'var(--border-soft)'), background:on?'var(--rw-buttermilk)':'transparent',
+          fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:on?600:500,letterSpacing:'0.1em',textTransform:'uppercase',
+          color:'var(--text-body)',opacity:dim?0.45:1,transition:'all var(--dur-fast) var(--ease-soft)'}},
+        h('span',{style:{width:9,height:9,borderRadius:'999px',background:p.color}}), p.short); });
+    const statusChips = this.STATUSES().map(sm=>{ const on=this.state.sfilter===sm.id; const dim=this.state.sfilter&&!on;
+      return h('button',{key:sm.id,onClick:()=>this.setState({sfilter:on?null:sm.id}),
+        style:{display:'inline-flex',alignItems:'center',gap:8,padding:'6px 12px',borderRadius:'999px',cursor:'pointer',
+          border:'1px solid '+(on?'var(--rw-dark-tortoise)':'var(--border-soft)'),background:on?'var(--rw-buttermilk)':'transparent',
+          fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:on?600:500,letterSpacing:'0.1em',textTransform:'uppercase',
+          color:'var(--text-body)',opacity:dim?0.45:1,transition:'all var(--dur-fast) var(--ease-soft)'}},
+        h('span',{style:{width:9,height:9,borderRadius:'999px',background:sm.dot}}), sm.label); });
+    return h('div',{style:{display:'flex',flexDirection:'column',gap:16}},
+      isIdeas ? null : h('div',{style:{display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:20,flexWrap:'wrap'}},
+        h('div',{style:{display:'flex',alignItems:'baseline',gap:14,flexWrap:'wrap'}},
+          h('h2',{style:{fontFamily:'var(--font-display)',fontSize:'1.9rem',fontWeight:600,color:'var(--text-heading)',margin:0,lineHeight:1}}, this.periodLabel()),
+          sub? h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.85rem',color:'var(--text-muted)',letterSpacing:'0.04em'}}, sub) : null),
+        h('div',{style:{display:'flex',alignItems:'center',gap:8}},
+          navBtn('\u2039',()=>this.shift(-1)),
+          h('button',{onClick:()=>this.setState({cursor:this.todayKey()}),style:{padding:'8px 16px',borderRadius:'999px',
+            border:'1px solid var(--border-soft)',background:'transparent',cursor:'pointer',fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:500,color:'var(--text-body)',letterSpacing:'0.02em'}},'Today'),
+          navBtn('\u203A',()=>this.shift(1)))),
+      h('div',{style:{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}},
+        h('span',{className:'rw-eyebrow',style:{marginRight:2}},'Status'), ...statusChips),
+      h('div',{style:{height:1,background:'var(--border-soft)'}})
+    );
+  }
+  mainHeader(){
+    const names={month:'content calendar',week:'this week',day:'today',ideas:'content ideas'};
+    const h=this.h.bind(this);
+    return h('div',{style:{display:'flex',alignItems:'center',justifyContent:'center',gap:18,marginBottom:18}},
+      h('span',{style:{flexBasis:80,flexGrow:1,maxWidth:130,height:1,background:'var(--border-soft)'}}),
+      h('span',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'2rem',color:'var(--rw-golden-honey)',lineHeight:1,whiteSpace:'nowrap'}}, names[this.state.view]||''),
+      h('span',{style:{flexBasis:80,flexGrow:1,maxWidth:130,height:1,background:'var(--border-soft)'}}));
+  }
+  h_sidebar(){
+    const h=this.h.bind(this); const s=this.stats();
+    const navItem=(id,label)=>{ const on=this.state.view===id; return h('button',{key:id,onClick:()=>this.setView(id),
+      style:{display:'flex',alignItems:'center',gap:10,width:'100%',textAlign:'left',padding:'9px 12px',borderRadius:10,cursor:'pointer',border:'none',
+        background:on?'var(--rw-buttermilk)':'transparent',transition:'background var(--dur-fast) var(--ease-soft)'},
+      onMouseEnter:e=>{ if(!on) e.currentTarget.style.background='var(--rw-buttermilk-200)'; }, onMouseLeave:e=>{ if(!on) e.currentTarget.style.background='transparent'; }},
+      h('span',{style:{color:'var(--rw-golden-honey)',fontWeight:700}},'|'),
+      h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.9rem',fontWeight:on?600:500,color:'var(--text-heading)'}},label)); };
+    const bullet=(txt)=>h('div',{style:{display:'flex',gap:9,alignItems:'flex-start',fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-body)',lineHeight:1.5}},
+      h('span',{style:{width:6,height:6,borderRadius:'999px',background:'var(--rw-golden-honey)',marginTop:6,flexShrink:0}}), h('span',null,txt));
+    const label=(txt)=>h('div',{className:'rw-eyebrow',style:{marginBottom:12,display:'flex',alignItems:'center',gap:10}}, txt, h('span',{style:{flex:1,height:1,background:'var(--border-soft)'}}));
+    return h('div',{style:{display:'flex',flexDirection:'column',gap:26}},
+      h('div',{style:{background:'var(--rw-buttermilk)',borderRadius:'var(--radius-md)',padding:'24px 20px',textAlign:'center',boxShadow:'var(--shadow-sunny)'}},
+        h('div',{style:{fontFamily:'var(--font-display)',fontSize:'1.35rem',fontWeight:600,color:'var(--rw-dark-tortoise)'}},'consistency is ',
+          h('span',{style:{fontStyle:'italic',color:'var(--rw-golden-honey)'}},'key.'))),
+      h('div',null, label('quick view'),
+        h('div',{style:{display:'flex',flexDirection:'column',gap:3,marginBottom:14}},
+          h('div',{style:{fontFamily:'var(--font-display)',fontSize:'1.2rem',color:'var(--text-heading)'}},'Hello, Ally!'),
+          h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.75rem',color:'var(--text-muted)'}},'Today is August 3, 2026')),
+        h('div',{style:{display:'flex',flexDirection:'column',gap:9}},
+          bullet('You have '+s.today+' post'+(s.today===1?'':'s')+' to publish today'),
+          s.overdue? h('div',{key:'od',style:{display:'flex',gap:9,alignItems:'flex-start',fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'#B0553E',lineHeight:1.5,fontWeight:500}},
+            h('span',{style:{width:6,height:6,borderRadius:'999px',background:'#B0553E',marginTop:6,flexShrink:0}}), h('span',null, s.overdue+' post'+(s.overdue===1?'':'s')+' slipped past \u2014 reschedule or mark posted')) : null,
+          bullet('You have '+s.drafted+' post'+(s.drafted===1?'':'s')+' to review'),
+          bullet(s.scheduled+' scheduled & ready to go'),
+          bullet(s.ideas+' idea'+(s.ideas===1?'':'s')+' waiting in the backlog'))),
+      h('div',null, label(this.state.filter?'my pillars \u00b7 filtering':'my pillars'),
+        h('div',{style:{display:'flex',flexDirection:'column',gap:3}}, ...this.PILLARS().map(pl=>{ const on=this.state.filter===pl.id; const dim=this.state.filter&&!on;
+          return h('button',{key:pl.id,onClick:()=>this.setState({filter:on?null:pl.id}),
+            style:{display:'flex',alignItems:'center',gap:9,width:'100%',textAlign:'left',cursor:'pointer',border:'none',borderRadius:8,padding:'7px 10px',
+              background:on?'var(--rw-buttermilk-200)':'transparent',opacity:dim?0.5:1,
+              fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:on?600:500,color:'var(--text-heading)',lineHeight:1.3,transition:'all var(--dur-fast) var(--ease-soft)'},
+            onMouseEnter:e=>{ if(!on) e.currentTarget.style.background='var(--rw-shell)'; }, onMouseLeave:e=>{ if(!on) e.currentTarget.style.background='transparent'; }},
+            h('span',{style:{width:9,height:9,borderRadius:'999px',background:pl.color,flexShrink:0}}), pl.name); }))),
+      h('div',null, label('my audience'),
+        h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-body)',lineHeight:1.6,margin:0}},'Burned-out Christian moms in the hard, holy mess \u2014 quietly coming back to themselves.')),
+      h('div',null, label('the planner'),
+        h('div',{style:{display:'flex',flexDirection:'column',gap:2}},
+          navItem('month','content calendar'), navItem('week','this week'), navItem('day','today'), navItem('ideas','content ideas'))),
+      h('div',{style:{display:'flex',flexDirection:'column',gap:9}},
+        h('button',{onClick:()=>this.setState({genOpen:true}),style:{padding:'12px 18px',borderRadius:'999px',border:'none',
+          background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:600,fontSize:'0.8125rem',letterSpacing:'0.02em',boxShadow:'var(--shadow-sunny)'}},'Generate ideas with AI'),
+        h('button',{onClick:()=>this.setState({planOpen:true}),style:{padding:'12px 18px',borderRadius:'999px',border:'1px solid var(--border-soft)',
+          background:'transparent',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,fontSize:'0.8125rem',letterSpacing:'0.02em'}},'Plan my week')),
+      h('div',{style:{borderRadius:'var(--radius-md)',overflow:'hidden',height:200}},
+        h('image-slot',{id:'bm-side-1',shape:'rect',fit:'cover',placeholder:'a warm photo of you',style:{width:'100%',height:'100%'}}))
+    );
+  }
+  postsForDay(key){ let list=this.state.posts.filter(p=>p.date===key);
+    if(this.state.filter) list=list.filter(p=>p.pillar===this.state.filter);
+    if(this.state.sfilter) list=list.filter(p=>p.status===this.state.sfilter);
+    return list.sort((a,b)=>(a.time||'').localeCompare(b.time||'')); }
+  isOverdue(post){ return !!post.date && post.date < this.todayKey() && post.status!=='posted'; }
+  hoverProps(id){ return {
+    onMouseEnter:()=>this.setState({hover:id}), onMouseLeave:()=>this.setState({hover:s=>null})===undefined?this.setState({hover:null}):null };
+  }
+  // content-format color coding
+  TYPE_META(){ return {
+    Reel:{tint:'#C1DBE8',accent:'#7FA9BE'},
+    Carousel:{tint:'#CBD69C',accent:'#7E9038'},
+    Story:{tint:'#FFD3AA',accent:'#E8944A'},
+    Post:{tint:'#FFF1C4',accent:'#E6C862'},
+  };}
+  typeMeta(t){ return this.TYPE_META()[t] || {tint:'var(--rw-cream-deep)',accent:'var(--rw-golden-honey)'}; }
+  h_typeLegend(){
+    const h=this.h.bind(this);
+    return h('div',{style:{display:'flex',alignItems:'center',gap:20,flexWrap:'wrap',marginBottom:16}},
+      h('span',{className:'rw-eyebrow'},'By format'),
+      ...this.TYPES().map(t=>{ const tm=this.typeMeta(t); return h('span',{key:t,style:{display:'inline-flex',alignItems:'center',gap:8,fontFamily:'var(--font-body)',fontSize:'0.78rem',color:'var(--text-body)'}},
+        h('span',{style:{width:16,height:16,borderRadius:5,background:tm.tint,border:'1px solid '+tm.accent}}), t); }));
+  }
+  // format-colored chip for month
+  chip(post){
+    const h=this.h.bind(this); const tm=this.typeMeta(post.type); const hv=this.state.hover===post.id;
+    return h('div',{key:post.id,draggable:true,
+      onDragStart:(e)=>{this.setState({dragId:post.id,hover:null}); e.dataTransfer.effectAllowed='move';},
+      onDragEnd:()=>this.setState({dragId:null}),
+      onMouseEnter:()=>this.setState({hover:post.id}), onMouseLeave:()=>this.setState({hover:null}),
+      onClick:(e)=>{e.stopPropagation(); this.setState({editing:{...post}});},
+      style:{position:'relative',display:'flex',alignItems:'center',gap:6,padding:'3px 8px',borderRadius:7,cursor:'pointer',
+        background:tm.tint,boxShadow:hv?'var(--shadow-sm)':'none',
+        opacity:this.state.dragId===post.id?0.35:1,transition:'box-shadow var(--dur-fast) var(--ease-soft)'}},
+      h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:500,color:'var(--rw-dark-tortoise)',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis',lineHeight:1.3}},post.title||'Untitled'),
+      this.isOverdue(post)? h('span',{title:'Past its date, not posted yet',style:{flexShrink:0,width:6,height:6,borderRadius:'999px',background:'#B0553E'}}) : null,
+      hv && !this.state.dragId ? this.captionPreview(post) : null
+    );
+  }
+  captionPreview(post){
+    const h=this.h.bind(this); const pl=this.pillar(post.pillar); const st=this.status(post.status);
+    const cap=(post.caption&&post.caption.trim())?post.caption:'No caption yet \u2014 click to write it.';
+    return h('div',{onClick:e=>e.stopPropagation(),
+      style:{position:'absolute',top:'calc(100% + 8px)',left:0,zIndex:40,width:262,padding:'15px 17px',
+        background:'var(--surface-page)',borderRadius:'var(--radius-md)',boxShadow:'var(--shadow-lg)',border:'1px solid var(--border-soft)',
+        cursor:'default',animation:'rwaFade var(--dur-fast) var(--ease-soft)',pointerEvents:'none',textAlign:'left'}},
+      h('div',{style:{display:'flex',alignItems:'center',gap:8,marginBottom:9,flexWrap:'wrap'}},
+        h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.12em',textTransform:'uppercase',color:'var(--rw-dark-tortoise)',opacity:0.72}}, (post.time?post.time+' \u00b7 ':'')+post.type),
+        h('span',{style:{display:'inline-flex',alignItems:'center',gap:5,fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)'}},
+          h('span',{style:{width:6,height:6,borderRadius:'999px',background:st.dot}}), st.label)),
+      h('div',{style:{fontFamily:'var(--font-display)',fontSize:'1.05rem',lineHeight:1.25,color:'var(--text-heading)',marginBottom:cap?7:0}}, post.title||'Untitled'),
+      h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',lineHeight:1.55,color:'var(--text-body)',
+        display:'-webkit-box',WebkitLineClamp:4,WebkitBoxOrient:'vertical',overflow:'hidden'}}, cap),
+      post.hashtags&&post.hashtags.trim()? h('div',{style:{marginTop:8,fontFamily:'var(--font-body)',fontSize:'0.75rem',color:'var(--text-muted)',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}, post.hashtags) : null,
+      h('div',{style:{marginTop:10,display:'flex',alignItems:'center',gap:7,fontFamily:'var(--font-body)',fontSize:'0.6875rem',color:'var(--text-muted)'}},
+        h('span',{style:{width:8,height:8,borderRadius:'999px',background:pl.color}}), pl.name)
+    );
+  }
+  monthTally(){
+    const h=this.h.bind(this);
+    const d=this.fromKey(this.state.cursor); const y=d.getFullYear(), m=d.getMonth();
+    let month=this.state.posts.filter(p=>{ if(!p.date) return false; const pd=this.fromKey(p.date); return pd.getFullYear()===y && pd.getMonth()===m; });
+    if(this.state.filter) month=month.filter(p=>p.pillar===this.state.filter);
+    if(this.state.sfilter) month=month.filter(p=>p.status===this.state.sfilter);
+    const total=month.length;
+    return h('div',{style:{display:'flex',alignItems:'center',gap:14,flexWrap:'wrap'}},
+      h('span',{style:{display:'inline-flex',alignItems:'baseline',gap:7}},
+        h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1.35rem',color:'var(--text-heading)',lineHeight:1}}, total),
+        h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.75rem',color:'var(--text-muted)'}}, total===1?'post this month':'posts this month')),
+      h('span',{style:{width:1,height:20,background:'var(--border-soft)'}}),
+      h('span',{style:{display:'flex',alignItems:'center',gap:14,flexWrap:'wrap'}},
+        ...this.TYPES().map(t=>{ const tm=this.typeMeta(t); const c=month.filter(p=>p.type===t).length;
+          return h('span',{key:t,style:{display:'inline-flex',alignItems:'center',gap:7,opacity:c?1:0.4}},
+            h('span',{style:{width:14,height:14,borderRadius:4,background:tm.tint,border:'1px solid '+tm.accent}}),
+            h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-body)'}}, t),
+            h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:600,color:'var(--text-heading)'}}, c)); }))
+    );
+  }
+  statusLine(post){
+    const s=this.status(post.status); const h=this.h.bind(this);
+    return h('span',{style:{display:'inline-flex',alignItems:'center',gap:6,fontFamily:'var(--font-body)',fontSize:'0.6875rem',
+      fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)'}},
+      h('span',{style:{width:7,height:7,borderRadius:'999px',background:s.dot}}), s.label);
+  }
+  // editorial entry for week/day
+  card(post,full){
+    const h=this.h.bind(this); const pl=this.pillar(post.pillar); const tm=this.typeMeta(post.type); const hv=this.state.hover===post.id;
+    return h('div',{key:post.id,draggable:true,
+      onDragStart:(e)=>{this.setState({dragId:post.id}); e.dataTransfer.effectAllowed='move';},
+      onDragEnd:()=>this.setState({dragId:null}),
+      onMouseEnter:()=>this.setState({hover:post.id}), onMouseLeave:()=>this.setState({hover:null}),
+      onClick:()=>this.setState({editing:{...post}}),
+      style:{cursor:'pointer',display:'flex',flexDirection:'column',gap:full?9:5,padding:full?'18px 20px':'10px 12px',
+        background:tm.tint,borderRadius:full?'var(--radius-md)':10,
+        boxShadow:hv?'var(--shadow-sm)':'none',
+        opacity:this.state.dragId===post.id?0.35:1,transition:'box-shadow var(--dur-fast) var(--ease-soft)'}},
+      h('div',{style:{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}},
+        h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--rw-dark-tortoise)',opacity:0.72}}, (post.time?post.time+' \u00b7 ':'')+post.type),
+        this.isOverdue(post)? h('span',{style:{display:'inline-flex',alignItems:'center',gap:5,fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'#B0553E'}},
+          h('span',{style:{width:6,height:6,borderRadius:'999px',background:'#B0553E'}}),'Overdue') : null,
+        full? this.statusLine(post) : null),
+      h('div',{style:{display:'flex',alignItems:'baseline',gap:8}},
+        h('div',{style:{fontFamily:'var(--font-display)',fontSize:full?'1.4rem':'0.95rem',lineHeight:1.2,color:'var(--text-heading)',fontWeight:full?600:500}},post.title||'Untitled')),
+      full && post.caption ? h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.9375rem',color:'var(--text-body)',lineHeight:1.6,maxWidth:'62ch'}},post.caption) : null,
+      full && post.thumb ? h('img',{src:post.thumb,style:{width:'100%',maxWidth:420,height:220,objectFit:'cover',borderRadius:'var(--radius-md)',marginTop:4}}) : null,
+      full ? h('div',{style:{display:'flex',alignItems:'center',gap:16,marginTop:2,flexWrap:'wrap'}},
+        h('span',{style:{display:'inline-flex',alignItems:'center',gap:7,fontFamily:'var(--font-body)',fontSize:'0.75rem',letterSpacing:'0.06em',color:'var(--text-body)'}},
+          h('span',{style:{width:8,height:8,borderRadius:'999px',background:pl.color}}), pl.name),
+        post.hashtags&&post.hashtags.trim()? h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-muted)'}}, post.hashtags) : null,
+        post.cta&&post.cta.trim()? h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--rw-golden-honey)'}}, post.cta) : null
+      ) : h('div',null, this.statusLine(post))
+    );
+  }
+  h_body(){
+    if(this.state.view==='month') return this.h_month();
+    if(this.state.view==='week') return this.h_week();
+    if(this.state.view==='day') return this.h_day();
+    return this.h_ideas();
+  }
+  dropProps(key){ return {
+    onDragOver:(e)=>{ e.preventDefault(); e.dataTransfer.dropEffect='move'; },
+    onDrop:(e)=>{ e.preventDefault(); if(this.state.dragId) this.moveTo(this.state.dragId,key); }
+  };}
+  stats(){
+    const P=this.state.posts; const t=this.todayKey();
+    return {
+      today: P.filter(p=>p.date===t).length,
+      drafted: P.filter(p=>p.status==='drafted').length,
+      scheduled: P.filter(p=>p.status==='scheduled').length,
+      ideas: P.filter(p=>!p.date).length,
+      overdue: P.filter(p=>this.isOverdue(p)).length,
+    };
+  }
+  upcoming(n){
+    const t=this.todayKey();
+    return this.state.posts.filter(p=>p.date && p.date>=t && p.status!=='posted')
+      .sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||''))).slice(0,n);
+  }
+  pillarCounts(){ return this.PILLARS().map(pl=>({...pl, count:this.state.posts.filter(p=>p.pillar===pl.id).length})); }
+  h_home(){
+    const h=this.h.bind(this);
+    const s=this.stats(); const up=this.upcoming(5);
+    const pc=this.pillarCounts(); const maxc=Math.max(1,...pc.map(p=>p.count));
+    const ideas=this.state.posts.filter(p=>!p.date).slice(0,3);
+    const tile=(label,val,onClick)=>h('button',{key:label,onClick,style:{textAlign:'left',cursor:'pointer',border:'1px solid var(--border-soft)',
+      background:'transparent',borderRadius:'var(--radius-md)',padding:'18px 20px',display:'flex',flexDirection:'column',gap:6,transition:'background var(--dur-fast) var(--ease-soft)'},
+      onMouseEnter:e=>e.currentTarget.style.background='var(--rw-shell)', onMouseLeave:e=>e.currentTarget.style.background='transparent'},
+      h('span',{style:{fontFamily:'var(--font-display)',fontSize:'2.4rem',lineHeight:1,color:'var(--text-heading)'}}, val),
+      h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--text-muted)'}}, label));
+    const sectionHead=(txt)=>h('div',{style:{display:'flex',alignItems:'center',gap:16,marginBottom:10}},
+      h('span',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.5rem',color:'var(--rw-golden-honey)',lineHeight:1}},txt),
+      h('span',{style:{flex:1,height:1,background:'var(--border-soft)'}}));
+    const homeRow=(p)=>{ const pl=this.pillar(p.pillar); return h('div',{key:p.id,onClick:()=>this.setState({editing:{...p}}),
+      style:{display:'flex',alignItems:'center',gap:14,padding:'13px 0',borderBottom:'1px solid var(--border-soft)',cursor:'pointer'}},
+      h('span',{style:{width:54,fontFamily:'var(--font-body)',fontSize:'0.75rem',fontWeight:600,letterSpacing:'0.03em',color:'var(--text-muted)',flexShrink:0}}, p.date? this.fromKey(p.date).toLocaleDateString('en-US',{month:'short',day:'numeric'}) : '\u2014'),
+      h('span',{style:{width:8,height:8,borderRadius:'999px',background:pl.color,flexShrink:0}}),
+      h('span',{style:{flex:1,fontFamily:'var(--font-display)',fontSize:'1.05rem',color:'var(--text-heading)',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}, p.title||'Untitled'),
+      h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)',flexShrink:0}}, p.type),
+      this.statusLine(p)); };
+    return h('div',{style:{display:'grid',gridTemplateColumns:'minmax(0,1fr) 320px',gap:44,alignItems:'start',animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+      h('div',{style:{display:'flex',flexDirection:'column',gap:36}},
+        h('div',{style:{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:14}},
+          tile('Today',s.today,()=>this.setView('day')),
+          tile('To review',s.drafted,()=>this.setView('week')),
+          tile('Scheduled',s.scheduled,()=>this.setView('month')),
+          tile('Ideas',s.ideas,()=>this.setView('ideas'))),
+        h('div',null, sectionHead('Up next'),
+          up.length? h('div',null, ...up.map(homeRow)) : h('p',{style:{fontFamily:'var(--font-body)',color:'var(--text-muted)',padding:'12px 0',margin:0}},'Nothing scheduled yet \u2014 plan your week from the Week tab.')),
+        h('div',null, sectionHead('The mix, by pillar'),
+          h('div',{style:{display:'flex',flexDirection:'column',gap:13,paddingTop:6}}, ...pc.map(pl=>h('div',{key:pl.id,style:{display:'flex',alignItems:'center',gap:14}},
+            h('span',{style:{width:160,fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-body)',display:'flex',alignItems:'center',gap:9}},
+              h('span',{style:{width:9,height:9,borderRadius:'999px',background:pl.color,flexShrink:0}}), pl.short),
+            h('div',{style:{flex:1,height:8,borderRadius:999,background:'var(--rw-cream-deep)',overflow:'hidden'}},
+              h('div',{style:{width:(pl.count/maxc*100)+'%',height:'100%',background:pl.color,borderRadius:999}})),
+            h('span',{style:{width:24,textAlign:'right',fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:600,color:'var(--text-heading)'}}, pl.count)))))
+      ),
+      h('div',{style:{display:'flex',flexDirection:'column',gap:20}},
+        h('div',{style:{background:'var(--rw-buttermilk)',borderRadius:'var(--radius-lg)',padding:'28px 26px',boxShadow:'var(--shadow-sunny)'}},
+          h('div',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.5rem',lineHeight:1.25,color:'var(--rw-dark-tortoise)'}},'You\u2019re not behind. You\u2019re becoming.'),
+          h('div',{style:{marginTop:12,fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.16em',textTransform:'uppercase',color:'var(--rw-dark-tortoise)',opacity:0.65}},'little by little')),
+        h('div',{style:{border:'1px solid var(--border-soft)',borderRadius:'var(--radius-lg)',padding:'22px 24px'}},
+          h('div',{className:'rw-eyebrow',style:{marginBottom:12}},'From the backlog'),
+          ideas.length? h('div',null, ...ideas.map((p,i)=>{ const pl=this.pillar(p.pillar); return h('div',{key:p.id,onClick:()=>this.setState({editing:{...p}}),
+            style:{display:'flex',alignItems:'flex-start',gap:11,padding:'11px 0',borderTop:i?'1px solid var(--border-soft)':'none',cursor:'pointer'}},
+            h('span',{style:{width:8,height:8,borderRadius:'999px',background:pl.color,marginTop:6,flexShrink:0}}),
+            h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1rem',lineHeight:1.3,color:'var(--text-heading)'}}, p.title||'Untitled')); }))
+            : h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.875rem',color:'var(--text-muted)',margin:0}},'No ideas captured yet.'),
+          h('button',{onClick:()=>this.setView('ideas'),style:{marginTop:14,padding:0,border:'none',background:'transparent',color:'var(--rw-golden-honey)',cursor:'pointer',
+            fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:500,borderBottom:'1px solid color-mix(in srgb, var(--rw-golden-honey) 40%, transparent)'}},'See all ideas \u2192')),
+        h('div',{style:{border:'1px solid var(--border-soft)',borderRadius:'var(--radius-lg)',padding:'22px 24px',display:'flex',flexDirection:'column',gap:10}},
+          h('div',{className:'rw-eyebrow'},'My audience'),
+          h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.875rem',color:'var(--text-body)',lineHeight:1.6,margin:0}},'Burned-out Christian moms in the hard, holy mess \u2014 quietly coming back to themselves.'))
+      )
+    );
+  }
+  h_month(){
+    const h=this.h.bind(this);
+    const d=this.fromKey(this.state.cursor);
+    const first=new Date(d.getFullYear(),d.getMonth(),1,12);
+    const start=this.startOfWeek(first);
+    const cells=[]; for(let i=0;i<42;i++) cells.push(this.addDays(start,i));
+    const wk=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const today=this.todayKey();
+    const hoverKey = this.state.hover ? (this.state.posts.find(p=>p.id===this.state.hover)||{}).date : null;
+    return h('div',{style:{animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+      this.h_typeLegend(),
+      h('div',{style:{borderTop:'1px solid var(--border-soft)',borderLeft:'1px solid var(--border-soft)'}},
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(7,1fr)'}},
+        ...wk.map((w,i)=>h('div',{key:w,style:{padding:'12px 12px 10px',borderRight:'1px solid var(--border-soft)',borderBottom:'1px solid var(--border-soft)',
+          fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.16em',textTransform:'uppercase',color:'var(--text-muted)'}},w))),
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(7,1fr)'}},
+        ...cells.map((c,i)=>{ const key=this.keyOf(c); const inMonth=c.getMonth()===d.getMonth();
+          const dayPosts=this.postsForDay(key); const isToday=key===today;
+          const pt=dayPosts.length?this.typeMeta(dayPosts[0].type).tint:null;
+          const hasHover=hoverKey===key;
+          return h('div',{key:key,...this.dropProps(key),onClick:()=>this.newPost(key),
+            style:{height:132,boxSizing:'border-box',padding:'8px 8px 10px',borderRight:'1px solid var(--border-soft)',borderBottom:'1px solid var(--border-soft)',
+              background:inMonth?'var(--rw-white)':'var(--rw-shell)',position:'relative',zIndex:hasHover?30:1,
+              cursor:'pointer',display:'flex',flexDirection:'column',gap:4,overflow:hasHover?'visible':'hidden'}},
+            h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:3}},
+              h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1.1rem',fontWeight:isToday?700:500,
+                color:inMonth?'var(--text-heading)':'var(--rw-sandy-shore)',lineHeight:1,
+                width:26,height:26,display:'inline-flex',alignItems:'center',justifyContent:'center',
+                borderRadius:'999px',
+                border:isToday?'1.5px solid var(--rw-dark-tortoise)':'1.5px solid transparent'}}, c.getDate()),
+              dayPosts.length? h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.625rem',letterSpacing:'0.08em',color:'var(--text-muted)'}}, dayPosts.length) : null),
+            ...dayPosts.slice(0,3).map(p=>this.chip(p)),
+            dayPosts.length>3 ? h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',color:'var(--text-muted)',paddingLeft:14}}, '+'+(dayPosts.length-3)+' more') : null
+          );
+        })
+      )
+    ));
+  }
+  h_week(){
+    const h=this.h.bind(this);
+    const start=this.startOfWeek(this.fromKey(this.state.cursor));
+    const days=[]; for(let i=0;i<7;i++) days.push(this.addDays(start,i));
+    const today=this.todayKey();
+    const weekPosts=this.state.posts.filter(p=>p.date && days.some(c=>this.keyOf(c)===p.date));
+    const missing=this.TYPES().filter(t=>!weekPosts.some(p=>p.type===t));
+    return h('div',{style:{animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+      missing.length? h('div',{style:{display:'flex',alignItems:'center',gap:11,flexWrap:'wrap',padding:'11px 16px',borderRadius:'var(--radius-md)',background:'var(--rw-buttermilk-100)',border:'1px solid var(--border-soft)',marginBottom:16}},
+        h('span',{style:{display:'inline-flex',gap:5}}, ...missing.map(t=>h('span',{key:t,style:{width:9,height:9,borderRadius:'999px',background:this.typeMeta(t).accent}}))),
+        h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.85rem',color:'var(--text-body)'}}, 'No '+missing.join(' or ')+' planned this week \u2014 even one small one counts.')) : null,
+      h('div',{style:{display:'grid',gridTemplateColumns:'repeat(7,1fr)',borderTop:'1px solid var(--border-soft)'}},
+      ...days.map((c,idx)=>{ const key=this.keyOf(c); const dayPosts=this.postsForDay(key); const isToday=key===today;
+        return h('div',{key:key,...this.dropProps(key),
+          style:{borderRight:idx<6?'1px solid var(--border-soft)':'none',minHeight:420,padding:'14px 12px',display:'flex',flexDirection:'column',gap:6,
+            background:isToday?'var(--rw-buttermilk-200)':'var(--rw-white)'}},
+          h('div',{style:{display:'flex',alignItems:'baseline',justifyContent:'space-between',paddingBottom:10,marginBottom:4,borderBottom:'1px solid var(--border-soft)'}},
+            h('div',{style:{display:'flex',flexDirection:'column',gap:2}},
+              h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--text-muted)'}}, c.toLocaleDateString('en-US',{weekday:'short'})),
+              h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1.7rem',color:'var(--text-heading)',lineHeight:1,fontWeight:isToday?700:500}}, c.getDate())),
+            h('button',{onClick:()=>this.newPost(key),style:{width:24,height:24,borderRadius:'999px',border:'1px solid var(--border-soft)',
+              background:'transparent',cursor:'pointer',color:'var(--text-muted)',fontSize:'0.95rem',lineHeight:1}},'+')),
+          ...dayPosts.map(p=>this.card(p,false)),
+          dayPosts.length===0 ? h('div',{onClick:()=>this.newPost(key),style:{flex:1,minHeight:50,display:'flex',alignItems:'flex-start',paddingTop:6,
+            color:'var(--rw-sandy-shore)',fontFamily:'var(--font-body)',fontSize:'0.75rem',cursor:'pointer'}},'\u2014 rest, or add one') : null
+        );
+      })
+    ));
+  }
+  h_day(){
+    const h=this.h.bind(this);
+    const key=this.state.cursor; const dayPosts=this.postsForDay(key);
+    return h('div',{style:{maxWidth:720,margin:'0 auto',animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+      dayPosts.length===0
+        ? h('div',{...this.dropProps(key),style:{borderTop:'1px solid var(--border-soft)',padding:'72px 24px',textAlign:'center',display:'flex',flexDirection:'column',alignItems:'center',gap:14}},
+            h('span',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.75rem',color:'var(--rw-golden-honey)',lineHeight:1}},'a quiet page'),
+            h('p',{style:{fontFamily:'var(--font-body)',color:'var(--text-body)',maxWidth:360,margin:0,lineHeight:1.7}},'Nothing planned for this day yet. You\u2019re not behind \u2014 you\u2019re becoming.'),
+            h('button',{onClick:()=>this.newPost(key),style:{marginTop:6,padding:'11px 26px',borderRadius:'999px',border:'1.5px solid var(--rw-dark-tortoise)',
+              background:'transparent',color:'var(--rw-dark-tortoise)',fontFamily:'var(--font-body)',fontWeight:500,cursor:'pointer'}},'+ Plan a post'))
+        : h('div',{...this.dropProps(key),style:{display:'flex',flexDirection:'column',gap:14}},
+            ...dayPosts.map(p=>this.card(p,true)))
+    );
+  }
+  h_ideas(){
+    const h=this.h.bind(this);
+    let ideas=this.state.posts.filter(p=>!p.date);
+    if(this.state.filter) ideas=ideas.filter(p=>p.pillar===this.state.filter);
+    if(this.state.sfilter) ideas=ideas.filter(p=>p.status===this.state.sfilter);
+    return h('div',{style:{display:'flex',flexDirection:'column',gap:22,animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+      h('p',{style:{fontFamily:'var(--font-body)',color:'var(--text-body)',maxWidth:560,margin:0,lineHeight:1.7,fontSize:'1.0625rem'}},'A gentle holding place for the thoughts you have at midnight. Move one to the calendar when it\u2019s ready \u2014 no pressure.'),
+      ideas.length===0 ? h('div',{style:{padding:'48px 0',color:'var(--rw-sandy-shore)',fontFamily:'var(--font-body)'}},'No ideas here yet.')
+      : h('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:16}},
+          ...ideas.map(p=>this.card(p,true))),
+      h('button',{onClick:()=>this.newPost(null),style:{alignSelf:'flex-start',padding:'11px 22px',borderRadius:'999px',
+        border:'1.5px solid var(--rw-dark-tortoise)',background:'transparent',color:'var(--rw-dark-tortoise)',cursor:'pointer',
+        fontFamily:'var(--font-body)',fontWeight:500}},'+ Capture an idea')
+    );
+  }
+  // ---- modal editor ----
+  field(label, control){
+    const h=this.h.bind(this);
+    return h('div',{style:{display:'flex',flexDirection:'column',gap:8}},
+      h('label',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.16em',textTransform:'uppercase',color:'var(--text-muted)'}},label), control);
+  }
+  seg(options, value, onPick, colorFn){
+    const h=this.h.bind(this);
+    return h('div',{style:{display:'flex',flexWrap:'wrap',gap:8}}, ...options.map(o=>{ const on=o.id===value;
+      return h('button',{key:o.id,type:'button',onClick:()=>onPick(o.id),
+        style:{display:'inline-flex',alignItems:'center',gap:7,padding:'7px 15px',borderRadius:'999px',cursor:'pointer',
+          fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:on?600:500,transition:'all var(--dur-fast) var(--ease-soft)',
+          border:'1px solid '+(on?'var(--rw-dark-tortoise)':'var(--border-soft)'),
+          background:on?'var(--rw-dark-tortoise)':'transparent', color:on?'var(--rw-shell)':'var(--text-body)'}},
+        colorFn?h('span',{style:{width:9,height:9,borderRadius:'999px',background:colorFn(o)}}):null, o.label); }));
+  }
+  onThumb(e){
+    const f=e.target.files&&e.target.files[0]; if(!f) return;
+    const r=new FileReader(); r.onload=()=>this.setState({editing:{...this.state.editing,thumb:r.result}}); r.readAsDataURL(f);
+  }
+  copyCaption(post){
+    const txt=[post.caption, post.hashtags].filter(x=>x&&String(x).trim()).join('\n\n');
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).catch(()=>{}); }
+    this.setState({copied:true}); clearTimeout(this._ct); this._ct=setTimeout(()=>this.setState({copied:false}),1600);
+  }
+  duplicate(post, newType){
+    const {_isNew, ...rest}=post;
+    const copy={...rest, id:this.uid(), type:newType||rest.type, status:'idea'};
+    const posts=this.state.posts.concat([copy]);
+    this.setState({posts, editing:{...copy}, copied:false}); this.save(posts);
+  }
+  reuseSection(e){
+    const h=this.h.bind(this);
+    return h('div',{style:{borderTop:'1px solid var(--border-soft)',paddingTop:18,display:'flex',flexDirection:'column',gap:12}},
+      h('div',{className:'rw-eyebrow'},'Reuse this idea'),
+      h('div',{style:{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}},
+        h('button',{onClick:()=>this.duplicate(e),style:{padding:'8px 16px',borderRadius:'999px',border:'1px solid var(--border-soft)',background:'transparent',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,fontSize:'0.8125rem',color:'var(--rw-dark-tortoise)'}},'Duplicate'),
+        h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-muted)'}},'Repurpose as'),
+        ...this.TYPES().map(t=>{ const tm=this.typeMeta(t); return h('button',{key:t,onClick:()=>this.duplicate(e,t),
+          style:{display:'inline-flex',alignItems:'center',gap:7,padding:'7px 13px',borderRadius:'999px',cursor:'pointer',border:'1px solid '+tm.accent,background:tm.tint,
+            fontFamily:'var(--font-body)',fontSize:'0.75rem',fontWeight:500,color:'var(--rw-dark-tortoise)'}}, t); }))
+    );
+  }
+  h_modal(){
+    const h=this.h.bind(this); const e=this.state.editing; const set=(k,v)=>this.setState({editing:{...this.state.editing,[k]:v}});
+    const inputStyle={fontFamily:'var(--font-body)',fontSize:'0.9375rem',color:'var(--text-body)',background:'var(--rw-white)',
+      border:'1px solid var(--border-soft)',borderRadius:12,padding:'12px 15px',outline:'none',width:'100%',boxSizing:'border-box'};
+    const pl=this.pillar(e.pillar);
+    return h('div',{onClick:()=>this.setState({editing:null}),
+      style:{position:'fixed',inset:0,background:'rgba(60,42,28,0.32)',display:'flex',alignItems:'flex-start',justifyContent:'center',
+        padding:'44px 20px',overflowY:'auto',zIndex:50,animation:'rwaOverlay var(--dur-fast) var(--ease-soft)'}},
+      h('div',{onClick:(ev)=>ev.stopPropagation(),
+        style:{width:'100%',maxWidth:560,background:'var(--surface-page)',borderRadius:'var(--radius-lg)',boxShadow:'var(--shadow-lg)',
+          overflow:'hidden',animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+        h('div',{style:{padding:'26px 30px 22px',display:'flex',alignItems:'flex-start',justifyContent:'space-between',gap:16,borderBottom:'1px solid var(--border-soft)'}},
+          h('div',{style:{display:'flex',flexDirection:'column',gap:6}},
+            h('span',{className:'rw-eyebrow',style:{display:'inline-flex',alignItems:'center',gap:8}}, h('span',{style:{width:9,height:9,borderRadius:'999px',background:pl.color}}), e._isNew?'New post':'Edit post'),
+            h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1.6rem',color:'var(--text-heading)',lineHeight:1.1}}, e.date? this.fromKey(e.date).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}) : 'An idea \u2014 no date yet')),
+          h('button',{onClick:()=>this.setState({editing:null}),style:{width:32,height:32,borderRadius:'999px',border:'1px solid var(--border-soft)',
+            background:'transparent',cursor:'pointer',fontSize:'1.1rem',color:'var(--rw-dark-tortoise)',lineHeight:1,flexShrink:0}},'\u00d7')),
+        h('div',{style:{padding:'24px 30px',display:'flex',flexDirection:'column',gap:20}},
+          this.field('Hook / title', h('input',{value:e.title,placeholder:'the thought she only has at midnight\u2026',onChange:ev=>set('title',ev.target.value),
+            style:{...inputStyle,fontFamily:'var(--font-display)',fontSize:'1.15rem',color:'var(--text-heading)'}})),
+          this.field('Content pillar', this.seg(this.PILLARS().map(p=>({id:p.id,label:p.short})), e.pillar, v=>set('pillar',v), o=>this.pillar(o.id).color)),
+          h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18}},
+            this.field('Format', this.seg(this.TYPES().map(t=>({id:t,label:t})), e.type, v=>set('type',v))),
+            this.field('Status', this.seg(this.STATUSES().map(s=>({id:s.id,label:s.label})), e.status, v=>set('status',v), o=>this.status(o.id).dot))),
+          h('div',{style:{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:18}},
+            this.field('Date', h('input',{type:'date',value:e.date||'',onChange:ev=>set('date',ev.target.value||null),style:inputStyle})),
+            this.field('Time', h('input',{type:'time',value:e.time||'',onChange:ev=>set('time',ev.target.value),style:inputStyle}))),
+          h('div',{style:{display:'flex',flexDirection:'column',gap:8}},
+            h('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}},
+              h('label',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.16em',textTransform:'uppercase',color:'var(--text-muted)'}},'Caption'),
+              h('button',{type:'button',onClick:()=>this.writeCaption(),disabled:this.state.capLoading,
+                style:{border:'none',background:'transparent',cursor:this.state.capLoading?'default':'pointer',
+                  fontFamily:'var(--font-body)',fontSize:'0.75rem',fontWeight:600,color:'var(--rw-golden-honey)',opacity:this.state.capLoading?0.6:1,
+                  borderBottom:'1px solid color-mix(in srgb, var(--rw-golden-honey) 40%, transparent)',padding:'0 0 1px'}},
+                this.state.capLoading?'Writing\u2026':'Write with AI')),
+            h('textarea',{value:e.caption,placeholder:'Write it the way you\u2019d say it to a friend\u2026',onChange:ev=>set('caption',ev.target.value),
+              style:{...inputStyle,minHeight:96,resize:'vertical',lineHeight:1.6}})),
+          this.field('Hashtags', h('input',{value:e.hashtags,placeholder:'#christianmotherhood #realtalk',onChange:ev=>set('hashtags',ev.target.value),style:inputStyle})),
+          this.field('Call to action / link', h('input',{value:e.cta,placeholder:'Free guide in bio \u2192',onChange:ev=>set('cta',ev.target.value),style:inputStyle})),
+          this.field('Photo', h('div',{style:{display:'flex',alignItems:'center',gap:14}},
+            e.thumb? h('img',{src:e.thumb,style:{width:60,height:60,borderRadius:12,objectFit:'cover'}})
+              : h('div',{style:{width:60,height:60,borderRadius:12,border:'1px solid var(--border-soft)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--rw-sandy-shore)',fontFamily:'var(--font-body)',fontWeight:300,fontSize:'1.6rem'}},'+'),
+            h('label',{style:{padding:'9px 18px',borderRadius:'999px',border:'1px solid var(--border-soft)',background:'transparent',cursor:'pointer',
+              fontFamily:'var(--font-body)',fontSize:'0.8125rem',fontWeight:500,color:'var(--text-body)'}},
+              e.thumb?'Replace photo':'Add photo', h('input',{type:'file',accept:'image/*',onChange:ev=>this.onThumb(ev),style:{display:'none'}})),
+            e.thumb? h('button',{onClick:()=>set('thumb',null),style:{border:'none',background:'transparent',color:'var(--text-muted)',cursor:'pointer',fontFamily:'var(--font-body)',fontSize:'0.8125rem'}},'Remove'):null)),
+          e._isNew? null : this.reuseSection(e)
+        ),
+        h('div',{style:{padding:'18px 30px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,borderTop:'1px solid var(--border-soft)'}},
+          h('div',{style:{display:'flex',alignItems:'center',gap:14}},
+            h('button',{onClick:()=>this.copyCaption(e),style:{border:'none',background:'transparent',color:this.state.copied?'var(--rw-golden-honey)':'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontSize:'0.875rem',fontWeight:500}}, this.state.copied?'Copied \u2713':'Copy caption'),
+            e._isNew? null : h('button',{onClick:()=>this.remove(e.id),style:{border:'none',background:'transparent',color:'#B0553E',cursor:'pointer',fontFamily:'var(--font-body)',fontSize:'0.875rem',fontWeight:500}},'Delete')),
+          h('div',{style:{display:'flex',gap:10}},
+            h('button',{onClick:()=>this.setState({editing:null}),style:{padding:'11px 22px',borderRadius:'999px',border:'1px solid var(--border-soft)',
+              background:'transparent',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,color:'var(--text-body)'}},'Cancel'),
+            h('button',{onClick:()=>{ const {_isNew,...rest}=e; this.upsert(rest); },style:{padding:'11px 26px',borderRadius:'999px',border:'none',
+              background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:600,boxShadow:'var(--shadow-sunny)'}},'Save post'))
+        )
+      )
+    );
+  }
+  h_plan(){
+    const h=this.h.bind(this);
+    const start=this.startOfWeek(this.fromKey(this.state.cursor));
+    const tmpl=this.WEEK_TEMPLATE();
+    return h('div',{onClick:()=>this.setState({planOpen:false}),
+      style:{position:'fixed',inset:0,background:'rgba(60,42,28,0.32)',display:'flex',alignItems:'flex-start',justifyContent:'center',
+        padding:'52px 20px',overflowY:'auto',zIndex:50,animation:'rwaOverlay var(--dur-fast) var(--ease-soft)'}},
+      h('div',{onClick:ev=>ev.stopPropagation(),style:{width:'100%',maxWidth:560,background:'var(--surface-page)',borderRadius:'var(--radius-lg)',
+        boxShadow:'var(--shadow-lg)',overflow:'hidden',animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+        h('div',{style:{padding:'30px 30px 24px',textAlign:'center',borderBottom:'1px solid var(--border-soft)'}},
+          h('div',{className:'rw-eyebrow'},'Weekly rhythm'),
+          h('div',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.7rem',color:'var(--rw-golden-honey)',lineHeight:1,margin:'8px 0'}},'one day at a time'),
+          h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.9375rem',color:'var(--text-body)',margin:'8px auto 0',maxWidth:400,lineHeight:1.6}},'A gentle 7-day cadence across your four pillars. We\u2019ll drop these in as ideas \u2014 edit or delete anything.')),
+        h('div',{style:{padding:'12px 30px'}},
+          ...tmpl.map((t,i)=>{ const day=this.addDays(start,i); const pl=this.pillar(t.pillar);
+            return h('div',{key:i,style:{display:'flex',alignItems:'center',gap:14,padding:'14px 0',borderBottom:i<6?'1px solid var(--border-soft)':'none'}},
+              h('span',{style:{width:44,fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)'}}, day.toLocaleDateString('en-US',{weekday:'short'})),
+              h('span',{style:{width:10,height:10,borderRadius:'999px',background:pl.color,flexShrink:0}}),
+              h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)',width:64,flexShrink:0}}, t.type),
+              h('span',{style:{fontFamily:'var(--font-display)',fontSize:'1.0625rem',color:'var(--text-heading)'}}, t.title)); })),
+        h('div',{style:{padding:'18px 30px 26px',display:'flex',justifyContent:'flex-end',gap:10}},
+          h('button',{onClick:()=>this.setState({planOpen:false}),style:{padding:'11px 22px',borderRadius:'999px',border:'1px solid var(--border-soft)',
+            background:'transparent',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,color:'var(--text-body)'}},'Not now'),
+          h('button',{onClick:()=>this.applyWeekTemplate(),style:{padding:'11px 26px',borderRadius:'999px',border:'none',
+            background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:600,boxShadow:'var(--shadow-sunny)'}},'Add these to my week'))
+      )
+    );
+  }
+  h_gen(){
+    const h=this.h.bind(this);
+    const results=this.state.genResults;
+    const pending=results.filter(r=>r._state==='pending');
+    const approved=results.filter(r=>r._state==='approved').length;
+    const pillOpts=[{id:'',label:'All pillars'}].concat(this.PILLARS().map(p=>({id:p.id,label:p.short})));
+    const fmtOpts=[{id:'',label:'Any format'}].concat(this.TYPES().map(t=>({id:t,label:t})));
+    const inputStyle={fontFamily:'var(--font-body)',fontSize:'0.9375rem',color:'var(--text-body)',background:'var(--rw-white)',
+      border:'1px solid var(--border-soft)',borderRadius:12,padding:'12px 15px',outline:'none',width:'100%',boxSizing:'border-box'};
+    const reviewCard=(r)=>{ const pl=this.pillar(r.pillar); const tm=this.typeMeta(r.type); const done=r._state!=='pending';
+      return h('div',{key:r._id,style:{border:'1px solid var(--border-soft)',borderRadius:'var(--radius-md)',padding:'16px 18px',
+        display:'flex',flexDirection:'column',gap:9,background:r._state==='approved'?'var(--rw-buttermilk-100)':'var(--rw-white)',
+        opacity:r._state==='dismissed'?0.5:1,transition:'all var(--dur-fast) var(--ease-soft)'}},
+        h('div',{style:{display:'flex',alignItems:'center',gap:9,flexWrap:'wrap'}},
+          h('span',{style:{width:14,height:14,borderRadius:4,background:tm.tint,border:'1px solid '+tm.accent,flexShrink:0}}),
+          h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.12em',textTransform:'uppercase',color:'var(--rw-dark-tortoise)',opacity:0.72}}, r.type),
+          h('span',{style:{display:'inline-flex',alignItems:'center',gap:6,fontFamily:'var(--font-body)',fontSize:'0.625rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)'}},
+            h('span',{style:{width:7,height:7,borderRadius:'999px',background:pl.color}}), pl.short)),
+        h('div',{style:{fontFamily:'var(--font-display)',fontSize:'1.2rem',lineHeight:1.25,color:'var(--text-heading)'}}, r.title),
+        r.caption? h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.875rem',lineHeight:1.6,color:'var(--text-body)'}}, r.caption) : null,
+        r.hashtags? h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-muted)'}}, r.hashtags) : null,
+        r.cta? h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--rw-golden-honey)'}}, r.cta) : null,
+        done
+          ? h('div',{style:{fontFamily:'var(--font-body)',fontSize:'0.75rem',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-muted)',paddingTop:2}},
+              r._state==='approved'?'\u2713 Added to backlog':'Dismissed')
+          : h('div',{style:{display:'flex',alignItems:'center',gap:10,paddingTop:4}},
+              h('button',{onClick:()=>this.approveIdea(r._id),style:{padding:'8px 18px',borderRadius:'999px',border:'none',
+                background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:600,fontSize:'0.8125rem',boxShadow:'var(--shadow-sunny)'}},'Add to backlog'),
+              h('button',{onClick:()=>this.dismissIdea(r._id),style:{padding:'8px 16px',borderRadius:'999px',border:'1px solid var(--border-soft)',
+                background:'transparent',color:'var(--text-muted)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,fontSize:'0.8125rem'}},'Dismiss'))
+      ); };
+    const select=(opts,val,onCh)=>h('select',{value:val,onChange:ev=>onCh(ev.target.value),
+      style:{...inputStyle,appearance:'none',cursor:'pointer',backgroundImage:'none'}}, ...opts.map(o=>h('option',{key:o.id,value:o.id},o.label)));
+    return h('div',{onClick:()=>this.setState({genOpen:false}),
+      style:{position:'fixed',inset:0,background:'rgba(60,42,28,0.32)',display:'flex',alignItems:'flex-start',justifyContent:'center',
+        padding:'44px 20px',overflowY:'auto',zIndex:50,animation:'rwaOverlay var(--dur-fast) var(--ease-soft)'}},
+      h('div',{onClick:ev=>ev.stopPropagation(),style:{width:'100%',maxWidth:600,background:'var(--surface-page)',borderRadius:'var(--radius-lg)',
+        boxShadow:'var(--shadow-lg)',overflow:'hidden',animation:'rwaFade var(--dur-base) var(--ease-soft)'}},
+        h('div',{style:{padding:'28px 30px 22px',borderBottom:'1px solid var(--border-soft)',position:'relative'}},
+          h('div',{className:'rw-eyebrow'},'Idea studio'),
+          h('div',{style:{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.7rem',color:'var(--rw-golden-honey)',lineHeight:1.1,margin:'6px 0 4px'}},'little by little, ideas'),
+          h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.9rem',color:'var(--text-body)',margin:0,lineHeight:1.6,maxWidth:440}},'A gentle brainstorm in your voice. Nothing saves until you approve it \u2014 add the ones that feel true, dismiss the rest.'),
+          h('button',{onClick:()=>this.setState({genOpen:false}),style:{position:'absolute',top:24,right:26,width:32,height:32,borderRadius:'999px',border:'1px solid var(--border-soft)',
+            background:'transparent',cursor:'pointer',fontSize:'1.1rem',color:'var(--rw-dark-tortoise)',lineHeight:1}},'\u00d7')),
+        h('div',{style:{padding:'20px 30px',display:'flex',flexDirection:'column',gap:14,borderBottom:'1px solid var(--border-soft)'}},
+          h('div',{style:{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14}},
+            h('div',{style:{display:'flex',flexDirection:'column',gap:7}},
+              h('label',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--text-muted)'}},'Pillar'),
+              select(pillOpts,this.state.genPillar,v=>this.setState({genPillar:v}))),
+            h('div',{style:{display:'flex',flexDirection:'column',gap:7}},
+              h('label',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--text-muted)'}},'Format'),
+              select(fmtOpts,this.state.genFormat,v=>this.setState({genFormat:v})))),
+          h('div',{style:{display:'flex',flexDirection:'column',gap:7}},
+            h('label',{style:{fontFamily:'var(--font-body)',fontSize:'0.6875rem',fontWeight:600,letterSpacing:'0.14em',textTransform:'uppercase',color:'var(--text-muted)'}},'On your mind (optional)'),
+            h('input',{value:this.state.genTopic,placeholder:'e.g. going back to church after a long time away',onChange:ev=>this.setState({genTopic:ev.target.value}),
+              onKeyDown:ev=>{ if(ev.key==='Enter') this.runGen(); },style:inputStyle})),
+          h('div',{style:{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}},
+            h('button',{onClick:()=>this.runGen(false),disabled:this.state.genLoading,
+              style:{padding:'11px 26px',borderRadius:'999px',border:'none',
+                background:'var(--rw-dark-tortoise)',color:'var(--rw-shell)',cursor:this.state.genLoading?'default':'pointer',
+                fontFamily:'var(--font-body)',fontWeight:600,fontSize:'0.875rem',opacity:this.state.genLoading?0.7:1}},
+              this.state.genLoading&&!this.state.genViral?'Thinking\u2026':(results.length&&!this.state.genViral?'Regenerate':'Generate ideas')),
+            h('button',{onClick:()=>this.runGen(true),disabled:this.state.genLoading,
+              style:{display:'inline-flex',alignItems:'center',gap:8,padding:'11px 24px',borderRadius:'999px',border:'1.5px solid var(--rw-golden-honey)',
+                background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:this.state.genLoading?'default':'pointer',
+                fontFamily:'var(--font-body)',fontWeight:600,fontSize:'0.875rem',opacity:this.state.genLoading?0.7:1,boxShadow:'var(--shadow-sunny)'}},
+              h('span',{style:{fontSize:'0.95rem',lineHeight:1}},'\u2726'), this.state.genLoading&&this.state.genViral?'Boosting\u2026':'Viral boost')),
+          h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.75rem',color:'var(--text-muted)',margin:0,lineHeight:1.5}},'Viral boost adapts proven high-share Instagram formats to your niche. It draws on what tends to travel \u2014 not today\u2019s live trends.')),
+        h('div',{style:{padding:'20px 30px 8px',maxHeight:'46vh',overflowY:'auto'}},
+          this.state.genError? h('p',{style:{fontFamily:'var(--font-body)',fontSize:'0.875rem',color:'#B0553E',margin:'0 0 8px'}}, this.state.genError) : null,
+          this.state.genLoading && !results.length
+            ? h('div',{style:{padding:'30px 0',textAlign:'center',fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:'1.25rem',color:'var(--rw-golden-honey)'}},'gathering gentle ideas\u2026')
+            : (results.length
+                ? h('div',{style:{display:'flex',flexDirection:'column',gap:12}}, ...results.map(reviewCard))
+                : (this.state.genError? null : h('div',{style:{padding:'26px 0',textAlign:'center',fontFamily:'var(--font-body)',fontSize:'0.9rem',color:'var(--text-muted)'}},'Pick a pillar and press Generate \u2014 ideas will show here for your review.')))),
+        h('div',{style:{padding:'16px 30px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,borderTop:'1px solid var(--border-soft)'}},
+          h('span',{style:{fontFamily:'var(--font-body)',fontSize:'0.8125rem',color:'var(--text-muted)'}}, approved? approved+' added to backlog' : (pending.length? pending.length+' waiting for review' : '')),
+          h('div',{style:{display:'flex',gap:10}},
+            h('button',{onClick:()=>this.setState({genOpen:false}),style:{padding:'11px 22px',borderRadius:'999px',border:'1px solid var(--border-soft)',
+              background:'transparent',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:500,color:'var(--text-body)'}},'Done'),
+            pending.length? h('button',{onClick:()=>this.approveAll(),style:{padding:'11px 24px',borderRadius:'999px',border:'none',
+              background:'var(--rw-buttermilk)',color:'var(--rw-dark-tortoise)',cursor:'pointer',fontFamily:'var(--font-body)',fontWeight:600,boxShadow:'var(--shadow-sunny)'}},'Add all '+pending.length) : null))
+      )
+    );
+  }
+}
+</script>
+</body>
+</html>
