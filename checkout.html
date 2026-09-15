@@ -660,6 +660,17 @@ footer {
   max-width: 460px; margin: 14px auto 0; line-height: 1.6;
 }
 
+.checkout-hero-photo {
+  max-width: 280px; margin: 40px auto 0;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 20px 44px rgba(0,0,0,0.18);
+  transform: rotate(-2deg);
+}
+.checkout-hero-photo img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%;
+  display: block;
+}
+
 /* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
 #mainNav .nav-logo { color: var(--text); }
 #mainNav .nav-tagline { color: var(--text-light); }
@@ -796,6 +807,9 @@ footer {
     <span class="eyebrow">Checkout</span>
     <h1>You're One Step Away From Finding Your Way Back, Mama.</h1>
     <p class="checkout-hero-sub">Still Here: The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back</p>
+    <div class="checkout-hero-photo reveal-img">
+      <img src="ally-checkout-photo.jpg" alt="Ally, curled up on the couch with a mug of coffee">
+    </div>
     <a href="index.html#products" class="checkout-back">&larr; Back to the shop</a>
   </div>
 </section>
