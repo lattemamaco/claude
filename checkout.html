@@ -649,6 +649,12 @@ footer {
 }
 .checkout-back:hover { color: var(--crimson); }
 
+.checkout-hero-sub {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(14px, 1.7vw, 16.5px); color: var(--text-mid);
+  max-width: 460px; margin: 14px auto 0; line-height: 1.6;
+}
+
 /* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
 #mainNav .nav-logo { color: var(--text); }
 #mainNav .nav-tagline { color: var(--text-light); }
@@ -659,7 +665,7 @@ footer {
 
 .checkout-reminder {
   background: var(--cream-soft); border: 1px solid var(--border);
-  border-radius: 8px; padding: 22px 24px; margin-bottom: 36px;
+  border-radius: 8px; padding: 22px 24px; margin-bottom: 24px;
 }
 .checkout-reminder-text p {
   font-size: 14px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;
@@ -668,6 +674,56 @@ footer {
 .checkout-reminder-text .price-old { color: var(--text-mid); text-decoration: line-through; font-weight: 400; }
 .checkout-reminder-text .note { font-size: 12.5px; color: var(--text-mid); margin: 0; }
 .checkout-reminder-text .sale { font-size: 12.5px; color: var(--crimson-dark); margin: 0 0 6px; }
+
+.checkout-checklist {
+  list-style: none; margin: 16px 0 0; padding: 14px 0 0;
+  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.checkout-checklist li {
+  position: relative; padding-left: 24px;
+  font-size: 13.5px; color: var(--text-mid); line-height: 1.5;
+}
+.checkout-checklist li::before {
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: var(--crimson); font-weight: 700;
+}
+
+.checkout-testimonial {
+  background: var(--cream-soft); border-left: 3px solid var(--crimson);
+  border-radius: 0 6px 6px 0; padding: 20px 22px; margin-bottom: 24px;
+}
+.checkout-testimonial p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 14.5px; color: var(--text); line-height: 1.6; margin: 0 0 8px;
+}
+.checkout-testimonial span {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson-dark);
+}
+
+.checkout-trust {
+  margin-top: 16px; text-align: center;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.checkout-trust p { font-size: 12.5px; color: var(--text-mid); margin: 0; }
+
+.checkout-personal-note {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 14px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border);
+}
+.checkout-personal-note img {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+.checkout-personal-note p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 15px; color: var(--text); line-height: 1.6; max-width: 380px; margin: 0;
+}
+.checkout-personal-note span {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson-dark);
+}
 
 .checkout-form { display: flex; flex-direction: column; gap: 16px; }
 .checkout-field label {
@@ -702,13 +758,9 @@ footer {
   transition: background 0.2s; margin-top: 4px;
 }
 .checkout-buy-btn:hover { background: var(--crimson-dark); }
-.checkout-secure-note {
-  text-align: center; margin-top: 16px;
-  font-size: 13px; color: var(--text-mid);
-}
 .checkout-policy {
   margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border);
-  font-size: 12px; color: var(--text-light); line-height: 1.7; text-align: center;
+  font-size: 13px; color: var(--text-mid); line-height: 1.7; text-align: center;
 }
 </style>
 </head>
@@ -737,7 +789,8 @@ footer {
 <section class="checkout-hero">
   <div class="reveal">
     <span class="eyebrow">Checkout</span>
-    <h1>You're One Step Away From Finding Your Way Back.</h1>
+    <h1>You're One Step Away From Finding Your Way Back, Mama.</h1>
+    <p class="checkout-hero-sub">Still Here: The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back</p>
     <a href="index.html#products" class="checkout-back">&larr; Back to the shop</a>
   </div>
 </section>
@@ -748,10 +801,20 @@ footer {
 
     <div class="checkout-reminder reveal">
       <div class="checkout-reminder-text">
-        <p><strong>Still Here:</strong> The Honest Survival Guide for the Christian Mom Who Lost Herself and Is Still Finding Her Way Back — <span class="price-old">$37</span> <span class="price">$27</span></p>
+        <p><strong>Still Here</strong> — <span class="price-old">$37</span> <span class="price">$27</span></p>
         <p class="sale">Launch price. Goes up to $37 soon — your price is locked in once you buy.</p>
-        <p class="note">An immediate digital download. No waiting. No perfection required.</p>
       </div>
+      <ul class="checkout-checklist">
+        <li>Instant digital download — no waiting</li>
+        <li>Written for the mom who loves God and is still drowning</li>
+        <li>No performance required. Just raw, honest truth</li>
+        <li>Yours forever — read it at 2am when you need it most</li>
+      </ul>
+    </div>
+
+    <div class="checkout-testimonial reveal">
+      <p>"I cried reading the Grieve chapter. She named a loss I was never allowed to admit I was carrying. I did not know how much I needed permission to feel it."</p>
+      <span>— Sarah M.</span>
     </div>
 
     <form class="checkout-form reveal" id="checkoutForm">
@@ -769,11 +832,21 @@ footer {
       </div>
 
       <!-- TODO: Paste your real Stripe Payment Link URL below. Leave STRIPE_LINK empty and the button will let you know payment isn't connected yet instead of failing silently. -->
-      <button type="submit" class="checkout-buy-btn">Yes — Send Me Still Here</button>
-      <p class="checkout-secure-note">🔒 Secure checkout. Instant delivery to your inbox.</p>
+      <button type="submit" class="checkout-buy-btn">Yes — Send Me Still Here for $27</button>
+      <div class="checkout-trust">
+        <p>🔒 Secure, encrypted checkout</p>
+        <p>📧 Delivered instantly to your inbox</p>
+        <p>💳 One-time payment — no subscriptions, ever</p>
+      </div>
     </form>
 
-    <p class="checkout-policy">Because this is an instant digital download, all sales are final. The moment your payment is complete, you'll get a link by email to download your PDF.</p>
+    <p class="checkout-policy">This is a digital product, delivered instantly to the email you enter above. Because of that, all sales are final — but I promise you, I needed this. I think you might too.</p>
+
+    <div class="checkout-personal-note reveal">
+      <img src="ally-bio-portrait.jpg" alt="Ally Carmichael">
+      <p>"I created Still Here because I was that woman. I needed someone to say the hard part first — so I did. I hope it finds you exactly when you need it."</p>
+      <span>— Ally</span>
+    </div>
   </div>
 </section>
 
