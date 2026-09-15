@@ -661,13 +661,19 @@ footer {
 }
 
 .checkout-photo-pair {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  max-width: 400px; margin: 48px auto 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+  max-width: 440px; margin: 48px auto 0;
 }
+.checkout-photo-pair .card-stock {
+  background: var(--white); padding: 6px 6px 16px; box-sizing: border-box;
+  border-radius: 4px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+.checkout-photo-pair .card-stock:nth-child(1) { transform: rotate(-2deg); }
+.checkout-photo-pair .card-stock:nth-child(2) { transform: rotate(1.5deg); }
+.checkout-photo-pair .card-stock:nth-child(3) { transform: rotate(-1.5deg); }
 .checkout-photo-pair img {
   width: 100%; aspect-ratio: 4/5; object-fit: cover;
-  border-radius: 6px; box-shadow: 0 14px 30px rgba(0,0,0,0.16);
-  display: block;
+  border-radius: 2px; display: block;
 }
 
 /* checkout page has no dark hero photo, so the nav needs its "scrolled" (dark) look from the start */
@@ -864,8 +870,9 @@ footer {
     </div>
 
     <div class="checkout-photo-pair reveal-img">
-      <img src="ally-checkout-photo.jpg" alt="Ally with a mug of coffee on the couch">
-      <img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch">
+      <div class="card-stock"><img src="ally-checkout-photo.jpg" alt="Ally with a mug of coffee on the couch"></div>
+      <div class="card-stock"><img src="ally-checkout-journal.jpg" alt="Ally writing in her journal"></div>
+      <div class="card-stock"><img src="ally-checkout-laughing.jpg" alt="Ally laughing on the couch"></div>
     </div>
   </div>
 </section>
