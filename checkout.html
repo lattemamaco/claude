@@ -656,7 +656,7 @@ footer {
 /* ── CHECKOUT PITCH STACK ── */
 .checkout-pitch { background: var(--cream); padding: 8px 8% 64px; text-align: center; }
 .checkout-pitch-stack {
-  --card-w: 210px; --max-x: 200px;
+  --card-w: 190px; --max-x: 320px;
   position: relative; max-width: 100%;
   width: calc(var(--card-w) + var(--max-x));
   height: calc(var(--card-w) * 2000 / 1415 + 24px);
@@ -669,9 +669,11 @@ footer {
   overflow: hidden;
 }
 .pitch-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pitch-card:nth-child(1) { transform: translate(var(--max-x), 14px) rotate(7deg); z-index: 1; }
-.pitch-card:nth-child(2) { transform: translate(calc(var(--max-x) * 0.5), 6px) rotate(2deg); z-index: 2; }
-.pitch-card:nth-child(3) { transform: translate(0, 0) rotate(-2deg); z-index: 3; }
+.pitch-card:nth-child(1) { transform: translate(var(--max-x), 16px) rotate(9deg); z-index: 1; }
+.pitch-card:nth-child(2) { transform: translate(calc(var(--max-x) * 0.75), 11px) rotate(6deg); z-index: 2; }
+.pitch-card:nth-child(3) { transform: translate(calc(var(--max-x) * 0.5), 6px) rotate(3deg); z-index: 3; }
+.pitch-card:nth-child(4) { transform: translate(calc(var(--max-x) * 0.25), 2px) rotate(0.5deg); z-index: 4; }
+.pitch-card:nth-child(5) { transform: translate(0, 0) rotate(-2deg); z-index: 5; }
 
 .checkout-pitch-title {
   font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600;
@@ -684,8 +686,12 @@ footer {
   max-width: 480px; margin: 0 auto;
 }
 
+@media (max-width: 820px) {
+  .checkout-pitch-stack { --card-w: 170px; --max-x: 260px; }
+}
+
 @media (max-width: 480px) {
-  .checkout-pitch-stack { --card-w: 140px; --max-x: 130px; }
+  .checkout-pitch-stack { --card-w: 120px; --max-x: 180px; }
 }
 
 .checkout-photo-pair {
@@ -867,6 +873,8 @@ footer {
 <!-- CHECKOUT PITCH -->
 <section class="checkout-pitch">
   <div class="checkout-pitch-stack reveal-img">
+    <div class="pitch-card"><img src="still-here-page-partthree.jpg" alt="Still Here — interior section page"></div>
+    <div class="pitch-card"><img src="still-here-page-tryit.jpg" alt="Still Here — interior worksheet page"></div>
     <div class="pitch-card"><img src="still-here-page-obstacles.jpg" alt="Still Here — interior worksheet page"></div>
     <div class="pitch-card"><img src="still-here-page-confess.jpg" alt="Still Here — interior chapter page"></div>
     <div class="pitch-card"><img src="still-here-cover.jpg" alt="Still Here ebook cover"></div>
