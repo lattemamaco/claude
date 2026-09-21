@@ -661,23 +661,6 @@ footer {
 .freebie-body { font-size: 15.5px; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; }
 .freebie-lead { font-size: 16.5px; color: var(--text); line-height: 1.75; margin-bottom: 20px; }
 
-.freebie-topics {
-  list-style: none; margin: 0 0 36px; padding: 6px 0 0;
-  display: flex; flex-direction: column;
-}
-.freebie-topics li {
-  display: flex; gap: 14px; align-items: center;
-  font-size: 14.5px; color: var(--text-mid); line-height: 1.5;
-  padding: 14px 0; border-bottom: 1px solid var(--border);
-}
-.freebie-topics li:first-child { border-top: 1px solid var(--border); }
-.freebie-topics li::before {
-  content: '→'; flex-shrink: 0;
-  width: 28px; height: 28px; border-radius: 50%;
-  border: 1.5px solid var(--crimson); color: var(--crimson);
-  display: flex; align-items: center; justify-content: center; font-size: 12px;
-}
-
 .freebie-form-card {
   background: linear-gradient(180deg, var(--cream-soft), var(--cream-mid));
   border: 1px solid var(--border); border-radius: 20px;
@@ -711,16 +694,6 @@ footer {
 .freebie-form button:hover { background: var(--crimson-dark); }
 .freebie-form-note { font-size: 11px; color: var(--text-light); margin-top: 14px; letter-spacing: 0.5px; }
 
-.freebie-quote {
-  border: 1.5px solid var(--cobalt); border-radius: 6px;
-  padding: 20px 24px; margin-bottom: 28px;
-}
-.freebie-quote p:first-child {
-  font-family: 'Playfair Display', serif; font-weight: 600;
-  font-size: 18px; color: var(--text); margin-bottom: 8px;
-}
-.freebie-quote p:last-child { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
-
 .freebie-stack {
   position: relative; width: 100%; max-width: 460px;
   aspect-ratio: 300 / 394; margin: 0 auto;
@@ -746,8 +719,6 @@ footer {
   .freebie-layout { grid-template-columns: 1fr; gap: 36px; }
   .freebie-stack { max-width: 360px; }
   .freebie-content { text-align: center; }
-  .freebie-topics, .freebie-quote { text-align: left; max-width: 420px; margin-left: auto; margin-right: auto; }
-  .freebie-topics { margin-bottom: 36px; }
 }
 
 @media (max-width: 480px) {
@@ -801,19 +772,6 @@ footer {
       <p class="freebie-subtitle">5 Honest Prayers for the Mom Who Has Nothing Left to Say to God</p>
       <p class="freebie-lead">You miss Him. You just don't have the words anymore, and you're too exhausted to fake them. These prayers are already written for you. All you have to do is show up.</p>
       <p class="freebie-body">If you have opened your Bible app and closed it again without reading a single word, you are not faithless — you are just honest, and honest is exactly where God has always done His best work. These five prayers are already written for you, because sometimes the most faithful thing you can do is hand someone else's words to God when your own have completely run out.</p>
-
-      <div class="freebie-quote reveal">
-        <p>You cannot pray this wrong.</p>
-        <p>Read them, use them, change them, whisper them into your pillow at 2am. They belong to you now.</p>
-      </div>
-
-      <ul class="freebie-topics reveal-group">
-        <li>When you are angry and ashamed of being angry</li>
-        <li>The guilt about the distance between you and God</li>
-        <li>The thoughts you have never said out loud</li>
-        <li>The loneliness nobody talks about</li>
-        <li>The woman you were before all of this</li>
-      </ul>
 
       <div class="freebie-form-card">
         <span class="freebie-form-badge">Freebie Alert ✨</span>
