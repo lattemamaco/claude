@@ -675,32 +675,6 @@ footer {
 .checkout-section { background: var(--cream); padding: 28px 8% 100px; }
 .checkout-mini { max-width: 460px; margin: 0 auto; }
 
-.checkout-reminder {
-  background: var(--cream-soft); border: 1px solid var(--border);
-  border-radius: 8px; padding: 22px 24px; margin-bottom: 24px;
-}
-.checkout-reminder-text p {
-  font-size: 14px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;
-}
-.checkout-reminder-text .price { color: var(--crimson-dark); font-weight: 700; }
-.checkout-reminder-text .price-old { color: var(--text-mid); text-decoration: line-through; font-weight: 400; }
-.checkout-reminder-text .note { font-size: 12.5px; color: var(--text-mid); margin: 0; }
-.checkout-reminder-text .sale { font-size: 12.5px; color: var(--crimson-dark); margin: 0 0 6px; }
-
-.checkout-checklist {
-  list-style: none; margin: 16px 0 0; padding: 14px 0 0;
-  border-top: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 10px;
-}
-.checkout-checklist li {
-  position: relative; padding-left: 24px;
-  font-size: 13.5px; color: var(--text-mid); line-height: 1.5;
-}
-.checkout-checklist li::before {
-  content: '✓'; position: absolute; left: 0; top: 0;
-  color: var(--crimson); font-weight: 700;
-}
-
 .checkout-testimonial {
   background: var(--cream-soft); border-left: 3px solid var(--crimson);
   border-radius: 0 6px 6px 0; padding: 20px 22px; margin-bottom: 24px;
@@ -714,11 +688,75 @@ footer {
   letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson-dark);
 }
 
+/* ── CHECKOUT CARD ── */
+.checkout-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: 0 24px 54px rgba(0,0,0,0.08);
+  padding: 32px 26px;
+}
+.checkout-card-title {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 22px; color: var(--text); margin-bottom: 6px;
+}
+.checkout-card-price .price { color: var(--crimson-dark); font-weight: 700; font-size: 14.5px; }
+.checkout-card-price .price-old {
+  color: var(--text-light); text-decoration: line-through;
+  font-size: 13px; margin-left: 8px;
+}
+.checkout-card-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.checkout-card-label {
+  font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); margin-bottom: 16px;
+}
+.checkout-card .checkout-form { gap: 14px; }
+.checkout-card-note { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
+
+.checkout-summary-row { display: flex; align-items: center; gap: 14px; }
+.checkout-summary-thumb {
+  width: 46px; aspect-ratio: 700 / 990; object-fit: cover;
+  border-radius: 4px; box-shadow: 0 6px 14px rgba(0,0,0,0.14); flex-shrink: 0;
+}
+.checkout-summary-info { flex: 1; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.checkout-summary-info span:first-child { font-size: 14.5px; font-weight: 600; color: var(--text); }
+.checkout-summary-info span:last-child { font-size: 14.5px; font-weight: 700; color: var(--text); white-space: nowrap; }
+
+.checkout-due-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin: 20px 0 22px; padding-top: 18px; border-top: 1px solid var(--border);
+}
+.checkout-due-label {
+  font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text);
+}
+.checkout-due-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; color: var(--text); }
+
 .checkout-trust {
   margin-top: 16px; text-align: center;
   display: flex; flex-direction: column; gap: 6px;
 }
 .checkout-trust p { font-size: 12.5px; color: var(--text-mid); margin: 0; }
+
+/* ── WHAT'S INCLUDED / AFTER PURCHASE ── */
+.checkout-included { margin: 48px 0 36px; }
+.checkout-included h3, .checkout-after h3 {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text);
+  text-align: center; margin-bottom: 20px;
+}
+.checkout-included ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.checkout-included li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 14.5px; color: var(--text-mid); line-height: 1.55;
+}
+.checkout-included li::before {
+  content: '★'; color: var(--crimson); flex-shrink: 0; font-size: 12px; margin-top: 3px;
+}
+
+.checkout-after {
+  text-align: center; background: var(--cream-soft);
+  border-radius: 10px; padding: 30px 26px; margin-bottom: 8px;
+}
+.checkout-after p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin: 0; }
 
 .checkout-personal-note {
   display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -750,28 +788,17 @@ footer {
 }
 .checkout-field input:focus { outline: none; border-color: var(--crimson); }
 
-.checkout-payment-note {
-  border: 1.5px dashed var(--border); border-radius: 4px;
-  padding: 14px 16px;
-}
-.checkout-payment-note span {
-  display: block; font-family: 'Montserrat', sans-serif; font-size: 10px;
-  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-light); margin-bottom: 4px;
-}
-.checkout-payment-note p { font-size: 13px; color: var(--text-mid); margin: 0; line-height: 1.5; }
-
 .checkout-buy-btn {
   display: block; width: 100%; text-align: center;
   background: var(--crimson); color: var(--cream);
-  text-decoration: none; padding: 19px; border-radius: 4px;
+  text-decoration: none; padding: 19px; border-radius: 999px;
   font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
   letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
   transition: background 0.2s; margin-top: 4px;
 }
 .checkout-buy-btn:hover { background: var(--crimson-dark); }
 .checkout-policy {
-  margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border);
+  margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);
   font-size: 13px; color: var(--text-mid); line-height: 1.7; text-align: center;
 }
 </style>
@@ -810,12 +837,62 @@ footer {
 <section class="checkout-section" id="order">
   <div class="checkout-mini">
 
-    <div class="checkout-reminder reveal">
-      <div class="checkout-reminder-text">
-        <p><strong>Still Here</strong> — <span class="price-old">$37</span> <span class="price">$27</span></p>
-        <p class="sale">Launch price. Goes up to $37 soon — your price is locked in once you buy.</p>
-      </div>
-      <ul class="checkout-checklist">
+    <div class="checkout-testimonial reveal">
+      <p>"I didn't know I needed permission to be honest about how hard this is. This guide gave me that."</p>
+      <span>— Rachel T.</span>
+    </div>
+
+    <div class="checkout-card reveal">
+      <div class="checkout-card-title">Still Here</div>
+      <p class="checkout-card-price"><span class="price-old">$37</span> <span class="price">$27 launch price</span></p>
+
+      <hr class="checkout-card-divider">
+
+      <form class="checkout-form" id="checkoutForm">
+        <div class="checkout-card-label">Contact</div>
+        <div class="checkout-field">
+          <label for="ckFirstName">First Name</label>
+          <input type="text" id="ckFirstName" name="firstName" required autocomplete="given-name">
+        </div>
+        <div class="checkout-field">
+          <label for="ckEmail">Email Address</label>
+          <input type="email" id="ckEmail" name="email" required autocomplete="email">
+        </div>
+
+        <hr class="checkout-card-divider">
+
+        <div class="checkout-card-label">Payment</div>
+        <p class="checkout-card-note">You'll enter your card on the next, secure screen — nothing is charged on this page.</p>
+
+        <hr class="checkout-card-divider">
+
+        <div class="checkout-card-label">Summary</div>
+        <div class="checkout-summary-row">
+          <img src="still-here-cover.jpg" alt="Still Here ebook cover" class="checkout-summary-thumb">
+          <div class="checkout-summary-info">
+            <span>Still Here</span>
+            <span>$27.00</span>
+          </div>
+        </div>
+        <div class="checkout-due-row">
+          <span class="checkout-due-label">Due Now</span>
+          <span class="checkout-due-price">$27.00</span>
+        </div>
+
+        <!-- TODO: Paste your real Stripe Payment Link URL below. Leave STRIPE_LINK empty and the button will let you know payment isn't connected yet instead of failing silently. -->
+        <button type="submit" class="checkout-buy-btn">Yes — Send Me Still Here</button>
+        <div class="checkout-trust">
+          <p>🔒 Secure, encrypted checkout</p>
+          <p>📧 Delivered instantly to your inbox</p>
+        </div>
+      </form>
+    </div>
+
+    <p class="checkout-policy">This is a digital product, delivered instantly to the email you enter above. Because of that, all sales are final — but I promise you, I needed this. I think you might too.</p>
+
+    <div class="checkout-included reveal">
+      <h3>What's Included</h3>
+      <ul>
         <li>Instant digital download — no waiting</li>
         <li>Written for the mom who loves God and is still drowning</li>
         <li>No performance required. Just raw, honest truth</li>
@@ -823,35 +900,10 @@ footer {
       </ul>
     </div>
 
-    <div class="checkout-testimonial reveal">
-      <p>"I didn't know I needed permission to be honest about how hard this is. This guide gave me that."</p>
-      <span>— Rachel T.</span>
+    <div class="checkout-after reveal">
+      <h3>What Happens After Purchase</h3>
+      <p>You'll get an email with your download link instantly. Open it whenever you're ready — it's yours to keep, no subscriptions, no waiting.</p>
     </div>
-
-    <form class="checkout-form reveal" id="checkoutForm">
-      <div class="checkout-field">
-        <label for="ckFirstName">First Name</label>
-        <input type="text" id="ckFirstName" name="firstName" required autocomplete="given-name">
-      </div>
-      <div class="checkout-field">
-        <label for="ckEmail">Email Address</label>
-        <input type="email" id="ckEmail" name="email" required autocomplete="email">
-      </div>
-      <div class="checkout-payment-note">
-        <span>Payment</span>
-        <p>You'll enter your card on the next, secure screen — nothing is charged on this page.</p>
-      </div>
-
-      <!-- TODO: Paste your real Stripe Payment Link URL below. Leave STRIPE_LINK empty and the button will let you know payment isn't connected yet instead of failing silently. -->
-      <button type="submit" class="checkout-buy-btn">Yes — Send Me Still Here for $27</button>
-      <div class="checkout-trust">
-        <p>🔒 Secure, encrypted checkout</p>
-        <p>📧 Delivered instantly to your inbox</p>
-        <p>💳 One-time payment — no subscriptions, ever</p>
-      </div>
-    </form>
-
-    <p class="checkout-policy">This is a digital product, delivered instantly to the email you enter above. Because of that, all sales are final — but I promise you, I needed this. I think you might too.</p>
 
     <div class="checkout-personal-note reveal">
       <img src="ally-bio-portrait.jpg" alt="Ally Carmichael">
