@@ -6,10 +6,11 @@
 <title>Checkout — Still Here | Rooted with Ally</title>
 <script>
 if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-window.scrollTo(0, 0);
-window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
-window.addEventListener('load', function () { window.scrollTo(0, 0); });
-document.addEventListener('DOMContentLoaded', function () { window.scrollTo(0, 0); });
+function jumpToTop() { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+jumpToTop();
+window.addEventListener('pageshow', jumpToTop);
+window.addEventListener('load', jumpToTop);
+document.addEventListener('DOMContentLoaded', jumpToTop);
 </script>
 <meta name="description" content="Complete your order for Still Here, the honest survival guide for the Christian mom who lost herself and is finding her way back.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
