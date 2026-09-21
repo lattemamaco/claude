@@ -695,10 +695,15 @@ footer {
 
 .freebie-stack {
   --card-w: 230px; --max-x: 210px; --max-y: 26px;
-  position: relative; max-width: 100%;
+  position: relative; max-width: 100%; cursor: pointer;
   width: calc(var(--card-w) + var(--max-x));
   height: calc(var(--card-w) * 394 / 300 + var(--max-y));
   margin: 0 auto;
+}
+.freebie-stack-hint {
+  text-align: center; margin-top: 16px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light);
 }
 .stack-card {
   position: absolute; top: 0; left: 0;
@@ -755,11 +760,14 @@ footer {
 <!-- FREEBIE -->
 <section class="freebie-hero">
   <div class="freebie-layout">
-    <div class="freebie-stack reveal-img">
-      <div class="stack-card"><img src="freebie-peek-prayer01.jpg" alt="When Faith Goes Quiet — a prayer page"></div>
-      <div class="stack-card"><img src="freebie-peek-toc.jpg" alt="When Faith Goes Quiet — Five Honest Prayers page"></div>
-      <div class="stack-card"><img src="freebie-peek-intro.jpg" alt="When Faith Goes Quiet — Before You Begin page"></div>
-      <div class="stack-card"><img src="freebie-cover.jpg" alt="When Faith Goes Quiet — 5 honest prayers for the mom who has nothing left to say to God"></div>
+    <div>
+      <div class="freebie-stack reveal-img" id="freebieStack" title="Tap to see another page">
+        <div class="stack-card"><img src="freebie-peek-prayer01.jpg" alt="When Faith Goes Quiet — a prayer page"></div>
+        <div class="stack-card"><img src="freebie-peek-toc.jpg" alt="When Faith Goes Quiet — Five Honest Prayers page"></div>
+        <div class="stack-card"><img src="freebie-peek-intro.jpg" alt="When Faith Goes Quiet — Before You Begin page"></div>
+        <div class="stack-card"><img src="freebie-cover.jpg" alt="When Faith Goes Quiet — 5 honest prayers for the mom who has nothing left to say to God"></div>
+      </div>
+      <p class="freebie-stack-hint">Tap the pages to flip through them</p>
     </div>
     <div class="freebie-content reveal">
       <span class="eyebrow">Free Prayer Guide</span>
@@ -839,6 +847,15 @@ footer {
     e.preventDefault();
     alert("This isn't connected yet — check back soon!");
   });
+
+  var freebieStack = document.getElementById('freebieStack');
+  if (freebieStack) {
+    freebieStack.addEventListener('click', function () {
+      var cards = freebieStack.querySelectorAll('.stack-card');
+      if (cards.length < 2) return;
+      freebieStack.insertBefore(cards[cards.length - 1], cards[0]);
+    });
+  }
 </script>
 </body>
 </html>
