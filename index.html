@@ -476,10 +476,24 @@ section { padding: 100px 8%; }
   font-size: clamp(18px, 2.2vw, 22px); color: var(--text);
   line-height: 1.5; margin-bottom: 40px;
 }
+.free-guide-card {
+  background: linear-gradient(180deg, var(--cream-soft), var(--cream-mid));
+  border: 1px solid var(--border); border-radius: 18px;
+  padding: 44px 36px; box-shadow: 0 24px 48px rgba(0,0,0,0.1);
+}
+.free-guide-card-icon { display: block; font-size: 30px; margin-bottom: 14px; }
+.free-guide-card-title {
+  font-family: 'Playfair Display', serif; font-weight: 600; font-style: italic;
+  font-size: clamp(21px, 2.8vw, 27px); color: var(--text); margin-bottom: 10px;
+}
+.free-guide-card-sub {
+  font-size: 14.5px; color: var(--text-mid); line-height: 1.65;
+  max-width: 380px; margin: 0 auto 28px;
+}
 .opt-in-form { display: flex; gap: 0; max-width: 440px; margin: 0 auto; }
 .opt-in-form input {
-  flex: 1; padding: 16px 22px;
-  border: 1.5px solid var(--border); border-right: none; border-radius: 0;
+  flex: 1; padding: 17px 22px;
+  border: 1.5px solid var(--border); border-right: none; border-radius: 8px 0 0 8px;
   font-size: 14px; font-family: 'Inter', sans-serif;
   background: var(--white); color: var(--text); outline: none;
   transition: border-color 0.2s;
@@ -487,14 +501,14 @@ section { padding: 100px 8%; }
 .opt-in-form input:focus { border-color: var(--crimson); }
 .opt-in-form input::placeholder { color: var(--text-light); }
 .opt-in-form button {
-  padding: 16px 28px; background: var(--crimson); color: var(--cream);
-  border: none; border-radius: 0;
+  padding: 17px 28px; background: var(--crimson); color: var(--cream);
+  border: none; border-radius: 0 8px 8px 0;
   font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
   letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
   transition: background 0.2s; white-space: nowrap;
 }
 .opt-in-form button:hover { background: var(--crimson-dark); }
-.opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 14px; letter-spacing: 0.5px; }
+.opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 16px; letter-spacing: 0.5px; }
 
 /* ── FINAL CTA ── */
 .final-cta { background: var(--cobalt); text-align: center; }
@@ -662,7 +676,8 @@ footer {
   .familiar-bridge { flex-direction: column; gap: 20px; padding: 28px 24px; }
   .familiar-bridge { flex-direction: column; gap: 20px; }
   .opt-in-form { flex-direction: column; }
-  .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; }
+  .opt-in-form input { border-right: 1.5px solid var(--border); border-bottom: none; border-radius: 8px 8px 0 0; }
+  .opt-in-form button { border-radius: 0 0 8px 8px; }
 }
 
 
@@ -935,11 +950,16 @@ footer {
       <li>The woman you were before all of this</li>
     </ul>
     <p class="free-guide-quote">You cannot pray this wrong. Whisper them into your pillow at 2am — they belong to you now.</p>
-    <form class="opt-in-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Send Me the 5 Prayers</button>
-    </form>
-    <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
+    <div class="free-guide-card">
+      <span class="free-guide-card-icon">💌</span>
+      <h3 class="free-guide-card-title">They're already written. Just tell me where to send them.</h3>
+      <p class="free-guide-card-sub">Drop your email below and the 5 prayers land straight in your inbox — free, no strings, no perfectly-put-together version of you required.</p>
+      <form class="opt-in-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address">
+        <button type="submit">Send Me the 5 Prayers</button>
+      </form>
+      <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
+    </div>
   </div>
 </section>
 
