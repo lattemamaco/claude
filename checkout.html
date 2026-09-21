@@ -698,11 +698,18 @@ footer {
 .checkout-card .checkout-form { gap: 14px; }
 .checkout-card-note { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
 
-.checkout-summary-row { display: flex; align-items: center; gap: 14px; }
-.checkout-summary-thumb {
-  width: 46px; aspect-ratio: 700 / 990; object-fit: cover;
-  border-radius: 4px; box-shadow: 0 6px 14px rgba(0,0,0,0.14); flex-shrink: 0;
+.checkout-summary-row { display: flex; align-items: center; gap: 20px; }
+.checkout-summary-stack {
+  position: relative; width: 42px; aspect-ratio: 1415 / 2000; flex-shrink: 0;
 }
+.checkout-summary-stack img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  border-radius: 3px; box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+  border: 2px solid var(--white);
+}
+.checkout-summary-stack img:nth-child(1) { transform: translate(7px, 7px) rotate(-4deg); z-index: 1; }
+.checkout-summary-stack img:nth-child(2) { transform: translate(3.5px, 3.5px) rotate(3deg); z-index: 2; }
+.checkout-summary-stack img:nth-child(3) { transform: translate(0, 0) rotate(-1.5deg); z-index: 3; }
 .checkout-summary-info { flex: 1; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .checkout-summary-info span:first-child { font-size: 14.5px; font-weight: 600; color: var(--text); }
 .checkout-summary-info span:last-child { font-size: 14.5px; font-weight: 700; color: var(--text); white-space: nowrap; }
@@ -850,7 +857,11 @@ footer {
 
         <div class="checkout-card-label">Summary</div>
         <div class="checkout-summary-row">
-          <img src="still-here-cover.jpg" alt="Still Here ebook cover" class="checkout-summary-thumb">
+          <div class="checkout-summary-stack">
+            <img src="still-here-page-obstacles.jpg" alt="Still Here — interior page">
+            <img src="still-here-page-confess.jpg" alt="Still Here — interior page">
+            <img src="still-here-cover.jpg" alt="Still Here ebook cover">
+          </div>
           <div class="checkout-summary-info">
             <span>Still Here</span>
             <span>$27.00</span>
