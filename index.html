@@ -438,57 +438,47 @@ section { padding: 100px 8%; }
 
 /* ── FREE GUIDE ── */
 .free-guide { background: var(--cream); position: relative; }
-.free-guide-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.free-guide-inner { max-width: 720px; margin: 0 auto; }
 .free-guide .eyebrow { color: var(--crimson); }
-.free-guide-title {
-  font-family: 'Playfair Display', serif; font-weight: 700; font-style: normal;
-  font-size: clamp(30px, 4.5vw, 46px); line-height: 1.15; color: var(--text); margin-bottom: 22px;
-}
-.free-guide-title em { font-style: italic; color: var(--crimson); }
-.free-guide-body { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 36px; }
 .free-guide-card {
+  display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: center;
   background: linear-gradient(180deg, var(--cream-soft), var(--cream-mid));
   border: 1px solid var(--border); border-radius: 24px;
-  padding: 44px 36px; box-shadow: 0 24px 48px rgba(0,0,0,0.1);
+  padding: 36px; box-shadow: 0 24px 48px rgba(0,0,0,0.1);
+  text-align: left;
+}
+.free-guide-card-cover img {
+  width: 100%; border-radius: 6px; display: block;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
 }
 .free-guide-card-badge {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--crimson); color: var(--cream);
-  padding: 7px 16px; border-radius: 999px; margin-bottom: 18px;
+  padding: 7px 16px; border-radius: 999px; margin-bottom: 14px;
   font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
   letter-spacing: 2px; text-transform: uppercase;
 }
 .free-guide-card-title {
-  font-family: 'Playfair Display', serif; font-weight: 600; font-style: italic;
-  font-size: clamp(21px, 2.8vw, 27px); color: var(--text); margin-bottom: 10px;
+  font-family: 'Playfair Display', serif; font-weight: 700; font-style: normal;
+  font-size: clamp(22px, 2.8vw, 28px); color: var(--text); margin-bottom: 8px; line-height: 1.2;
 }
 .free-guide-card-sub {
-  font-size: 14.5px; color: var(--text-mid); line-height: 1.65;
-  max-width: 380px; margin: 0 auto 28px;
+  font-size: 14.5px; color: var(--text-mid); line-height: 1.6; margin-bottom: 22px;
 }
-.opt-in-form {
-  display: flex; flex-direction: column; gap: 12px;
-  max-width: 400px; margin: 0 auto;
-}
-.opt-in-form input {
-  width: 100%; padding: 17px 24px;
-  border: 1.5px solid var(--text); border-radius: 999px;
-  font-size: 14px; font-family: 'Inter', sans-serif;
-  background: var(--white); color: var(--text); outline: none;
-  transition: border-color 0.2s; box-sizing: border-box;
-}
-.opt-in-form input:focus { border-color: var(--crimson); }
-.opt-in-form input::placeholder { color: var(--text-light); }
-.opt-in-form button {
-  width: 100%; padding: 18px; margin-top: 4px;
+.free-guide-card-btn {
+  display: inline-block;
   background: var(--crimson); color: var(--cream);
-  border: none; border-radius: 999px;
+  text-decoration: none; padding: 15px 28px; border-radius: 999px;
   font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 2px; text-transform: uppercase;
+  transition: background 0.2s;
 }
-.opt-in-form button:hover { background: var(--crimson-dark); }
-.opt-in-note { font-size: 11px; color: var(--text-light); margin-top: 16px; letter-spacing: 0.5px; }
+.free-guide-card-btn:hover { background: var(--crimson-dark); }
+
+@media (max-width: 560px) {
+  .free-guide-card { grid-template-columns: 1fr; text-align: center; padding: 32px 28px; }
+  .free-guide-card-cover { max-width: 150px; margin: 0 auto; }
+}
 
 /* ── FINAL CTA ── */
 .final-cta { background: var(--cobalt); text-align: center; }
@@ -676,7 +666,7 @@ footer {
     <li><a href="#products">Shop</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#free-guide">Free Guide</a></li>
+    <li><a href="freebie.html">Free Guide</a></li>
     <li><a href="checkout.html" class="nav-cta">Get Still Here</a></li>
   </ul>
 </nav>
@@ -916,16 +906,15 @@ footer {
 <section class="free-guide" id="free-guide">
   <div class="free-guide-inner reveal">
     <div class="free-guide-card">
-      <span class="free-guide-card-badge">Freebie Alert ✨</span>
-      <h2 class="free-guide-title">5 Honest Prayers for the Mom Who Has <em>Nothing Left to Say to God.</em></h2>
-      <p class="free-guide-body">You miss Him. You just don't have the words anymore, and you're too exhausted to fake them. These prayers are already written for you. All you have to do is show up.</p>
-      <p class="free-guide-card-sub">Drop your name and email below and they'll land straight in your inbox — free, no strings, no perfectly-put-together version of you required.</p>
-      <form class="opt-in-form" onsubmit="return false;">
-        <input type="text" placeholder="Your first name" aria-label="First name">
-        <input type="email" placeholder="Your email address" aria-label="Email address">
-        <button type="submit">Send Me the 5 Prayers →</button>
-      </form>
-      <p class="opt-in-note">No spam, ever. Unsubscribe any time. It's truly free.</p>
+      <div class="free-guide-card-cover">
+        <img src="faith-goes-quiet-cover.jpg" alt="When Faith Goes Quiet — free prayer guide cover">
+      </div>
+      <div>
+        <span class="free-guide-card-badge">Freebie Alert ✨</span>
+        <h2 class="free-guide-card-title">When Faith Goes Quiet</h2>
+        <p class="free-guide-card-sub">5 honest prayers for the mom who has nothing left to say to God — free, straight to your inbox.</p>
+        <a href="freebie.html" class="free-guide-card-btn">Get the Free Prayers →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1032,7 +1021,7 @@ footer {
   <div class="footer-links">
     <a href="#products">Shop</a>
     <a href="#about">About</a>
-    <a href="#free-guide">Free Guide</a>
+    <a href="freebie.html">Free Guide</a>
     <a href="https://instagram.com/rootedwithally" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
