@@ -295,7 +295,7 @@ section { padding: 100px 8%; }
 /* ── SHOWCASE (module-card style) ── */
 .showcase { background: var(--cobalt-pale); }
 .showcase-inner { max-width: 1040px; margin: 0 auto; }
-.showcase-header { max-width: 620px; margin: 0 auto 56px; text-align: center; }
+.showcase-header { max-width: 620px; margin: 0 auto 36px; text-align: center; }
 .showcase-header .section-soft { color: var(--text); font-style: normal; }
 .showcase-header p {
   font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-top: 14px;
@@ -408,11 +408,11 @@ section { padding: 100px 8%; }
 }
 
 .showcase-peek-stack {
-  --card-w: 170px; --max-x: 280px;
+  --card-w: 205px; --max-x: 335px;
   position: relative; max-width: 100%;
   width: calc(var(--card-w) + var(--max-x));
   height: calc(var(--card-w) * 2000 / 1415 + 24px);
-  margin: 0 auto 48px;
+  margin: -20px auto 48px;
 }
 .peek-card {
   position: absolute; top: 0; left: 0;
@@ -428,10 +428,10 @@ section { padding: 100px 8%; }
 .peek-card:nth-child(5) { transform: translate(0, 0) rotate(-2deg); z-index: 5; }
 
 @media (max-width: 820px) {
-  .showcase-peek-stack { --card-w: 150px; --max-x: 230px; }
+  .showcase-peek-stack { --card-w: 180px; --max-x: 275px; }
 }
 @media (max-width: 480px) {
-  .showcase-peek-stack { --card-w: 110px; --max-x: 170px; }
+  .showcase-peek-stack { --card-w: 130px; --max-x: 205px; }
 }
 
 
