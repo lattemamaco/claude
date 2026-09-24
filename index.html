@@ -320,26 +320,12 @@ section { padding: 100px 8%; }
 }
 .product-teaser:hover { transform: translateY(-6px); }
 .product-teaser-image {
-  background: var(--cream-mid); border-radius: 18px;
-  aspect-ratio: 1 / 1; overflow: hidden;
-  display: flex; align-items: flex-end; justify-content: center;
-  padding-top: 30px; margin-bottom: 24px;
+  border-radius: 18px; overflow: hidden;
+  aspect-ratio: 6 / 5; margin-bottom: 24px;
 }
-.product-teaser-stack {
-  --card-w: 150px; --max-x: 56px;
-  position: relative;
-  width: calc(var(--card-w) + var(--max-x));
-  height: calc(var(--card-w) * 2000 / 1415 + 14px);
+.product-teaser-image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
-.product-teaser-stack img {
-  position: absolute; top: 0; left: 0;
-  width: var(--card-w); aspect-ratio: 1415 / 2000;
-  border-radius: 3px; box-shadow: 0 16px 30px rgba(0,0,0,0.2);
-  object-fit: cover;
-}
-.product-teaser-stack img:nth-child(1) { transform: translate(var(--max-x), 8px) rotate(6deg); z-index: 1; }
-.product-teaser-stack img:nth-child(2) { transform: translate(calc(var(--max-x) * 0.5), 4px) rotate(2deg); z-index: 2; }
-.product-teaser-stack img:nth-child(3) { transform: translate(0, 0) rotate(-2deg); z-index: 3; }
 .product-teaser-title {
   font-family: 'Playfair Display', serif; font-weight: 700;
   font-size: 28px; color: var(--text); margin-bottom: 8px;
@@ -753,11 +739,7 @@ footer {
 
     <a href="still-here.html" class="product-teaser reveal">
       <div class="product-teaser-image">
-        <div class="product-teaser-stack">
-          <img src="still-here-page-confess.jpg" alt="">
-          <img src="still-here-page-obstacles.jpg" alt="">
-          <img src="still-here-cover.jpg" alt="">
-        </div>
+        <img src="still-here-mockup.jpg" alt="Still Here ebook cover and interior pages">
       </div>
       <span class="showcase-label">The Ebook</span>
       <h3 class="product-teaser-title">Still Here</h3>
