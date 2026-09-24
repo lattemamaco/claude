@@ -335,6 +335,14 @@ section { padding: 100px 8%; }
   font-size: 17px; color: var(--crimson-dark); margin-bottom: 10px;
 }
 .product-teaser-desc { font-size: 14.5px; color: var(--text-mid); line-height: 1.65; }
+.product-teaser-cta {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+  background: var(--crimson); color: var(--cream); padding: 12px 26px;
+  border-radius: 999px; font-family: 'Montserrat', sans-serif; font-size: 11px;
+  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  transition: background 0.2s;
+}
+.product-teaser:hover .product-teaser-cta { background: var(--crimson-dark); }
 
 @media (max-width: 560px) {
   .product-teaser { text-align: center; }
@@ -745,6 +753,7 @@ footer {
       <h3 class="product-teaser-title">Still Here</h3>
       <span class="product-teaser-price">$27</span>
       <p class="product-teaser-desc">The honest survival guide for the Christian mom who lost herself and is still finding her way back.</p>
+      <span class="product-teaser-cta">Learn More →</span>
     </a>
 
   </div>
