@@ -1,0 +1,6 @@
+/* Ally's reel style fonts (latin subsets from @fontsource on npm; Poppins, Patrick Hand, Gochi Hand: SIL OFL; Tinos: Apache 2.0) */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:block;src:url(poppins-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Patrick Hand';font-style:normal;font-weight:400;font-display:block;src:url(patrick-hand-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Gochi Hand';font-style:normal;font-weight:400;font-display:block;src:url(gochi-hand-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:normal;font-weight:400;font-display:block;src:url(tinos-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:normal;font-weight:700;font-display:block;src:url(tinos-latin-700-normal.woff2) format('woff2')}
