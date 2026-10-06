@@ -24,6 +24,11 @@ FF, FP = skillenv.tool('ffmpeg'), skillenv.tool('ffprobe')
 def size(f):
     w, h = subprocess.run([FP, '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', f],
                           **skillenv.TEXT).stdout.strip().split(',')[:2]
+    # phone clips are stored landscape with a rotation tag; ffmpeg autorotates before -vf, so crop in display size
+    rot = subprocess.run([FP, '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream_side_data=rotation:stream_tags=rotate',
+                          '-of', 'default=nw=1:nk=1', f], **skillenv.TEXT).stdout.split()
+    if rot and abs(int(float(rot[0]))) % 180 == 90:
+        w, h = h, w
     return int(w), int(h)
 
 
