@@ -51,6 +51,10 @@ below came from her notes on her first reel; do not re-litigate it.
   `PY RR/scripts/rvm_matte.py assets/aroll.mp4 segments.json <model> assets/alpha_rvm.mp4` (~0.25 s/frame on CPU).
   Merge with ffmpeg: `[0:v]<light curves>,format=yuva420p[c];[1:v]format=gray,erosion,gblur=sigma=0.8[m];[c][m]alphamerge`
   into a VP9 WebM with alpha, then layer it over the photo (`#bgimg` with `blur(5px)`).
+- Do NOT render the cutout through HyperFrames: decoding the big alpha WebM in Chrome ran out of memory at 99%.
+  Render only the captions as a transparent layer (copy index.html to `caps/`, strip the bg image, cutout video and
+  audio, set html/body/#root background transparent, `HF render --format webm --low-memory-mode`), then stack it all
+  with ffmpeg: blurred photo, `[s]overlay` the cutout (decode with `-c:v libvpx-vp9`), overlay captions, `-map` voice.wav.
 - Strong sun on her face: soften it with `curves=all='0/0.03 0.3/0.33 0.5/0.52 0.85/0.80 1/0.9',eq=saturation=0.95`.
 - Voice: `aresample=async=1:first_pts=0` first (the cut's audio has small gaps), then highpass 80, afftdn, presence EQ,
   compressor, loudnorm -14, into assets/voice.wav, used as the composition's audio.
