@@ -42,6 +42,19 @@ below came from her notes on her first reel; do not re-litigate it.
    `sh RR/scripts/finish.sh <project> vN`. Look at the word sheet it prints: one word per frame.
 6. Send `renders/<slug>-vN-post.mp4` (1080p, under 30 MB). Remind her to turn off silent mode to hear it.
 
+## Background swap (only when Ally asks for one)
+- Use her own room photo when she has one (real photos look natural; AI rooms looked fake). Frame it so any window
+  sits on the side her light comes from, just out of frame, never behind her.
+- Cut her out with Robust Video Matting, NOT `VE/scripts/cutout.py`: the per-frame cutout dropped her fingers and
+  flickered on every gesture. `PY -m pip install onnxruntime`, download `rvm_resnet50_fp32.onnx` from
+  github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/ , then
+  `PY RR/scripts/rvm_matte.py assets/aroll.mp4 segments.json <model> assets/alpha_rvm.mp4` (~0.25 s/frame on CPU).
+  Merge with ffmpeg: `[0:v]<light curves>,format=yuva420p[c];[1:v]format=gray,erosion,gblur=sigma=0.8[m];[c][m]alphamerge`
+  into a VP9 WebM with alpha, then layer it over the photo (`#bgimg` with `blur(5px)`).
+- Strong sun on her face: soften it with `curves=all='0/0.03 0.3/0.33 0.5/0.52 0.85/0.80 1/0.9',eq=saturation=0.95`.
+- Voice: `aresample=async=1:first_pts=0` first (the cut's audio has small gaps), then highpass 80, afftdn, presence EQ,
+  compressor, loudnorm -14, into assets/voice.wav, used as the composition's audio.
+
 ## Traps already hit once
 - Two words a few hundredths of a second apart ("I don't"): the hide fired before the pop-in finished and a word
   stuck on screen. The template gives every word at least 0.18s (`MIN_ON`). Snapshots seek and miss this: only
