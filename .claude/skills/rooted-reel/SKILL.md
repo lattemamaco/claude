@@ -49,6 +49,10 @@ below came from her notes on her first reel; do not re-litigate it.
   flickered on every gesture. `PY -m pip install onnxruntime`, download `rvm_resnet50_fp32.onnx` from
   github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/ , then
   `PY RR/scripts/rvm_matte.py assets/aroll.mp4 segments.json <model> assets/alpha_rvm.mp4` (~0.25 s/frame on CPU).
+  Her hair edges still shimmer from the fine strands RVM keeps, so steady the matte before merging:
+  `ffmpeg -i assets/alpha_rvm.mp4 -vf "format=gray,dilation,dilation,erosion,erosion,gblur=sigma=2.2" -c:v libx264 -pix_fmt gray -crf 10 work/alpha_spatial.mp4`
+  then `PY RR/scripts/smooth_alpha.py work/alpha_spatial.mp4 segments.json assets/alpha_smooth2.mp4` (7-frame
+  average inside each shot, only where the change is small, so hands never ghost). Cut edge flicker 24-42%.
   Merge with ffmpeg: `[0:v]<light curves>,format=yuva420p[c];[1:v]format=gray,erosion,gblur=sigma=0.8[m];[c][m]alphamerge`
   into a VP9 WebM with alpha, then layer it over the photo (`#bgimg` with `blur(5px)`).
 - Do NOT render the cutout through HyperFrames: decoding the big alpha WebM in Chrome ran out of memory at 99%.
