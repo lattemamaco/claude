@@ -46,6 +46,8 @@ below came from her notes on her first reel; do not re-litigate it.
 - Two words a few hundredths of a second apart ("I don't"): the hide fired before the pop-in finished and a word
   stuck on screen. The template gives every word at least 0.18s (`MIN_ON`). Snapshots seek and miss this: only
   frames from the final render prove it (finish.sh).
+- A render stores every frame on disk first (~250 MB per second of reel at 1080x1920). Past ~60 seconds that fills
+  the cloud disk and can restart the machine. Render long reels with `--low-memory-mode` (streams frames, one worker).
 - iPhone clips are stored landscape with a rotation tag. `VE/scripts/assemble.py` in this repo handles it.
 - Cloud sessions: cdn.jsdelivr.net and Google Fonts are blocked, which is why GSAP and the fonts ship in this
   folder. Clips from Google Drive need drive.google.com and drive.usercontent.google.com allowed and the file set to
